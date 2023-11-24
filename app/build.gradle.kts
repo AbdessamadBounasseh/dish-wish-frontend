@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "uit.ensak.dish_wish_frontend"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "uit.ensak.dish_wish_frontend"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
