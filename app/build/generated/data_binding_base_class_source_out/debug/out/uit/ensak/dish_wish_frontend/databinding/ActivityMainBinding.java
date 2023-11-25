@@ -6,10 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.textview.MaterialTextView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -17,28 +17,28 @@ import uit.ensak.dish_wish_frontend.R;
 
 public final class ActivityMainBinding implements ViewBinding {
   @NonNull
-  private final DrawerLayout rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
-  public final AppBarMainBinding appBarMain;
+  public final MaterialTextView email;
 
   @NonNull
-  public final DrawerLayout drawerLayout;
+  public final MaterialTextView id;
 
   @NonNull
-  public final NavigationView navView;
+  public final MaterialTextView password;
 
-  private ActivityMainBinding(@NonNull DrawerLayout rootView, @NonNull AppBarMainBinding appBarMain,
-      @NonNull DrawerLayout drawerLayout, @NonNull NavigationView navView) {
+  private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull MaterialTextView email,
+      @NonNull MaterialTextView id, @NonNull MaterialTextView password) {
     this.rootView = rootView;
-    this.appBarMain = appBarMain;
-    this.drawerLayout = drawerLayout;
-    this.navView = navView;
+    this.email = email;
+    this.id = id;
+    this.password = password;
   }
 
   @Override
   @NonNull
-  public DrawerLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -63,23 +63,25 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.app_bar_main;
-      View appBarMain = ViewBindings.findChildViewById(rootView, id);
-      if (appBarMain == null) {
-        break missingId;
-      }
-      AppBarMainBinding binding_appBarMain = AppBarMainBinding.bind(appBarMain);
-
-      DrawerLayout drawerLayout = (DrawerLayout) rootView;
-
-      id = R.id.nav_view;
-      NavigationView navView = ViewBindings.findChildViewById(rootView, id);
-      if (navView == null) {
+      id = R.id.email;
+      MaterialTextView email = ViewBindings.findChildViewById(rootView, id);
+      if (email == null) {
         break missingId;
       }
 
-      return new ActivityMainBinding((DrawerLayout) rootView, binding_appBarMain, drawerLayout,
-          navView);
+      id = R.id.id;
+      MaterialTextView id_ = ViewBindings.findChildViewById(rootView, id);
+      if (id_ == null) {
+        break missingId;
+      }
+
+      id = R.id.password;
+      MaterialTextView password = ViewBindings.findChildViewById(rootView, id);
+      if (password == null) {
+        break missingId;
+      }
+
+      return new ActivityMainBinding((ConstraintLayout) rootView, email, id_, password);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
