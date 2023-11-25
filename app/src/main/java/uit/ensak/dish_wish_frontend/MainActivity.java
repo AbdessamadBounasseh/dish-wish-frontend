@@ -13,6 +13,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.time.Instant;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -89,6 +91,28 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
+        Client client = new Client(5L,"test@example.com", "password", "John", "Doe", "123 Street", "1234567890", "image.jpg", null, null);
+
+
+        Call<Void> callapi = apiService.sendData(client);
+        callapi.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> callapi, Response<Void> response) {
+                if (response.isSuccessful()) {
+
+                } else {
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                // Handle failure
+            }
+        });
+
     }
 
     @Override
