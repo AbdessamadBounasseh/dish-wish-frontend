@@ -8,8 +8,8 @@
         "source": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-46:\\layout\\fragment_slideshow.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-43:/layout/test_auth.xml",
-        "source": "uit.ensak.dish_wish_frontend.app-main-46:/layout/test_auth.xml"
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-43:\\layout\\test_auth.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-46:\\layout\\test_auth.xml"
     },
     {
         "merged": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-43:\\layout\\fragment_gallery.xml",
@@ -28,8 +28,16 @@
         "source": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-46:\\layout\\app_bar_main.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-43:/layout/fragment_profile_details.xml",
-        "source": "uit.ensak.dish_wish_frontend.app-main-46:/layout/fragment_profile_details.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-43:/layout/activity_main.xml",
+        "source": "uit.ensak.dish_wish_frontend.app-main-46:/layout/activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-43:\\layout\\fragment_filter_by_name_or_city.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-46:\\layout\\fragment_filter_by_name_or_city.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-43:\\layout\\fragment_profile_details.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-46:\\layout\\fragment_profile_details.xml"
     },
     {
         "merged": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-43:\\layout\\activity_main.xml",
