@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- First View: profile -->
+    <View
+        android:id="@+id/profile"
+        android:layout_width="332dp"
+        android:layout_height="428dp"
+        android:background="@drawable/border_background"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+    <!-- Second View: portrait_of -->
+    <View
+        android:id="@+id/portrait_of"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+
+        android:layout_marginEnd="120dp"
+        android:background="@drawable/portrait_of"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/profile_infos"
+        tools:layout_editor_absoluteY="83dp" />
+
+
+    <RelativeLayout
+        android:id="@+id/profile_infos"
+        android:layout_width="304dp"
+        android:layout_height="399dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toStartOf="@id/profile"
+        app:layout_constraintTop_toTopOf="@id/profile">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+
+                <!-- First Name -->
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/textViewFirstName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="First name"
+                        android:textColor="#868686"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/textViewActualFirstName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Faycal"
+                        android:textColor="#010F07"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <!-- Last Name -->
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/textViewFirstName"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/textViewLastName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LAST name"
+                        android:textColor="#868686"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/textViewActualLastName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="El Ourrat"
+                        android:textColor="#010F07"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--  Address-->
+            <TextView
+                android:id="@+id/textViewAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="address"
+                android:textColor="#868686"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/textViewActualAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kenitra, kenitra , kenitra
+"
+                android:textColor="#010F07"
+                android:textSize="18sp"/>
+            <!--  PhoneNumber-->
+            <TextView
+                android:id="@+id/textViewPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Phone number"
+                android:textColor="#868686"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/textViewActualPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+212 600000000"
+                android:textColor="#010F07"
+                android:textSize="18sp"/>
+
+            <!--  Allergies -->
+            <TextView
+                android:id="@+id/textViewAllergies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Allergies"
+                android:textColor="#868686"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/textViewActualAllergies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cereals"
+                android:textColor="#010F07"
+                android:textSize="18sp"/>
+
+            <!--  DIET -->
+            <TextView
+                android:id="@+id/textViewDiet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="diet"
+                android:textColor="#868686"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/textViewActualDiet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No diet"
+                android:textColor="#010F07"
+                android:textSize="18sp"/>
+
+            <!--  BIO -->
+            <TextView
+                android:id="@+id/textViewBio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="BIO (if cooker)"
+                android:visibility="visible"
+                android:textColor="#868686"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/textViewActualBio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I am the  Best"
+                android:visibility="visible"
+                android:textColor="#010F07"
+                android:textSize="18sp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

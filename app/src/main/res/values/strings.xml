@@ -1,5 +1,7 @@
 <resources>
+    <!--    add strings with their values in here-->
     <string name="app_name">dish-wish-frontend</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
