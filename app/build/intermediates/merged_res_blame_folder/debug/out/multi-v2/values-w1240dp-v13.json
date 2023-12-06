@@ -6,6 +6,28 @@
                 {
                     "source": "D:\\DishWishAPP\\dish-wish-frontend\\app\\src\\main\\res\\values-w1240dp\\dimens.xml",
                     "from": {
+                        "startLines": "2,-1",
+                        "startColumns": "4,-1",
+                        "startOffsets": "59,-1",
+                        "endColumns": "58,-1",
+                        "endOffsets": "113,-1"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,114",
+                        "endColumns": "58,42",
+                        "endOffsets": "109,152"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-42:\\values-w1240dp-v13\\values-w1240dp-v13.xml",
+            "map": [
+                {
+                    "source": "D:\\DishWishAPP\\dish-wish-frontend\\app\\src\\main\\res\\values-w1240dp\\dimens.xml",
+                    "from": {
                         "startLines": "1",
                         "startColumns": "4",
                         "startOffsets": "17",
