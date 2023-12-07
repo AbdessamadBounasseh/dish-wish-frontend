@@ -27,15 +27,15 @@
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_manifest/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_manifest/debug/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_res/debug/values_values.arsc.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_res/debug/values_values.arsc.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_res_blame_folder/debug/out/multi-v2/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_res_blame_folder/debug/out/multi-v2/debug.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_res_blame_folder/debug/out/multi-v2/values.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_res_blame_folder/debug/out/multi-v2/values.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_res_blame_folder/debug/out/single/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_res_blame_folder/debug/out/single/debug.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_res_blame_folder/debug/out/single/layout.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_res_blame_folder/debug/out/single/layout.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/packaged_manifests/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/packaged_manifests/debug/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/packaged_res/debug/values/values.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/packaged_res/debug/values/values.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/filter_by_name_or_city.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/filter_by_name_or_city.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_filter_by_name_or_city.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_filter_by_name_or_city.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

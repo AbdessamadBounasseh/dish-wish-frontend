@@ -123,7 +123,7 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\HP\.gradle\caches\
 	android:usesCleartextTraffic
 		ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:17:9-44
 activity#uit.ensak.dish_wish_frontend.MainActivity
-ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:19:9-29:20
+ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:19:9-28:20
 	android:label
 		ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:22:13-45
 	android:exported
@@ -133,15 +133,15 @@ ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:19
 	android:name
 		ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:20:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:24:13-28:29
+ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:24:13-27:29
 action#android.intent.action.MAIN
 ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:25:17-69
 	android:name
 		ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:25:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:27:17-77
+ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:26:17-77
 	android:name
-		ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:27:27-74
+		ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:26:27-74
 uses-sdk
 INJECTED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml

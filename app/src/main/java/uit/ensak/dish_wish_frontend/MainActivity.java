@@ -2,7 +2,8 @@ package uit.ensak.dish_wish_frontend;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import android.widget.TextView;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,8 +12,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Example: Display a simple text message
-        TextView textView = findViewById(R.id.textView);
-        textView.setText("Hello, Android!");
+        // Load the FilterByNameOrCityFragment
+        loadFilterByNameOrCityFragment();
+    }
+
+    private void loadFilterByNameOrCityFragment() {
+        // Create a new instance of the fragment
+        filter_by_name_or_city filterFragment = new filter_by_name_or_city();
+
+        // Get the FragmentManager
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        // Begin a new FragmentTransaction
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        // Replace the existing content with the new fragment
+        fragmentTransaction.replace(R.id.search_bar_container, filterFragment);
+
+        // Commit the transaction
+        fragmentTransaction.commit();
     }
 }

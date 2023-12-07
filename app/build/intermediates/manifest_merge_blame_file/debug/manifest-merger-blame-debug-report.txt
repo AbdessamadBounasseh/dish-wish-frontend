@@ -52,7 +52,7 @@
 33        android:usesCleartextTraffic="true" >
 33-->D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:17:9-44
 34        <activity
-34-->D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:19:9-29:20
+34-->D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:19:9-28:20
 35            android:name="uit.ensak.dish_wish_frontend.MainActivity"
 35-->D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:20:13-41
 36            android:exported="true"
@@ -62,14 +62,14 @@
 38            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
 38-->D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:23:13-70
 39            <intent-filter>
-39-->D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:24:13-28:29
+39-->D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:24:13-27:29
 40                <action android:name="android.intent.action.MAIN" />
 40-->D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:25:17-69
 40-->D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:25:25-66
 41
 42                <category android:name="android.intent.category.LAUNCHER" />
-42-->D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:27:17-77
-42-->D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:27:27-74
+42-->D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:26:17-77
+42-->D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:26:27-74
 43            </intent-filter>
 44        </activity>
 45
