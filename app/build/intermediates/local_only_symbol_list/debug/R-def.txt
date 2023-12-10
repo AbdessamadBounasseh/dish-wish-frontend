@@ -19,10 +19,11 @@ drawable ic_launcher_foreground
 drawable ic_menu
 drawable ic_notification
 drawable portrait_of
-id cityTextView
+id addressTextView
+id firstNameTextView
+id lastNameTextView
 id menuIcon
 id mobile_navigation
-id nameTextView
 id nav_gallery
 id nav_home
 id nav_slideshow

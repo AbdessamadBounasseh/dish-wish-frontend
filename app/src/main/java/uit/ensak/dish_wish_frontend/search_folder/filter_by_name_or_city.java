@@ -15,21 +15,18 @@ import java.util.List;
 
 
 // FilterByNameOrCityFragment.java
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
+import android.content.Intent;
 
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import uit.ensak.dish_wish_frontend.SearchResultsAdapter;
+import uit.ensak.dish_wish_frontend.SearchResult; // Import the SearchResult class
 
-import java.util.List;
 
-public class filter_by_name_or_city extends Fragment {
+public class filter_by_name_or_city extends Fragment implements SearchResultsAdapter.OnItemClickListener {
 
     private SearchResultsAdapter searchResultsAdapter;  // Declare searchResultsAdapter as a class variable
 
@@ -41,6 +38,7 @@ public class filter_by_name_or_city extends Fragment {
         RecyclerView searchResultsRecyclerView = rootView.findViewById(R.id.searchResultsRecyclerView);
 
         searchResultsAdapter = new SearchResultsAdapter();
+        searchResultsAdapter.setOnItemClickListener(this);
         searchResultsRecyclerView.setAdapter(searchResultsAdapter);
         searchResultsRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
@@ -60,6 +58,7 @@ public class filter_by_name_or_city extends Fragment {
             }
         });
 
+
         return rootView;
     }
 
@@ -74,8 +73,9 @@ public class filter_by_name_or_city extends Fragment {
         if (!TextUtils.isEmpty(query)) {
             // Iterate through the dummy data and filter based on the query
             for (SearchResult result : getDummyData()) {
-                if (result.getName().toLowerCase().contains(query.toLowerCase()) ||
-                        result.getCity().toLowerCase().contains(query.toLowerCase())) {
+                if (result.getFirstName().toLowerCase().contains(query.toLowerCase()) ||
+                        result.getLastName().toLowerCase().contains(query.toLowerCase()) ||
+                        result.getAddress().toLowerCase().contains(query.toLowerCase())){
                     dummyResults.add(result);
                 }
             }
@@ -88,13 +88,30 @@ public class filter_by_name_or_city extends Fragment {
     private List<SearchResult> getDummyData() {
         // Simulating the complete dummy data
         List<SearchResult> dummyResults = new ArrayList<>();
-        dummyResults.add(new SearchResult("John Doe", "New York"));
-        dummyResults.add(new SearchResult("Jane Smith", "Los Angeles"));
-        dummyResults.add(new SearchResult("Alex Johnson", "Chicago"));
-        dummyResults.add(new SearchResult("Faycal Elou", "Kenitra"));
-        dummyResults.add(new SearchResult("Brown Jalou", "Kenitra"));
-        dummyResults.add(new SearchResult("Ali Kamar", "Rabat"));
-        dummyResults.add(new SearchResult("Fahd Alibi", "Kenitra"));
+        dummyResults.add(new SearchResult("John","Doe", "New York"));
+        dummyResults.add(new SearchResult("Jane","Smith", "Los Angeles"));
+        dummyResults.add(new SearchResult("Alex","Johnson", "Chicago"));
+        dummyResults.add(new SearchResult("Faycal","Elou", "Kenitra"));
+        dummyResults.add(new SearchResult("Brown","Jalou", "Kenitra"));
+        dummyResults.add(new SearchResult("Ali","Kamar", "Rabat"));
+        dummyResults.add(new SearchResult("Fahd","Alibi", "Kenitra"));
         return dummyResults;
+    }
+
+    @Override
+    public void onItemClick(SearchResult searchResult) {
+        navigateToProfilePage(searchResult);
+    }
+
+    private void navigateToProfilePage(SearchResult searchResult) {
+        Intent intent = new Intent(requireContext(), ProfileActivity.class);
+
+        // Pass necessary data to the profile page
+        intent.putExtra("firstName", searchResult.getFirstName());
+        intent.putExtra("lastName", searchResult.getLastName());
+        intent.putExtra("address", searchResult.getAddress());
+
+
+        startActivity(intent);
     }
 }
