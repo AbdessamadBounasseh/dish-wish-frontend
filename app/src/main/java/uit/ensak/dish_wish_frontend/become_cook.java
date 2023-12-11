@@ -1,15 +1,21 @@
 package uit.ensak.dish_wish_frontend;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Become_cook extends AppCompatActivity {
+public class become_cook extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
 
@@ -20,11 +26,11 @@ public class Become_cook extends AppCompatActivity {
 
         Button btnScancard = findViewById(R.id.btnScancard);
         Button btnScancertif = findViewById(R.id.btnScancertif);
+        ImageButton btnBack = findViewById(R.id.btnBack);
 
         btnScancard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Appeler la méthode pour lancer la galerie
                 launchGalleryPicker();
             }
         });
@@ -32,8 +38,15 @@ public class Become_cook extends AppCompatActivity {
         btnScancertif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Appeler la méthode pour lancer la galerie
                 launchGalleryPicker();
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Appel de la méthode pour revenir en arrière
+                onBackPressed();
             }
         });
     }

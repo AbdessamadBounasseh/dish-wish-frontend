@@ -4,28 +4,8 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-68:/layout/activity_become_cook.xml"
     },
     {
-        "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-65:\\layout\\activity_profile_setting.xml",
-        "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-68:\\layout\\activity_profile_setting.xml"
-    },
-    {
-        "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-65:\\layout\\activity_become_cook.xml",
-        "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-68:\\layout\\activity_become_cook.xml"
-    },
-    {
         "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-65:\\layout\\activity_main.xml",
         "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-68:\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-65:\\layout\\fragment_detaill_profile.xml",
-        "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-68:\\layout\\fragment_detaill_profile.xml"
-    },
-    {
-        "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-65:\\layout\\activity_change_profile.xml",
-        "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-68:\\layout\\activity_change_profile.xml"
-    },
-    {
-        "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-65:\\layout\\activity_view_profile.xml",
-        "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-68:\\layout\\activity_view_profile.xml"
     },
     {
         "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-65:\\layout\\fragment_filter_by_name_or_city.xml",

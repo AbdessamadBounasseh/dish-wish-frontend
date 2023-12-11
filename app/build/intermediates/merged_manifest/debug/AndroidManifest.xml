@@ -29,8 +29,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/Theme.Dishwishfrontend"
         android:usesCleartextTraffic="true" >
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.become_cook"
+            android:exported="false" />
         <activity
             android:name="uit.ensak.dish_wish_frontend.Become_cook"
             android:exported="false" />

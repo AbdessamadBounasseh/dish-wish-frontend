@@ -17,13 +17,12 @@
         android:theme="@style/Theme.Dishwishfrontend"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
-
+        <activity
+            android:name=".become_cook"
+            android:exported="false" />
         <activity
             android:name=".Become_cook"
             android:exported="false" />
-
-
         <activity
             android:name=".MainActivity"
             android:exported="true"
