@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="certificate_scann">#4285F4</color>
+    <color name="nationalcard_scann">#FF395998</color>
     <color name="principalColor">#EEA734</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
@@ -24,6 +26,9 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="title_activity_profile_preview">Activity_Profile_Preview</string>
+    <string name="title_activity_profile_setting">Activity_profile_setting</string>
+    <string name="title_activity_profile_settings">Activity_profile_setting</string>
     <style name="Theme.Dishwishfrontend" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         
         <item name="colorPrimary">@color/purple_500</item>
