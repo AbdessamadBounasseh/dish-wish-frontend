@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-45:/values-w600dp-v13/values-w600dp-v13.xml",
+            "outputFile": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-64:/values-w600dp-v13/values-w600dp-v13.xml",
             "map": [
                 {
-                    "source": "D:\\DishWish\\dish-wish-frontend\\app\\src\\main\\res\\values-w600dp\\dimens.xml",
+                    "source": "C:\\Users\\chaymae\\AndroidStudioProjects\\dish-wish-frontend\\app\\src\\main\\res\\values-w600dp\\dimens.xml",
                     "from": {
                         "startLines": "2,1",
                         "startColumns": "4,4",

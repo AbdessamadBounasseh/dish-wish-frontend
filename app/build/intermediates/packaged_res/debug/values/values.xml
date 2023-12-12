@@ -19,6 +19,8 @@
     </array>
     <color name="InputBorder">#D2D2D2</color>
     <color name="black">#FF000000</color>
+    <color name="certificate_scann">#4285F4</color>
+    <color name="nationalcard_scann">#FF395998</color>
     <color name="principalColor">#EEA734</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
@@ -34,6 +36,7 @@
     <dimen name="nav_header_vertical_spacing">8dp</dimen>
     <string name="action_settings">Settings</string>
     <string name="app_name">dish-wish-frontend</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_home">Home</string>
     <string name="menu_slideshow">Slideshow</string>
@@ -44,19 +47,23 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="title_activity_maps_home">MapsHomeActivity</string>
     <style name="SCBSwitch" parent="Theme.AppCompat.Light">
-        
+
         <item name="colorControlActivated">@color/principalColor</item>
 
-        
+
         <item name="colorSwitchThumbNormal">#f1f1f1
         </item>
 
-        
+
         <item name="android:colorForeground">#42221f1f
         </item>
     </style>
     <style name="Theme.Dishwishfrontend" parent="Theme.AppCompat.Light.NoActionBar">
-        
+    <string name="title_activity_profile_preview">Activity_Profile_Preview</string>
+    <string name="title_activity_profile_setting">Activity_profile_setting</string>
+    <string name="title_activity_profile_settings">Activity_profile_setting</string>
+    <style name="Theme.Dishwishfrontend" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
