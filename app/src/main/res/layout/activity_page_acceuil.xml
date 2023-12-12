@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".page_acceuil">
+
+
+    <RelativeLayout
+        android:id="@+id/component_1"
+        android:layout_width="486dp"
+        android:layout_height="68dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="-8dp"
+        android:layout_marginTop="88dp"
+        >
+        <ImageView
+            android:id="@+id/dish"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@drawable/img_1"
+            android:layout_marginLeft="35dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="DishWish"
+            android:layout_toRightOf="@id/dish"
+            android:textSize="37sp"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_marginLeft="40dp"
+            android:textColor="@color/dishwish_black"/>
+
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/illustratio"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:src="@drawable/img" />
+
+    <RelativeLayout
+        android:id="@+id/text"
+        android:layout_width="327dp"
+        android:layout_height="200dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="399dp" >
+
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Welcome"
+            android:textSize="28sp"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="@color/faint_black"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:text="It’s a pleasure to meet you. We are excited that you’re here so let’s get started!"
+android:fontFamily="@font/poppins_regular"
+            android:textSize="16sp"
+            android:layout_below="@id/welcome"
+            android:id="@+id/text_welcome"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="28dp"
+
+            android:gravity="center"
+
+            />
+
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="335dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="630dp"
+        android:background="@color/principalColor"
+        android:layout_marginLeft="35dp">
+
+        <!-- Your Button without redundant properties -->
+        <Button
+            android:layout_width="335dp"
+            android:layout_height="48dp"
+            android:text="GET STARTED"
+
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:onClick="getstarted"
+            android:background="@drawable/rounded_corners"
+            app:backgroundTint="@null"
+
+           />
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+</RelativeLayout>
+
