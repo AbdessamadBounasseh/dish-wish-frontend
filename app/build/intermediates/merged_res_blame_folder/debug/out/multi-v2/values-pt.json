@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-42:/values-pt/values-pt.xml",
+            "outputFile": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-45:/values-pt/values-pt.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-3\\9fc0bdc0e9089f66beeb4a58fe95b752\\transformed\\navigation-ui-2.7.5\\res\\values-pt\\values-pt.xml",
+                    "source": "C:\\Users\\mamin\\.gradle\\caches\\transforms-3\\8b399d877d93b66dcdb5aaa40f653e21\\transformed\\navigation-ui-2.7.5\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-3\\b5364afbc06c95c72352e38d6ea75d02\\transformed\\appcompat-1.6.1\\res\\values-pt\\values-pt.xml",
+                    "source": "C:\\Users\\mamin\\.gradle\\caches\\transforms-3\\0cb0b32acf23e113b882423df2c22a8b\\transformed\\appcompat-1.6.1\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-3\\25d17c91d5902985514078e82b64555a\\transformed\\core-1.9.0\\res\\values-pt\\values-pt.xml",
+                    "source": "C:\\Users\\mamin\\.gradle\\caches\\transforms-3\\d7cbaaa7d30ede082bb67b0f087d172a\\transformed\\core-1.9.0\\res\\values-pt\\values-pt.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

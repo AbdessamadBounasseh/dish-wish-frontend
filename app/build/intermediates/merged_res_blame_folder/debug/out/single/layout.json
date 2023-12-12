@@ -1,38 +1,22 @@
 [
     {
-        "merged": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-43:\\layout\\nav_header_main.xml",
-        "source": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-46:\\layout\\nav_header_main.xml"
+        "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-46:\\layout\\fragment_profile_details.xml",
+        "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-49:\\layout\\fragment_profile_details.xml"
     },
     {
-        "merged": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-43:\\layout\\fragment_slideshow.xml",
-        "source": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-46:\\layout\\fragment_slideshow.xml"
+        "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-46:\\layout\\bottom_sheet_layout.xml",
+        "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-49:\\layout\\bottom_sheet_layout.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-43:/layout/test_auth.xml",
-        "source": "uit.ensak.dish_wish_frontend.app-main-46:/layout/test_auth.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-46:/layout/bottom_sheet_layout.xml",
+        "source": "uit.ensak.dish_wish_frontend.app-main-49:/layout/bottom_sheet_layout.xml"
     },
     {
-        "merged": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-43:\\layout\\fragment_gallery.xml",
-        "source": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-46:\\layout\\fragment_gallery.xml"
+        "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-46:\\layout\\activity_home.xml",
+        "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-49:\\layout\\activity_home.xml"
     },
     {
-        "merged": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-43:\\layout\\fragment_home.xml",
-        "source": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-46:\\layout\\fragment_home.xml"
-    },
-    {
-        "merged": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-43:\\layout\\content_main.xml",
-        "source": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-46:\\layout\\content_main.xml"
-    },
-    {
-        "merged": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-43:\\layout\\app_bar_main.xml",
-        "source": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-46:\\layout\\app_bar_main.xml"
-    },
-    {
-        "merged": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-43:/layout/fragment_profile_details.xml",
-        "source": "uit.ensak.dish_wish_frontend.app-main-46:/layout/fragment_profile_details.xml"
-    },
-    {
-        "merged": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-43:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\HP\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-46:\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-46:\\layout\\activity_maps_home.xml",
+        "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-49:\\layout\\activity_maps_home.xml"
     }
 ]

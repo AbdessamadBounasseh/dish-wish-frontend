@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-42:/values-v18/values-v18.xml",
+            "outputFile": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-45:/values-v18/values-v18.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-3\\b5364afbc06c95c72352e38d6ea75d02\\transformed\\appcompat-1.6.1\\res\\values-v18\\values-v18.xml",
+                    "source": "C:\\Users\\mamin\\.gradle\\caches\\transforms-3\\0cb0b32acf23e113b882423df2c22a8b\\transformed\\appcompat-1.6.1\\res\\values-v18\\values-v18.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
