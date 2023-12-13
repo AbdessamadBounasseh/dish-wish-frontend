@@ -1,26 +1,25 @@
 package uit.ensak.dish_wish_frontend.Models;
 
+import java.io.Serializable;
 import java.time.Instant;
 
 import java.time.Instant;
 
-public class Command {
+public class Command implements Serializable {
     private Long id;
+    private String title;
     private String description;
     private String serving;
     private String address;
     private String deadline;
     private String price;
     private String status;
-    private Instant createdOn;
-    private Instant lastUpdatedOn;
-
     private Client client;
     private Chef chef;
 
     // Constructor
     public Command(Long id, String description, String serving, String address, String deadline,
-                   String price, String status, Instant createdOn, Instant lastUpdatedOn,
+                   String price, String status,
                    Client client, Chef chef) {
         this.id = id;
         this.description = description;
@@ -29,10 +28,12 @@ public class Command {
         this.deadline = deadline;
         this.price = price;
         this.status = status;
-        this.createdOn = createdOn;
-        this.lastUpdatedOn = lastUpdatedOn;
         this.client = client;
         this.chef = chef;
+    }
+
+    public Command() {
+
     }
 
     // Getters and setters for all fields
@@ -42,6 +43,13 @@ public class Command {
 
     public void setId(Long id) {
         this.id = id;
+    }
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -90,22 +98,6 @@ public class Command {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public Instant getCreatedOn() {
-        return createdOn;
-    }
-
-    public void setCreatedOn(Instant createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    public Instant getLastUpdatedOn() {
-        return lastUpdatedOn;
-    }
-
-    public void setLastUpdatedOn(Instant lastUpdatedOn) {
-        this.lastUpdatedOn = lastUpdatedOn;
     }
 
     public Client getClient() {

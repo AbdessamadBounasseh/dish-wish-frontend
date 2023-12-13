@@ -1,5 +1,7 @@
 package uit.ensak.dish_wish_frontend.Models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class Chef extends Client {
@@ -10,10 +12,4 @@ public class Chef extends Client {
 
     private String certificate;
 
-    private List<Rating> ratings;
-
-    @Override
-    public String getRole() {
-        return "CHEF";
-    }
 }

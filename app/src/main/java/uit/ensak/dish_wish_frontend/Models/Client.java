@@ -21,15 +21,7 @@ public class Client {
 
     private String photo;
 
-
-    private Instant createdOn;
-
-
-    private Instant lastUpdatedOn;
-
-
     private List<Notification> notifications;
-
 
     private List<Command> commands;
 
@@ -41,11 +33,11 @@ public class Client {
 
     private List<Allergy> allergies;
 
-    public String getRole() {
-        return "CLIENT";
+    public Long getId() {
+        return id;
     }
 
-    public void setRole(String client) {
+    public void setId(Long id) {
+        this.id = id;
     }
-
 }
