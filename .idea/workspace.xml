@@ -403,6 +403,8 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
+
+
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ResourceManagerPrefKey.ResourceType": "LAYOUT",
@@ -421,8 +423,9 @@
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "terminal",
     "vue.rearranger.settings.migration": "true"
+
   }
-}]]></component>
+}</component>
   <component name="PsdUISettings">
     <option name="MODULE_TAB" value="Default Config" />
     <option name="LAST_EDITED_SIGNING_CONFIG" value="debug" />
