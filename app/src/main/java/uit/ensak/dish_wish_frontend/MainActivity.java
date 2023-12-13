@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadFilterByNameOrCityFragment() {
         // Create a new instance of the fragment
-        filter_by_name_or_city filterFragment = new filter_by_name_or_city();
+        uit.ensak.dish_wish_frontend.filter_by_name_or_city filterFragment = new uit.ensak.dish_wish_frontend.filter_by_name_or_city();
 
         // Get the FragmentManager
         FragmentManager fragmentManager = getSupportFragmentManager();
