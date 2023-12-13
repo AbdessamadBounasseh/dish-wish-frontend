@@ -42,9 +42,9 @@
                 android:layout_marginRight="10dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_width="386dp"
+                    android:layout_height="634dp"
+                    android:layout_marginTop="2dp"
                     android:orientation="vertical">
 
                     <EditText
@@ -86,9 +86,16 @@
                         android:textAllCaps="false"
                         android:textColor="#010F07" />
 
-                    <EditText
+
+                <LinearLayout
+                    android:layout_width="386dp"
+                    android:layout_height="61dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal">
+
+                <EditText
                         android:id="@+id/location"
-                        android:layout_width="match_parent"
+                        android:layout_width="290dp"
                         android:layout_height="61dp"
                         android:layout_marginBottom="20dp"
                         android:background="@drawable/rounded_edittext"
@@ -98,6 +105,24 @@
                         android:textAlignment="textStart"
                         android:textAllCaps="false"
                         android:textColor="#010F07" />
+
+                    <Button
+                        android:id="@+id/ChooseLocation"
+                        android:layout_width="69dp"
+                        android:layout_height="26dp"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="0dp"
+                        android:background="@drawable/rounded_edittext"
+                        android:backgroundTint="@color/principalColor"
+                        android:text="Choose Location"
+                        android:textAlignment="center"
+                        android:textSize="8sp" />
+
+                </LinearLayout>
+
+
 
                     <EditText
                         android:id="@+id/deliveryDate"

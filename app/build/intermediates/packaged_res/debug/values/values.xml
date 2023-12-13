@@ -46,24 +46,23 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="title_activity_maps_home">MapsHomeActivity</string>
+    <string name="title_activity_profile_preview">Activity_Profile_Preview</string>
+    <string name="title_activity_profile_setting">Activity_profile_setting</string>
+    <string name="title_activity_profile_settings">Activity_profile_setting</string>
     <style name="SCBSwitch" parent="Theme.AppCompat.Light">
-
+        
         <item name="colorControlActivated">@color/principalColor</item>
 
-
+        
         <item name="colorSwitchThumbNormal">#f1f1f1
         </item>
 
-
+        
         <item name="android:colorForeground">#42221f1f
         </item>
     </style>
     <style name="Theme.Dishwishfrontend" parent="Theme.AppCompat.Light.NoActionBar">
-    <string name="title_activity_profile_preview">Activity_Profile_Preview</string>
-    <string name="title_activity_profile_setting">Activity_profile_setting</string>
-    <string name="title_activity_profile_settings">Activity_profile_setting</string>
-    <style name="Theme.Dishwishfrontend" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-
+        
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
