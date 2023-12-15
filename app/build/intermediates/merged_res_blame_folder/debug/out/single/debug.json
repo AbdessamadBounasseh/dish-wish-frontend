@@ -104,6 +104,14 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/ic_notification.png"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_popup_command_failed.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/popup_command_failed.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_success.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/success.png"
+    },
+    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
     },
@@ -126,6 +134,10 @@
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/xml_data_extraction_rules.xml.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-71:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_logo.jpeg.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/logo.jpeg"
     },
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_ic_launcher_foreground.xml.flat",
@@ -158,6 +170,14 @@
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-hdpi_ic_launcher.webp.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_popup_command_created.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/popup_command_created.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_fail.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/fail.png"
     },
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_rounded_edittext.xml.flat",

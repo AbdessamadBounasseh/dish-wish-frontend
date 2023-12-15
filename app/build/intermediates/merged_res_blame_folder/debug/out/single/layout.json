@@ -24,7 +24,15 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/fragment_filter_by_name_or_city.xml"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-68:/layout/popup_command_failed.xml",
+        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/popup_command_failed.xml"
+    },
+    {
         "merged": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-68:/layout/item_search_result.xml",
         "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/item_search_result.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-68:/layout/popup_command_created.xml",
+        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/popup_command_created.xml"
     }
 ]

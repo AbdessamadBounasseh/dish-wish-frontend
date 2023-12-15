@@ -123,19 +123,79 @@
                 </LinearLayout>
 
 
+                <LinearLayout
+                    android:layout_width="386dp"
+                    android:layout_height="61dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal">
 
                     <EditText
                         android:id="@+id/deliveryDate"
-                        android:layout_width="match_parent"
+                        android:layout_width="150dp"
                         android:layout_height="61dp"
                         android:layout_marginBottom="20dp"
                         android:background="@drawable/rounded_edittext"
                         android:fontFamily="@font/inter"
-                        android:hint="Delivery Date"
+                        android:hint="Date"
                         android:paddingLeft="10dp"
                         android:textAlignment="textStart"
                         android:textAllCaps="false"
-                        android:textColor="#010F07" />
+                        android:textColor="#010F07"
+                        android:ems="10"
+                        android:inputType="date"/>
+
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="61dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/pickTime"
+                        android:layout_width="69dp"
+                        android:layout_height="26dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="0dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="0dp"
+                        android:background="@drawable/rounded_edittext"
+                        android:backgroundTint="@color/principalColor"
+                        android:textAlignment="center"
+                        android:textSize="8sp"
+                        android:text="Pick time" />
+
+                    <Button
+                        android:id="@+id/pickDate"
+                        android:layout_width="69dp"
+                        android:layout_height="26dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="0dp"
+                        android:background="@drawable/rounded_edittext"
+                        android:backgroundTint="@color/principalColor"
+                        android:textAlignment="center"
+                        android:textSize="8sp"
+                        android:text="Pick date" />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/deliveryTime"
+                        android:layout_width="150dp"
+                        android:layout_height="61dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/rounded_edittext"
+                        android:fontFamily="@font/inter"
+                        android:hint="time"
+                        android:paddingLeft="10dp"
+                        android:textAlignment="textStart"
+                        android:textAllCaps="false"
+                        android:textColor="#010F07"
+                        android:ems="10"
+                        android:inputType="date"/>
+
+                </LinearLayout>
 
                     <EditText
                         android:id="@+id/price"

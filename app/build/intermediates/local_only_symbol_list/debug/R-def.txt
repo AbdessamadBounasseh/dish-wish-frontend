@@ -28,15 +28,20 @@ drawable become_cook
 drawable border_background
 drawable card
 drawable cerf
+drawable fail
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_menu
 drawable ic_notification
 drawable line
+drawable logo
 drawable portrait_of
 drawable rounded_edittext
+drawable success
 font inter
+id ChooseLocation
 id Description
+id Ok
 id addressTextView
 id allergies
 id bottom_sheet_arrow
@@ -45,8 +50,10 @@ id btnBack
 id btnScancard
 id btnScancertif
 id deliveryDate
+id deliveryTime
 id firstNameTextView
 id frameLayout
+id imageView
 id imageViewHeader
 id lastNameTextView
 id location
@@ -59,6 +66,10 @@ id nav_slideshow
 id notificationIcon
 id ob_forms_ti
 id order
+id pickDate
+id pickTime
+id popupCreatedCommand
+id popupFailedCommand
 id portrait_of
 id price
 id profile
@@ -67,6 +78,8 @@ id searchEditText
 id searchResultsRecyclerView
 id search_bar_container
 id serving
+id text1
+id text2
 id textViewActualAddress
 id textViewActualAllergies
 id textViewActualBio
@@ -84,6 +97,7 @@ id textViewPhoneNumber
 id textViewTitle
 id title
 id toolbar
+id tryagain
 layout activity_become_cook
 layout activity_main
 layout activity_maps_home
@@ -91,6 +105,8 @@ layout bottom_sheet_layout
 layout fragment_filter_by_name_or_city
 layout fragment_profile_details
 layout item_search_result
+layout popup_command_created
+layout popup_command_failed
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
@@ -110,6 +126,7 @@ string title_activity_maps_home
 string title_activity_profile_preview
 string title_activity_profile_setting
 string title_activity_profile_settings
+style MyMaterialTimePickerTheme
 style SCBSwitch
 style Theme.Dishwishfrontend
 style Theme.Dishwishfrontend.AppBarOverlay
