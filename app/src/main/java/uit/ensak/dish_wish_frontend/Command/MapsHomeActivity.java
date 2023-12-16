@@ -1,6 +1,7 @@
 package uit.ensak.dish_wish_frontend.Command;
 
 import static androidx.constraintlayout.widget.ConstraintLayoutStates.TAG;
+import static androidx.core.content.ContentProviderCompat.requireContext;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -8,13 +9,26 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.location.LocationRequest;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -28,13 +42,24 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.timepicker.MaterialTimePicker;
+import com.google.android.material.timepicker.TimeFormat;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 
 import retrofit2.Call;
@@ -50,13 +75,16 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
 
     private GoogleMap mMap;
     private ActivityMapsHomeBinding binding;
-    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001; // You can use any number here
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
 
 
     private LinearLayout mBottomSheetLayout;
     private BottomSheetBehavior sheetBehavior;
     private ImageView header_Arrow_Image;
     private Button chooseLocationButton;
+    private Button pickTime;
+    private Button pickDate;
+    private Marker currentMarker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +103,11 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         sheetBehavior = BottomSheetBehavior.from(mBottomSheetLayout);
         header_Arrow_Image = findViewById(R.id.bottom_sheet_arrow);
         chooseLocationButton = findViewById(R.id.ChooseLocation);
+        Button sendCommandButton = findViewById(R.id.order);
+        pickTime = findViewById(R.id.pickTime);
+        pickDate = findViewById(R.id.pickDate);
+        EditText DelivaryTime = findViewById(R.id.deliveryTime);
+        EditText DelivaryDate = findViewById(R.id.deliveryDate);
 
         header_Arrow_Image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +121,6 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
 
             }
         });
-
         sheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
@@ -107,7 +139,77 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             }
         });
 
-        Button sendCommandButton = findViewById(R.id.order);
+        pickTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MaterialTimePicker picker = new MaterialTimePicker.Builder()
+                        .setTimeFormat(TimeFormat.CLOCK_12H)
+                        .setHour(9)
+                        .setMinute(30)
+                        .setTitleText("Select a deadline")
+                        .build();
+
+                picker.addOnCancelListener(dialogInterface -> {
+                    Log.d("TimePicker", "Time picker cancelled");
+                });
+
+                picker.addOnPositiveButtonClickListener(r -> {
+                    int hour = picker.getHour();
+                    int minute = picker.getMinute();
+                    String selectedTime = hour + ":" + minute;
+                    DelivaryTime.setText(selectedTime);
+                    Log.d("TimePicker", selectedTime);
+                });
+
+                picker.addOnDismissListener(dialogInterface -> {
+                    Log.d("TimePicker", "Time picker dismissed");
+                });
+
+                picker.addOnNegativeButtonClickListener(dialogInterface -> {
+                    Log.d("TimePicker", "Time picker failed");
+                });
+
+                picker.show(getSupportFragmentManager(), TAG);
+
+            }
+        });
+
+        pickDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MaterialDatePicker<Long> datePicker = MaterialDatePicker.Builder.datePicker()
+                        .setTitleText("")
+                        .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                        .build();
+
+                datePicker.addOnCancelListener(dialog -> {
+                    Log.d("DatePicker", "Date picker cancelled");
+                });
+
+                datePicker.addOnDismissListener(dialog -> {
+                    Log.d("DatePicker", "Date picker Dismiss");
+
+                });
+
+                datePicker.addOnPositiveButtonClickListener(selection -> {
+                    Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+                    calendar.setTimeInMillis(selection);
+                    int year = calendar.get(Calendar.YEAR);
+                    int month = calendar.get(Calendar.MONTH);
+                    int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+                    String selectedDate = year + "-" + (month + 1) + "-" + dayOfMonth;
+                    DelivaryDate.setText(selectedDate);
+                    Log.d("DatePicker", selectedDate);
+                });
+
+                datePicker.addOnNegativeButtonClickListener(dialog -> {
+                    Log.d("DatePicker", "Date picker failed");
+                });
+
+                datePicker.show(getSupportFragmentManager(), TAG);
+            }
+        });
+
         sendCommandButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,20 +248,47 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                     LOCATION_PERMISSION_REQUEST_CODE);
         }*/
 
-
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
                 double tappedLatitude = latLng.latitude;
                 double tappedLongitude = latLng.longitude;
+                if (currentMarker != null) {
+                    currentMarker.remove();
+                }
+
+                MarkerOptions markerOptions = new MarkerOptions()
+                        .position(latLng)
+                        .title("Order's Location")
+                        .icon(BitmapFromVector(
+                                getApplicationContext(),
+                                R.drawable.dish));
+                currentMarker = mMap.addMarker(markerOptions);
                 updateBottomSheetWithLocation(tappedLatitude, tappedLongitude);
                 sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
             }
         });
+
+    }
+
+
+    //method to change the marker's icon
+    private BitmapDescriptor
+    BitmapFromVector(Context context, int vectorResId)
+    {
+        Drawable vectorDrawable = ContextCompat.getDrawable(context, vectorResId);
+        vectorDrawable.setBounds(0, 0, vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight());
+        Bitmap bitmap = Bitmap.createBitmap(
+                vectorDrawable.getIntrinsicWidth(),
+                vectorDrawable.getIntrinsicHeight(),
+                Bitmap.Config.ARGB_8888);
+
+        Canvas canvas = new Canvas(bitmap);
+        vectorDrawable.draw(canvas);
+        return BitmapDescriptorFactory.fromBitmap(bitmap);
     }
 
     private void updateBottomSheetWithLocation(double latitude, double longitude) {
-        // Concatenate latitude and longitude into a single string with a delimiter
         String locationString = latitude + "," + longitude;
 
         if (mBottomSheetLayout != null) {
@@ -170,11 +299,9 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         }
     }
 
-
-    // Assuming this method is called when the button is clicked
     private void sendCommandToBackend() {
+        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDI1MTg5NTcsImV4cCI6MTcwMjYwNTM1N30.sINKavSpYnCS6fhRuGwkMdOtXJskUYcKMPjjp1wCc80";
 
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDI0NzczNDIsImV4cCI6NjE3MDI0NzczNDJ9.1gJfdcZqaMbs05zNFzUEXqwsfI0biR-3hRNFGVsShFw";
         //form fields
         EditText Title = findViewById(R.id.title);
         String title = Title.getText().toString();
@@ -186,55 +313,134 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         String location = Location.getText().toString();
         EditText DelivaryDate = findViewById(R.id.deliveryDate);
         String delivaryDate = DelivaryDate.getText().toString();
+        EditText DelivaryTime = findViewById(R.id.deliveryTime);
+        String delivaryTime = DelivaryTime.getText().toString();
+        String deadline =  delivaryDate + "/" + delivaryTime;
+        Log.d("deadline", deadline);
+
         EditText Price = findViewById(R.id.price);
         String price = Price.getText().toString();
 
-        // Create a Command object
-        Command command = new Command();
-        command.setTitle(title);
-        command.setDescription(description);
-        command.setServing(serving);
-        command.setAddress(location);
-        command.setDeadline(delivaryDate);
-        command.setPrice(price);
-
-        // Mocking Chef and Client IDs
-        Chef chef = new Chef();
-        chef.setId(1L);
-        command.setChef(chef);
-
-        Client client = new Client();
-        client.setId(11L);
-        command.setClient(client);
 
 
-        /*Gson gson = new Gson();
-        String jsonRequest = gson.toJson(command);
+        if (isValidCommand(title, description, serving, location, delivaryDate,delivaryTime, price)) {
 
-        Log.d("Request Body", jsonRequest);*/
+            // Create a Command object
+            Command command = new Command();
+            command.setTitle(title);
+            command.setDescription(description);
+            command.setServing(serving);
+            command.setAddress(location);
+            command.setDeadline(deadline);
+            command.setPrice(price);
 
+            // Mocking Chef and Client IDs
+            Chef chef = new Chef();
+            chef.setId(1L);
+            command.setChef(chef);
 
-        ApiService apiService = RetrofitClient.getApiService();
-        Call<Void> call = apiService.createCommand("Bearer " + accessToken, command);
+            Client client = new Client();
+            client.setId(11L);
+            command.setClient(client);
 
-        call.enqueue(new Callback<Void>() {
-            @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                if (response.isSuccessful()) {
-                    // Handle successful response (command stored in the backend)
-                    // Show success message or perform any necessary action
-                } else {
-                    // Handle unsuccessful response
-                    // Extract error information from response if needed
+            ApiService apiService = RetrofitClient.getApiService();
+            Call<Void> call = apiService.createCommand("Bearer " + accessToken, command);
+
+            call.enqueue(new Callback<Void>() {
+                @Override
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    if (response.isSuccessful()) {
+                        sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                        showSuccessDialog();
+                    } else {
+                        sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                        showErrorDialog();
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                // Handle network errors or API call failure
-            }
+                @Override
+                public void onFailure(Call<Void> call, Throwable t) {
+                    sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                    showErrorDialog();
+                }
+            });
+        }
+    }
+
+    private void showSuccessDialog() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.popup_command_created);
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+        dialog.show();
+        Button tryAgainButton = dialog.findViewById(R.id.Ok);
+        tryAgainButton.setOnClickListener(v -> {
+            dialog.dismiss();
         });
     }
+
+    private void showErrorDialog() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.popup_command_failed);
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+        dialog.show();
+        Button tryAgainButton = dialog.findViewById(R.id.tryagain);
+        tryAgainButton.setOnClickListener(v -> {
+            dialog.dismiss();
+            sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+        });
+    }
+
+    private boolean isValidCommand(String title, String description, String serving, String address, String delivaryDate, String delivaryTime, String price) {
+        boolean allFieldsFilled = !title.isEmpty() && !description.isEmpty() && !serving.isEmpty() && !address.isEmpty() && !delivaryDate.isEmpty() && !price.isEmpty() && !delivaryTime.isEmpty();
+        if (!allFieldsFilled) {
+            Toast.makeText(getApplicationContext(), "Please fill all details", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        boolean isServingValid = isValidServing(serving);
+        boolean isDateValid = isValidDate(delivaryDate,delivaryTime);
+        boolean isPriceValid = isValidPrice(price);
+
+        return isServingValid && isPriceValid && isDateValid;
+    }
+
+    private boolean isValidServing(String serving) {
+        try {
+            double value = Double.parseDouble(serving);
+            return true;
+        } catch (NumberFormatException e) {
+            Toast.makeText(getApplicationContext(),"Please enter a valid number as a portion",Toast.LENGTH_LONG).show();
+            return false;
+        }
+    }
+
+    private boolean isValidDate(String dateString, String timeString) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+
+        try {
+            dateFormat.parse(dateString);
+            timeFormat.parse(timeString);
+            return true;
+        } catch (ParseException e) {
+            Toast.makeText(getApplicationContext(), "Please enter a valid date and time", Toast.LENGTH_LONG).show();
+            return false;
+        }
+    }
+
+    private boolean isValidPrice(String price) {
+        try {
+            double value = Double.parseDouble(price);
+            return true;
+        } catch (NumberFormatException e) {
+            Toast.makeText(getApplicationContext(), "Please enter a valid number for the price", Toast.LENGTH_LONG).show();
+            return false;
+        }
+    }
+
+
+
+
 
 
 

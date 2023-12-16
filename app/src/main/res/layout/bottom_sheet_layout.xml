@@ -52,39 +52,46 @@
                         android:layout_width="match_parent"
                         android:layout_height="61dp"
                         android:layout_marginBottom="20dp"
-                        android:background="@drawable/rounded_edittext"
+                        android:background="@drawable/custom_input"
                         android:fontFamily="@font/inter"
                         android:hint="Title"
-                        android:paddingLeft="10dp"
+                        android:paddingLeft="12dp"
                         android:textAlignment="textStart"
                         android:textAllCaps="false"
-                        android:textColor="#010F07" />
+                        android:textColor="@color/gray"
+                        android:drawableStart="@drawable/custom_title_icon"
+                        android:drawablePadding="12dp"
+                        />
 
                     <EditText
                         android:id="@+id/Description"
                         android:layout_width="match_parent"
                         android:layout_height="113dp"
                         android:layout_marginBottom="20dp"
-                        android:background="@drawable/rounded_edittext"
+                        android:background="@drawable/custom_input"
                         android:fontFamily="@font/inter"
                         android:hint="Description"
                         android:paddingLeft="10dp"
                         android:textAlignment="textStart"
                         android:textAllCaps="false"
-                        android:textColor="#010F07" />
+                        android:textColor="@color/gray"
+                        android:drawableStart="@drawable/custom_desc_icon"
+                        android:drawablePadding="12dp" />
 
                     <EditText
                         android:id="@+id/serving"
                         android:layout_width="match_parent"
                         android:layout_height="61dp"
                         android:layout_marginBottom="20dp"
-                        android:background="@drawable/rounded_edittext"
+                        android:background="@drawable/custom_input"
                         android:fontFamily="@font/inter"
                         android:hint="Serving (Portion)"
                         android:paddingLeft="10dp"
                         android:textAlignment="textStart"
                         android:textAllCaps="false"
-                        android:textColor="#010F07" />
+                        android:textColor="@color/gray"
+                        android:drawableStart="@drawable/custom_serving_icon"
+                        android:drawablePadding="12dp" />
 
 
                 <LinearLayout
@@ -98,23 +105,25 @@
                         android:layout_width="290dp"
                         android:layout_height="61dp"
                         android:layout_marginBottom="20dp"
-                        android:background="@drawable/rounded_edittext"
+                    android:background="@drawable/custom_input"
                         android:fontFamily="@font/inter"
                         android:hint="Location"
                         android:paddingLeft="10dp"
                         android:textAlignment="textStart"
                         android:textAllCaps="false"
-                        android:textColor="#010F07" />
+                        android:textColor="@color/gray"
+                        android:drawableStart="@drawable/custom_location_icon"
+                        android:drawablePadding="12dp" />
 
                     <Button
                         android:id="@+id/ChooseLocation"
                         android:layout_width="69dp"
                         android:layout_height="26dp"
-                        android:layout_marginTop="-10dp"
+                        android:layout_marginTop="-5dp"
                         android:layout_marginBottom="10dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="0dp"
-                        android:background="@drawable/rounded_edittext"
+                        android:background="@drawable/custom_input"
                         android:backgroundTint="@color/principalColor"
                         android:text="Choose Location"
                         android:textAlignment="center"
@@ -123,32 +132,94 @@
                 </LinearLayout>
 
 
+                <LinearLayout
+                    android:layout_width="386dp"
+                    android:layout_height="61dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal">
 
                     <EditText
                         android:id="@+id/deliveryDate"
-                        android:layout_width="match_parent"
+                        android:layout_width="150dp"
                         android:layout_height="61dp"
                         android:layout_marginBottom="20dp"
-                        android:background="@drawable/rounded_edittext"
+                        android:background="@drawable/custom_input"
                         android:fontFamily="@font/inter"
-                        android:hint="Delivery Date"
+                        android:hint="Date"
                         android:paddingLeft="10dp"
                         android:textAlignment="textStart"
                         android:textAllCaps="false"
-                        android:textColor="#010F07" />
+                        android:textColor="@color/gray"
+                        android:drawableStart="@drawable/custom_date_icon"
+                        android:drawablePadding="12dp"/>
+
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="61dp"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/pickTime"
+                        android:layout_width="69dp"
+                        android:layout_height="26dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="0dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="0dp"
+                        android:background="@drawable/custom_input"
+                        android:backgroundTint="@color/principalColor"
+                        android:textAlignment="center"
+                        android:textSize="8sp"
+                        android:text="Pick time" />
+
+                    <Button
+                        android:id="@+id/pickDate"
+                        android:layout_width="69dp"
+                        android:layout_height="26dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="0dp"
+                        android:background="@drawable/custom_input"
+                        android:backgroundTint="@color/principalColor"
+                        android:textAlignment="center"
+                        android:textSize="8sp"
+                        android:text="Pick date" />
+
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/deliveryTime"
+                        android:layout_width="140dp"
+                        android:layout_height="61dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/custom_input"
+                        android:fontFamily="@font/inter"
+                        android:hint="time"
+                        android:paddingLeft="10dp"
+                        android:textAlignment="textStart"
+                        android:textAllCaps="false"
+                        android:textColor="@color/gray"
+                        android:drawableStart="@drawable/custom_time_icon"
+                        android:drawablePadding="12dp" />
+
+                </LinearLayout>
 
                     <EditText
                         android:id="@+id/price"
                         android:layout_width="match_parent"
                         android:layout_height="61dp"
                         android:layout_marginBottom="20dp"
-                        android:background="@drawable/rounded_edittext"
+                        android:background="@drawable/custom_input"
                         android:fontFamily="@font/inter"
                         android:hint="Price"
                         android:paddingLeft="10dp"
                         android:textAlignment="textStart"
                         android:textAllCaps="false"
-                        android:textColor="#010F07" />
+                        android:textColor="@color/gray"
+                        android:drawableStart="@drawable/custom_price_icon"
+                        android:drawablePadding="12dp" />
 
                     <Switch
                         android:id="@+id/allergies"
@@ -158,7 +229,7 @@
                         android:layout_marginBottom="10dp"
                         android:text="Consider Allergies"
                         android:textAlignment="textStart"
-                        android:textColor="#010F07"
+                        android:textColor="@color/gray"
                         android:textColorHighlight="@color/principalColor"
                         android:textColorLink="@color/principalColor"
                         android:textStyle="bold|italic"
@@ -170,7 +241,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/rounded_edittext"
+                        android:background="@drawable/custom_input"
                         android:backgroundTint="@color/principalColor"
                         android:text="Order" />
 

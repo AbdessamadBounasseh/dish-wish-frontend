@@ -20,6 +20,7 @@
     <color name="InputBorder">#D2D2D2</color>
     <color name="black">#FF000000</color>
     <color name="certificate_scann">#4285F4</color>
+    <color name="gray">#74777A</color>
     <color name="nationalcard_scann">#FF395998</color>
     <color name="principalColor">#EEA734</color>
     <color name="purple_200">#FFBB86FC</color>
@@ -49,6 +50,10 @@
     <string name="title_activity_profile_preview">Activity_Profile_Preview</string>
     <string name="title_activity_profile_setting">Activity_profile_setting</string>
     <string name="title_activity_profile_settings">Activity_profile_setting</string>
+    <style name="MyMaterialTimePickerTheme" parent="@style/ThemeOverlay.MaterialComponents.TimePicker">
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorOnSurface">@color/principalColor</item>
+    </style>
     <style name="SCBSwitch" parent="Theme.AppCompat.Light">
         
         <item name="colorControlActivated">@color/principalColor</item>
@@ -61,9 +66,9 @@
         <item name="android:colorForeground">#42221f1f
         </item>
     </style>
-    <style name="Theme.Dishwishfrontend" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.Dishwishfrontend" parent="Theme.MaterialComponents.Light">
         
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/principalColor</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         
@@ -73,6 +78,7 @@
         
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         
+        <item name="materialTimePickerTheme">@style/MyMaterialTimePickerTheme</item>
     </style>
     <style name="Theme.Dishwishfrontend.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="Theme.Dishwishfrontend.NoActionBar">
