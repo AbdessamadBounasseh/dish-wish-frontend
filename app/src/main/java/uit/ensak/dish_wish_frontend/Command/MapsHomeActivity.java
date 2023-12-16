@@ -12,10 +12,14 @@ import android.Manifest;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.location.LocationRequest;
 import android.os.Bundle;
 import android.text.format.DateFormat;
@@ -38,7 +42,10 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.datepicker.MaterialDatePicker;
@@ -77,6 +84,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private Button chooseLocationButton;
     private Button pickTime;
     private Button pickDate;
+    private Marker currentMarker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,7 +156,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 picker.addOnPositiveButtonClickListener(r -> {
                     int hour = picker.getHour();
                     int minute = picker.getMinute();
-                    String selectedTime = hour + " : " + minute;
+                    String selectedTime = hour + ":" + minute;
                     DelivaryTime.setText(selectedTime);
                     Log.d("TimePicker", selectedTime);
                 });
@@ -240,16 +248,44 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                     LOCATION_PERMISSION_REQUEST_CODE);
         }*/
 
-
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
                 double tappedLatitude = latLng.latitude;
                 double tappedLongitude = latLng.longitude;
+                if (currentMarker != null) {
+                    currentMarker.remove();
+                }
+
+                MarkerOptions markerOptions = new MarkerOptions()
+                        .position(latLng)
+                        .title("Order's Location")
+                        .icon(BitmapFromVector(
+                                getApplicationContext(),
+                                R.drawable.dish));
+                currentMarker = mMap.addMarker(markerOptions);
                 updateBottomSheetWithLocation(tappedLatitude, tappedLongitude);
                 sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
             }
         });
+
+    }
+
+
+    //method to change the marker's icon
+    private BitmapDescriptor
+    BitmapFromVector(Context context, int vectorResId)
+    {
+        Drawable vectorDrawable = ContextCompat.getDrawable(context, vectorResId);
+        vectorDrawable.setBounds(0, 0, vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight());
+        Bitmap bitmap = Bitmap.createBitmap(
+                vectorDrawable.getIntrinsicWidth(),
+                vectorDrawable.getIntrinsicHeight(),
+                Bitmap.Config.ARGB_8888);
+
+        Canvas canvas = new Canvas(bitmap);
+        vectorDrawable.draw(canvas);
+        return BitmapDescriptorFactory.fromBitmap(bitmap);
     }
 
     private void updateBottomSheetWithLocation(double latitude, double longitude) {
@@ -278,23 +314,25 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         EditText DelivaryDate = findViewById(R.id.deliveryDate);
         String delivaryDate = DelivaryDate.getText().toString();
         EditText DelivaryTime = findViewById(R.id.deliveryTime);
-        String delivaryTime = DelivaryDate.getText().toString();
-        String deadline =  DelivaryDate + " " + delivaryTime;
-        Log.d("dead", deadline);
+        String delivaryTime = DelivaryTime.getText().toString();
+        String deadline =  delivaryDate + "/" + delivaryTime;
+        Log.d("deadline", deadline);
 
         EditText Price = findViewById(R.id.price);
         String price = Price.getText().toString();
 
-        // Create a Command object
-        Command command = new Command();
-        command.setTitle(title);
-        command.setDescription(description);
-        command.setServing(serving);
-        command.setAddress(location);
-        command.setDeadline(deadline);
-        command.setPrice(price);
 
-        if (isValidCommand(title, description, serving, location, delivaryDate, price)) {
+
+        if (isValidCommand(title, description, serving, location, delivaryDate,delivaryTime, price)) {
+
+            // Create a Command object
+            Command command = new Command();
+            command.setTitle(title);
+            command.setDescription(description);
+            command.setServing(serving);
+            command.setAddress(location);
+            command.setDeadline(deadline);
+            command.setPrice(price);
 
             // Mocking Chef and Client IDs
             Chef chef = new Chef();
@@ -352,21 +390,19 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         });
     }
 
-    private boolean isValidCommand(String title, String description, String serving, String address, String deadline, String price) {
-        boolean allFieldsFilled = !title.isEmpty() && !description.isEmpty() && !serving.isEmpty() && !address.isEmpty() && !deadline.isEmpty() && !price.isEmpty();
+    private boolean isValidCommand(String title, String description, String serving, String address, String delivaryDate, String delivaryTime, String price) {
+        boolean allFieldsFilled = !title.isEmpty() && !description.isEmpty() && !serving.isEmpty() && !address.isEmpty() && !delivaryDate.isEmpty() && !price.isEmpty() && !delivaryTime.isEmpty();
         if (!allFieldsFilled) {
             Toast.makeText(getApplicationContext(), "Please fill all details", Toast.LENGTH_LONG).show();
             return false;
         }
 
         boolean isServingValid = isValidServing(serving);
-        //boolean isDateValid = isValidDate(deadline);
+        boolean isDateValid = isValidDate(delivaryDate,delivaryTime);
         boolean isPriceValid = isValidPrice(price);
 
-        return isServingValid && isPriceValid;
+        return isServingValid && isPriceValid && isDateValid;
     }
-
-
 
     private boolean isValidServing(String serving) {
         try {
@@ -378,20 +414,18 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         }
     }
 
-    private boolean isValidDate(String date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        sdf.setLenient(false);
+    private boolean isValidDate(String dateString, String timeString) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
         try {
-            Date parsedDate = sdf.parse(date);
-            if (parsedDate != null) {
-                return true;
-            }
+            dateFormat.parse(dateString);
+            timeFormat.parse(timeString);
+            return true;
         } catch (ParseException e) {
-            Toast.makeText(getApplicationContext(), "Please enter a valid date", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter a valid date and time", Toast.LENGTH_LONG).show();
+            return false;
         }
-
-        return false;
     }
 
     private boolean isValidPrice(String price) {
