@@ -75,8 +75,15 @@ id btnBack
 id btnScancard
 id btnScancertif
 id btnchange
+id btnsubmit
 id deliveryDate
 id deliveryTime
+id editTextNewAddress
+id editTextNewBio
+id editTextNewDiet
+id editTextNewFirstName
+id editTextNewLastName
+id editTextNewPhoneNumber
 id firstNameTextView
 id frameLayout
 id imageView
@@ -104,6 +111,7 @@ id searchEditText
 id searchResultsRecyclerView
 id search_bar_container
 id serving
+id spinnerAllergies
 id text1
 id text2
 id textViewActualAddress
@@ -125,6 +133,7 @@ id title
 id toolbar
 id tryagain
 layout activity_become_cook
+layout activity_change_profile
 layout activity_main
 layout activity_maps_home
 layout activity_view_profile
