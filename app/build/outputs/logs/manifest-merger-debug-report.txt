@@ -184,18 +184,18 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\chaymae\.gradle\ca
 		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:14:9-65
 	android:usesCleartextTraffic
 		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:21:9-44
-activity#uit.ensak.dish_wish_frontend.change_profile
+activity#uit.ensak.dish_wish_frontend.view_profile
 ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:23:9-25:40
 	android:exported
 		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:25:13-37
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:24:13-43
-activity#uit.ensak.dish_wish_frontend.view_profile
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:24:13-41
+activity#uit.ensak.dish_wish_frontend.change_profile
 ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:26:9-28:40
 	android:exported
 		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:28:13-37
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:27:13-41
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:27:13-43
 meta-data#com.google.android.geo.API_KEY
 ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:40:9-42:71
 	android:value
