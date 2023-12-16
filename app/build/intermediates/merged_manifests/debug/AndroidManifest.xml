@@ -45,7 +45,12 @@
         android:testOnly="true"
         android:theme="@style/Theme.Dishwishfrontend"
         android:usesCleartextTraffic="true" >
-
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.change_profile"
+            android:exported="false" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.view_profile"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 

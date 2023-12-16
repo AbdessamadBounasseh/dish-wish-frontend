@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="allergies_array">
+        <item>Aucune</item>
+        <item>Arachides</item>
+        <item>Fruits à coque</item>
+        <item>Lait</item>
+        <item>Oeufs</item>
+        <item>Blé (gluten)</item>
+        <item>Soja</item>
+        <item>Poisson</item>
+        <item>Fruits de mer</item>
+        <item>Sésame</item>
+        <item>Céleri</item>
+    </string-array>
     <array name="com_google_android_gms_fonts_certs">
         <item>@array/com_google_android_gms_fonts_certs_dev</item>
         <item>@array/com_google_android_gms_fonts_certs_prod</item>
