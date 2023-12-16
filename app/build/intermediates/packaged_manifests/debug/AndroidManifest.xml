@@ -68,7 +68,7 @@
             android:name="uit.ensak.dish_wish_frontend.become_cook"
             android:exported="false" />
         <activity
-            android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
+            android:name="uit.ensak.dish_wish_frontend.history_folder.HistoryActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
