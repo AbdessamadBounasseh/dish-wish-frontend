@@ -21,10 +21,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".view_profile"
+            android:name=".change_profile"
             android:exported="false" />
         <activity
-            android:name=".change_profile"
+            android:name=".view_profile"
             android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
