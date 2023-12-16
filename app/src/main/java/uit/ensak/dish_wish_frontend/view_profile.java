@@ -37,7 +37,7 @@ public class view_profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Lancez l'activité ChangeProfileActivity avec startActivityForResult
-                Intent intent = new Intent(view_profile.this, MainActivity.class);
+                Intent intent = new Intent(view_profile.this, change_profile.class);
 
                 //#####################
 
