@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".change_profile">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile Settings"
+        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="26dp"/>
+    <!-- Layout de l'activité -->
+    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+-->
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+    <View
+        android:id="@+id/profile"
+        android:layout_width="332dp"
+        android:layout_height="550dp"
+        android:background="@drawable/border_background"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+    <!-- Second View: portrait_of -->
+    <View
+        android:id="@+id/portrait_of"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+
+        android:layout_marginEnd="120dp"
+        android:background="@drawable/portrait_of"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/profile_infos"
+        tools:layout_editor_absoluteY="83dp" />
+
+
+    <RelativeLayout
+        android:id="@+id/profile_infos"
+        android:layout_width="306dp"
+        android:layout_height="490dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toStartOf="@id/profile"
+        app:layout_constraintTop_toTopOf="@id/profile">
+
+        <LinearLayout
+            android:layout_width="294dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+
+                <!-- First Name -->
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textViewFirstName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="First name"
+                        android:textColor="#868686"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/editTextNewFirstName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Faycal"
+                        android:textColor="#010F07"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <!-- Last Name -->
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textViewFirstName"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textViewLastName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LAST name"
+                        android:textColor="#868686"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/editTextNewLastName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="El Ourrat"
+                        android:textColor="#010F07"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--  Address-->
+            <TextView
+                android:id="@+id/textViewAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="address"
+                android:textColor="#868686"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editTextNewAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kenitra, kenitra , kenitra
+"
+                android:textColor="#010F07"
+                android:textSize="18sp" />
+            <!--  PhoneNumber-->
+            <TextView
+                android:id="@+id/textViewPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Phone number"
+                android:textColor="#868686"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editTextNewPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+212 600000000"
+                android:textColor="#010F07"
+                android:textSize="18sp" />
+
+            <!--  Allergies -->
+            <TextView
+                android:id="@+id/textViewAllergies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Allergies"
+                android:textColor="#868686"
+                android:textSize="14sp" />
+
+            <Spinner
+                android:id="@+id/spinnerAllergies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textColor="#010F07"
+                android:textSize="18sp"
+                android:entries="@array/allergies_array"/>
+
+
+            <!--  DIET -->
+            <TextView
+                android:id="@+id/textViewDiet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="diet"
+                android:textColor="#868686"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editTextNewDiet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No diet"
+                android:textColor="#010F07"
+                android:textSize="18sp" />
+
+            <!--  BIO -->
+            <TextView
+                android:id="@+id/textViewBio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="BIO (if cooker)"
+                android:textColor="#868686"
+                android:textSize="14sp"
+                android:visibility="visible" />
+
+            <EditText
+                android:id="@+id/editTextNewBio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I am the  Best"
+                android:textColor="#010F07"
+                android:textSize="18sp"
+                android:visibility="visible" />
+        </LinearLayout>
+    </RelativeLayout>
+    <Button
+        android:id="@+id/btnsubmit"
+        android:layout_width="335dp"
+        android:layout_height="62dp"
+        android:text="Submit"
+        android:backgroundTint="@color/principalColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="15dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
