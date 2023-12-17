@@ -85,12 +85,9 @@
 49-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:24:13-43
 50            android:exported="false" />
 50-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:25:13-37
-51        <activity
-51-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:26:9-28:40
-52            android:name="uit.ensak.dish_wish_frontend.view_profile"
-52-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:27:13-41
-53            android:exported="false" />
-53-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:28:13-37
+51        <!-- <activity -->
+52        <!-- android:name=".view_profile" -->
+53        <!-- android:exported="false" /> -->
 54        <!--
 55             TODO: Before you run your application, you need a Google Maps API key.
 56
@@ -123,8 +120,8 @@
 74-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:49:13-37
 75        <activity
 75-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:50:9-60:20
-76            android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
-76-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:51:13-53
+76            android:name="uit.ensak.dish_wish_frontend.view_profile"
+76-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:51:13-41
 77            android:exported="true"
 77-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:52:13-36
 78            android:label="@string/app_name"

@@ -1,3 +1,4 @@
+/*
 package uit.ensak.dish_wish_frontend.history_folder;
 
 import android.os.Bundle;
@@ -82,3 +83,4 @@ public class HistoryActivity extends AppCompatActivity {
         gridViewDishes.setAdapter(adapter);
     }
 }
+*/
