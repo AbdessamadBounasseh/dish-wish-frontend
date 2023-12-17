@@ -5,11 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-
 
     <application
         android:allowBackup="true"
@@ -36,7 +34,13 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBg391xSsnzo4MMW2r6su_K3TESamD1vVI" />
+            android:value="YOUR_API_KEY" />
+
+        <activity
+            android:name=".Command.MapsChefActivity"
+            android:exported="false"
+            android:label="@string/title_activity_maps_chef" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
@@ -44,7 +48,6 @@
         <activity
             android:name=".become_cook"
             android:exported="false" />
-
         <activity
             android:name=".Command.MapsHomeActivity"
             android:exported="true"

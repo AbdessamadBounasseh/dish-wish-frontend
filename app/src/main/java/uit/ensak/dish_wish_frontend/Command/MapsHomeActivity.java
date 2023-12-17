@@ -300,7 +300,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     }
 
     private void sendCommandToBackend() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDI1MTg5NTcsImV4cCI6MTcwMjYwNTM1N30.sINKavSpYnCS6fhRuGwkMdOtXJskUYcKMPjjp1wCc80";
+        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDI4MTczMzYsImV4cCI6MTcwMjkwMzczNn0.fbsoiLyHUG5vS7VzKJqZ4AvTNCN0ZGbkYRATuEcoDOw";
 
         //form fields
         EditText Title = findViewById(R.id.title);
@@ -340,7 +340,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             command.setChef(chef);
 
             Client client = new Client();
-            client.setId(11L);
+            client.setId(2L);
             command.setClient(client);
 
             ApiService apiService = RetrofitClient.getApiService();

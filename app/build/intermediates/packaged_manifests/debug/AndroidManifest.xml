@@ -59,7 +59,13 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBg391xSsnzo4MMW2r6su_K3TESamD1vVI" />
+            android:value="YOUR_API_KEY" />
+
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Command.MapsChefActivity"
+            android:exported="false"
+            android:label="@string/title_activity_maps_chef" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -46,6 +46,7 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="title_activity_maps_chef">MapsChefActivity</string>
     <string name="title_activity_maps_home">MapsHomeActivity</string>
     <string name="title_activity_profile_preview">Activity_Profile_Preview</string>
     <string name="title_activity_profile_setting">Activity_profile_setting</string>
