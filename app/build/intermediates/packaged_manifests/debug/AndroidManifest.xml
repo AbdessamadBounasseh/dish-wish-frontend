@@ -73,7 +73,7 @@
             android:name="uit.ensak.dish_wish_frontend.become_cook"
             android:exported="false" />
         <activity
-            android:name="uit.ensak.dish_wish_frontend.MainActivity"
+            android:name="uit.ensak.dish_wish_frontend.page_acceuil"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
