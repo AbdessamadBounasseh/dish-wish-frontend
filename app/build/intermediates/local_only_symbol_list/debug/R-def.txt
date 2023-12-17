@@ -1,6 +1,8 @@
 R_DEF: Internal format may change without notice
 local
 color black
+color dishwish_black
+color faint_black
 color principalColor
 color purple_200
 color purple_500
@@ -16,7 +18,15 @@ dimen nav_header_vertical_spacing
 drawable border_background
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable img
+drawable img_1
 drawable portrait_of
+drawable rounded_corners
+font poppins_bold
+font poppins_regular
+id component_1
+id dish
+id illustratio
 id mobile_navigation
 id nav_gallery
 id nav_home
@@ -24,6 +34,7 @@ id nav_slideshow
 id portrait_of
 id profile
 id profile_infos
+id text
 id textViewActualAddress
 id textViewActualAllergies
 id textViewActualBio
@@ -38,8 +49,11 @@ id textViewDiet
 id textViewFirstName
 id textViewLastName
 id textViewPhoneNumber
+id text_welcome
+id welcome
+layout activity_create_account
+layout activity_page_acceuil
 layout fragment_profile_details
-layout test_auth
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation mobile_navigation

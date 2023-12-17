@@ -28,10 +28,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/Theme.Dishwishfrontend"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="uit.ensak.dish_wish_frontend.MainActivity"
+            android:name="uit.ensak.dish_wish_frontend.page_acceuil"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
