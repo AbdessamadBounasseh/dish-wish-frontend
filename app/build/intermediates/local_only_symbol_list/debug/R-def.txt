@@ -9,6 +9,7 @@ color InputBorder
 color black
 color certificate_scann
 color gray
+color green
 color nationalcard_scann
 color principalColor
 color purple_200

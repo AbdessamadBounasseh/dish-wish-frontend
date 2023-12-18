@@ -13,8 +13,7 @@
     <color name="nationalcard_scann">#FF395998</color>
     <color name="certificate_scann">#4285F4</color>
     <color name="gray">#74777A</color>
-
-
+    <color name="green">#22A45D</color>
 
     <color name="InputBorder">#D2D2D2</color>
 </resources>
