@@ -26,6 +26,8 @@ dimen nav_header_vertical_spacing
 drawable arr
 drawable arrow
 drawable back
+drawable baseline_menu_24
+drawable baseline_notifications_active_24
 drawable become_cook
 drawable border_background
 drawable card
@@ -36,6 +38,7 @@ drawable custom_desc_icon
 drawable custom_input
 drawable custom_location_icon
 drawable custom_price_icon
+drawable custom_rounded_back_shape
 drawable custom_serving_icon
 drawable custom_time_icon
 drawable custom_title_icon
