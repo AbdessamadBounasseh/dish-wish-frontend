@@ -102,6 +102,15 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+    }
+
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        LatLng startPosition = new LatLng(34.26101, -6.5802);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startPosition, 8.0f));
 
         mBottomSheetLayout = findViewById(R.id.bottom_sheet_layout);
         sheetBehavior = BottomSheetBehavior.from(mBottomSheetLayout);
@@ -220,15 +229,6 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 sendCommandToBackend();
             }
         });
-    }
-
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-
-        LatLng startPosition = new LatLng(34.26101, -6.5802);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startPosition, 8.0f));
 
 
         // Check for location permission
@@ -308,7 +308,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     }
 
     private void sendCommandToBackend() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDI5MzE2MzksImV4cCI6MTcwMzAxODAzOX0.A04p0BcFEWDiatruAkKQgMh0sqWas_ygjqzLc86Bi3I";
+        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDMwMjQ0MzUsImV4cCI6MTcwMzExMDgzNX0.Fo7dPoSIz51aRwCEeiIWRViZgNGeWpqC7eDQrhE9fgY";
 
         //form fields
         EditText Title = findViewById(R.id.title);

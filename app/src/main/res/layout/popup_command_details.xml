@@ -67,19 +67,14 @@
             android:textSize="17sp"
             android:textStyle="bold"/>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.6dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@color/principalColor" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:orientation="vertical"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp">
+
+           
 
 
             <TextView
@@ -106,13 +101,6 @@
                 android:textColor="@color/gray"
                 />
     </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.6dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@color/principalColor" />
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -120,6 +108,8 @@
             android:orientation="vertical"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp">
+
+           
 
 
             <TextView
@@ -149,13 +139,6 @@
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.6dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="-7dp"
-            android:background="@color/principalColor" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -169,6 +152,7 @@
                 android:layout_height="55dp"
                 android:layout_marginRight="20dp"
                 android:orientation="vertical">
+
 
                 <TextView
                     android:layout_width="match_parent"
@@ -230,12 +214,7 @@
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.6dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@color/principalColor" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -244,6 +223,7 @@
             android:layout_marginTop="0dp"
             android:layout_marginBottom="10dp">
 
+           
 
             <TextView
                 android:layout_width="match_parent"
@@ -269,31 +249,51 @@
                 android:layout_marginTop="5dp"
                 android:textColor="@color/gray"/>
 
+            
+
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.6dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="-7dp"
-            android:background="@color/principalColor" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp">
 
         <Button
-            android:id="@+id/Ok"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
+            android:id="@+id/cook"
+            android:layout_width="124dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
-            android:layout_marginTop="13dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="70dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/rounded_edittext"
-            android:backgroundTint="#FF9D00"
-            android:text="Cook"
+            android:backgroundTint="#D41881"
+            android:text="Negotiate"
             android:textAlignment="center"
-            android:textSize="16sp"
-             />
+            android:textColor="@color/white"
+            android:textSize="15sp" />
 
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/profile"
+            android:layout_width="146dp"
+            android:layout_height="89dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="-4dp"
+            android:layout_marginRight="27dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/cook"
+            tools:layout_editor_absoluteX="75dp"
+            tools:layout_editor_absoluteY="46dp" />
+
+
+    </LinearLayout>
 
     </LinearLayout>
 

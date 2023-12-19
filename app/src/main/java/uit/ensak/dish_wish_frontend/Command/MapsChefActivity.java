@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentActivity;
 import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -18,6 +19,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -56,6 +58,8 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
     private Map<String, Command> markerCommandMap = new HashMap<>();
     final ArrayList<Command> commandList = new ArrayList<>();
     private ImageView arrow;
+    private ImageView arrow_popup;
+
 
 
     @Override
@@ -120,7 +124,7 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDI5ODI0NjAsImV4cCI6MTcwMzA2ODg2MH0.Udss6W_VwzZ-kj6IXDj7pgspToqw6vv7K6FkvVN2DOY";
+                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDMwMjQ0MzUsImV4cCI6MTcwMzExMDgzNX0.Fo7dPoSIz51aRwCEeiIWRViZgNGeWpqC7eDQrhE9fgY";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Command>> call = apiService.getCommands("Bearer " + accessToken);
@@ -254,6 +258,59 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                     }
                 });
             }
+
+            Button cookButton = dialog.findViewById(R.id.cook);
+            cookButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Dialog popup = new Dialog(MapsChefActivity.this);
+                    popup.setContentView(R.layout.popup_negotiate);
+                    popup.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+                    dialog.dismiss();
+                    EditText pricefield = popup.findViewById(R.id.price);
+                    pricefield.setText(associatedCommand.getPrice() + "DH");
+                    popup.show();
+
+                    Button addButton = popup.findViewById(R.id.addButton);
+                    Button subtractButton = popup.findViewById(R.id.subtractButton);
+                    addButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String priceText = pricefield.getText().toString();
+                            int currentPrice = Integer.parseInt(priceText.replace("DH", ""));
+                            currentPrice += 5;
+                            pricefield.setText(currentPrice + "DH");
+                        }
+                    });
+
+                    subtractButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String priceText = pricefield.getText().toString();
+                            int currentPrice = Integer.parseInt(priceText.replace("DH", ""));
+                            currentPrice -= 5;
+                            if (currentPrice < 0) {
+                                currentPrice = 0;
+                            }
+                            pricefield.setText(currentPrice + "DH");
+                        }
+                    });
+
+                    arrow_popup = popup.findViewById(R.id.animation);
+                    if (arrow_popup != null) {
+                        arrow_popup.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                popup.dismiss();
+                                dialog.show();
+                            }
+                        });
+                    }
+
+                }
+            });
+
+
         }
     }
 
