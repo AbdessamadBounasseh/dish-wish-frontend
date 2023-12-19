@@ -46,7 +46,16 @@
         android:theme="@style/Theme.Dishwishfrontend"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="uit.ensak.dish_wish_frontend.change_profile"
+            android:name="uit.ensak.dish_wish_frontend.connect"
+            android:exported="false" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.terms"
+            android:exported="false" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.createAcciunt"
+            android:exported="false" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.MainActivity"
             android:exported="false" />
         <activity
             android:name="uit.ensak.dish_wish_frontend.view_profile"

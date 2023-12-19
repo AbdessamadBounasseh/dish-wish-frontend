@@ -16,7 +16,7 @@ public class page_acceuil extends AppCompatActivity {
         setContentView(R.layout.activity_page_acceuil);
     }
     public void getstarted(View view){
-        startActivity(new Intent(page_acceuil.this, create_account.class));
+        startActivity(new Intent(page_acceuil.this, createAcciunt.class));
 
     }
 }

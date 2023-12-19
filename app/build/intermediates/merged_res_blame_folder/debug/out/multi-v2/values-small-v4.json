@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-42:/values-small-v4/values-small-v4.xml",
+            "outputFile": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-67:/values-small-v4/values-small-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\KhawLa\\.gradle\\caches\\transforms-3\\14c8f4d9859ab4670012378cf62d3d56\\transformed\\material-1.10.0\\res\\values-small-v4\\values-small-v4.xml",
+                    "source": "C:\\Users\\KhawLa\\.gradle\\caches\\transforms-3\\b40a352becb0b91575ebb7e4a4020a6d\\transformed\\material-1.10.0\\res\\values-small-v4\\values-small-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
