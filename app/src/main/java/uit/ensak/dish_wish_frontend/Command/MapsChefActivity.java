@@ -1,5 +1,6 @@
 package uit.ensak.dish_wish_frontend.Command;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -15,7 +16,9 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -29,6 +32,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,13 +48,14 @@ import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.databinding.ActivityMapsChefBinding;
 
-public class MapsChefActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private ActivityMapsChefBinding binding;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
     private Map<String, Command> markerCommandMap = new HashMap<>();
     final ArrayList<Command> commandList = new ArrayList<>();
+    private ImageView arrow;
 
 
     @Override
@@ -65,12 +70,14 @@ public class MapsChefActivity extends FragmentActivity implements OnMapReadyCall
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        retryRequest();
+
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+        retryRequest();
 
         // Check for location permission
         /*if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -106,7 +113,6 @@ public class MapsChefActivity extends FragmentActivity implements OnMapReadyCall
                 return true;
             }
         });
-
     }
 
 
@@ -114,7 +120,7 @@ public class MapsChefActivity extends FragmentActivity implements OnMapReadyCall
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDI4MTczMzYsImV4cCI6MTcwMjkwMzczNn0.fbsoiLyHUG5vS7VzKJqZ4AvTNCN0ZGbkYRATuEcoDOw";
+                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDI5ODI0NjAsImV4cCI6MTcwMzA2ODg2MH0.Udss6W_VwzZ-kj6IXDj7pgspToqw6vv7K6FkvVN2DOY";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Command>> call = apiService.getCommands("Bearer " + accessToken);
@@ -235,9 +241,19 @@ public class MapsChefActivity extends FragmentActivity implements OnMapReadyCall
             description.setText(associatedCommand.getDescription());
             serving.setText(associatedCommand.getServing());
             delivary.setText(associatedCommand.getDeadline());
-            price.setText(associatedCommand.getPrice());
+            price.setText(associatedCommand.getPrice() + "DH");
 
             dialog.show();
+
+            arrow = dialog.findViewById(R.id.animation);
+            if (arrow != null) {
+                arrow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+            }
         }
     }
 

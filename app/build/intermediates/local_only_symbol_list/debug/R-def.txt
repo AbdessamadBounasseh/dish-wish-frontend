@@ -49,6 +49,7 @@ drawable ic_launcher_foreground
 drawable ic_menu
 drawable ic_notification
 drawable line
+drawable line_edittext
 drawable location
 drawable locationfocused
 drawable logo
@@ -70,6 +71,7 @@ id Description
 id Ok
 id addressTextView
 id allergies
+id animation
 id animationView
 id bottom_sheet_arrow
 id bottom_sheet_layout
@@ -141,9 +143,12 @@ mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 navigation mobile_navigation
+raw button
 raw cooking
+raw details
 raw dish
 raw fail
+raw returnarrow
 raw success
 string action_settings
 string app_name

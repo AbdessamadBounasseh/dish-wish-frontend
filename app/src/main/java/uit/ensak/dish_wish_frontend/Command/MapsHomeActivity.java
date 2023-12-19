@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
+import android.location.Geocoder;
 
 import android.Manifest;
 import android.app.DatePickerDialog;
@@ -20,6 +21,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.LocationRequest;
 import android.os.Bundle;
 import android.text.format.DateFormat;
@@ -59,6 +62,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.TimeZone;
 
 
@@ -223,6 +227,10 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        LatLng startPosition = new LatLng(34.26101, -6.5802);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startPosition, 8.0f));
+
+
         // Check for location permission
        /* if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED &&
@@ -300,7 +308,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     }
 
     private void sendCommandToBackend() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDI4MTczMzYsImV4cCI6MTcwMjkwMzczNn0.fbsoiLyHUG5vS7VzKJqZ4AvTNCN0ZGbkYRATuEcoDOw";
+        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDI5MzE2MzksImV4cCI6MTcwMzAxODAzOX0.A04p0BcFEWDiatruAkKQgMh0sqWas_ygjqzLc86Bi3I";
 
         //form fields
         EditText Title = findViewById(R.id.title);

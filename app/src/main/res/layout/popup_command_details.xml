@@ -6,15 +6,36 @@
     android:id="@+id/popupCommandDetails"
     android:layout_width="350dp"
     android:orientation="vertical"
-    android:layout_height="600dp"
+    android:layout_height="650dp"
     android:background="@drawable/rounded_edittext"
     android:layout_gravity="center">
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@drawable/rounded_edittext">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="166dp"
+        android:orientation="horizontal">
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation"
+            android:layout_width="54dp"
+            android:layout_height="40dp"
+            android:layout_gravity="top"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="27dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/returnarrow"
+            tools:layout_editor_absoluteX="75dp"
+            tools:layout_editor_absoluteY="46dp" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animationView"
@@ -24,26 +45,38 @@
             android:layout_marginTop="10dp"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/cooking"
+            app:lottie_rawRes="@raw/details"
             tools:layout_editor_absoluteX="75dp"
             tools:layout_editor_absoluteY="46dp" />
+
+    </LinearLayout>
 
         <TextView
             android:id="@+id/location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="-10dp"
+            android:layout_marginBottom="10dp"
+            android:drawableStart="@drawable/dishmarker"
+            android:drawablePadding="-50dp"
             android:gravity="center"
+            android:paddingLeft="30dp"
             android:text="Location"
-            android:textAlignment="center"
             android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textColor="@color/gray"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/principalColor" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="55dp"
             android:orientation="vertical"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp">
@@ -56,62 +89,36 @@
                 android:paddingLeft="20dp"
                 android:text="Title"
                 android:textAllCaps="false"
-                android:textColor="@color/gray"
-                android:textSize="18sp" />
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
-                android:layout_height="25dp"
+                android:layout_height="30dp"
                 android:gravity="left"
                 android:paddingLeft="20dp"
                 android:text="ammamama"
                 android:textAllCaps="false"
                 android:textSize="18sp"
-                android:textStyle="bold"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/black"/>
-
-    </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp">
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:gravity="left"
-                android:paddingLeft="20dp"
-                android:text="Description"
-                android:textAllCaps="false"
                 android:textColor="@color/gray"
-                android:textSize="18sp" />
+                />
+    </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/principalColor" />
 
-            <TextView
-                android:id="@+id/Description"
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:gravity="left"
-                android:paddingLeft="20dp"
-                android:text="ammamama"
-                android:textAllCaps="false"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/black"/>
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="55dp"
             android:orientation="vertical"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp">
 
 
@@ -122,35 +129,44 @@
                 android:paddingLeft="20dp"
                 android:text="Serving"
                 android:textAllCaps="false"
-                android:textColor="@color/gray"
+                android:textColor="@color/black"
                 android:textSize="18sp"
+                android:textStyle="bold"
             />
 
             <TextView
                 android:id="@+id/serving"
                 android:layout_width="match_parent"
-                android:layout_height="25dp"
+                android:layout_height="30dp"
                 android:gravity="left"
                 android:paddingLeft="20dp"
                 android:text="ammamama"
                 android:textAllCaps="false"
                 android:textSize="18sp"
-                android:textStyle="bold"
+                
                 android:layout_marginTop="5dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/gray"/>
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="-7dp"
+            android:background="@color/principalColor" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="55dp"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp">
 
             <LinearLayout
-                android:layout_width="160dp"
-                android:layout_height="50dp"
+                android:layout_width="170dp"
+                android:layout_height="55dp"
                 android:layout_marginRight="20dp"
                 android:orientation="vertical">
 
@@ -161,28 +177,29 @@
                     android:paddingLeft="20dp"
                     android:text="Delivary"
                     android:textAllCaps="false"
-                    android:textColor="@color/gray"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
+                    android:textStyle="bold"
                     />
 
                 <TextView
                     android:id="@+id/delivary"
                     android:layout_width="match_parent"
-                    android:layout_height="25dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="5dp"
                     android:gravity="left"
                     android:paddingLeft="20dp"
                     android:text="ammamama"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gray"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                     />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="160dp"
-                android:layout_height="50dp"
+                android:layout_height="55dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -192,40 +209,90 @@
                     android:paddingLeft="20dp"
                     android:text="Price"
                     android:textAllCaps="false"
-                    android:textColor="@color/gray"
-                    android:textSize="18sp" />
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/price"
                     android:layout_width="match_parent"
-                    android:layout_height="25dp"
+                    android:layout_height="30dp"
                     android:gravity="left"
                     android:paddingLeft="20dp"
                     android:text="ammamama"
                     android:textAllCaps="false"
                     android:textSize="18sp"
-                    android:textStyle="bold"
+                    
                     android:layout_marginTop="5dp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/gray"/>
 
             </LinearLayout>
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/principalColor" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="10dp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="left"
+                android:paddingLeft="20dp"
+                android:text="Description"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Description"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:gravity="left"
+                android:paddingLeft="20dp"
+                android:text="ammamama"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                
+                android:layout_marginTop="5dp"
+                android:textColor="@color/gray"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="-7dp"
+            android:background="@color/principalColor" />
+
 
         <Button
             android:id="@+id/Ok"
-            android:layout_width="105dp"
-            android:layout_height="36dp"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/rounded_edittext"
-            android:backgroundTint="#DB2127"
+            android:backgroundTint="#FF9D00"
             android:text="Cook"
             android:textAlignment="center"
             android:textSize="16sp"
-            android:textStyle="bold" />
+             />
 
 
     </LinearLayout>
