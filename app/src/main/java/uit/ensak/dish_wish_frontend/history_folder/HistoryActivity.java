@@ -44,19 +44,18 @@ public class HistoryActivity extends AppCompatActivity {
     private List<Command> generateTestData() {
         // Generate some dummy data for testing
         List<Command> testData = new ArrayList<>();
-        testData.add(new Command(1L, "Dish 1", "Serving 1", "Address 1", "Deadline 1",
-                "$10.99", "Ordered", null, null, null, null));
-        testData.add(new Command(2L, "Dish 2", "Serving 2", "Address 2", "Deadline 2",
-                "$12.99", "In Progress", null, null, null, null));
-        testData.add(new Command(3L, "Dish 3", "Serving 3", "Address 3", "Deadline 3",
-                "$8.99", "Prepared", null, null, null, null));
-        testData.add(new Command(4L, "Dish 4", "Serving 4", "Address 4", "Deadline 4",
-                "$13.99", "Ordered", null, null, null, null));
-        testData.add(new Command(5L, "Dish 5", "Serving 5", "Address 5", "Deadline 5",
-                "$15.99", "In Progress", null, null, null, null));
-        testData.add(new Command(6L, "Dish 6", "Serving 6", "Address 6", "Deadline 6",
-                "$18.99", "Prepared", null, null, null, null));
-
+        testData.add(new Command(1L,"Title 1", "Dish 1", "Serving 1", "Address 1", "Deadline 1",
+                "$10.99", "Ordered", null, null));
+        testData.add(new Command(2L,"Title 2", "Dish 2", "Serving 2", "Address 2", "Deadline 2",
+                "$12.99", "In Progress", null, null));
+        testData.add(new Command(3L,"Title 3", "Dish 3", "Serving 3", "Address 3", "Deadline 3",
+                "$8.99", "Prepared", null, null));
+        testData.add(new Command(4L,"Title 4", "Dish 4", "Serving 4", "Address 4", "Deadline 4",
+                "$13.99", "Ordered", null, null));
+        testData.add(new Command(5L,"Title 5", "Dish 5", "Serving 5", "Address 5", "Deadline 5",
+                "$15.99", "In Progress", null, null));
+        testData.add(new Command(6L,"Title 6", "Dish 6", "Serving 6", "Address 6", "Deadline 6",
+                "$18.99", "Prepared", null, null));
         return testData;
     }
 

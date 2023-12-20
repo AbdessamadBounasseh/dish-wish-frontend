@@ -5,6 +5,8 @@ import java.time.Instant;
 
 import java.time.Instant;
 
+import kotlin.text.UStringsKt;
+
 public class Command implements Serializable {
     private Long id;
     private String title;
@@ -18,10 +20,11 @@ public class Command implements Serializable {
     private Chef chef;
 
     // Constructor
-    public Command(Long id, String description, String serving, String address, String deadline,
+    public Command(Long id, String title, String description, String serving, String address, String deadline,
                    String price, String status,
                    Client client, Chef chef) {
         this.id = id;
+        this.title= title;
         this.description = description;
         this.serving = serving;
         this.address = address;

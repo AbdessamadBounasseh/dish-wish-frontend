@@ -1,8 +1,10 @@
 package uit.ensak.dish_wish_frontend;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class view_profile extends AppCompatActivity {
 
@@ -32,13 +35,12 @@ public class view_profile extends AppCompatActivity {
 
 
         ImageButton btnBack = findViewById(R.id.btnBack);
-
+        Button btnDeleteAccount = findViewById(R.id.btnDeleteAccount);
         Button btnChange = findViewById(R.id.btnchange);
 
         btnChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lancez l'activité ChangeProfileActivity avec startActivityForResult
                 Intent intent = new Intent(view_profile.this, change_profile.class);
 
                 //#####################
@@ -63,19 +65,54 @@ public class view_profile extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Appel de la méthode pour revenir en arrière
                 onBackPressed();
+            }
+        });
+        btnDeleteAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Demander confirmation à l'utilisateur avant de supprimer le compte
+                showDeleteConfirmationDialog();
             }
         });
 
     }
+
+    private void showDeleteConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirmation");
+        builder.setMessage("Are you sure you want to delete your account?");
+        builder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // A ajouter ici la logique de suppression du compte
+                deleteAccount();
+            }
+        });
+        builder.setNegativeButton("Non", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.show();
+    }
+    private void deleteAccount() {
+
+        Toast.makeText(view_profile.this, "Account has been successfully deleted", Toast.LENGTH_SHORT).show();
+        Intent loginIntent = new Intent(view_profile.this, MainActivity.class);
+        startActivity(loginIntent);
+        finish();
+    }
+
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == RESULT_OK) {
 
-            // Activité MainActivity
             String newFirstName = data.getStringExtra("NEW_FIRST_NAME");
             String newLastName = data.getStringExtra("NEW_LAST_NAME");
             String newAddress = data.getStringExtra("NEW_ADDRESS");
@@ -85,7 +122,6 @@ public class view_profile extends AppCompatActivity {
             String newPhoneNumber = data.getStringExtra("NEW_PHONE_NUMBER");
             String newAllergy = data.getStringExtra("NEW_ALLERGY");
 
-            // Mettre à jour votre interface utilisateur avec les nouvelles valeurs
 
             textViewFirstName.setText(newFirstName);
             textViewLastName.setText(newLastName);

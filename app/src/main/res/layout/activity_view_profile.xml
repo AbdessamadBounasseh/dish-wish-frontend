@@ -12,13 +12,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Profile Settings"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textColor="@android:color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="30dp"/>
 
     <!-- RelativeLayout pour les éléments de l'activité -->
     <RelativeLayout
@@ -45,7 +45,7 @@
     <View
         android:id="@+id/profile"
         android:layout_width="332dp"
-        android:layout_height="428dp"
+        android:layout_height="435dp"
         android:background="@drawable/border_background"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -241,6 +241,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="70dp"/>
+        android:layout_marginBottom="80dp"/>
+
+    <Button
+        android:id="@+id/btnDeleteAccount"
+        android:layout_width="335dp"
+        android:layout_height="62dp"
+        android:text="Delete Account"
+        android:backgroundTint="@color/principalColor"
+        app:layout_constraintTop_toBottomOf="@id/btnchange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

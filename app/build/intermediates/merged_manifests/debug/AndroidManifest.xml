@@ -92,10 +92,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="uit.ensak.dish_wish_frontend.ProfileActivity" >
-
-            <!-- Add any additional configurations here -->
-        </activity>
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.history_folder.HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.change_profile"
+            android:exported="false" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.view_profile"
+            android:exported="false" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.become_cook"
+            android:exported="false" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.MainActivity"
+            android:exported="false" />
         <activity
             android:name="androidx.compose.ui.tooling.PreviewActivity"
             android:exported="true" />
