@@ -16,7 +16,7 @@ import android.widget.Toast;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class createAcciunt extends AppCompatActivity {
+public class createAccount extends AppCompatActivity {
 
     EditText etemail, etpassword,etpasswordconfirm;
     Button signup;
@@ -36,7 +36,7 @@ public class createAcciunt extends AppCompatActivity {
         already.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(createAcciunt.this, connect.class);
+                Intent intent = new Intent(createAccount.this, connect.class);
                 startActivity(intent);
             }
         });
@@ -94,30 +94,30 @@ public class createAcciunt extends AppCompatActivity {
                 password=etpassword.getText().toString();
                 confirmpassword=etpasswordconfirm.getText().toString();
                 if(email.equals("")||password.equals("")||confirmpassword.equals("")){
-                    Toast.makeText(createAcciunt.this,"all fields should be filled to sign up ",Toast.LENGTH_LONG).show();
+                    Toast.makeText(createAccount.this,"all fields should be filled to sign up ",Toast.LENGTH_LONG).show();
 
                 }else{
                     if (isValidEmail(email)) {
                         if(password.equals(confirmpassword)){
                             if(db.checkemail(email))
                             {
-                                Toast.makeText(createAcciunt.this,"user already exists",Toast.LENGTH_LONG).show();
+                                Toast.makeText(createAccount.this,"user already exists",Toast.LENGTH_LONG).show();
                                 return;
 
                             }
                             boolean signupsuccess =db.insertData(email,password);
                             if(signupsuccess) {
-                                Intent intent1= new Intent(createAcciunt.this,terms.class);
+                                Intent intent1= new Intent(createAccount.this,terms.class);
                                 startActivity(intent1);
 
                             } else
-                                Toast.makeText(createAcciunt.this,"failed to sign up",Toast.LENGTH_LONG).show();
+                                Toast.makeText(createAccount.this,"failed to sign up",Toast.LENGTH_LONG).show();
 
                         }else{
-                            Toast.makeText(createAcciunt.this,"the two passwords should be the same",Toast.LENGTH_LONG).show();
+                            Toast.makeText(createAccount.this,"the two passwords should be the same",Toast.LENGTH_LONG).show();
                         }
                     } else {
-                        Toast.makeText(createAcciunt.this, "Invalid email format", Toast.LENGTH_LONG).show();
+                        Toast.makeText(createAccount.this, "Invalid email format", Toast.LENGTH_LONG).show();
                     }
                 }
             }

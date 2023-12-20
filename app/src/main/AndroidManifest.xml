@@ -27,7 +27,7 @@
             android:name=".terms"
             android:exported="false" />
         <activity
-            android:name=".createAcciunt"
+            android:name=".createAccount"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
