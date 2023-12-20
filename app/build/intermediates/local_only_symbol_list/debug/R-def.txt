@@ -28,6 +28,7 @@ drawable arrow
 drawable back
 drawable become_cook
 drawable border_background
+drawable camera
 drawable card
 drawable cerf
 drawable custom_date_icon
@@ -44,6 +45,7 @@ drawable description
 drawable descriptionfocused
 drawable dish
 drawable fail
+drawable ic_camera
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_menu
@@ -72,6 +74,7 @@ id allergies
 id bottom_sheet_arrow
 id bottom_sheet_layout
 id btnBack
+id btnDeleteAccount
 id btnScancard
 id btnScancertif
 id btnchange
@@ -87,6 +90,7 @@ id editTextNewPhoneNumber
 id firstNameTextView
 id frameLayout
 id imageView
+id imageViewChangePhoto
 id imageViewHeader
 id lastNameTextView
 id location

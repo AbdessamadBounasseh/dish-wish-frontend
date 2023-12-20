@@ -12,6 +12,10 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/activity_change_profile.xml"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-68:/layout/activity_view_profile.xml",
+        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/activity_view_profile.xml"
+    },
+    {
         "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-68:\\layout\\fragment_filter_by_name_or_city.xml",
         "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-71:\\layout\\fragment_filter_by_name_or_city.xml"
     },
@@ -36,12 +40,12 @@
         "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-71:\\layout\\item_search_result.xml"
     },
     {
-        "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-68:\\layout\\activity_view_profile.xml",
-        "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-71:\\layout\\activity_view_profile.xml"
-    },
-    {
         "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-68:\\layout\\activity_change_profile.xml",
         "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-71:\\layout\\activity_change_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-68:\\layout\\activity_view_profile.xml",
+        "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-71:\\layout\\activity_view_profile.xml"
     },
     {
         "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-68:\\layout\\activity_maps_home.xml",
