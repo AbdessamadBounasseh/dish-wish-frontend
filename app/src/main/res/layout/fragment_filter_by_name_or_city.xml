@@ -10,39 +10,41 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/white">
+        android:layout_height="?attr/actionBarSize">
 
         <!-- Left icon for menu -->
         <ImageView
             android:id="@+id/menuIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="34dp"
+            android:layout_height="36dp"
             android:layout_gravity="start"
+            android:background="@drawable/custom_rounded_back_shape"
             android:layout_marginStart="20dp"
-            android:src="@drawable/ic_menu" />
+            android:src="@drawable/baseline_menu_24" />
 
         <!-- Central EditText for search -->
         <EditText
             android:id="@+id/searchEditText"
             android:layout_width="250dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="26dp"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:hint="Search"
+            android:background="@drawable/custom_rounded_back_shape"
+            android:hint="    Search"
+            android:textSize="14dp"
             android:inputType="text"
             android:padding="8dp" />
 
         <!-- Right icon for notification -->
         <ImageView
             android:id="@+id/notificationIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="34dp"
+            android:layout_height="36dp"
+            android:background="@drawable/custom_rounded_back_shape"
             android:layout_gravity="end"
             android:layout_marginEnd="20dp"
-            android:src="@drawable/ic_notification" />
+            android:src="@drawable/baseline_notifications_active_24" />
     </androidx.appcompat.widget.Toolbar>
 
     <!-- RecyclerView for search results -->

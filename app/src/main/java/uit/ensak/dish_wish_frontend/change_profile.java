@@ -51,7 +51,7 @@ public class change_profile extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerAllergies.setAdapter(adapter);
 
-        // Ajoutez un écouteur pour le spinner
+
         spinnerAllergies.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
