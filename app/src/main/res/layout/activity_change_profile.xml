@@ -208,13 +208,15 @@
                 android:textColor="#868686"
                 android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/editTextNewDiet"
+            <Spinner
+                android:id="@+id/spinnerDiet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No diet"
+                android:layout_marginTop="15dp"
                 android:textColor="#010F07"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:entries="@array/diet_array"/>
+
 
             <!--  BIO -->
             <TextView

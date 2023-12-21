@@ -64,7 +64,7 @@ public class view_profile extends AppCompatActivity {
                 intent.putExtra("CURRENT_PHONE_NUMBER", textViewPHONE_NUMBER.getText().toString());
 
                 intent.putExtra("CURRENT_BIO", textViewBio.getText().toString());
-                intent.putExtra("CURRENT_DIET", textViewDiet.getText().toString());
+                //intent.putExtra("CURRENT_DIET", textViewDiet.getText().toString());
                 // intent.putExtra("CURRENT_PROFILE_IMAGE_PATH", imagePath);
 
 
