@@ -30,6 +30,8 @@ dimen nav_header_height
 dimen nav_header_vertical_spacing
 drawable arr
 drawable arrow
+drawable arrow_down
+drawable arrow_up
 drawable back
 drawable baseline_menu_24
 drawable baseline_notifications_active_24
@@ -37,6 +39,7 @@ drawable baseline_visibility_24
 drawable baseline_visibility_off_24
 drawable become_cook
 drawable border_background
+drawable button_cook
 drawable card
 drawable cerf
 drawable chocolate
@@ -54,6 +57,7 @@ drawable datefocused
 drawable description
 drawable descriptionfocused
 drawable dish
+drawable dishmarker
 drawable fail
 drawable homemade_beef_burger
 drawable homemade_pizza
@@ -67,9 +71,11 @@ drawable ic_visibility_on
 drawable img
 drawable img_1
 drawable line
+drawable line_edittext
 drawable location
 drawable locationfocused
 drawable logo
+drawable menu
 drawable money
 drawable moneyfocused
 drawable portrait_of
@@ -82,6 +88,7 @@ drawable time
 drawable timefocused
 drawable title
 drawable title_focused
+drawable yourposition
 font inter
 font interlight
 font poppins_bold
@@ -91,8 +98,11 @@ id ConfirmPasswordTitle
 id Description
 id Ok
 id PasswordTitle
+id addButton
 id addressTextView
 id allergies
+id animation
+id animationView
 id bars_top_ba
 id bottom_sheet_arrow
 id bottom_sheet_layout
@@ -109,7 +119,9 @@ id btnsubmit
 id buttons_bar
 id checkbox
 id component_1
+id cook
 id create_acco
+id delivary
 id deliveryDate
 id deliveryTime
 id dish
@@ -124,6 +136,7 @@ id editTextNewPhoneNumber
 id editTextPassword
 id email
 id enter_your_
+id finalizeButton
 id firstNameTextView
 id forg
 id forgpass
@@ -135,7 +148,6 @@ id group_103
 id icon_24_bac
 id illustratio
 id imageDish
-id imageView
 id imageViewHeader
 id lastNameTextView
 id location
@@ -151,6 +163,7 @@ id order
 id pass2
 id pickDate
 id pickTime
+id popupCommandDetails
 id popupCreatedCommand
 id popupFailedCommand
 id portrait_of
@@ -159,12 +172,14 @@ id profile
 id profile_infos
 id searchEditText
 id searchResultsRecyclerView
+id search_bar
 id search_bar_container
 id serving
 id sign
 id sign_in
 id spinnerAllergies
 id st
+id subtractButton
 id text
 id text1
 id text2
@@ -203,6 +218,7 @@ layout activity_create_acciunt
 layout activity_create_account
 layout activity_history
 layout activity_main
+layout activity_maps_chef
 layout activity_maps_home
 layout activity_page_acceuil
 layout activity_reset_password
@@ -214,11 +230,22 @@ layout fragment_profile_details
 layout item_dish
 layout item_search_result
 layout popup_command_created
+layout popup_command_details
 layout popup_command_failed
+layout popup_negotiate
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 navigation mobile_navigation
+raw button
+raw cook
+raw cooking
+raw details
+raw dish
+raw fail
+raw profile
+raw returnarrow
+raw success
 string action_settings
 string app_name
 string by_signing_

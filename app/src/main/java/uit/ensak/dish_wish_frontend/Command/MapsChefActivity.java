@@ -18,6 +18,8 @@ import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -124,7 +126,7 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDMwMjQ0MzUsImV4cCI6MTcwMzExMDgzNX0.Fo7dPoSIz51aRwCEeiIWRViZgNGeWpqC7eDQrhE9fgY";
+                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDMxNjI5MDcsImV4cCI6MTcwMzI0OTMwN30.TljPwPrMjDjwUjeu386OrBVdoqZdKXH0QRPacQfeZdw";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Command>> call = apiService.getCommands("Bearer " + accessToken);
@@ -213,6 +215,14 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
             Dialog dialog = new Dialog(this);
             dialog.setContentView(R.layout.popup_command_details);
             dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+
+            Window window = dialog.getWindow();
+            if (window != null) {
+                WindowManager.LayoutParams layoutParams = window.getAttributes();
+                layoutParams.y = (int) getResources().getDisplayMetrics().density * 20;
+                window.setAttributes(layoutParams);
+            }
+
 
             String address = associatedCommand.getAddress();
             String[] latLng = address.split(",");
