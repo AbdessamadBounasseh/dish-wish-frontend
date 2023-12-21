@@ -6,7 +6,7 @@
     android:id="@+id/popupCommandDetails"
     android:layout_width="350dp"
     android:orientation="vertical"
-    android:layout_height="650dp"
+    android:layout_height="640dp"
     android:background="@drawable/rounded_edittext"
     android:layout_gravity="center">
 

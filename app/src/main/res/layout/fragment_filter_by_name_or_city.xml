@@ -20,14 +20,14 @@
             android:layout_gravity="start"
             android:background="@drawable/custom_rounded_back_shape"
             android:layout_marginStart="20dp"
-            android:src="@drawable/baseline_menu_24" />
+            android:src="@drawable/menu" />
 
         <!-- Central EditText for search -->
         <EditText
             android:id="@+id/searchEditText"
             android:layout_width="250dp"
             android:layout_height="48dp"
-            android:layout_marginStart="26dp"
+            android:layout_marginStart="24dp"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:background="@drawable/custom_rounded_back_shape"
@@ -51,7 +51,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/searchResultsRecyclerView"
         android:layout_width="272dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="?attr/actionBarSize" />
 </FrameLayout>
