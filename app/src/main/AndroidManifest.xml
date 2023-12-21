@@ -20,21 +20,7 @@
         android:theme="@style/Theme.Dishwishfrontend"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
-            android:name=".connect"
-            android:exported="false" />
-        <activity
-            android:name=".terms"
-            android:exported="false" />
-        <activity
-            android:name=".createAccount"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".view_profile"-->
-<!--            android:exported="false" />-->
+
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -57,7 +43,7 @@
             android:name=".become_cook"
             android:exported="false" />
         <activity
-            android:name=".view_profile"
+            android:name=".Command.MapsChefActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
@@ -74,10 +60,28 @@
             android:name=".change_profile"
             android:exported="false" />
         <activity
+            android:name=".view_profile"
+            android:exported="false" />
+        <activity
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".Command.MapsHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".connect"
+            android:exported="false" />
+        <activity
+            android:name=".terms"
+            android:exported="false" />
+        <activity
+            android:name=".createAcciunt"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".page_acceuil"
             android:exported="false" />
     </application>
 

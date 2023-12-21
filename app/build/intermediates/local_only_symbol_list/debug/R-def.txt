@@ -4,7 +4,6 @@ array allergies_array
 array com_google_android_gms_fonts_certs
 array com_google_android_gms_fonts_certs_dev
 array com_google_android_gms_fonts_certs_prod
-array diet_array
 array preloaded_fonts
 color InputBorder
 color black
@@ -41,7 +40,6 @@ drawable baseline_visibility_off_24
 drawable become_cook
 drawable border_background
 drawable button_cook
-drawable camera
 drawable card
 drawable cerf
 drawable chocolate
@@ -64,7 +62,6 @@ drawable fail
 drawable homemade_beef_burger
 drawable homemade_pizza
 drawable ic_back
-drawable ic_camera
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_menu
@@ -78,6 +75,7 @@ drawable line_edittext
 drawable location
 drawable locationfocused
 drawable logo
+drawable menu
 drawable money
 drawable moneyfocused
 drawable portrait_of
@@ -131,6 +129,7 @@ id donthave
 id editTextConfirmPassword
 id editTextNewAddress
 id editTextNewBio
+id editTextNewDiet
 id editTextNewFirstName
 id editTextNewLastName
 id editTextNewPhoneNumber
@@ -149,7 +148,6 @@ id group_103
 id icon_24_bac
 id illustratio
 id imageDish
-id imageViewChangePhoto
 id imageViewHeader
 id lastNameTextView
 id location
@@ -174,12 +172,12 @@ id profile
 id profile_infos
 id searchEditText
 id searchResultsRecyclerView
+id search_bar
 id search_bar_container
 id serving
 id sign
 id sign_in
 id spinnerAllergies
-id spinnerDiet
 id st
 id subtractButton
 id text
