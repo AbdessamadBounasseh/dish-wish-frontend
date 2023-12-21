@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="diet_array">
+        <item>Aucun</item>
+        <item>Végétarien</item>
+        <item>Végétalien</item>
+        <item>Cétogène</item>
+        <item>Paleo</item>
+        <item>Sans gluten</item>
+        <item>Sans lactose</item>
+        <item>Alimentation méditerranéenne</item>
+        <item>Flexitarien</item>
+        <item>Régime DASH</item>
+        <item>Régime méditerranéen</item>
+    </string-array>
+</resources>

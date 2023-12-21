@@ -6,6 +6,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -24,13 +30,13 @@ import java.io.IOException;
 
 public class change_profile extends AppCompatActivity {
     private EditText editTextNewFirstName, editTextNewLastName, editTextNewAddress, editTextNewPhoneNumber,
-            editTextNewDiet,
+            //editTextNewDiet,
             editTextNewBio;
 
     private Button btnSubmit;
-    Spinner spinnerAllergies;
+    Spinner spinnerAllergies,spinnerDiet;
     private String currentFirstName, currentLastName, currentAddress,currentPhoneNumber,currentBio,currentDiet;
-    private String newAllergy;
+    private String newAllergy, newDiet;
 
     private static final int REQUEST_IMAGE_CAPTURE = 101;
     private static final int REQUEST_PICK_IMAGE = 102;
@@ -46,10 +52,15 @@ public class change_profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_profile);
         spinnerAllergies = findViewById(R.id.spinnerAllergies);
+        spinnerDiet = findViewById(R.id.spinnerDiet);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.allergies_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerAllergies.setAdapter(adapter);
+
+        ArrayAdapter<CharSequence> adapterDiet = ArrayAdapter.createFromResource(this, R.array.diet_array, android.R.layout.simple_spinner_item);
+        adapterDiet.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerDiet.setAdapter(adapterDiet);
 
 
         spinnerAllergies.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -57,6 +68,19 @@ public class change_profile extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // Mettez à jour la nouvelle allergie lorsque l'utilisateur sélectionne une option dans le spinner
                 newAllergy = parentView.getItemAtPosition(position).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Cette méthode est requise mais nous n'avons rien à faire ici pour le moment
+            }
+
+        });
+
+        spinnerDiet.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // Mettez à jour la nouvelle allergie lorsque l'utilisateur sélectionne une option dans le spinner
+                newDiet = parentView.getItemAtPosition(position).toString();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
@@ -87,7 +111,7 @@ public class change_profile extends AppCompatActivity {
         editTextNewAddress = findViewById(R.id.editTextNewAddress);
         editTextNewPhoneNumber = findViewById(R.id.editTextNewPhoneNumber);
         editTextNewBio = findViewById(R.id.editTextNewBio);
-        editTextNewDiet = findViewById(R.id.editTextNewDiet);
+        //editTextNewDiet = findViewById(R.id.editTextNewDiet);
 
 
         btnSubmit = findViewById(R.id.btnsubmit);
@@ -98,7 +122,7 @@ public class change_profile extends AppCompatActivity {
         currentAddress = getIntent().getStringExtra("CURRENT_ADDRESS");
 
         currentBio = getIntent().getStringExtra("CURRENT_BIO");
-        currentDiet = getIntent().getStringExtra("CURRENT_DIET");
+       // currentDiet = getIntent().getStringExtra("CURRENT_DIET");
         currentPhoneNumber = getIntent().getStringExtra("CURRENT_PHONE_NUMBER");
         // Pré-remplir le champ d'édition avec le prénom actuel
 
@@ -108,7 +132,7 @@ public class change_profile extends AppCompatActivity {
 
         editTextNewPhoneNumber.setText(currentPhoneNumber);
         editTextNewBio.setText(currentBio);
-        editTextNewDiet.setText(currentDiet);
+       // editTextNewDiet.setText(currentDiet);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,7 +150,7 @@ public class change_profile extends AppCompatActivity {
 
                 String newBio = editTextNewBio.getText().toString();
 
-                String newDiet = editTextNewDiet.getText().toString();
+               // String newDiet = editTextNewDiet.getText().toString();
 
                 // String imagePath = saveImageToInternalStorage(imageBitmap);
 
@@ -210,6 +234,7 @@ public class change_profile extends AppCompatActivity {
                     Bundle extras = data.getExtras();
                     imageBitmap = (Bitmap) extras.get("data");
                     imageBitmap = resizeBitmap(imageBitmap, 92, 92);
+                    imageBitmap=getRoundedBitmap(imageBitmap);
                     profileImageView.setImageBitmap(imageBitmap);
                     imageBitmap = getIntent().getParcelableExtra("IMAGE_BITMAP");
                     break;
@@ -218,7 +243,7 @@ public class change_profile extends AppCompatActivity {
                     try {
                         imageBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
                         imageBitmap = resizeBitmap(imageBitmap, 92, 92);
-                        profileImageView.setImageBitmap(imageBitmap);
+                        profileImageView.setImageBitmap(getRoundedBitmap(imageBitmap));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -229,5 +254,25 @@ public class change_profile extends AppCompatActivity {
 
     }
 
+    private Bitmap getRoundedBitmap(Bitmap bitmap) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int diameter = Math.min(width, height);
 
-}
+        Bitmap output = Bitmap.createBitmap(diameter, diameter, Bitmap.Config.ARGB_8888);
+
+        Canvas canvas = new Canvas(output);
+        Paint paint = new Paint();
+        Rect rect = new Rect(0, 0, diameter, diameter);
+
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+        paint.setColor(Color.WHITE);
+        canvas.drawCircle(diameter / 2f, diameter / 2f, diameter / 2f, paint);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(bitmap, null, rect, paint);
+
+        return output;
+
+
+}}
