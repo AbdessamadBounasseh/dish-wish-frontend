@@ -53,9 +53,12 @@ jobs:
             });
             
   notify:
-    needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Wait for build job to finish
+        uses: actions/wait-for-trigger@v2
+        with:
+          workflow_run: ${{ github.workflow_runs.build.id }}
       - name: Set recipient email based on github.actor
         id: set-email
         run: |
