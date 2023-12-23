@@ -20,7 +20,7 @@
         android:theme="@style/Theme.Dishwishfrontend"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
+        <acti
             android:name=".connect"
             android:exported="false" />
         <activity

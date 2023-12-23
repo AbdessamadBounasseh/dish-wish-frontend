@@ -1,390 +1,470 @@
 [
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_back.PNG.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/back.PNG"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_datefocused.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/datefocused.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_change_profile.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_change_profile.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/font_poppins_bold.ttf.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/font/poppins_bold.ttf"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_custom_rounded_back_shape.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/custom_rounded_back_shape.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_homemade_beef_burger.png.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/homemade_beef_burger.png"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_arrow.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/arrow.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-xxhdpi/ic_launcher_foreground.webp"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_custom_desc_icon.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/custom_desc_icon.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_item_search_result.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/item_search_result.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-mdpi/ic_launcher_foreground.webp"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_description.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/description.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_fragment_filter_by_name_or_city.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/fragment_filter_by_name_or_city.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_ic_visibility_on.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/ic_visibility_on.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_ic_visibility_off.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/ic_visibility_off.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_connect.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_connect.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_bottom_sheet_layout.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/bottom_sheet_layout.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/font_inter.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/font/inter.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_maps_chef.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_maps_chef.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_activity_view_profile.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/activity_view_profile.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_baseline_menu_24.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/baseline_menu_24.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_baseline_visibility_24.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/baseline_visibility_24.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_fail.json.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/fail.json"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_create_acciunt.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_create_acciunt.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_img_1.png.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/img_1.png"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_chocolate.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/chocolate.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/xml_data_extraction_rules.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_activity_change_profile.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/activity_change_profile.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_success.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/success.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_homemade_pizza.png.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/homemade_pizza.png"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_ic_back.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/ic_back.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_custom_price_icon.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/custom_price_icon.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-xxhdpi/ic_launcher_foreground.webp"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_item_dish.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/item_dish.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_arr.jpg.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/arr.jpg"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_activity_maps_home.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/activity_maps_home.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_homemade_beef_burger.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/homemade_beef_burger.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_cerf.png.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/cerf.png"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_rounded_edittext.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/rounded_edittext.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_descriptionfocused.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/descriptionfocused.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_ic_notification.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/ic_notification.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_serving.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/serving.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_custom_location_icon.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/custom_location_icon.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_activity_become_cook.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/activity_become_cook.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/xml_backup_rules.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/xml/backup_rules.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_portrait_of.png.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/portrait_of.png"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_line_edittext.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/line_edittext.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_location.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/location.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_descriptionfocused.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/descriptionfocused.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_date.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/date.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_custom_serving_icon.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/custom_serving_icon.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_activity_terms.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/activity_terms.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_popup_negotiate.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/popup_negotiate.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_arr.jpg.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/arr.jpg"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_dish.json.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/dish.json"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_activity_history.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/activity_history.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_details.json.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/details.json"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_success.png.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/success.png"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_custom_title_icon.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/custom_title_icon.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_img.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/img.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_custom_input.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/custom_input.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_become_cook.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_become_cook.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_dish.png.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/dish.png"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_main.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_main.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/xml_data_extraction_rules.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/xml/data_extraction_rules.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_line.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/line.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_custom_price_icon.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/custom_price_icon.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_activity_reset_password.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/activity_reset_password.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_popup_command_details.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/popup_command_details.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_baseline_menu_24.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/baseline_menu_24.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_rounded_corners.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/rounded_corners.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_border_background.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/border_background.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_time.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/time.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_money.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/money.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_title.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/title.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_custom_date_icon.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/custom_date_icon.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_locationfocused.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/locationfocused.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_custom_rounded_back_shape.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/custom_rounded_back_shape.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_returnarrow.json.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/returnarrow.json"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_rounded_edittext.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/rounded_edittext.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_logo.jpeg.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/logo.jpeg"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_baseline_notifications_active_24.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/baseline_notifications_active_24.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_timefocused.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/timefocused.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_custom_desc_icon.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/custom_desc_icon.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_serving.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/serving.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_custom_serving_icon.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/custom_serving_icon.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_activity_create_account.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/activity_create_account.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_card.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/card.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_chocolate.png.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/chocolate.png"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_success.json.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/success.json"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_card.png.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/card.png"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_fragment_profile_details.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/fragment_profile_details.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_time.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/time.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_arrow.png.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/arrow.png"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_moneyfocused.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/moneyfocused.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/xml_backup_rules.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/xml/backup_rules.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_location.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/location.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_ic_visibility_on.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/ic_visibility_on.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_button_cook.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/button_cook.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_img.png.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/img.png"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_item_dish.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/item_dish.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_ic_notification.png.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/ic_notification.png"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_homemade_pizza.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/homemade_pizza.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_ic_menu.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/ic_menu.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_moneyfocused.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/moneyfocused.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_fail.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/fail.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_ic_menu.png.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/ic_menu.png"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_create_account.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_create_account.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_fragment_profile_details.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/fragment_profile_details.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_cook.json.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/cook.json"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_baseline_visibility_off_24.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/baseline_visibility_off_24.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_item_search_result.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/item_search_result.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_fragment_filter_by_name_or_city.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/fragment_filter_by_name_or_city.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_img_1.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/img_1.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_fail.png.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/fail.png"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_servingfocused.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/servingfocused.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/font_poppins_regular.ttf.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/font/poppins_regular.ttf"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_cooking.json.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/cooking.json"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_ic_back.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/ic_back.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_custom_title_icon.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/custom_title_icon.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_custom_location_icon.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/custom_location_icon.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/navigation_mobile_navigation.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/navigation/mobile_navigation.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_ic_launcher_background.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/ic_launcher_background.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_reset_password.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_reset_password.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_timefocused.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/timefocused.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_border_background.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/border_background.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-hdpi/ic_launcher_foreground.webp"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_datefocused.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/datefocused.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-mdpi/ic_launcher_foreground.webp"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-hdpi/ic_launcher_foreground.webp"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_dishmarker.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/dishmarker.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_title_focused.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/title_focused.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_dish.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/dish.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_servingfocused.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/servingfocused.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_ic_visibility_off.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/ic_visibility_off.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/navigation_mobile_navigation.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/navigation/mobile_navigation.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_ic_launcher_background.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_become_cook.PNG.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/become_cook.PNG"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_arrow_up.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/arrow_up.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_popup_command_failed.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/popup_command_failed.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_description.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/description.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_activity_page_acceuil.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/activity_page_acceuil.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_baseline_visibility_24.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/baseline_visibility_24.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_custom_time_icon.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/custom_time_icon.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_terms.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_terms.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_line.png.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/line.png"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_become_cook.PNG.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/become_cook.PNG"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_rounded_corners.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/rounded_corners.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_popup_command_failed.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/popup_command_failed.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_logo.jpeg.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/logo.jpeg"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_yourposition.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/yourposition.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/ic_launcher_foreground.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_arrow_down.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/arrow_down.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_activity_main.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/activity_main.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_title.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/title.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/mipmap-xhdpi/ic_launcher_foreground.webp"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_custom_date_icon.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/custom_date_icon.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/font_interlight.ttf.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/font/interlight.ttf"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_custom_input.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/custom_input.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_activity_create_acciunt.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/activity_create_acciunt.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_custom_time_icon.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/custom_time_icon.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_activity_connect.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/activity_connect.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_baseline_notifications_active_24.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/baseline_notifications_active_24.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/layout_popup_command_created.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/layout/popup_command_created.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-xhdpi/ic_launcher_foreground.webp"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/font_inter.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/font/inter.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_ic_camera.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/ic_camera.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-69:/drawable_locationfocused.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-71:/drawable/locationfocused.xml"
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_baseline_visibility_off_24.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/baseline_visibility_off_24.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_button.json.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/button.json"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_page_acceuil.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_page_acceuil.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_money.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/money.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_camera.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/camera.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/font_poppins_bold.ttf.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/font/poppins_bold.ttf"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_title_focused.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/title_focused.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_history.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_history.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_popup_command_created.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/popup_command_created.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_cerf.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/cerf.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/font_poppins_regular.ttf.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/font/poppins_regular.ttf"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/font_interlight.ttf.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/font/interlight.ttf"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_view_profile.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_view_profile.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_portrait_of.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/portrait_of.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_maps_home.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_maps_home.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_bottom_sheet_layout.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/bottom_sheet_layout.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_date.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/date.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_back.PNG.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/back.PNG"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_profile.json.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/profile.json"
     }
 ]
