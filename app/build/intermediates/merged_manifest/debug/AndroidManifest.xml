@@ -44,10 +44,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Dishwishfrontend"
         android:usesCleartextTraffic="true" >
-        <acti
-            android:name=".connect"
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.connect"
             android:exported="false" />
-
         <activity
             android:name="uit.ensak.dish_wish_frontend.terms"
             android:exported="false" />

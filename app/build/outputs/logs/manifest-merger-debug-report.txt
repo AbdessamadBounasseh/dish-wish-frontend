@@ -187,7 +187,7 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\HP\.gradle\caches\
 		ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:14:9-65
 	android:usesCleartextTraffic
 		ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:21:9-44
-acti
+activity#uit.ensak.dish_wish_frontend.connect
 ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:23:9-25:40
 	android:exported
 		ADDED from D:\DishWishAPP\dish-wish-frontend\app\src\main\AndroidManifest.xml:25:13-37
