@@ -54,7 +54,8 @@ jobs:
 
   notify:
     runs-on: ubuntu-latest
-    needs: build  # Ensure this job runs after the build job
+    needs: build
+    if: always() 
     steps:
       - name: Set recipient email based on github.actor
         id: set-email
