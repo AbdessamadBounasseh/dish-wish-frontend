@@ -41,4 +41,5 @@ Sign In
     <string name="welcome_to_">
 Welcome to DishWish
 </string>
+    <string name="notifications">Notifications</string>
 </resources>

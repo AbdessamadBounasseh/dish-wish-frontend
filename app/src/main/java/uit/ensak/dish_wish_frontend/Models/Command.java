@@ -20,9 +20,7 @@ public class Command implements Serializable {
     private Chef chef;
 
     // Constructor
-    public Command(Long id, String title, String description, String serving, String address, String deadline,
-                   String price, String status,
-                   Client client, Chef chef) {
+    public Command(Long id, String title, String description, String serving, String address, String deadline, String price, String status, Client client, Chef chef) {
         this.id = id;
         this.title= title;
         this.description = description;

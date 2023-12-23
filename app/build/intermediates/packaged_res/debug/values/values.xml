@@ -90,6 +90,7 @@ General\n1.1 Agreement: By using this Service, you acknowledge that you have rea
     <string name="nav_header_title">Android Studio</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="notifications">Notifications</string>
     <string name="password">PASSWORD</string>
     <string name="remember">
 REMEBER ME

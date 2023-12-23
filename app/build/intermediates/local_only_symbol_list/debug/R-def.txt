@@ -98,6 +98,7 @@ font poppins_regular
 id ChooseLocation
 id ConfirmPasswordTitle
 id Description
+id NotificationResultsRecyclerView
 id Ok
 id PasswordTitle
 id addButton
@@ -148,6 +149,7 @@ id gridViewDishes
 id group_103
 id icon_24_bac
 id illustratio
+id imageChef
 id imageDish
 id imageViewChangePhoto
 id imageViewHeader
@@ -160,6 +162,7 @@ id nav_gallery
 id nav_home
 id nav_slideshow
 id notificationIcon
+id notification_title
 id ob_forms_ti
 id order
 id pass2
@@ -185,12 +188,16 @@ id subtractButton
 id text
 id text1
 id text2
+id textChefName
+id textDescription
 id textDishName
 id textDishPrice
 id textEnterPassword
 id textInputLayoutConfirmPassword
 id textInputLayoutPassword
+id textPrice
 id textResetPassword
+id textTitle
 id textView2
 id textViewActualAddress
 id textViewActualAllergies
@@ -222,6 +229,7 @@ layout activity_history
 layout activity_main
 layout activity_maps_chef
 layout activity_maps_home
+layout activity_notifications_client
 layout activity_page_acceuil
 layout activity_reset_password
 layout activity_terms
@@ -230,6 +238,7 @@ layout bottom_sheet_layout
 layout fragment_filter_by_name_or_city
 layout fragment_profile_details
 layout item_dish
+layout item_notification_client
 layout item_search_result
 layout popup_command_created
 layout popup_command_details
@@ -264,6 +273,7 @@ string nav_header_subtitle
 string nav_header_title
 string navigation_drawer_close
 string navigation_drawer_open
+string notifications
 string password
 string remember
 string sign_in
