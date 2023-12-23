@@ -1,0 +1,88 @@
+name: Android CI
+
+on:
+  push:
+    branches:
+      - prod
+      - dev
+      - "*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'adopt'
+          java-version: '17'
+
+      - name: Validate Gradle Wrapper
+        uses: gradle/wrapper-validation-action@v1
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build
+
+      - name: Run tests
+        run: ./gradlew test
+
+      - name: Package Debug APK
+        run: ./gradlew assembleDebug
+
+      - name: Upload Debug artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-debug
+          path: app/build/outputs/apk/debug/
+
+      - name: Set build status
+        uses: actions/github-script@v7.0.1
+        with:
+          script: |
+            const conclusion = context.job.status === 'success' ? 'success' : 'failure';
+            github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: context.sha,
+              state: conclusion,
+              context: 'GitHub Actions',
+              description: 'Build and Test',
+            });
+            
+  notify:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set recipient email based on github.actor
+        id: set-email
+        run: |
+          email_recipient=""
+          if [[ "${{ github.actor }}" == "FAYCAL-EL" ]]; then
+            email_recipient="faysalelourrat@gmail.com"
+          elif [[ "${{ github.actor }}" == "ahcinechaymae" ]]; then
+            email_recipient="chaymaa.ahcine@uit.ac.ma"
+          elif [[ "${{ github.actor }}" == "khaoulazaar" ]]; then
+            email_recipient="khaoula.lazaar@uit.ac.ma"
+          elif [[ "${{ github.actor }}" == "moamine1996" ]]; then
+            email_recipient="mohamedamine.elkaaba@uit.ac.ma"
+          fi
+          echo "::set-output name=email_recipient::$email_recipient"
+
+      - name: Send email on success
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: Build succeeded on ${{ github.ref }}
+          body: |
+            Build succeeded for ${{ github.workflow }} on ${{ github.ref }}.
+            See the build log here: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          to: ${{ steps.set-email.outputs.email_recipient }}
+          from: "${{ secrets.EMAIL_SENDER }}"
