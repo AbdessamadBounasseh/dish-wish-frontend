@@ -85,6 +85,13 @@ dependencies {
     implementation("com.google.android.gms:play-services-maps:18.0.0")
     implementation("com.google.android.gms:play-services-location:18.0.0")
     implementation("com.airbnb.android:lottie:3.4.0")
+    //tessssssst
+
+//    implementation ("com.squareup.okhttp3:okhttp:4.10.0'")
+//    implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0‑alpha.12")
+
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.12.0")
 
 
     implementation("org.projectlombok:lombok:1.18.30")

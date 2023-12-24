@@ -1,12 +1,27 @@
-package uit.ensak.dish_wish_frontend.Profil_Folder;
+package uit.ensak.dish_wish_frontend;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -20,9 +35,13 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
-import uit.ensak.dish_wish_frontend.Authentification.createAcciunt;
-import uit.ensak.dish_wish_frontend.Command.MapsHomeActivity;
-import uit.ensak.dish_wish_frontend.R;
+import retrofit2.Call;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import uit.ensak.dish_wish_frontend.Command.ApiService;
+import uit.ensak.dish_wish_frontend.Command.RetrofitClient;
+
+
 
 public class view_profile extends AppCompatActivity {
 
@@ -32,7 +51,6 @@ public class view_profile extends AppCompatActivity {
 
 
     private TextView textViewFirstName,textViewLastName,textViewAddress, textViewBio, textViewDiet, textViewPHONE_NUMBER, textViewAllergies;
-    private Spinner spinnerAllergies;
     private ImageView profileImageView;
 
     @Override
@@ -47,8 +65,8 @@ public class view_profile extends AppCompatActivity {
         textViewPHONE_NUMBER = findViewById(R.id.textViewActualPhoneNumber);
         textViewAllergies = findViewById(R.id.textViewActualAllergies);
         profileImageView = findViewById(R.id.portrait_of);
-        ImageButton btnBack = findViewById(R.id.btnBack);
 
+        ImageButton btnBack = findViewById(R.id.btnBack);
         Button btnChange = findViewById(R.id.btnchange);
         Button btnDeleteAccount = findViewById(R.id.btnDeleteAccount);
         btnChange.setOnClickListener(new View.OnClickListener() {
@@ -68,7 +86,7 @@ public class view_profile extends AppCompatActivity {
                 intent.putExtra("CURRENT_PHONE_NUMBER", textViewPHONE_NUMBER.getText().toString());
 
                 intent.putExtra("CURRENT_BIO", textViewBio.getText().toString());
-                //intent.putExtra("CURRENT_DIET", textViewDiet.getText().toString());
+               // intent.putExtra("CURRENT_DIET", textViewDiet.getText().toString());
                 // intent.putExtra("CURRENT_PROFILE_IMAGE_PATH", imagePath);
 
 
@@ -125,7 +143,7 @@ public class view_profile extends AppCompatActivity {
 
         Toast.makeText(view_profile.this, "Account has been successfully deleted", Toast.LENGTH_SHORT).show();
         //il faut retourner a login activity
-        Intent loginIntent = new Intent(view_profile.this, createAcciunt.class);
+        Intent loginIntent = new Intent(view_profile.this, change_profile.class);
         startActivity(loginIntent);
         finish(); // Pour fermer l'activité actuelle après la suppression du compte
     }
@@ -136,7 +154,6 @@ public class view_profile extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == RESULT_OK) {
 
-            // Activité MainActivity
             String newFirstName = data.getStringExtra("NEW_FIRST_NAME");
             String newLastName = data.getStringExtra("NEW_LAST_NAME");
             String newAddress = data.getStringExtra("NEW_ADDRESS");
@@ -149,7 +166,7 @@ public class view_profile extends AppCompatActivity {
             Bitmap newProfileImageBitmap = data.getParcelableExtra("NEW_PROFILE_IMAGE_BITMAP");
 
 // Utilisez cette image pour mettre à jour votre interface utilisateur
-            profileImageView.setImageBitmap(newProfileImageBitmap);
+            profileImageView.setImageBitmap(getRoundedBitmap(newProfileImageBitmap));
 
 
             // Bitmap newProfileImageBitmap = data.getParcelableExtra("NEW_PROFILE_IMAGE_BITMAP");
@@ -190,4 +207,25 @@ public class view_profile extends AppCompatActivity {
 
         }
     }
-}
+    private Bitmap getRoundedBitmap(Bitmap bitmap) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int diameter = Math.min(width, height);
+
+        Bitmap output = Bitmap.createBitmap(diameter, diameter, Bitmap.Config.ARGB_8888);
+
+        Canvas canvas = new Canvas(output);
+        Paint paint = new Paint();
+        Rect rect = new Rect(0, 0, diameter, diameter);
+
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+        paint.setColor(Color.WHITE);
+        canvas.drawCircle(diameter / 2f, diameter / 2f, diameter / 2f, paint);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(bitmap, null, rect, paint);
+
+        return output;
+
+
+    }}
