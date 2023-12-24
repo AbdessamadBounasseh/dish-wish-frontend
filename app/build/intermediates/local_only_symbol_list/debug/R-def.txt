@@ -4,6 +4,7 @@ array allergies_array
 array com_google_android_gms_fonts_certs
 array com_google_android_gms_fonts_certs_dev
 array com_google_android_gms_fonts_certs_prod
+array diet_array
 array preloaded_fonts
 color InputBorder
 color black
@@ -40,8 +41,10 @@ drawable baseline_visibility_off_24
 drawable become_cook
 drawable border_background
 drawable button_cook
+drawable camera
 drawable card
 drawable cerf
+drawable chef
 drawable chocolate
 drawable custom_date_icon
 drawable custom_desc_icon
@@ -59,9 +62,11 @@ drawable descriptionfocused
 drawable dish
 drawable dishmarker
 drawable fail
+drawable food_allergy
 drawable homemade_beef_burger
 drawable homemade_pizza
 drawable ic_back
+drawable ic_camera
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_menu
@@ -78,6 +83,7 @@ drawable logo
 drawable menu
 drawable money
 drawable moneyfocused
+drawable order_marker
 drawable portrait_of
 drawable rounded_corners
 drawable rounded_edittext
@@ -129,7 +135,6 @@ id donthave
 id editTextConfirmPassword
 id editTextNewAddress
 id editTextNewBio
-id editTextNewDiet
 id editTextNewFirstName
 id editTextNewLastName
 id editTextNewPhoneNumber
@@ -148,6 +153,7 @@ id group_103
 id icon_24_bac
 id illustratio
 id imageDish
+id imageViewChangePhoto
 id imageViewHeader
 id lastNameTextView
 id location
@@ -161,8 +167,10 @@ id notificationIcon
 id ob_forms_ti
 id order
 id pass2
+id photo
 id pickDate
 id pickTime
+id popupChefDetails
 id popupCommandDetails
 id popupCreatedCommand
 id popupFailedCommand
@@ -170,6 +178,7 @@ id portrait_of
 id price
 id profile
 id profile_infos
+id ratingBar
 id searchEditText
 id searchResultsRecyclerView
 id search_bar
@@ -178,6 +187,7 @@ id serving
 id sign
 id sign_in
 id spinnerAllergies
+id spinnerDiet
 id st
 id subtractButton
 id text
@@ -229,6 +239,7 @@ layout fragment_filter_by_name_or_city
 layout fragment_profile_details
 layout item_dish
 layout item_search_result
+layout popup_chef_details
 layout popup_command_created
 layout popup_command_details
 layout popup_command_failed
@@ -243,6 +254,7 @@ raw cooking
 raw details
 raw dish
 raw fail
+raw profil
 raw profile
 raw returnarrow
 raw success
