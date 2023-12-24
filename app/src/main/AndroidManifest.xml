@@ -53,11 +53,11 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
+<!--        <activity-->
+<!--            android:name=".become_cook"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".become_cook"
-            android:exported="false" />
-        <activity
-            android:name=".view_profile"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
