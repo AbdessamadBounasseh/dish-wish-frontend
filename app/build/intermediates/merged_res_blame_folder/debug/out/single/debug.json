@@ -24,8 +24,16 @@
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\ic_notification.png"
     },
     {
+        "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_camera.png.flat",
+        "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\camera.png"
+    },
+    {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_ic_back.xml.flat",
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\ic_back.xml"
+    },
+    {
+        "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_ic_camera.png.flat",
+        "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\ic_camera.png"
     },
     {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\mipmap-xxhdpi_ic_launcher.webp.flat",
@@ -192,10 +200,6 @@
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_popup_command_details.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/popup_command_details.xml"
-    },
-    {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\layout_fragment_filter_by_name_or_city.xml.flat",
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\layout\\fragment_filter_by_name_or_city.xml"
     },
@@ -288,6 +292,10 @@
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\layout\\popup_negotiate.xml"
     },
     {
+        "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\layout_popup_chef_details.xml.flat",
+        "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\layout\\popup_chef_details.xml"
+    },
+    {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
@@ -322,6 +330,10 @@
     {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\layout_item_dish.xml.flat",
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\layout\\item_dish.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_food_allergy.jpg.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/food_allergy.jpg"
     },
     {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\raw_fail.json.flat",
@@ -416,6 +428,10 @@
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\date.xml"
     },
     {
+        "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\raw_profil.json.flat",
+        "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\raw\\profil.json"
+    },
+    {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_dishmarker.png.flat",
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\dishmarker.png"
     },
@@ -426,6 +442,10 @@
     {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_img.png.flat",
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\img.png"
+    },
+    {
+        "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_chef.png.flat",
+        "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\chef.png"
     },
     {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
@@ -442,6 +462,10 @@
     {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\mipmap-mdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_order_marker.png.flat",
+        "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\order_marker.png"
     },
     {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\raw_success.json.flat",

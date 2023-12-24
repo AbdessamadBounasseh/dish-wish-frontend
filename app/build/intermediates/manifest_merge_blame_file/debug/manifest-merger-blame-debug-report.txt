@@ -112,7 +112,7 @@
 69-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:44:13-37
 70        <activity
 70-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:45:9-55:20
-71            android:name="uit.ensak.dish_wish_frontend.Command.MapsChefActivity"
+71            android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
 71-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:46:13-53
 72            android:exported="true"
 72-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:47:13-36
@@ -157,7 +157,7 @@
 92-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:67:13-37
 93        <activity
 93-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:68:9-70:40
-94            android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
+94            android:name="uit.ensak.dish_wish_frontend.Command.MapsChefActivity"
 94-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:69:13-53
 95            android:exported="false" />
 95-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:70:13-37

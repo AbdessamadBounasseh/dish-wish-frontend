@@ -6,7 +6,7 @@
     android:id="@+id/popupCommandDetails"
     android:layout_width="350dp"
     android:orientation="vertical"
-    android:layout_height="250dp"
+    android:layout_height="350dp"
     android:background="@drawable/rounded_edittext"
     android:layout_gravity="center">
 
@@ -96,8 +96,24 @@
                     android:textSize="18sp" />
 
             </LinearLayout>
-
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/Description"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/rounded_edittext"
+            android:gravity="left"
+            android:hint="Message for the customer"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:textAllCaps="false"
+            android:textColor="@color/gray"
+            android:textColorHint="@color/gray"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/finalizeButton"

@@ -1,46 +1,28 @@
 package uit.ensak.dish_wish_frontend.Command;
 
 import static androidx.constraintlayout.widget.ConstraintLayoutStates.TAG;
-import static androidx.core.content.ContentProviderCompat.requireContext;
 
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentActivity;
-import android.location.Geocoder;
-
-import android.Manifest;
-import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.LocationRequest;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationServices;
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentActivity;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -54,21 +36,19 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
-import com.google.gson.Gson;
 
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
+import java.util.Map;
 import java.util.TimeZone;
 
-
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.Callback;
+import retrofit2.Response;
 import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Command;
@@ -80,8 +60,8 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private GoogleMap mMap;
     private ActivityMapsHomeBinding binding;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
-
-
+    private Map<String, Command> markerCommandMap = new HashMap<>();
+    final ArrayList<Command> commandList = new ArrayList<>();
     private LinearLayout mBottomSheetLayout;
     private BottomSheetBehavior sheetBehavior;
     private ImageView header_Arrow_Image;
@@ -89,6 +69,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private Button pickTime;
     private Button pickDate;
     private Marker currentMarker;
+    private ImageView arrow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +92,8 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
 
         LatLng startPosition = new LatLng(34.26101, -6.5802);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startPosition, 8.0f));
+
+        retryRequest();
 
         mBottomSheetLayout = findViewById(R.id.bottom_sheet_layout);
         sheetBehavior = BottomSheetBehavior.from(mBottomSheetLayout);
@@ -277,8 +260,121 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             }
         });
 
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                Command associatedCommand = getCommandFromMarker(marker);
+                showCommandDetailsPopup(associatedCommand);
+                return true;
+            }
+        });
+
     }
 
+    private void showCommandDetailsPopup(Command associatedCommand) {
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.popup_chef_details);
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+
+            Window window = dialog.getWindow();
+            if (window != null) {
+                WindowManager.LayoutParams layoutParams = window.getAttributes();
+                layoutParams.y = (int) getResources().getDisplayMetrics().density * 20;
+                window.setAttributes(layoutParams);
+            }
+        dialog.show();
+
+        arrow = dialog.findViewById(R.id.animation);
+        if (arrow != null) {
+            arrow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+        }
+    }
+
+
+
+    private void retryRequest() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDM0MzA1NDksImV4cCI6MTcwMzUxNjk0OX0.P1e__4dSVrxRbUhyRdSXWfJBBAcV0el2dhko6oB04UE";
+
+                ApiService apiService = RetrofitClient.getApiService();
+                Call<List<Command>> call = apiService.getCommands("Bearer " + accessToken);
+
+                call.enqueue(new Callback<List<Command>>() {
+                    @Override
+                    public void onResponse(Call<List<Command>> call, Response<List<Command>> response) {
+                        if (response.isSuccessful()) {
+                            List<Command> receivedCommands = response.body();
+                            if (receivedCommands != null) {
+                                for (Command command : receivedCommands) {
+                                    commandList.add(command);
+                                    addMarkersToMap(commandList);
+                                }
+                            }
+                        } else {
+                            showCustomPopup();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Command>> call, Throwable t) {
+                        showCustomPopup();
+                    }
+                });
+            }
+        }).start();
+    }
+
+    private void showCustomPopup() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.popup_command_failed);
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+        dialog.show();
+        Button tryAgainButton = dialog.findViewById(R.id.tryagain);
+        tryAgainButton.setOnClickListener(v -> {
+            retryRequest();
+            dialog.dismiss();
+        });
+    }
+
+    private void addMarkersToMap(List<Command> commandList) {
+        if (mMap != null && commandList != null) {
+            for (Command command : commandList) {
+                String address = command.getAddress();
+                String title = command.getTitle();
+                String[] latLng = address.split(",");
+
+                if (latLng.length == 2) {
+                    double latitude = Double.parseDouble(latLng[0]);
+                    double longitude = Double.parseDouble(latLng[1]);
+
+                    LatLng location = new LatLng(latitude, longitude);
+                    MarkerOptions markerOptions = new MarkerOptions()
+                            .position(location)
+                            .title(title)
+                            .icon(BitmapFromVector(
+                                    getApplicationContext(),
+                                    R.drawable.chef));
+                    Marker marker = mMap.addMarker(markerOptions);
+                    linkMarkerToCommand(marker, command);
+                }
+            }
+        }
+    }
+
+    private void linkMarkerToCommand(Marker marker, Command command) {
+        markerCommandMap.put(marker.getId(), command);
+    }
+
+    private Command getCommandFromMarker(Marker marker) {
+        return markerCommandMap.get(marker.getId());
+    }
 
     //method to change the marker's icon
     private BitmapDescriptor
@@ -308,7 +404,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     }
 
     private void sendCommandToBackend() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDMxNTY1OTUsImV4cCI6MTcwMzI0Mjk5NX0.N-P8V2vvFC0DFUPjmMmJ96YAVuOl8Olks0WYlaEJ7YI";
+        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDM0MzA1NDksImV4cCI6MTcwMzUxNjk0OX0.P1e__4dSVrxRbUhyRdSXWfJBBAcV0el2dhko6oB04UE";
 
         //form fields
         EditText Title = findViewById(R.id.title);

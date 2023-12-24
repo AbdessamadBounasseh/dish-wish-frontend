@@ -43,7 +43,7 @@
             android:name=".become_cook"
             android:exported="false" />
         <activity
-            android:name=".Command.MapsChefActivity"
+            android:name=".Command.MapsHomeActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
@@ -66,7 +66,7 @@
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".Command.MapsHomeActivity"
+            android:name=".Command.MapsChefActivity"
             android:exported="false" />
         <activity
             android:name=".connect"
