@@ -2,38 +2,67 @@ package uit.ensak.dish_wish_frontend;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class change_profile extends AppCompatActivity {
+import org.jetbrains.annotations.Nullable;
 
+import java.io.IOException;
+
+public class change_profile extends AppCompatActivity {
     private EditText editTextNewFirstName, editTextNewLastName, editTextNewAddress, editTextNewPhoneNumber,
-            editTextNewAllergies, editTextNewDiet,
+            //editTextNewDiet,
             editTextNewBio;
 
     private Button btnSubmit;
-    Spinner spinnerAllergies;
+    Spinner spinnerAllergies,spinnerDiet;
     private String currentFirstName, currentLastName, currentAddress,currentPhoneNumber,currentBio,currentDiet;
-    private String newAllergy;
+    private String newAllergy, newDiet;
+
+    private static final int REQUEST_IMAGE_CAPTURE = 101;
+    private static final int REQUEST_PICK_IMAGE = 102;
+    private ImageView profileImageView;
+    private Bitmap imageBitmap;
+    private Bitmap resizeBitmap(Bitmap originalBitmap, int newWidth, int newHeight) {
+        return Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, false);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_profile);
         spinnerAllergies = findViewById(R.id.spinnerAllergies);
+        spinnerDiet = findViewById(R.id.spinnerDiet);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.allergies_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerAllergies.setAdapter(adapter);
 
-        // Ajoutez un écouteur pour le spinner
+        ArrayAdapter<CharSequence> adapterDiet = ArrayAdapter.createFromResource(this, R.array.diet_array, android.R.layout.simple_spinner_item);
+        adapterDiet.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerDiet.setAdapter(adapterDiet);
+
+
         spinnerAllergies.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -47,6 +76,33 @@ public class change_profile extends AppCompatActivity {
 
         });
 
+        spinnerDiet.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // Mettez à jour la nouvelle allergie lorsque l'utilisateur sélectionne une option dans le spinner
+                newDiet = parentView.getItemAtPosition(position).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Cette méthode est requise mais nous n'avons rien à faire ici pour le moment
+            }
+
+        });
+        //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+        profileImageView = findViewById(R.id.portrait_of);
+        if (getIntent().hasExtra("IMAGE_BITMAP")) {
+            imageBitmap = getIntent().getParcelableExtra("IMAGE_BITMAP");
+            profileImageView.setImageBitmap(imageBitmap);
+        }
+
+        ImageView changePhotoImageView = findViewById(R.id.imageViewChangePhoto);
+        // Ajoutez un écouteur de clic pour le changement d'image
+        changePhotoImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showImageSourceDialog();
+            }
+        });
 
 
         //#########################################
@@ -55,7 +111,7 @@ public class change_profile extends AppCompatActivity {
         editTextNewAddress = findViewById(R.id.editTextNewAddress);
         editTextNewPhoneNumber = findViewById(R.id.editTextNewPhoneNumber);
         editTextNewBio = findViewById(R.id.editTextNewBio);
-        editTextNewDiet = findViewById(R.id.editTextNewDiet);
+        //editTextNewDiet = findViewById(R.id.editTextNewDiet);
 
 
         btnSubmit = findViewById(R.id.btnsubmit);
@@ -66,7 +122,7 @@ public class change_profile extends AppCompatActivity {
         currentAddress = getIntent().getStringExtra("CURRENT_ADDRESS");
 
         currentBio = getIntent().getStringExtra("CURRENT_BIO");
-        currentDiet = getIntent().getStringExtra("CURRENT_DIET");
+       // currentDiet = getIntent().getStringExtra("CURRENT_DIET");
         currentPhoneNumber = getIntent().getStringExtra("CURRENT_PHONE_NUMBER");
         // Pré-remplir le champ d'édition avec le prénom actuel
 
@@ -76,7 +132,7 @@ public class change_profile extends AppCompatActivity {
 
         editTextNewPhoneNumber.setText(currentPhoneNumber);
         editTextNewBio.setText(currentBio);
-        editTextNewDiet.setText(currentDiet);
+       // editTextNewDiet.setText(currentDiet);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +150,9 @@ public class change_profile extends AppCompatActivity {
 
                 String newBio = editTextNewBio.getText().toString();
 
-                String newDiet = editTextNewDiet.getText().toString();
+               // String newDiet = editTextNewDiet.getText().toString();
+
+                // String imagePath = saveImageToInternalStorage(imageBitmap);
 
                 // Créer un Intent pour contenir les nouvelles valeurs
                 Intent resultIntent = new Intent();
@@ -110,6 +168,12 @@ public class change_profile extends AppCompatActivity {
                 resultIntent.putExtra("NEW_PHONE_NUMBER", newPhoneNumber);
                 resultIntent.putExtra("NEW_BIO", newBio);
                 resultIntent.putExtra("NEW_DIET", newDiet);
+                //resultIntent.putExtra("NEW_PROFILE_IMAGE_PATH", imagePath);
+                resultIntent.putExtra("NEW_PROFILE_IMAGE_BITMAP", imageBitmap);
+
+
+
+
 
                 // Afficher un message de succès
                 Toast.makeText(change_profile.this, "Changes successful", Toast.LENGTH_SHORT).show();
@@ -121,4 +185,94 @@ public class change_profile extends AppCompatActivity {
     }
 
 
-}
+    private void showImageSourceDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Choose Image Source");
+        builder.setItems(new CharSequence[]{"Camera", "Gallery"}, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case 0:
+                        dispatchTakePictureIntent();
+                        break;
+                    case 1:
+                        pickImageFromGallery();
+                        break;
+                }
+            }
+        });
+        builder.show();
+    }
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+    private String saveImageToInternalStorage(Bitmap bitmap) {
+        // Vous devez définir la logique pour sauvegarder l'image dans le stockage interne ici
+        // Retournez le chemin du fichier après l'enregistrement
+
+        String imagePath = getFilesDir() + "/profile_image.jpg";
+
+        return imagePath;
+    }
+
+
+    private void pickImageFromGallery() {
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(galleryIntent, REQUEST_PICK_IMAGE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case REQUEST_IMAGE_CAPTURE:
+                    Bundle extras = data.getExtras();
+                    imageBitmap = (Bitmap) extras.get("data");
+                    imageBitmap = resizeBitmap(imageBitmap, 92, 92);
+                    imageBitmap=getRoundedBitmap(imageBitmap);
+                    profileImageView.setImageBitmap(imageBitmap);
+                    imageBitmap = getIntent().getParcelableExtra("IMAGE_BITMAP");
+                    break;
+                case REQUEST_PICK_IMAGE:
+                    Uri selectedImage = data.getData();
+                    try {
+                        imageBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                        imageBitmap = resizeBitmap(imageBitmap, 92, 92);
+                        profileImageView.setImageBitmap(getRoundedBitmap(imageBitmap));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+            }
+        }
+
+
+    }
+
+    private Bitmap getRoundedBitmap(Bitmap bitmap) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int diameter = Math.min(width, height);
+
+        Bitmap output = Bitmap.createBitmap(diameter, diameter, Bitmap.Config.ARGB_8888);
+
+        Canvas canvas = new Canvas(output);
+        Paint paint = new Paint();
+        Rect rect = new Rect(0, 0, diameter, diameter);
+
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+        paint.setColor(Color.WHITE);
+        canvas.drawCircle(diameter / 2f, diameter / 2f, diameter / 2f, paint);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(bitmap, null, rect, paint);
+
+        return output;
+
+
+}}

@@ -124,13 +124,13 @@ public class createAcciunt extends AppCompatActivity {
                         if (password.equals(confirmpassword)) {
                           /*  if(db.checkemail(email))
                             {
-                                Toast.makeText(createAcciunt.this,"user already exists",Toast.LENGTH_LONG).show();
+                                Toast.makeText(createAccount.this,"user already exists",Toast.LENGTH_LONG).show();
                                 return;
 
                             }
                             boolean signupsuccess =db.insertData(email,password);
                             if(signupsuccess) {
-                                Intent intent1= new Intent(createAcciunt.this,terms.class);
+                                Intent intent1= new Intent(createAccount.this,terms.class);
                                 startActivity(intent1);
 
                             } else

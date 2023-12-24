@@ -52,7 +52,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
     <!-- Second View: portrait_of -->
-    <View
+    <ImageView
         android:id="@+id/portrait_of"
         android:layout_width="92dp"
         android:layout_height="92dp"
@@ -242,5 +242,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="70dp"/>
+    <Button
+        android:id="@+id/btnDeleteAccount"
+        android:layout_width="335dp"
+        android:layout_height="62dp"
+        android:text="Delete Account"
+        android:backgroundTint="@color/principalColor"
+        app:layout_constraintTop_toBottomOf="@id/btnchange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
