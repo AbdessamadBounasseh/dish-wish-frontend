@@ -295,13 +295,11 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         }
     }
 
-
-
     private void retryRequest() {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDM0MzA1NDksImV4cCI6MTcwMzUxNjk0OX0.P1e__4dSVrxRbUhyRdSXWfJBBAcV0el2dhko6oB04UE";
+                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDM0NTA4NjMsImV4cCI6MTcwMzUzNzI2M30.o-b1dPTM6DRMtwQp5E6LOvW2WVFawcIUGRaareGBq28";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Command>> call = apiService.getCommands("Bearer " + accessToken);
@@ -404,7 +402,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     }
 
     private void sendCommandToBackend() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDM0MzA1NDksImV4cCI6MTcwMzUxNjk0OX0.P1e__4dSVrxRbUhyRdSXWfJBBAcV0el2dhko6oB04UE";
+        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDM0NTA4NjMsImV4cCI6MTcwMzUzNzI2M30.o-b1dPTM6DRMtwQp5E6LOvW2WVFawcIUGRaareGBq28";
 
         //form fields
         EditText Title = findViewById(R.id.title);

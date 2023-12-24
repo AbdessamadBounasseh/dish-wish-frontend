@@ -55,7 +55,7 @@
 32-->[androidx.core:core:1.9.0] C:\Users\mamin\.gradle\caches\transforms-3\94a744cc30bb72e875c6dab644d33459\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 33
 34    <application
-34-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:12:5-86:19
+34-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:12:5-87:19
 35        android:allowBackup="true"
 35-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:13:9-35
 36        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -105,92 +105,92 @@
 65-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:40:13-54
 66
 67        <activity
-67-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:42:9-44:40
-68            android:name="uit.ensak.dish_wish_frontend.become_cook"
-68-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:43:13-40
-69            android:exported="false" />
-69-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:44:13-37
-70        <activity
-70-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:45:9-55:20
-71            android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
-71-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:46:13-53
-72            android:exported="true"
-72-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:47:13-36
-73            android:label="@string/app_name"
-73-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:48:13-45
-74            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
-74-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:49:13-70
-75            <intent-filter>
-75-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:50:13-54:29
-76                <action android:name="android.intent.action.MAIN" />
-76-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:51:17-69
-76-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:51:25-66
-77
-78                <category android:name="android.intent.category.LAUNCHER" />
-78-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:53:17-77
-78-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:53:27-74
-79            </intent-filter>
-80        </activity>
+67-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:43:9-53:20
+68            android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
+68-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:44:13-53
+69            android:exported="true"
+69-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:45:13-36
+70            android:label="@string/app_name"
+70-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:46:13-45
+71            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
+71-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:47:13-70
+72            <intent-filter>
+72-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:48:13-52:29
+73                <action android:name="android.intent.action.MAIN" />
+73-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:49:17-69
+73-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:49:25-66
+74
+75                <category android:name="android.intent.category.LAUNCHER" />
+75-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:51:17-77
+75-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:51:27-74
+76            </intent-filter>
+77        </activity>
+78        <activity
+78-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:54:9-56:40
+79            android:name="uit.ensak.dish_wish_frontend.history_folder.HistoryActivity"
+79-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:55:13-59
+80            android:exported="false" />
+80-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:56:13-37
 81        <activity
-81-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:56:9-58:40
-82            android:name="uit.ensak.dish_wish_frontend.history_folder.HistoryActivity"
-82-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:57:13-59
+81-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:57:9-59:40
+82            android:name="uit.ensak.dish_wish_frontend.become_cook"
+82-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:58:13-40
 83            android:exported="false" />
-83-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:58:13-37
+83-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:59:13-37
 84        <activity
-84-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:59:9-61:40
+84-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:60:9-62:40
 85            android:name="uit.ensak.dish_wish_frontend.change_profile"
-85-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:60:13-43
+85-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:61:13-43
 86            android:exported="false" />
-86-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:61:13-37
+86-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:62:13-37
 87        <activity
-87-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:62:9-64:40
+87-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:63:9-65:40
 88            android:name="uit.ensak.dish_wish_frontend.view_profile"
-88-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:63:13-41
+88-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:64:13-41
 89            android:exported="false" />
-89-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:64:13-37
+89-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:65:13-37
 90        <activity
-90-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:65:9-67:40
+90-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:66:9-68:40
 91            android:name="uit.ensak.dish_wish_frontend.ProfileActivity"
-91-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:66:13-44
+91-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:67:13-44
 92            android:exported="false" />
-92-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:67:13-37
+92-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:68:13-37
 93        <activity
-93-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:68:9-70:40
+93-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:69:9-71:40
 94            android:name="uit.ensak.dish_wish_frontend.Command.MapsChefActivity"
-94-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:69:13-53
+94-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:70:13-53
 95            android:exported="false" />
-95-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:70:13-37
+95-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:71:13-37
 96        <activity
-96-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:71:9-73:40
+96-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:72:9-74:40
 97            android:name="uit.ensak.dish_wish_frontend.connect"
-97-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:72:13-36
+97-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:73:13-36
 98            android:exported="false" />
-98-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:73:13-37
+98-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:74:13-37
 99        <activity
-99-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:74:9-76:40
+99-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:75:9-77:40
 100            android:name="uit.ensak.dish_wish_frontend.terms"
-100-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:75:13-34
+100-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:76:13-34
 101            android:exported="false" />
-101-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:76:13-37
+101-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:77:13-37
 102        <activity
-102-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:77:9-79:40
+102-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:78:9-80:40
 103            android:name="uit.ensak.dish_wish_frontend.createAcciunt"
-103-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:78:13-42
+103-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:79:13-42
 104            android:exported="false" />
-104-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:79:13-37
+104-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:80:13-37
 105        <activity
-105-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:80:9-82:40
+105-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:81:9-83:40
 106            android:name="uit.ensak.dish_wish_frontend.MainActivity"
-106-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:81:13-41
+106-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:82:13-41
 107            android:exported="false" />
-107-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:82:13-37
+107-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:83:13-37
 108        <activity
-108-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:83:9-85:40
+108-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:84:9-86:40
 109            android:name="uit.ensak.dish_wish_frontend.page_acceuil"
-109-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:84:13-41
+109-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:85:13-41
 110            android:exported="false" />
-110-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:85:13-37
+110-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:86:13-37
 111        <activity
 111-->[androidx.compose.ui:ui-tooling:1.4.0] C:\Users\mamin\.gradle\caches\transforms-3\cbdc5d4f2f7f34bb7880b4dcec7b4bb8\transformed\ui-tooling-1.4.0\AndroidManifest.xml:23:9-25:39
 112            android:name="androidx.compose.ui.tooling.PreviewActivity"

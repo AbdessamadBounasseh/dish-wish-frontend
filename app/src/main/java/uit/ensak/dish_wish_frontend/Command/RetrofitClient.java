@@ -6,7 +6,7 @@ import uit.ensak.dish_wish_frontend.service.AuthenticationService;
 
 public class RetrofitClient {
 
-    private static final String BASE_URL = "http://192.168.10.1:8082/";
+    private static final String BASE_URL = "http://192.168.56.1:8082/";
 
     private static Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(BASE_URL)

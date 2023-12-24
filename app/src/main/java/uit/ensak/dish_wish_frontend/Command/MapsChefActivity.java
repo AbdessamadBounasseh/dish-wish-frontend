@@ -126,7 +126,7 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDM0MjkzMjEsImV4cCI6MTcwMzUxNTcyMX0.NXezTeUqRqzCL1mGbr5q0uUj8WOCZrqbDDu7aTUsROo";
+                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDM0NTA4NjMsImV4cCI6MTcwMzUzNzI2M30.o-b1dPTM6DRMtwQp5E6LOvW2WVFawcIUGRaareGBq28";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Command>> call = apiService.getCommands("Bearer " + accessToken);

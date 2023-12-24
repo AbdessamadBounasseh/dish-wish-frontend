@@ -39,9 +39,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity
-            android:name=".become_cook"
-            android:exported="false" />
+
         <activity
             android:name=".Command.MapsHomeActivity"
             android:exported="true"
@@ -53,8 +51,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
         <activity
             android:name=".history_folder.HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".become_cook"
             android:exported="false" />
         <activity
             android:name=".change_profile"
