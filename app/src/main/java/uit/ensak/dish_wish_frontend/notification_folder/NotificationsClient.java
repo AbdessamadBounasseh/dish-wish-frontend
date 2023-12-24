@@ -16,8 +16,8 @@ import uit.ensak.dish_wish_frontend.R;
 
 public class NotificationsClient extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private NotificationAdapter adapter;
+    private RecyclerView notificationRecyclerView;
+    private NotificationClientAdapter notificationAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,29 +27,38 @@ public class NotificationsClient extends AppCompatActivity {
         // Assuming you have a list of commands
         List<Command> commandList = GetDummyData();
 
-        recyclerView = findViewById(R.id.NotificationResultsRecyclerView);
-        adapter = new NotificationAdapter(commandList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
+        notificationAdapter = new NotificationClientAdapter(commandList);
+        notificationRecyclerView = findViewById(R.id.NotificationResultsRecyclerView);
+        notificationRecyclerView.setAdapter(notificationAdapter);
+        notificationRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     private List<Command> GetDummyData() {
         List<Command> dummyResults = new ArrayList<>();
 
-        Client client = new Client();
-        client.setFirstName("Mounir");
-        client.setLastName("Mrabti");
-        client.setAddress("kenitra");
+        Client client1 = new Client();
+        client1.setFirstName("Mounir");
+        client1.setLastName("Mrabti");
+        client1.setAddress("kenitra");
 
-        Chef chef = new Chef();
-        chef.setFirstName("Faycal");
-        chef.setFirstName("Elou");
-        chef.setAddress("kenitra");
+        Chef chef1 = new Chef();
+        chef1.setFirstName("Faycal");
+        chef1.setLastName("Elou");
+        chef1.setAddress("kenitra");
 
+        Client client2 = new Client();
+        client2.setFirstName("Mohammed");
+        client2.setLastName("naimi");
+        client2.setAddress("Rabat");
 
+        Chef chef2 = new Chef();
+        chef2.setFirstName("Samir");
+        chef2.setLastName("rafidi");
+        chef2.setAddress("Rabat");
 
-        dummyResults.add(new Command(1L, "TAJINE", "with berqouq", null, null, null,  "50 DH",  null, client, chef));
-        dummyResults.add(new Command(2L, "Couscous", "with argan", null, null, null,  "80 DH",  null, client, chef));
+        dummyResults.add(new Command(1L, "TAJINE", "with berqouq", null, null, null,  "50 DH",  null, client1, chef1));
+        dummyResults.add(new Command(2L, "Couscous", "with argan", null, null, null,  "80 DH",  null, client2, chef2));
+        dummyResults.add(new Command(3L, "Pizza", "with chicken", null, null, null,  "70 DH",  null, client1, chef1));
 
         return dummyResults;
     }

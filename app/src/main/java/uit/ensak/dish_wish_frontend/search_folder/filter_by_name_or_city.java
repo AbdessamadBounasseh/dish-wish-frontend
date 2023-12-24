@@ -104,7 +104,7 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
     }
 
     private void navigateToProfilePage(SearchResult searchResult) {
-        Intent intent = new Intent(requireContext(), ProfileActivity.class);
+        Intent intent = new Intent(requireContext(), uit.ensak.dish_wish_frontend.ProfileActivity.class);
 
         // Pass necessary data to the profile page
         intent.putExtra("firstName", searchResult.getFirstName());
