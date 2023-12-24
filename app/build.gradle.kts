@@ -87,5 +87,10 @@ dependencies {
     implementation("com.google.android.gms:play-services-maps:18.0.0")
     implementation("com.google.android.gms:play-services-location:18.0.0")
 
-//    implementation("org.projectlombok:lombok:1.18.30")
+    implementation("org.projectlombok:lombok:1.18.30")
+
+        implementation ("org.slf4j:slf4j-api:1.7.32")
+
+
+    implementation ("ch.qos.logback:logback-classic:1.2.6")
 }

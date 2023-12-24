@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ public class connect extends AppCompatActivity {
     Button signin;
     TextView newacc,forgot;
     DBHelper db;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,13 @@ public class connect extends AppCompatActivity {
         signin=findViewById(R.id.sign);
         newacc=findViewById(R.id.donthave);
         db= new DBHelper(this);
+        back=findViewById(R.id.icon_24_bac);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         newacc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
