@@ -1,4 +1,4 @@
-package uit.ensak.dish_wish_frontend;
+package uit.ensak.dish_wish_frontend.Profil_Folder;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -19,6 +19,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
+
+import uit.ensak.dish_wish_frontend.Authentification.createAcciunt;
+import uit.ensak.dish_wish_frontend.Command.MapsHomeActivity;
+import uit.ensak.dish_wish_frontend.R;
 
 public class view_profile extends AppCompatActivity {
 
@@ -121,7 +125,7 @@ public class view_profile extends AppCompatActivity {
 
         Toast.makeText(view_profile.this, "Account has been successfully deleted", Toast.LENGTH_SHORT).show();
         //il faut retourner a login activity
-        Intent loginIntent = new Intent(view_profile.this, MainActivity.class);
+        Intent loginIntent = new Intent(view_profile.this, createAcciunt.class);
         startActivity(loginIntent);
         finish(); // Pour fermer l'activité actuelle après la suppression du compte
     }

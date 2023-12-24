@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="-35dp"
-    tools:context=".terms">
+    tools:context=".Authentification.terms">
     <LinearLayout
         android:id="@+id/bars_top_ba"
         android:layout_width="375dp"
@@ -67,12 +67,9 @@
             android:lineSpacingExtra="13sp"
             android:translationY="-5.24sp"
             android:gravity="top"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:lineHeight="25sp"
-
             android:fontFamily="@font/interlight"
-
-
             android:background="@drawable/rounded_corners"
 
 
@@ -82,8 +79,7 @@
     <Button
         android:layout_width="283dp"
         android:layout_height="48dp"
-
-        android:background="@drawable/rounded_corners"
+        android:background="@drawable/rounded_edittext"
         android:backgroundTint="#EEA734"
         android:text="START"
         android:textColor="#FFFFFFFF"

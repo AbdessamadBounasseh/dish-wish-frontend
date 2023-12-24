@@ -1,4 +1,4 @@
-package uit.ensak.dish_wish_frontend;
+package uit.ensak.dish_wish_frontend.Authentification;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +19,10 @@ import android.widget.Toast;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import uit.ensak.dish_wish_frontend.Command.MapsHomeActivity;
+import uit.ensak.dish_wish_frontend.R;
+import uit.ensak.dish_wish_frontend.Profil_Folder.become_cook;
 
 public class connect extends AppCompatActivity {
     EditText email,password;
@@ -95,7 +99,7 @@ public class connect extends AppCompatActivity {
                     if (isValidEmail(emailEditText)) {
                         boolean isLogged = db.checkuser(emailEditText, passwordEditText);
                         if (isLogged) {
-                            Intent intent = new Intent(connect.this, become_cook.class);
+                            Intent intent = new Intent(connect.this, MapsHomeActivity.class);
                             startActivity(intent);
                         } else {
                             Toast.makeText(connect.this, "Email or password incorrect", Toast.LENGTH_LONG).show();

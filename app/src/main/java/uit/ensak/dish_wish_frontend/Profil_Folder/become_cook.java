@@ -1,4 +1,4 @@
-package uit.ensak.dish_wish_frontend;
+package uit.ensak.dish_wish_frontend.Profil_Folder;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import uit.ensak.dish_wish_frontend.R;
 
 public class become_cook extends AppCompatActivity {
 

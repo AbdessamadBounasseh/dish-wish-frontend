@@ -182,7 +182,6 @@ id ratingBar
 id searchEditText
 id searchResultsRecyclerView
 id search_bar
-id search_bar_container
 id serving
 id sign
 id sign_in
@@ -225,9 +224,7 @@ layout activity_become_cook
 layout activity_change_profile
 layout activity_connect
 layout activity_create_acciunt
-layout activity_create_account
 layout activity_history
-layout activity_main
 layout activity_maps_chef
 layout activity_maps_home
 layout activity_page_acceuil

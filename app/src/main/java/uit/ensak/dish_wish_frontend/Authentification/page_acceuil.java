@@ -1,10 +1,12 @@
-package uit.ensak.dish_wish_frontend;
+package uit.ensak.dish_wish_frontend.Authentification;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
+
+import uit.ensak.dish_wish_frontend.R;
 
 
 public class page_acceuil extends AppCompatActivity {

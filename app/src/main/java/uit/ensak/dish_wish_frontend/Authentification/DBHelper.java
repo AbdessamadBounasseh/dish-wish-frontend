@@ -1,4 +1,4 @@
-package uit.ensak.dish_wish_frontend;
+package uit.ensak.dish_wish_frontend.Authentification;
 
 
 

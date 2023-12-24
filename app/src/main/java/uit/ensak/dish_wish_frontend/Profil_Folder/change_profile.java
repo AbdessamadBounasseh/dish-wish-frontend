@@ -1,4 +1,4 @@
-package uit.ensak.dish_wish_frontend;
+package uit.ensak.dish_wish_frontend.Profil_Folder;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,6 +27,8 @@ import android.widget.Toast;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
+
+import uit.ensak.dish_wish_frontend.R;
 
 public class change_profile extends AppCompatActivity {
     private EditText editTextNewFirstName, editTextNewLastName, editTextNewAddress, editTextNewPhoneNumber,

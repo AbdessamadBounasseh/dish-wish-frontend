@@ -65,7 +65,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
+            android:name="uit.ensak.dish_wish_frontend.Authentification.page_acceuil"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
@@ -77,37 +77,39 @@
         </activity>
         <activity
             android:name="uit.ensak.dish_wish_frontend.history_folder.HistoryActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
             android:exported="false" />
         <activity
-            android:name="uit.ensak.dish_wish_frontend.become_cook"
-            android:exported="false" />
+            android:name="uit.ensak.dish_wish_frontend.Profil_Folder.become_cook"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
-            android:name="uit.ensak.dish_wish_frontend.change_profile"
-            android:exported="false" />
+            android:name="uit.ensak.dish_wish_frontend.Profil_Folder.change_profile"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
-            android:name="uit.ensak.dish_wish_frontend.view_profile"
-            android:exported="false" />
-        <activity
-            android:name="uit.ensak.dish_wish_frontend.ProfileActivity"
-            android:exported="false" />
+            android:name="uit.ensak.dish_wish_frontend.Profil_Folder.view_profile"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name="uit.ensak.dish_wish_frontend.Command.MapsChefActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
-            android:name="uit.ensak.dish_wish_frontend.connect"
-            android:exported="false" />
+            android:name="uit.ensak.dish_wish_frontend.Authentification.connect"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
-            android:name="uit.ensak.dish_wish_frontend.terms"
-            android:exported="false" />
+            android:name="uit.ensak.dish_wish_frontend.Authentification.terms"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
-            android:name="uit.ensak.dish_wish_frontend.createAcciunt"
-            android:exported="false" />
-        <activity
-            android:name="uit.ensak.dish_wish_frontend.MainActivity"
-            android:exported="false" />
-        <activity
-            android:name="uit.ensak.dish_wish_frontend.page_acceuil"
-            android:exported="false" />
+            android:name="uit.ensak.dish_wish_frontend.Authentification.createAcciunt"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name="androidx.compose.ui.tooling.PreviewActivity"
             android:exported="true" />

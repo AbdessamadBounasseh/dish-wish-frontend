@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".page_acceuil">
+    tools:context=".Authentification.page_acceuil">
 
 
     <RelativeLayout
@@ -13,7 +13,7 @@
         android:layout_height="68dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="-8dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="88dp"
         >
         <ImageView
@@ -41,9 +41,9 @@
         android:id="@+id/illustratio"
         android:layout_width="320dp"
         android:layout_height="320dp"
-        android:layout_marginLeft="38dp"
+        android:layout_marginLeft="60dp"
         android:layout_marginTop="140dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="0dp"
         android:layout_marginBottom="5dp"
         android:src="@drawable/img" />
 
@@ -90,22 +90,18 @@ android:fontFamily="@font/poppins_regular"
         android:layout_width="335dp"
         android:layout_height="48dp"
         android:layout_marginTop="630dp"
-        android:background="@color/principalColor"
         android:layout_marginLeft="35dp">
 
         <!-- Your Button without redundant properties -->
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="335dp"
             android:layout_height="48dp"
-            android:text="GET STARTED"
-
-            android:textSize="14sp"
-            android:textColor="@color/white"
+            android:background="@drawable/rounded_edittext"
+            android:backgroundTint="@color/principalColor"
             android:onClick="getstarted"
-            android:background="@drawable/rounded_corners"
-            app:backgroundTint="@null"
-
-           />
+            android:text="GET STARTED"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
 
 
     </RelativeLayout>

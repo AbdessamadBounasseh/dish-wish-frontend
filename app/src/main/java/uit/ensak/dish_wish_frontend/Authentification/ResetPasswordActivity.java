@@ -1,4 +1,4 @@
-package uit.ensak.dish_wish_frontend;
+package uit.ensak.dish_wish_frontend.Authentification;
 
 
 import android.text.method.HideReturnsTransformationMethod;
@@ -11,6 +11,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputLayout;
 import android.os.Bundle;
+
+import uit.ensak.dish_wish_frontend.R;
 
 public class ResetPasswordActivity extends AppCompatActivity {
 

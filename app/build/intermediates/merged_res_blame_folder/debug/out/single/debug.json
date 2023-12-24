@@ -160,10 +160,6 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_become_cook.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_main.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_main.xml"
-    },
-    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_order_marker.png.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/order_marker.png"
     },
@@ -268,10 +264,6 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/fail.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_create_account.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_create_account.xml"
-    },
-    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_cook.json.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/cook.json"
     },
@@ -292,12 +284,12 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/food_allergy.jpg"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_cooking.json.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/cooking.json"
-    },
-    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_custom_title_icon.xml.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/custom_title_icon.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_cooking.json.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/cooking.json"
     },
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/navigation_mobile_navigation.xml.flat",

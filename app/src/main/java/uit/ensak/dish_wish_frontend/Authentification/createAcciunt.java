@@ -1,4 +1,4 @@
-package uit.ensak.dish_wish_frontend;
+package uit.ensak.dish_wish_frontend.Authentification;
 
 import androidx.appcompat.app.AppCompatActivity;
 import ch.qos.logback.classic.Logger;
@@ -24,10 +24,10 @@ import java.util.regex.Pattern;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import uit.ensak.dish_wish_frontend.Command.ApiService;
 import uit.ensak.dish_wish_frontend.Command.RetrofitClient;
 import uit.ensak.dish_wish_frontend.Models.Auth.AuthenticationResponse;
 import uit.ensak.dish_wish_frontend.Models.Auth.RegisterRequest;
+import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.service.AuthenticationService;
 
 public class createAcciunt extends AppCompatActivity {
@@ -122,20 +122,19 @@ public class createAcciunt extends AppCompatActivity {
                 } else {
                     if (isValidEmail(email)) {
                         if (password.equals(confirmpassword)) {
-                          /*  if(db.checkemail(email))
+                            if(db.checkemail(email))
                             {
-                                Toast.makeText(createAccount.this,"user already exists",Toast.LENGTH_LONG).show();
+                                Toast.makeText(createAcciunt.this,"user already exists",Toast.LENGTH_LONG).show();
                                 return;
 
                             }
                             boolean signupsuccess =db.insertData(email,password);
                             if(signupsuccess) {
-                                Intent intent1= new Intent(createAccount.this,terms.class);
+                                Intent intent1= new Intent(createAcciunt.this,terms.class);
                                 startActivity(intent1);
 
                             } else
                                 Toast.makeText(createAcciunt.this,"failed to sign up",Toast.LENGTH_LONG).show();
-*/
                             handleRegistration(email, password);
 
 
