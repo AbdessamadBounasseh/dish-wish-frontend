@@ -141,7 +141,6 @@ id editTextNewPhoneNumber
 id editTextPassword
 id email
 id enter_your_
-id finalizeButton
 id firstNameTextView
 id forg
 id forgpass
@@ -182,6 +181,7 @@ id ratingBar
 id searchEditText
 id searchResultsRecyclerView
 id search_bar
+id sendOffer
 id serving
 id sign
 id sign_in
