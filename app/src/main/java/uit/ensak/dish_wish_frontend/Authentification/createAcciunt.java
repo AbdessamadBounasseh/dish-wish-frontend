@@ -122,7 +122,10 @@ public class createAcciunt extends AppCompatActivity {
                 } else {
                     if (isValidEmail(email)) {
                         if (password.equals(confirmpassword)) {
-                            if(db.checkemail(email))
+                            if (!isStrongPassword(password)) {
+                                return;
+                            }
+                           /* if(db.checkemail(email))
                             {
                                 Toast.makeText(createAcciunt.this,"user already exists",Toast.LENGTH_LONG).show();
                                 return;
@@ -134,8 +137,11 @@ public class createAcciunt extends AppCompatActivity {
                                 startActivity(intent1);
 
                             } else
-                                Toast.makeText(createAcciunt.this,"failed to sign up",Toast.LENGTH_LONG).show();
+
+                              Toast.makeText(createAcciunt.this,"failed to sign up",Toast.LENGTH_LONG).show();
+                            */
                             handleRegistration(email, password);
+
 
 
                         } else {
@@ -169,6 +175,8 @@ public class createAcciunt extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     AuthenticationResponse authenticationResponse = response.body();
                     logger.info("succes");
+                    Intent intent1= new Intent(createAcciunt.this,terms.class);
+                    startActivity(intent1);
 
                 }
 
@@ -177,9 +185,39 @@ public class createAcciunt extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<AuthenticationResponse> call, Throwable t) {
+                Toast.makeText(createAcciunt.this, "account creation failed", Toast.LENGTH_LONG).show();
 
             }
         });
 
     }
+    private boolean isStrongPassword(String password) {
+        if (password.length() < 8) {
+            Toast.makeText(createAcciunt.this, "Password should be at least 8 characters long", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (!password.matches(".*[A-Z].*")) {
+            Toast.makeText(createAcciunt.this, "Password should contain at least one uppercase letter", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (!password.matches(".*[a-z].*")) {
+            Toast.makeText(createAcciunt.this, "Password should contain at least one lowercase letter", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (!password.matches(".*\\d.*")) {
+            Toast.makeText(createAcciunt.this, "Password should contain at least one digit", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (!password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\",.<>/?].*")) {
+            Toast.makeText(createAcciunt.this, "Password should contain at least one special character", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        return true;
+    }
+
 }
