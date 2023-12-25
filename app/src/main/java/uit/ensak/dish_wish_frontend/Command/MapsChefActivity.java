@@ -1,22 +1,16 @@
 package uit.ensak.dish_wish_frontend.Command;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentActivity;
 
-import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -25,9 +19,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -36,7 +27,6 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -48,7 +38,10 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import uit.ensak.dish_wish_frontend.Models.Chef;
+import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Command;
+import uit.ensak.dish_wish_frontend.Models.Proposition;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.databinding.ActivityMapsChefBinding;
 
@@ -61,9 +54,11 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
     final ArrayList<Command> commandList = new ArrayList<>();
     private ImageView arrow;
     private ImageView arrow_popup;
+    private Button sendOffer;
 
 
 
+    //createMap
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,10 +74,12 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
 
     }
 
+    //MapReady
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        //Get Commands and place them on the map
         retryRequest();
 
         // Check for location permission
@@ -111,6 +108,7 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                     LOCATION_PERMISSION_REQUEST_CODE);
         }*/
 
+        //show command details
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
@@ -121,12 +119,12 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
         });
     }
 
-
+    //put markers of the commands on the map
     private void retryRequest() {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDM0NTU0MzAsImV4cCI6MTcwMzU0MTgzMH0.3RjkaJzqZMeLiJeeAtOSPT9SQbZPvioSUW3JyxY0sOs";
+                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDM1MjkxMjYsImV4cCI6MTcwMzYxNTUyNn0.CNkjMWCYIfXz1RzFbiMC6ct0m-tO3WHLYkMNuJLZzuI";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Command>> call = apiService.getCommands("Bearer " + accessToken);
@@ -317,9 +315,50 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                         });
                     }
 
+                    sendOffer = popup.findViewById(R.id.sendOffer);
+                    sendOffer.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Proposition proposition = new Proposition();
+
+                            // Mocking Chef and Client IDs
+                            Chef chef = new Chef();
+                            chef.setId(1L);
+                            proposition.setChef(chef);
+
+                            Client client = new Client();
+                            client.setId(2L);
+                            proposition.setClient(client);
+
+                            Command command = new Command();
+                            command.setId(1L);
+                            proposition.setCommand(command);
+
+                            proposition.setLastChefProposition(150.0f);
+
+                            String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDM1MjkxMjYsImV4cCI6MTcwMzYxNTUyNn0.CNkjMWCYIfXz1RzFbiMC6ct0m-tO3WHLYkMNuJLZzuI";
+
+                            ApiService apiService = RetrofitClient.getApiService();
+                            Call<Void> call = apiService.sendProposition("Bearer " + accessToken, proposition);
+                            call.enqueue(new Callback<Void>() {
+                                @Override
+                                public void onResponse(Call<Void> call, Response<Void> response) {
+                                    if (response.isSuccessful()) {
+                                        // Handle successful response
+                                    } else {
+                                        // Handle unsuccessful response
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<Void> call, Throwable t) {
+                                    // Handle failure to send proposition
+                                }
+                            });
+                        }
+                    });
                 }
             });
-
 
         }
     }

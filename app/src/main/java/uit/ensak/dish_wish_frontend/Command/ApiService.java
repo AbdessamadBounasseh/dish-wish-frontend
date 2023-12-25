@@ -10,6 +10,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Command;
+import uit.ensak.dish_wish_frontend.Models.Proposition;
 
 public interface ApiService {
     @GET("clients/{id}")
@@ -23,4 +24,7 @@ public interface ApiService {
 
     @GET("commands")
     Call<List<Command>> getCommands(@Header("Authorization") String authToken);
+
+    @POST("/propositions/offer")
+    Call<Void> sendProposition(@Header("Authorization") String authToken,@Body Proposition proposition);
 }
