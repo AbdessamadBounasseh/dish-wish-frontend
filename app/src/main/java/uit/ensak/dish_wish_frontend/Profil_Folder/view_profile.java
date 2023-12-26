@@ -164,8 +164,14 @@ public class view_profile extends AppCompatActivity {
             // Ajoutez ces lignes pour récupérer l'image redimensionnée dans MainActivity
             Bitmap newProfileImageBitmap = data.getParcelableExtra("NEW_PROFILE_IMAGE_BITMAP");
 
-// Utilisez cette image pour mettre à jour votre interface utilisateur
-            profileImageView.setImageBitmap(getRoundedBitmap(newProfileImageBitmap));
+
+
+            if (newProfileImageBitmap != null) {
+                profileImageView.setImageBitmap(getRoundedBitmap(newProfileImageBitmap));
+            } else {
+                // Faites quelque chose ici pour gérer le cas où newProfileImageBitmap est null
+            }
+
 
 
             // Bitmap newProfileImageBitmap = data.getParcelableExtra("NEW_PROFILE_IMAGE_BITMAP");
