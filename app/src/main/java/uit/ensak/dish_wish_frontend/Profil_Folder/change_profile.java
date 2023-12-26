@@ -32,11 +32,11 @@ import uit.ensak.dish_wish_frontend.R;
 public class change_profile extends AppCompatActivity {
 
     private EditText editTextNewFirstName, editTextNewLastName, editTextNewAddress, editTextNewPhoneNumber,
-            editTextNewDiet,
-            editTextNewBio;
+    //editTextNewDiet,
+    editTextNewBio;
 
     private Button btnSubmit;
-    Spinner spinnerAllergies, spinnerDiet;
+    Spinner spinnerAllergies,spinnerDiet;
     private String currentFirstName, currentLastName, currentAddress,currentPhoneNumber,currentBio,currentDiet;
     private String newAllergy, newDiet;
 
@@ -44,13 +44,9 @@ public class change_profile extends AppCompatActivity {
     private static final int REQUEST_PICK_IMAGE = 102;
     private ImageView profileImageView;
     private Bitmap imageBitmap;
-    //public static final String IMAGE_BITMAP = "IMAGE_BITMAP";
-
     private Bitmap resizeBitmap(Bitmap originalBitmap, int newWidth, int newHeight) {
         return Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, false);
     }
-
-
 
 
     @Override
@@ -64,11 +60,11 @@ public class change_profile extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerAllergies.setAdapter(adapter);
 
-        ArrayAdapter<CharSequence> adapterdiet = ArrayAdapter.createFromResource(this, R.array.diet_array, android.R.layout.simple_spinner_item);
-        adapterdiet.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerDiet.setAdapter(adapterdiet);
+        ArrayAdapter<CharSequence> adapterDiet = ArrayAdapter.createFromResource(this, R.array.diet_array, android.R.layout.simple_spinner_item);
+        adapterDiet.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerDiet.setAdapter(adapterDiet);
 
-        // Ajoutez un écouteur pour le spinner
+
         spinnerAllergies.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -85,7 +81,7 @@ public class change_profile extends AppCompatActivity {
         spinnerDiet.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-
+                // Mettez à jour la nouvelle allergie lorsque l'utilisateur sélectionne une option dans le spinner
                 newDiet = parentView.getItemAtPosition(position).toString();
             }
             @Override
@@ -117,7 +113,7 @@ public class change_profile extends AppCompatActivity {
         editTextNewAddress = findViewById(R.id.editTextNewAddress);
         editTextNewPhoneNumber = findViewById(R.id.editTextNewPhoneNumber);
         editTextNewBio = findViewById(R.id.editTextNewBio);
-       // editTextNewDiet = findViewById(R.id.editTextNewDiet);
+        //editTextNewDiet = findViewById(R.id.editTextNewDiet);
 
 
         btnSubmit = findViewById(R.id.btnsubmit);
@@ -128,7 +124,7 @@ public class change_profile extends AppCompatActivity {
         currentAddress = getIntent().getStringExtra("CURRENT_ADDRESS");
 
         currentBio = getIntent().getStringExtra("CURRENT_BIO");
-       // currentDiet = getIntent().getStringExtra("CURRENT_DIET");
+        // currentDiet = getIntent().getStringExtra("CURRENT_DIET");
         currentPhoneNumber = getIntent().getStringExtra("CURRENT_PHONE_NUMBER");
         // Pré-remplir le champ d'édition avec le prénom actuel
 
@@ -138,7 +134,7 @@ public class change_profile extends AppCompatActivity {
 
         editTextNewPhoneNumber.setText(currentPhoneNumber);
         editTextNewBio.setText(currentBio);
-        //editTextNewDiet.setText(currentDiet);
+        // editTextNewDiet.setText(currentDiet);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,7 +152,7 @@ public class change_profile extends AppCompatActivity {
 
                 String newBio = editTextNewBio.getText().toString();
 
-               // String newDiet = editTextNewDiet.getText().toString();
+                // String newDiet = editTextNewDiet.getText().toString();
 
                 // String imagePath = saveImageToInternalStorage(imageBitmap);
 
@@ -173,15 +169,10 @@ public class change_profile extends AppCompatActivity {
 
                 resultIntent.putExtra("NEW_PHONE_NUMBER", newPhoneNumber);
                 resultIntent.putExtra("NEW_BIO", newBio);
-               // resultIntent.putExtra("NEW_DIET", newDiet);
+                resultIntent.putExtra("NEW_DIET", newDiet);
                 //resultIntent.putExtra("NEW_PROFILE_IMAGE_PATH", imagePath);
                 resultIntent.putExtra("NEW_PROFILE_IMAGE_BITMAP", imageBitmap);
 
-                //resultIntent.putExtra("NEW_PROFILE_IMAGE_BITMAP", imageBitmap);
-                //resultIntent.putExtra(IMAGE_BITMAP, imageBitmap);
-
-
-                //  resultIntent.putExtra("IMAGE_BITMAP", imageBitmap);
 
 
 
@@ -225,11 +216,7 @@ public class change_profile extends AppCompatActivity {
         // Vous devez définir la logique pour sauvegarder l'image dans le stockage interne ici
         // Retournez le chemin du fichier après l'enregistrement
 
-        // Exemple fictif pour obtenir un chemin temporaire (vous devez implémenter votre propre logique)
         String imagePath = getFilesDir() + "/profile_image.jpg";
-
-        // Vous devrez utiliser une logique appropriée pour enregistrer l'image dans le stockage interne
-        // par exemple, en utilisant FileOutputStream ou d'autres mécanismes d'écriture de fichiers
 
         return imagePath;
     }
@@ -249,6 +236,7 @@ public class change_profile extends AppCompatActivity {
                     Bundle extras = data.getExtras();
                     imageBitmap = (Bitmap) extras.get("data");
                     imageBitmap = resizeBitmap(imageBitmap, 92, 92);
+                    imageBitmap=getRoundedBitmap(imageBitmap);
                     profileImageView.setImageBitmap(imageBitmap);
                     imageBitmap = getIntent().getParcelableExtra("IMAGE_BITMAP");
                     break;
@@ -267,6 +255,7 @@ public class change_profile extends AppCompatActivity {
 
 
     }
+
     private Bitmap getRoundedBitmap(Bitmap bitmap) {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
