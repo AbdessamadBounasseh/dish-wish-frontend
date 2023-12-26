@@ -41,7 +41,7 @@
 
 
         <activity
-            android:name=".Authentification.page_acceuil"
+            android:name=".Profil_Folder.view_profile"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
@@ -68,10 +68,10 @@
             android:name=".Profil_Folder.change_profile"
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
-        <activity
-            android:name=".Profil_Folder.view_profile"
-            android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
+<!--        <activity-->
+<!--            android:name=".Profil_Folder.view_profile"-->
+<!--            android:exported="false"-->
+<!--            android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>-->
         <activity
             android:name=".Command.MapsChefActivity"
             android:exported="false"

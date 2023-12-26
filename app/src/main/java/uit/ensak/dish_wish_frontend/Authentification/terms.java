@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import uit.ensak.dish_wish_frontend.Command.MapsChefActivity;
 import uit.ensak.dish_wish_frontend.Command.MapsHomeActivity;
 import uit.ensak.dish_wish_frontend.R;
-import uit.ensak.dish_wish_frontend.Profil_Folder.become_cook;
+//import uit.ensak.dish_wish_frontend.Profil_Folder.become_cook;
 
 public class terms extends AppCompatActivity {
     Button start;

@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 
 import uit.ensak.dish_wish_frontend.Command.MapsHomeActivity;
 import uit.ensak.dish_wish_frontend.R;
-import uit.ensak.dish_wish_frontend.Profil_Folder.become_cook;
+//import uit.ensak.dish_wish_frontend.Profil_Folder.become_cook;
 
 public class connect extends AppCompatActivity {
     EditText email,password;

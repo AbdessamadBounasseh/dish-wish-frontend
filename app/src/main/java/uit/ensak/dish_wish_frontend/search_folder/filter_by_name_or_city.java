@@ -1,4 +1,4 @@
-package uit.ensak.dish_wish_frontend;
+package uit.ensak.dish_wish_frontend.search_folder;
 
 import android.os.Bundle;
 
@@ -22,8 +22,8 @@ import android.content.Intent;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import uit.ensak.dish_wish_frontend.Profil_Folder.change_profile;
+//import uit.ensak.dish_wish_frontend.Profil_Folder.change_profile;
+import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.SearchResultsAdapter;
 import uit.ensak.dish_wish_frontend.SearchResult; // Import the SearchResult class
 
@@ -106,14 +106,14 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
     }
 
     private void navigateToProfilePage(SearchResult searchResult) {
-        Intent intent = new Intent(requireContext(), change_profile.class);
+//        Intent intent = new Intent(requireContext(), change_profile.class);
+//
+//        // Pass necessary data to the profile page
+//        intent.putExtra("firstName", searchResult.getFirstName());
+//        intent.putExtra("lastName", searchResult.getLastName());
+       // intent.putExtra("address", searchResult.getAddress());
 
-        // Pass necessary data to the profile page
-        intent.putExtra("firstName", searchResult.getFirstName());
-        intent.putExtra("lastName", searchResult.getLastName());
-        intent.putExtra("address", searchResult.getAddress());
 
-
-        startActivity(intent);
+      //  startActivity(intent);
     }
 }

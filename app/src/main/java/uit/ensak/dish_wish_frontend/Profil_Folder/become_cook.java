@@ -1,4 +1,4 @@
-package uit.ensak.dish_wish_frontend;
+package uit.ensak.dish_wish_frontend.Profil_Folder;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,9 +10,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import uit.ensak.dish_wish_frontend.Authentification.page_acceuil;
 import uit.ensak.dish_wish_frontend.Command.ApiService;
 import uit.ensak.dish_wish_frontend.Command.RetrofitClient;
 import uit.ensak.dish_wish_frontend.Models.Chef;
+import uit.ensak.dish_wish_frontend.R;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -188,7 +190,7 @@ public class become_cook extends AppCompatActivity {
                 System.out.println("test");
                 showToast("Importation réussie!");
                 //se retourner vers la page d'accueil
-                Intent intent = new Intent(become_cook.this, MainActivity.class);
+                Intent intent = new Intent(become_cook.this, page_acceuil.class);
                 startActivity(intent);
                 finish();
 
