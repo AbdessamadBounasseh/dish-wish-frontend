@@ -2,16 +2,30 @@
 <resources>
     <string-array name="allergies_array">
         <item>Aucune</item>
-        <item>Arachides</item>
-        <item>Fruits à coque</item>
-        <item>Lait</item>
-        <item>Oeufs</item>
-        <item>Blé (gluten)</item>
-        <item>Soja</item>
-        <item>Poisson</item>
-        <item>Fruits de mer</item>
-        <item>Sésame</item>
-        <item>Céleri</item>
+        <item>Végétarien</item>
+        <item>Végétalien</item>
+        <item>Flexitarien</item>
+        <item>hypotoxique</item>
+        <item>Sans gluten</item>
+        <item>sans sucre ajouté</item>
+        <item>Sans produits laitiers</item>
+        <item>crudivore</item>
+        <item>Hypocalorique</item>
+        <item>Alcalin</item>
+        <item>Pescétarien</item>
+        <item>Méditerranéen</item>
+        <item>Paléo</item>
+        <item>Cétogène</item>
+        <item>DASH</item>
+        <item>Anti-inflammatoire</item>
+        <item>Atkins</item>
+        <item>Weight Watchers</item>
+        <item>Mangeur intuitif</item>
+        <item>FODMAP</item>
+        <item>TLC (Therapeutic Lifestyle Changes)</item>
+        <item>Okinawa</item>
+        <item>cétogène ciblé</item>
+        <item>Régime low carb</item>
     </string-array>
     <array name="com_google_android_gms_fonts_certs">
         <item>@array/com_google_android_gms_fonts_certs_dev</item>
