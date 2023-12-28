@@ -16,10 +16,6 @@
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\font\\interlight.ttf"
     },
     {
-        "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\layout_activity_reset_email.xml.flat",
-        "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\layout\\activity_reset_email.xml"
-    },
-    {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_yourposition.png.flat",
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\yourposition.png"
     },
@@ -32,12 +28,12 @@
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\custom_input.xml"
     },
     {
-        "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_arrow_down.xml.flat",
-        "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\arrow_down.xml"
-    },
-    {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\layout_popup_command_failed.xml.flat",
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\layout\\popup_command_failed.xml"
+    },
+    {
+        "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_arrow_down.xml.flat",
+        "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\arrow_down.xml"
     },
     {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\mipmap-mdpi_ic_launcher.webp.flat",
@@ -52,16 +48,16 @@
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\title.xml"
     },
     {
-        "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\layout_activity_maps_home.xml.flat",
-        "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\layout\\activity_maps_home.xml"
+        "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_ic_back.xml.flat",
+        "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\ic_back.xml"
     },
     {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_ic_camera.png.flat",
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\ic_camera.png"
     },
     {
-        "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_ic_back.xml.flat",
-        "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\ic_back.xml"
+        "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\layout_activity_maps_home.xml.flat",
+        "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\layout\\activity_maps_home.xml"
     },
     {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_order_marker.png.flat",
@@ -76,12 +72,12 @@
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\raw\\cook.json"
     },
     {
-        "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_descriptionfocused.xml.flat",
-        "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\descriptionfocused.xml"
-    },
-    {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_custom_rounded_back_shape.xml.flat",
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\custom_rounded_back_shape.xml"
+    },
+    {
+        "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_descriptionfocused.xml.flat",
+        "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\descriptionfocused.xml"
     },
     {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
@@ -114,10 +110,6 @@
     {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_success.png.flat",
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\success.png"
-    },
-    {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_forgotpassword.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_forgotpassword.xml"
     },
     {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\layout_item_search_result.xml.flat",
@@ -434,6 +426,10 @@
     {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\raw_sent.json.flat",
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\raw\\sent.json"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_page_acceuil.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_page_acceuil.xml"
     },
     {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\layout_fragment_profile_details.xml.flat",
