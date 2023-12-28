@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-93:12
-INJECTED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-93:12
-INJECTED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-93:12
-INJECTED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-93:12
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-101:12
+INJECTED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-101:12
+INJECTED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-101:12
+INJECTED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-101:12
 MERGED from [androidx.databinding:viewbinding:8.1.2] C:\Users\KhawLa\.gradle\caches\transforms-3\95e487026fa5dcde1dea76d3300c0810\transformed\viewbinding-8.1.2\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-common:2.7.5] C:\Users\KhawLa\.gradle\caches\transforms-3\5d2cdadcef2a6c15afeaf2acd5a8dbbe\transformed\navigation-common-2.7.5\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-runtime:2.7.5] C:\Users\KhawLa\.gradle\caches\transforms-3\1c74eaebbda73931c62e970b01062acc\transformed\navigation-runtime-2.7.5\AndroidManifest.xml:17:1-22:12
@@ -127,8 +127,8 @@ ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\Andr
 	android:name
 		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:10:22-82
 application
-ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:12:5-91:19
-INJECTED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:12:5-91:19
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:12:5-99:19
+INJECTED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:12:5-99:19
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\KhawLa\.gradle\caches\transforms-3\926dfcd3a43590fc233973e651980766\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\KhawLa\.gradle\caches\transforms-3\926dfcd3a43590fc233973e651980766\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\KhawLa\.gradle\caches\transforms-3\c810f68f4fb02972cb287aa417674494\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -187,108 +187,132 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\KhawLa\.gradle\cac
 		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:14:9-65
 	android:usesCleartextTraffic
 		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:21:9-44
+activity#uit.ensak.dish_wish_frontend.forgotpassword
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:23:9-25:40
+	android:exported
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:24:13-43
+activity#uit.ensak.dish_wish_frontend.Authentification.forgotpassword
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:26:9-28:40
+	android:exported
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:27:13-60
+activity#uit.ensak.dish_wish_frontend.Authentification.resetEmail
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:29:9-31:40
+	android:exported
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:30:13-56
+activity#uit.ensak.dish_wish_frontend.Authentification.VerifyEmail
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:33:13-57
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:35:9-37:71
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:46:9-48:71
 	android:value
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:37:13-68
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:48:13-68
 	android:name
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:36:13-58
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:47:13-58
 meta-data#preloaded_fonts
-ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:38:9-40:57
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:49:9-51:57
 	android:resource
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:40:13-54
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:51:13-54
 	android:name
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:39:13-43
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:50:13-43
 activity#uit.ensak.dish_wish_frontend.Authentification.page_acceuil
-ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:43:9-53:20
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:53:9-63:20
 	android:label
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:46:13-45
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:56:13-45
 	android:exported
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:45:13-36
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:55:13-36
 	android:theme
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:47:13-70
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:57:13-70
 	android:name
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:44:13-58
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:54:13-58
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:48:13-52:29
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:58:13-62:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:49:17-69
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:59:17-69
 	android:name
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:49:25-66
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:59:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:51:17-77
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:61:17-77
 	android:name
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:51:27-74
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:61:27-74
 activity#uit.ensak.dish_wish_frontend.history_folder.HistoryActivity
-ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:56:9-59:72
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:64:9-67:73
 	android:exported
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:58:13-37
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:66:13-37
 	android:theme
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:59:13-70
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:67:13-70
 	android:name
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:57:13-59
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:65:13-59
 activity#uit.ensak.dish_wish_frontend.Command.MapsHomeActivity
-ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:60:9-62:40
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:68:9-70:40
 	android:exported
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:62:13-37
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:70:13-37
 	android:name
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:61:13-53
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:69:13-53
 activity#uit.ensak.dish_wish_frontend.Profil_Folder.become_cook
-ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:63:9-66:72
-	android:exported
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:65:13-37
-	android:theme
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:66:13-70
-	android:name
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:64:13-54
-activity#uit.ensak.dish_wish_frontend.Profil_Folder.change_profile
-ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:67:9-70:72
-	android:exported
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:69:13-37
-	android:theme
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:70:13-70
-	android:name
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:68:13-57
-activity#uit.ensak.dish_wish_frontend.Profil_Folder.view_profile
-ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:71:9-74:72
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:71:9-74:73
 	android:exported
 		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:73:13-37
 	android:theme
 		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:74:13-70
 	android:name
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:72:13-55
-activity#uit.ensak.dish_wish_frontend.Command.MapsChefActivity
-ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:75:9-78:72
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:72:13-54
+activity#uit.ensak.dish_wish_frontend.Profil_Folder.change_profile
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:75:9-78:73
 	android:exported
 		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:77:13-37
 	android:theme
 		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:78:13-70
 	android:name
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:76:13-53
-activity#uit.ensak.dish_wish_frontend.Authentification.connect
-ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:79:9-82:72
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:76:13-57
+activity#uit.ensak.dish_wish_frontend.Profil_Folder.view_profile
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:79:9-82:73
 	android:exported
 		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:81:13-37
 	android:theme
 		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:82:13-70
 	android:name
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:80:13-53
-activity#uit.ensak.dish_wish_frontend.Authentification.terms
-ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:83:9-86:72
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:80:13-55
+activity#uit.ensak.dish_wish_frontend.Command.MapsChefActivity
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:83:9-86:73
 	android:exported
 		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:85:13-37
 	android:theme
 		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:86:13-70
 	android:name
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:84:13-51
-activity#uit.ensak.dish_wish_frontend.Authentification.createAcciunt
-ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:87:9-90:72
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:84:13-53
+activity#uit.ensak.dish_wish_frontend.Authentification.connect
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:87:9-90:73
 	android:exported
 		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:89:13-37
 	android:theme
 		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:90:13-70
 	android:name
-		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:88:13-59
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:88:13-53
+activity#uit.ensak.dish_wish_frontend.Authentification.terms
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:91:9-94:73
+	android:exported
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:93:13-37
+	android:theme
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:94:13-70
+	android:name
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:92:13-51
+activity#uit.ensak.dish_wish_frontend.Authentification.CreateAccount
+ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:95:9-98:73
+	android:exported
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:97:13-37
+	android:theme
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:98:13-70
+	android:name
+		ADDED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:96:13-59
 uses-sdk
 INJECTED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml

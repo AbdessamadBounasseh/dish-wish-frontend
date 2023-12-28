@@ -45,7 +45,18 @@
         android:testOnly="true"
         android:theme="@style/Theme.Dishwishfrontend"
         android:usesCleartextTraffic="true" >
-
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.forgotpassword"
+            android:exported="false" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Authentification.forgotpassword"
+            android:exported="false" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Authentification.resetEmail"
+            android:exported="false" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Authentification.VerifyEmail"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -107,7 +118,7 @@
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
-            android:name="uit.ensak.dish_wish_frontend.Authentification.createAcciunt"
+            android:name="uit.ensak.dish_wish_frontend.Authentification.CreateAccount"
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity

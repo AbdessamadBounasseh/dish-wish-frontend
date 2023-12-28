@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="-20dp"
-    tools:context=".Authentification.createAcciunt">
+    tools:context=".Authentification.CreateAccount">
 
 
 
@@ -162,7 +162,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/password"
+                android:text="CONFIRM PASSWORD"
                 android:lineSpacingExtra="8sp"
                 android:gravity="center_vertical"
                 android:textSize="12sp"
@@ -197,7 +197,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:id="@+id/pass2"
-                android:hint="password"
+                android:hint="Confirm password"
                 android:paddingRight="10dp"
                 android:layout_marginTop="0dp"
                 android:inputType="textPassword"
