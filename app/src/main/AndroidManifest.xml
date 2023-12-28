@@ -21,8 +21,6 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
 
-
-
         <activity
             android:name=".Authentification.VerifyEmail"
             android:exported="false" />
@@ -45,8 +43,9 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".Profil_Folder.become_cook"
+            android:name=".Authentification.page_acceuil"
             android:exported="true"
+            android:label="@string/app_name"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,12 +59,11 @@
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name=".Command.MapsHomeActivity"
-            android:exported="false" >
-        </activity>
-<!--        <activity-->
-<!--            android:name=".Profil_Folder.become_cook"-->
-<!--            android:exported="false"-->
-<!--            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />-->
+            android:exported="false" />
+        <activity
+            android:name=".Profil_Folder.become_cook"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name=".Profil_Folder.change_profile"
             android:exported="false"
