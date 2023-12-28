@@ -22,7 +22,6 @@ import java.util.regex.Pattern;
 
 import uit.ensak.dish_wish_frontend.Command.MapsHomeActivity;
 import uit.ensak.dish_wish_frontend.R;
-import uit.ensak.dish_wish_frontend.forgotpassword;
 
 public class connect extends AppCompatActivity {
     EditText email,password;
@@ -82,13 +81,7 @@ public class connect extends AppCompatActivity {
             }
         });
         forgot=findViewById(R.id.forgpass);
-        forgot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent5=new Intent(connect.this, forgotpassword.class);
-                startActivity(intent5);
-            }
-        });
+
 
 
 
