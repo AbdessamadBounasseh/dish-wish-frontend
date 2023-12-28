@@ -22,7 +22,6 @@ import java.util.regex.Pattern;
 
 import uit.ensak.dish_wish_frontend.Command.MapsHomeActivity;
 import uit.ensak.dish_wish_frontend.R;
-import uit.ensak.dish_wish_frontend.forgotpassword;
 
 public class connect extends AppCompatActivity {
     EditText email,password;
