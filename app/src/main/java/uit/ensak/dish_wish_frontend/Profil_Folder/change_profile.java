@@ -32,13 +32,12 @@ import uit.ensak.dish_wish_frontend.R;
 public class change_profile extends AppCompatActivity {
 
     private EditText editTextNewFirstName, editTextNewLastName, editTextNewAddress, editTextNewPhoneNumber,
-    //editTextNewDiet,
-    editTextNewBio;
+   editTextNewAllergie,editTextNewBio;
 
     private Button btnSubmit;
-    Spinner spinnerAllergies,spinnerDiet;
-    private String currentFirstName, currentLastName, currentAddress,currentPhoneNumber,currentBio,currentDiet;
-    private String newAllergy, newDiet;
+    Spinner spinnerDiet;
+    private String currentFirstName, currentLastName, currentAddress,currentPhoneNumber,currentBio,currentAllergie;
+    private String newDiet;
 
     private static final int REQUEST_IMAGE_CAPTURE = 101;
     private static final int REQUEST_PICK_IMAGE = 102;
@@ -53,30 +52,26 @@ public class change_profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_profile);
-        spinnerAllergies = findViewById(R.id.spinnerAllergies);
         spinnerDiet = findViewById(R.id.spinnerDiet);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.allergies_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerAllergies.setAdapter(adapter);
 
         ArrayAdapter<CharSequence> adapterDiet = ArrayAdapter.createFromResource(this, R.array.diet_array, android.R.layout.simple_spinner_item);
         adapterDiet.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDiet.setAdapter(adapterDiet);
 
 
-        spinnerAllergies.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                // Mettez à jour la nouvelle allergie lorsque l'utilisateur sélectionne une option dans le spinner
-                newAllergy = parentView.getItemAtPosition(position).toString();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                // Cette méthode est requise mais nous n'avons rien à faire ici pour le moment
-            }
-
-        });
+//        spinnerAllergies.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+//                // Mettez à jour la nouvelle allergie lorsque l'utilisateur sélectionne une option dans le spinner
+//                newAllergy = parentView.getItemAtPosition(position).toString();
+//            }
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parentView) {
+//                // Cette méthode est requise mais nous n'avons rien à faire ici pour le moment
+//            }
+//
+//        });
 
         spinnerDiet.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -113,7 +108,7 @@ public class change_profile extends AppCompatActivity {
         editTextNewAddress = findViewById(R.id.editTextNewAddress);
         editTextNewPhoneNumber = findViewById(R.id.editTextNewPhoneNumber);
         editTextNewBio = findViewById(R.id.editTextNewBio);
-        //editTextNewDiet = findViewById(R.id.editTextNewDiet);
+        editTextNewAllergie = findViewById(R.id.editTextNewAllergie);
 
 
         btnSubmit = findViewById(R.id.btnsubmit);
@@ -124,7 +119,7 @@ public class change_profile extends AppCompatActivity {
         currentAddress = getIntent().getStringExtra("CURRENT_ADDRESS");
 
         currentBio = getIntent().getStringExtra("CURRENT_BIO");
-        // currentDiet = getIntent().getStringExtra("CURRENT_DIET");
+        currentAllergie = getIntent().getStringExtra("CURRENT_ALLERGY");
         currentPhoneNumber = getIntent().getStringExtra("CURRENT_PHONE_NUMBER");
         // Pré-remplir le champ d'édition avec le prénom actuel
 
@@ -134,7 +129,7 @@ public class change_profile extends AppCompatActivity {
 
         editTextNewPhoneNumber.setText(currentPhoneNumber);
         editTextNewBio.setText(currentBio);
-        // editTextNewDiet.setText(currentDiet);
+        editTextNewAllergie.setText(currentAllergie);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,7 +147,7 @@ public class change_profile extends AppCompatActivity {
 
                 String newBio = editTextNewBio.getText().toString();
 
-                // String newDiet = editTextNewDiet.getText().toString();
+                String newAllergie = editTextNewAllergie.getText().toString();
 
                 // String imagePath = saveImageToInternalStorage(imageBitmap);
 
@@ -165,7 +160,7 @@ public class change_profile extends AppCompatActivity {
                 resultIntent.putExtra("NEW_LAST_NAME", newLastName);
                 resultIntent.putExtra("NEW_ADDRESS", newAddress);
 
-                resultIntent.putExtra("NEW_ALLERGY", newAllergy);
+                resultIntent.putExtra("NEW_ALLERGY", newAllergie);
 
                 resultIntent.putExtra("NEW_PHONE_NUMBER", newPhoneNumber);
                 resultIntent.putExtra("NEW_BIO", newBio);

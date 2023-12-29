@@ -42,7 +42,7 @@ public class view_profile extends AppCompatActivity {
 
 
     private TextView textViewFirstName,textViewLastName,textViewAddress, textViewBio, textViewDiet, textViewPHONE_NUMBER, textViewAllergies;
-    private Spinner spinnerAllergies;
+
     private ImageView profileImageView;
 
     @Override
@@ -78,6 +78,7 @@ public class view_profile extends AppCompatActivity {
                 intent.putExtra("CURRENT_LAST_NAME", textViewLastName.getText().toString());
                 intent.putExtra("CURRENT_ADDRESS", textViewAddress.getText().toString());
                 intent.putExtra("CURRENT_PHONE_NUMBER", textViewPHONE_NUMBER.getText().toString());
+                intent.putExtra("CURRENT_Allergy", textViewAllergies.getText().toString());
                 intent.putExtra("CURRENT_BIO", textViewBio.getText().toString());
 
                 startActivityForResult(intent, REQUEST_CODE_CHANGE_PROFILE);
@@ -159,7 +160,7 @@ public class view_profile extends AppCompatActivity {
             String newBio = data.getStringExtra("NEW_BIO");
             String newDiet = data.getStringExtra("NEW_DIET");
             String newPhoneNumber = data.getStringExtra("NEW_PHONE_NUMBER");
-            String newAllergy = data.getStringExtra("NEW_ALLERGY");
+            String newAllergie = data.getStringExtra("NEW_ALLERGY");
 
             // Ajoutez ces lignes pour récupérer l'image redimensionnée dans MainActivity
             Bitmap newProfileImageBitmap = data.getParcelableExtra("NEW_PROFILE_IMAGE_BITMAP");
@@ -189,7 +190,7 @@ public class view_profile extends AppCompatActivity {
             textViewPHONE_NUMBER.setText(newPhoneNumber);
             textViewBio.setText(newBio);
             textViewDiet.setText(newDiet);
-            textViewAllergies.setText(newAllergy);
+            textViewAllergies.setText(newAllergie);
             //#######################################
 
 

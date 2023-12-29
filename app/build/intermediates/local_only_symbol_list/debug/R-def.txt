@@ -134,6 +134,7 @@ id dish
 id donthave
 id editTextConfirmPassword
 id editTextNewAddress
+id editTextNewAllergie
 id editTextNewBio
 id editTextNewFirstName
 id editTextNewLastName
@@ -185,7 +186,6 @@ id search_bar
 id serving
 id sign
 id sign_in
-id spinnerAllergies
 id spinnerDiet
 id st
 id subtractButton
