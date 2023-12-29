@@ -9,9 +9,11 @@ public class Diet {
 
     private String title;
 
-    private String description;
+    public String getTitle() {
+        return title;
+    }
 
-    private Instant createdOn;
-
-    private List<Client> clients;
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

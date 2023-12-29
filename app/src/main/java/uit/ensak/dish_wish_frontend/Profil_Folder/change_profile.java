@@ -31,8 +31,7 @@ import uit.ensak.dish_wish_frontend.R;
 
 public class change_profile extends AppCompatActivity {
 
-    private EditText editTextNewFirstName, editTextNewLastName, editTextNewAddress, editTextNewPhoneNumber,
-   editTextNewAllergie,editTextNewBio;
+    private EditText editTextNewFirstName, editTextNewLastName, editTextNewAddress, editTextNewPhoneNumber, editTextNewAllergie,editTextNewBio;
 
     private Button btnSubmit;
     Spinner spinnerDiet;
@@ -53,25 +52,10 @@ public class change_profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_profile);
         spinnerDiet = findViewById(R.id.spinnerDiet);
-
-
         ArrayAdapter<CharSequence> adapterDiet = ArrayAdapter.createFromResource(this, R.array.diet_array, android.R.layout.simple_spinner_item);
         adapterDiet.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDiet.setAdapter(adapterDiet);
 
-
-//        spinnerAllergies.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-//                // Mettez à jour la nouvelle allergie lorsque l'utilisateur sélectionne une option dans le spinner
-//                newAllergy = parentView.getItemAtPosition(position).toString();
-//            }
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parentView) {
-//                // Cette méthode est requise mais nous n'avons rien à faire ici pour le moment
-//            }
-//
-//        });
 
         spinnerDiet.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -109,24 +93,17 @@ public class change_profile extends AppCompatActivity {
         editTextNewPhoneNumber = findViewById(R.id.editTextNewPhoneNumber);
         editTextNewBio = findViewById(R.id.editTextNewBio);
         editTextNewAllergie = findViewById(R.id.editTextNewAllergie);
-
-
         btnSubmit = findViewById(R.id.btnsubmit);
-
         // Récupérer le prénom actuel
         currentFirstName = getIntent().getStringExtra("CURRENT_FIRST_NAME");
         currentLastName = getIntent().getStringExtra("CURRENT_LAST_NAME");
         currentAddress = getIntent().getStringExtra("CURRENT_ADDRESS");
-
         currentBio = getIntent().getStringExtra("CURRENT_BIO");
         currentAllergie = getIntent().getStringExtra("CURRENT_ALLERGY");
         currentPhoneNumber = getIntent().getStringExtra("CURRENT_PHONE_NUMBER");
-        // Pré-remplir le champ d'édition avec le prénom actuel
-
         editTextNewFirstName.setText(currentFirstName);
         editTextNewLastName.setText(currentLastName);
         editTextNewAddress.setText(currentAddress);
-
         editTextNewPhoneNumber.setText(currentPhoneNumber);
         editTextNewBio.setText(currentBio);
         editTextNewAllergie.setText(currentAllergie);
@@ -153,25 +130,15 @@ public class change_profile extends AppCompatActivity {
 
                 // Créer un Intent pour contenir les nouvelles valeurs
                 Intent resultIntent = new Intent();
-                // Activité change_profil
 
-                //editTextNewAddress  currentAddress
                 resultIntent.putExtra("NEW_FIRST_NAME", newFirstName);
                 resultIntent.putExtra("NEW_LAST_NAME", newLastName);
                 resultIntent.putExtra("NEW_ADDRESS", newAddress);
-
                 resultIntent.putExtra("NEW_ALLERGY", newAllergie);
-
                 resultIntent.putExtra("NEW_PHONE_NUMBER", newPhoneNumber);
                 resultIntent.putExtra("NEW_BIO", newBio);
                 resultIntent.putExtra("NEW_DIET", newDiet);
-                //resultIntent.putExtra("NEW_PROFILE_IMAGE_PATH", imagePath);
                 resultIntent.putExtra("NEW_PROFILE_IMAGE_BITMAP", imageBitmap);
-
-
-
-
-
                 // Afficher un message de succès
                 Toast.makeText(change_profile.this, "Changes successful", Toast.LENGTH_SHORT).show();
                 // Revenir à l'activité précédente avec les données mises à jour

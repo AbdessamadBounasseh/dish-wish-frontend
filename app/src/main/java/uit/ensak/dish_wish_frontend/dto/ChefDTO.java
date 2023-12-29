@@ -2,7 +2,6 @@ package uit.ensak.dish_wish_frontend.dto;
 
 import java.util.List;
 
-import uit.ensak.dish_wish_frontend.Models.Allergy;
 import uit.ensak.dish_wish_frontend.Models.Diet;
 
 public class ChefDTO extends ClientDTO{
@@ -15,8 +14,8 @@ public class ChefDTO extends ClientDTO{
     }
 
     // Constructeur avec les paramètres de ClientDTO et bio
-    public ChefDTO(String firstName, String lastName, String address, String phoneNumber, String photo, List<Diet> diets, List<Allergy> allergies, String bio) {
-        super(firstName, lastName, address, phoneNumber, photo, diets, allergies);
+    public ChefDTO(String firstName, String lastName, String address, String phoneNumber, String photo, DietDTO dietDTO, String allergies, String bio) {
+        super(firstName, lastName, address, phoneNumber, photo, dietDTO, allergies);
         this.bio = bio;
     }
 

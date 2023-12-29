@@ -107,7 +107,7 @@
                         android:id="@+id/textViewActualFirstName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Faycal"
+                        android:text=""
                         android:textColor="#010F07"
                         android:textSize="18sp"/>
                 </LinearLayout>
@@ -132,7 +132,7 @@
                         android:id="@+id/textViewActualLastName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="El Ourrat"
+                        android:text=""
                         android:textColor="#010F07"
                         android:textSize="18sp"/>
                 </LinearLayout>
@@ -152,8 +152,7 @@
                 android:id="@+id/textViewActualAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kenitra, kenitra , kenitra
-"
+                android:text=""
                 android:textColor="#010F07"
                 android:textSize="18sp"/>
             <!--  PhoneNumber-->
@@ -170,7 +169,7 @@
                 android:id="@+id/textViewActualPhoneNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+212 600000000"
+                android:text=""
                 android:textColor="#010F07"
                 android:textSize="18sp"/>
 
@@ -188,7 +187,7 @@
                 android:id="@+id/textViewActualAllergies"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="cereals"
+                android:text=""
                 android:textColor="#010F07"
                 android:textSize="18sp" />
 
@@ -206,7 +205,7 @@
                 android:id="@+id/textViewActualDiet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No diet"
+                android:text=""
                 android:textColor="#010F07"
                 android:textSize="18sp"/>
 
@@ -216,8 +215,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:text="BIO (if cooker)"
-                android:visibility="visible"
+                android:text="BIO"
+                android:visibility="invisible"
                 android:textColor="#868686"
                 android:textSize="14sp"/>
 
@@ -225,7 +224,7 @@
                 android:id="@+id/textViewActualBio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="I am the  Best"
+                android:text=""
                 android:visibility="visible"
                 android:textColor="#010F07"
                 android:textSize="18sp"/>

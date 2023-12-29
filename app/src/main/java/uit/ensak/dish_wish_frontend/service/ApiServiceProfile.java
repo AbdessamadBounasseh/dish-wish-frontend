@@ -13,17 +13,26 @@ import retrofit2.http.Part;
 import retrofit2.http.Path;
 import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
+import uit.ensak.dish_wish_frontend.dto.ChefDTO;
 
 public interface ApiServiceProfile {
     @GET("clients/{clientId}")
-    Call<Client> getUserById(
+    Call<Client> getClientById(
             @Header("Authorization") String authToken,
             @Path("clientId") Long clientId);
+
+    @GET("chefs/{chefId}")
+    Call<Chef> getChefById(
+            @Header("Authorization") String authToken,
+            @Path("chefId") Long chefId);
+    @Multipart
 
     @PUT("clients/update/{clientId}")
     Call<Client> updateClient(
             @Header("Authorization") String authToken,
-            @Path("clientId") Long clientId);
+            @Path("clientId") Long clientId,@Part("user") ChefDTO userDTO,
+            @Part("photo") MultipartBody.Part photo
+            );
 
 
     @Multipart
