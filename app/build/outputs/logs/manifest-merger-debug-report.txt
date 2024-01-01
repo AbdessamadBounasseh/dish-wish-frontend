@@ -199,7 +199,7 @@ ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:38:9-
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:40:13-54
 	android:name
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:39:13-43
-activity#uit.ensak.dish_wish_frontend.Command.MapsChefActivity
+activity#uit.ensak.dish_wish_frontend.Authentification.page_acceuil
 ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:43:9-53:20
 	android:label
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:46:13-45
@@ -208,7 +208,7 @@ ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:43:9-
 	android:theme
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:47:13-70
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:44:13-53
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:44:13-58
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:48:13-52:29
 action#android.intent.action.MAIN
@@ -257,14 +257,14 @@ ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:71:9-
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:74:13-70
 	android:name
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:72:13-55
-activity#uit.ensak.dish_wish_frontend.Authentification.page_acceuil
+activity#uit.ensak.dish_wish_frontend.Command.MapsChefActivity
 ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:75:9-78:72
 	android:exported
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:77:13-37
 	android:theme
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:78:13-70
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:76:13-58
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:76:13-53
 activity#uit.ensak.dish_wish_frontend.Authentification.connect
 ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:79:9-82:72
 	android:exported
