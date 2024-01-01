@@ -2,6 +2,8 @@ package uit.ensak.dish_wish_frontend.Command;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -44,6 +46,7 @@ import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.Models.Proposition;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.databinding.ActivityMapsChefBinding;
+import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
 
 public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -71,7 +74,26 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        // Load the FilterByNameOrCityFragment
+        loadFilterByNameOrCityFragment();
 
+    }
+
+    private void loadFilterByNameOrCityFragment() {
+        // Create a new instance of the fragment
+        filter_by_name_or_city filterFragment = new filter_by_name_or_city();
+
+        // Get the FragmentManager
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        // Begin a new FragmentTransaction
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        // Replace the existing content with the new fragment
+        fragmentTransaction.replace(R.id.search_bar, filterFragment);
+
+        // Commit the transaction
+        fragmentTransaction.commit();
     }
 
     //MapReady
