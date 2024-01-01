@@ -176,10 +176,6 @@
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\raw\\dish.json"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_popup_negotiate.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/popup_negotiate.xml"
-    },
-    {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\mipmap-xhdpi\\ic_launcher.webp"
     },
@@ -454,6 +450,10 @@
     {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_serving.xml.flat",
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\serving.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_maps_home.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_maps_home.xml"
     },
     {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\mipmap-mdpi_ic_launcher.webp.flat",

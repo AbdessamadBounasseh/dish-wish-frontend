@@ -32,7 +32,7 @@ public class terms extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent5= new Intent(terms.this, MapsChefActivity.class);
+                Intent intent5= new Intent(terms.this, MapsHomeActivity.class);
                 startActivity(intent5);
             }
         });

@@ -22,6 +22,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -54,6 +56,7 @@ import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.databinding.ActivityMapsHomeBinding;
+import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
 
 public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -83,6 +86,26 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        // Load the FilterByNameOrCityFragment
+        loadFilterByNameOrCityFragment();
+
+    }
+
+    private void loadFilterByNameOrCityFragment() {
+        // Create a new instance of the fragment
+        filter_by_name_or_city filterFragment = new filter_by_name_or_city();
+
+        // Get the FragmentManager
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        // Begin a new FragmentTransaction
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        // Replace the existing content with the new fragment
+        fragmentTransaction.replace(R.id.search_bar, filterFragment);
+
+        // Commit the transaction
+        fragmentTransaction.commit();
     }
 
 
@@ -299,7 +322,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDM0NTA4NjMsImV4cCI6MTcwMzUzNzI2M30.o-b1dPTM6DRMtwQp5E6LOvW2WVFawcIUGRaareGBq28";
+                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmYXljYWw4QGdtYWlsLmNvbSIsImlhdCI6MTcwMzU4NTU4MCwiZXhwIjoxNzAzNjcxOTgwfQ.jtw13Qf7R7kCOPqGgmbGhDVJ7eWnOdp1MaciS8xfhRA";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Command>> call = apiService.getCommands("Bearer " + accessToken);
@@ -402,7 +425,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     }
 
     private void sendCommandToBackend() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDM0NTA4NjMsImV4cCI6MTcwMzUzNzI2M30.o-b1dPTM6DRMtwQp5E6LOvW2WVFawcIUGRaareGBq28";
+        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmYXljYWw4QGdtYWlsLmNvbSIsImlhdCI6MTcwMzU4NTU4MCwiZXhwIjoxNzAzNjcxOTgwfQ.jtw13Qf7R7kCOPqGgmbGhDVJ7eWnOdp1MaciS8xfhRA";
 
         //form fields
         EditText Title = findViewById(R.id.title);

@@ -41,20 +41,16 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
     </LinearLayout>
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/search_bar"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
-
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+        <FrameLayout
+            android:id="@+id/search_bar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <include layout="@layout/fragment_filter_by_name_or_city" />
+            android:layout_height="wrap_content"/>
 
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-    </LinearLayout>
+    </RelativeLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
