@@ -260,6 +260,8 @@ layout popup_command_created
 layout popup_command_details
 layout popup_command_failed
 layout popup_negotiate
+layout popup_proposition_created
+layout popup_proposition_failed
 menu menu_main
 mipmap ic_launcher
 mipmap ic_launcher_foreground
@@ -273,6 +275,7 @@ raw dish
 raw dishwish
 raw fail
 raw forgotpassword
+raw offersent
 raw profil
 raw profile
 raw reset

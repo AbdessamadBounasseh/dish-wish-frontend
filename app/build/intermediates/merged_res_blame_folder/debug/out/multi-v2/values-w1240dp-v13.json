@@ -4,7 +4,7 @@
             "outputFile": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-68:/values-w1240dp-v13/values-w1240dp-v13.xml",
             "map": [
                 {
-                    "source": "D:\\DishWishAPP\\dish-wish-frontend\\app\\src\\main\\res\\values-w1240dp\\dimens.xml",
+                    "source": "D:\\DishWish\\dish-wish-frontend\\app\\src\\main\\res\\values-w1240dp\\dimens.xml",
                     "from": {
                         "startLines": "2,1",
                         "startColumns": "4,4",

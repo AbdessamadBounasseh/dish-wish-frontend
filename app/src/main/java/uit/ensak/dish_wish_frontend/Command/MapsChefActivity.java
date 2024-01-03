@@ -1,5 +1,7 @@
 package uit.ensak.dish_wish_frontend.Command;
 
+import static java.lang.Float.valueOf;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
@@ -7,12 +9,14 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -29,6 +33,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -146,7 +151,7 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmYXljYWw4QGdtYWlsLmNvbSIsImlhdCI6MTcwMzU4NTU4MCwiZXhwIjoxNzAzNjcxOTgwfQ.jtw13Qf7R7kCOPqGgmbGhDVJ7eWnOdp1MaciS8xfhRA";
+                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQzMDY2NTEsImV4cCI6MTcwNDM5MzA1MX0.FELi0YOBk6DGkdtvTgqUKqMgr_YTwfkWd6-vhclWe68";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Command>> call = apiService.getCommands("Bearer " + accessToken);
@@ -343,22 +348,45 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                         public void onClick(View v) {
                             Proposition proposition = new Proposition();
 
-                            // Mocking Chef and Client IDs
+                            // Retrieve client ID from shared preferences
+                            SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);
+                            Long chefId = sharedPreferences.getLong("client_id_key", 3L);
+
                             Chef chef = new Chef();
                             chef.setId(1L);
                             proposition.setChef(chef);
 
-                            Client client = new Client();
-                            client.setId(2L);
-                            proposition.setClient(client);
+                            Client client = associatedCommand.getClient();
 
-                            Command command = new Command();
-                            command.setId(1L);
-                            proposition.setCommand(command);
+                            if (client != null) {
+                                proposition.setClient(client);
+                                proposition.setCommand(associatedCommand);
+                                proposition.setLastClientProposition(valueOf(associatedCommand.getPrice()));
+                            } else {
+                                Log.d("Command not provided","erorr");
+                            }
 
-                            proposition.setLastChefProposition(150.0f);
+                            EditText pricefield = popup.findViewById(R.id.price);
 
-                            String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmYXljYWw4QGdtYWlsLmNvbSIsImlhdCI6MTcwMzU4NTU4MCwiZXhwIjoxNzAzNjcxOTgwfQ.jtw13Qf7R7kCOPqGgmbGhDVJ7eWnOdp1MaciS8xfhRA";
+                            if (pricefield != null) {
+                                String priceText = pricefield.getText().toString();
+                                float priceValue = Float.parseFloat(priceText.replace("DH", ""));
+
+                                if (!priceText.isEmpty()) {
+                                    try {
+                                        proposition.setLastChefProposition(priceValue);
+                                    } catch (NumberFormatException e) {
+                                        Log.d("NumberFormatException", "Failed to parse priceText to float");
+                                    }
+                                } else {
+                                    Log.d("EmptyFieldException", "Price field is empty");
+                                }
+                            } else {
+                                Log.d("NullPointerException", "Price field is null");
+                            }
+
+
+                            String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQzMDY2NTEsImV4cCI6MTcwNDM5MzA1MX0.FELi0YOBk6DGkdtvTgqUKqMgr_YTwfkWd6-vhclWe68";
 
                             ApiService apiService = RetrofitClient.getApiService();
                             Call<Void> call = apiService.sendProposition("Bearer " + accessToken, proposition);
@@ -366,15 +394,18 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                                 @Override
                                 public void onResponse(Call<Void> call, Response<Void> response) {
                                     if (response.isSuccessful()) {
-                                        // Handle successful response
+                                        popup.dismiss();
+                                        showSuccessDialog();
                                     } else {
-                                        // Handle unsuccessful response
+                                        popup.dismiss();
+                                        showErrorDialog(popup);
                                     }
                                 }
 
                                 @Override
                                 public void onFailure(Call<Void> call, Throwable t) {
-                                    // Handle failure to send proposition
+                                    popup.dismiss();
+                                    showErrorDialog(popup);
                                 }
                             });
                         }
@@ -383,6 +414,30 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
             });
 
         }
+    }
+
+
+    private void showSuccessDialog() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.popup_command_created);
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+        dialog.show();
+        Button tryAgainButton = dialog.findViewById(R.id.Ok);
+        tryAgainButton.setOnClickListener(v -> {
+            dialog.dismiss();
+        });
+    }
+
+    private void showErrorDialog(Dialog popup) {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.popup_command_failed);
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+        dialog.show();
+        Button tryAgainButton = dialog.findViewById(R.id.tryagain);
+        tryAgainButton.setOnClickListener(v -> {
+            dialog.dismiss();
+            popup.show();
+        });
     }
 
 
