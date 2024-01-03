@@ -47,7 +47,6 @@
         <activity
             android:name=".Authentification.page_acceuil"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,7 +60,8 @@
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name=".Command.MapsHomeActivity"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
         <activity
             android:name=".Profil_Folder.become_cook"
             android:exported="false"
