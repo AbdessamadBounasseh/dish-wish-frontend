@@ -1,4 +1,4 @@
-package uit.ensak.dish_wish_frontend.Profil_Folder;
+package uit.ensak.dish_wish_frontend.Profil;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -21,7 +21,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import okhttp3.MediaType;
@@ -31,16 +30,13 @@ import retrofit2.Call;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.List;
 
 import retrofit2.Callback;
 import retrofit2.Response;
 import uit.ensak.dish_wish_frontend.Authentification.page_acceuil;
 import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
-import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.R;
-import uit.ensak.dish_wish_frontend.Profil_Folder.change_profile;
 import uit.ensak.dish_wish_frontend.dto.ChefDTO;
 import uit.ensak.dish_wish_frontend.dto.DietDTO;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;

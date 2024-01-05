@@ -1,4 +1,4 @@
-package uit.ensak.dish_wish_frontend.Profil_Folder;
+package uit.ensak.dish_wish_frontend.Profil;
 
 import uit.ensak.dish_wish_frontend.Models.Client;
 

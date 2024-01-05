@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profil_Folder.change_profile">
+    tools:context=".Profil.change_profile">
 
     <TextView
         android:id="@+id/textViewTitle"

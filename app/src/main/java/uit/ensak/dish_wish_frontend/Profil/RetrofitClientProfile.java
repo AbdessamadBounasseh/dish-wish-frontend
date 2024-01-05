@@ -1,4 +1,4 @@
-package uit.ensak.dish_wish_frontend.Profil_Folder;
+package uit.ensak.dish_wish_frontend.Profil;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
