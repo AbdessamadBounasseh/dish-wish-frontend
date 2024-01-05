@@ -1,5 +1,5 @@
 package uit.ensak.dish_wish_frontend.Profil;
-
+import com.airbnb.lottie.LottieAnimationView;
 import androidx.appcompat.app.AppCompatActivity;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -35,11 +35,13 @@ public class become_cook extends AppCompatActivity {
 
     private byte[] byteIdCard = null;
     private byte[] byteCertificate = null;
+    private LottieAnimationView animationCook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_become_cook);
+        animationCook = findViewById(R.id.animation_cook_space);
         Button btnScancard = findViewById(R.id.btnScancard);
         Button btnScancertif = findViewById(R.id.btnScancertif);
         ImageButton btnBack = findViewById(R.id.btnBack);
