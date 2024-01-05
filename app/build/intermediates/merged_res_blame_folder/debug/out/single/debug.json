@@ -4,6 +4,10 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/ic_launcher_foreground.xml"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-anydpi_ic_menu_logout.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-anydpi/ic_menu_logout.xml"
+    },
+    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_change_profile.xml.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_change_profile.xml"
     },
@@ -18,6 +22,18 @@
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_custom_desc_icon.xml.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/custom_desc_icon.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-hdpi_ic_menu_my_orders.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-hdpi/ic_menu_my_orders.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-anydpi_ic_menu_notifications.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-anydpi/ic_menu_notifications.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_forgotpassword.json.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/forgotpassword.json"
     },
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
@@ -60,6 +76,10 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/fail.json"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-anydpi_ic_menu_support.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-anydpi/ic_menu_support.xml"
+    },
+    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_create_acciunt.xml.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_create_acciunt.xml"
     },
@@ -78,6 +98,10 @@
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_success.png.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/success.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-anydpi_ic_menu_profile.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-anydpi/ic_menu_profile.xml"
     },
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_ic_back.xml.flat",
@@ -100,6 +124,10 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/rounded_edittext.xml"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_reset.json.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/reset.json"
+    },
+    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_ic_notification.png.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/ic_notification.png"
     },
@@ -112,12 +140,28 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-anydpi_ic_menu_my_orders.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-anydpi/ic_menu_my_orders.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-mdpi_ic_menu_profile.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-mdpi/ic_menu_profile.png"
+    },
+    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/xml_backup_rules.xml.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/xml/backup_rules.xml"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-xxhdpi_ic_menu_support.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-xxhdpi/ic_menu_support.png"
+    },
+    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_line_edittext.xml.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/line_edittext.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/menu_menu_main.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/menu/menu_main.xml"
     },
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/mipmap-xxhdpi_ic_launcher.webp.flat",
@@ -130,6 +174,10 @@
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_custom_serving_icon.xml.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/custom_serving_icon.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_offersent.json.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/offersent.json"
     },
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_popup_negotiate.xml.flat",
@@ -148,8 +196,24 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-xhdpi_ic_menu_faq.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-xhdpi/ic_menu_faq.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-hdpi_ic_menu_faq.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-hdpi/ic_menu_faq.png"
+    },
+    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_img.png.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/img.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-xhdpi_ic_menu_become_chef.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-xhdpi/ic_menu_become_chef.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-xxhdpi_ic_menu_notifications.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-xxhdpi/ic_menu_notifications.png"
     },
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_menu.xml.flat",
@@ -158,6 +222,22 @@
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_become_cook.xml.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_become_cook.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/font_abelregular.ttf.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/font/abelregular.ttf"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-mdpi_ic_menu_faq.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-mdpi/ic_menu_faq.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_popup_proposition_failed.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/popup_proposition_failed.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-hdpi_ic_menu_notifications.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-hdpi/ic_menu_notifications.png"
     },
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_order_marker.png.flat",
@@ -180,8 +260,28 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/rounded_corners.xml"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_popup_proposition_created.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/popup_proposition_created.xml"
+    },
+    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_time.xml.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/time.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-hdpi_ic_menu_support.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-hdpi/ic_menu_support.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-xhdpi_ic_menu_profile.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-xhdpi/ic_menu_profile.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-xhdpi_ic_menu_my_orders.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-xhdpi/ic_menu_my_orders.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-xhdpi_ic_menu_notifications.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-xhdpi/ic_menu_notifications.png"
     },
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_title.xml.flat",
@@ -204,6 +304,10 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/timefocused.xml"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-mdpi_ic_menu_notifications.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-mdpi/ic_menu_notifications.png"
+    },
+    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_serving.xml.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/serving.xml"
     },
@@ -212,8 +316,20 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-hdpi_ic_menu_become_chef.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-hdpi/ic_menu_become_chef.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-hdpi_ic_menu_profile.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-hdpi/ic_menu_profile.png"
+    },
+    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_card.png.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/card.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-xxhdpi_ic_menu_my_orders.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-xxhdpi/ic_menu_my_orders.png"
     },
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_success.json.flat",
@@ -240,12 +356,32 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-xxhdpi_ic_menu_profile.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-xxhdpi/ic_menu_profile.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-mdpi_ic_menu_become_chef.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-mdpi/ic_menu_become_chef.png"
+    },
+    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_button_cook.png.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/button_cook.png"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-xxhdpi_ic_menu_faq.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-xxhdpi/ic_menu_faq.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-xxhdpi_ic_menu_logout.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-xxhdpi/ic_menu_logout.png"
+    },
+    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_item_dish.xml.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/item_dish.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_sent.json.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/sent.json"
     },
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_homemade_pizza.png.flat",
@@ -284,12 +420,12 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/food_allergy.jpg"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_custom_title_icon.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/custom_title_icon.xml"
-    },
-    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_cooking.json.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/cooking.json"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_custom_title_icon.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/custom_title_icon.xml"
     },
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/navigation_mobile_navigation.xml.flat",
@@ -328,8 +464,20 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/ic_visibility_off.xml"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-mdpi_ic_menu_logout.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-mdpi/ic_menu_logout.png"
+    },
+    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_ic_launcher_background.xml.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_verify_email.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_verify_email.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-hdpi_ic_menu_logout.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-hdpi/ic_menu_logout.png"
     },
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_arrow_up.xml.flat",
@@ -346,6 +494,10 @@
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_terms.xml.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_terms.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-mdpi_ic_menu_my_orders.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-mdpi/ic_menu_my_orders.png"
     },
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_become_cook.PNG.flat",
@@ -448,12 +600,24 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/font/poppins_regular.ttf"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-xxhdpi_ic_menu_become_chef.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-xxhdpi/ic_menu_become_chef.png"
+    },
+    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_chef.png.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/chef.png"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-xhdpi_ic_menu_support.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-xhdpi/ic_menu_support.png"
+    },
+    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/font_interlight.ttf.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/font/interlight.ttf"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-anydpi_ic_menu_faq.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-anydpi/ic_menu_faq.xml"
     },
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_view_profile.xml.flat",
@@ -472,8 +636,24 @@
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/bottom_sheet_layout.xml"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/raw_dishwish.json.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/raw/dishwish.json"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-mdpi_ic_menu_support.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-mdpi/ic_menu_support.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-xhdpi_ic_menu_logout.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-xhdpi/ic_menu_logout.png"
+    },
+    {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_date.xml.flat",
         "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/date.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable-anydpi_ic_menu_become_chef.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable-anydpi/ic_menu_become_chef.xml"
     },
     {
         "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_back.PNG.flat",

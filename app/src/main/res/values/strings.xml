@@ -41,4 +41,20 @@ Sign In
     <string name="welcome_to_">
 Welcome to DishWish
 </string>
+    <string name="verificatio">Verification email sent</string>
+    <string name="we_have_sen">
+We have sent a instructions email to
+</string>
+    <string name="having_prob">
+Having problem?
+</string>
+    <string name="reset">
+Reset email sent
+</string>
+    <string name="forgot">
+Forgot password
+</string>
+    <string name="send_email">
+Enter your email address and we will send you a reset instructions.
+</string>
 </resources>

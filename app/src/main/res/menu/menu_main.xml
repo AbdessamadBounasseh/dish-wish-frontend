@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_profile"
+        android:title="My Profile"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_menu_profile"/>
+    <item
+        android:id="@+id/action_orders"
+        android:title="My Orders"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_menu_my_orders"/>
+    <item
+        android:id="@+id/action_notifications"
+        android:title="Notifications"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_menu_notifications"/>
+    <item
+        android:id="@+id/action_support"
+        android:title="Support"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_menu_support"/>
+    <item
+        android:id="@+id/action_become_chef"
+        android:title="Become a chef"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_menu_become_chef"/>
+    <item
+        android:id="@+id/action_FAQ"
+        android:title="FAQ"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_menu_faq"/>
+    <item
+        android:id="@+id/action_logout"
+        android:title="Logout"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_menu_logout"/>
+</menu>

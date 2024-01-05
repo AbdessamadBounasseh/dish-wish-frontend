@@ -21,6 +21,11 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
 
+
+
+        <activity
+            android:name=".Authentification.VerifyEmail"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -39,11 +44,9 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-
         <activity
             android:name=".Authentification.page_acceuil"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,43 +54,42 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".history_folder.HistoryActivity"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name=".Command.MapsHomeActivity"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
         <activity
             android:name=".Profil_Folder.become_cook"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name=".Profil_Folder.change_profile"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name=".Profil_Folder.view_profile"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name=".Command.MapsChefActivity"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name=".Authentification.connect"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name=".Authentification.terms"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
-            android:name=".Authentification.createAcciunt"
+            android:name=".Authentification.CreateAccount"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
     </application>
 
 </manifest>

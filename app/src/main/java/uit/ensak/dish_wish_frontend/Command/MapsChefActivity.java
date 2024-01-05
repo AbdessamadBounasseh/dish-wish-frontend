@@ -1,15 +1,15 @@
 package uit.ensak.dish_wish_frontend.Command;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentActivity;
+import static java.lang.Float.valueOf;
 
-import android.Manifest;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
@@ -25,9 +25,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -48,9 +45,13 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import uit.ensak.dish_wish_frontend.Models.Chef;
+import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Command;
+import uit.ensak.dish_wish_frontend.Models.Proposition;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.databinding.ActivityMapsChefBinding;
+import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
 
 public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -61,9 +62,11 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
     final ArrayList<Command> commandList = new ArrayList<>();
     private ImageView arrow;
     private ImageView arrow_popup;
+    private Button sendOffer;
 
 
 
+    //createMap
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,13 +79,34 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        // Load the FilterByNameOrCityFragment
+        loadFilterByNameOrCityFragment();
 
     }
 
+    private void loadFilterByNameOrCityFragment() {
+        // Create a new instance of the fragment
+        filter_by_name_or_city filterFragment = new filter_by_name_or_city();
+
+        // Get the FragmentManager
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        // Begin a new FragmentTransaction
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        // Replace the existing content with the new fragment
+        fragmentTransaction.replace(R.id.search_bar, filterFragment);
+
+        // Commit the transaction
+        fragmentTransaction.commit();
+    }
+
+    //MapReady
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        //Get Commands and place them on the map
         retryRequest();
 
         // Check for location permission
@@ -111,6 +135,7 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                     LOCATION_PERMISSION_REQUEST_CODE);
         }*/
 
+        //show command details
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
@@ -121,12 +146,12 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
         });
     }
 
-
+    //put markers of the commands on the map
     private void retryRequest() {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDM0NTU0MzAsImV4cCI6MTcwMzU0MTgzMH0.3RjkaJzqZMeLiJeeAtOSPT9SQbZPvioSUW3JyxY0sOs";
+                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQzMDY2NTEsImV4cCI6MTcwNDM5MzA1MX0.FELi0YOBk6DGkdtvTgqUKqMgr_YTwfkWd6-vhclWe68";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Command>> call = apiService.getCommands("Bearer " + accessToken);
@@ -317,11 +342,102 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                         });
                     }
 
+                    sendOffer = popup.findViewById(R.id.sendOffer);
+                    sendOffer.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Proposition proposition = new Proposition();
+
+                            // Retrieve client ID from shared preferences
+                            SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);
+                            Long chefId = sharedPreferences.getLong("client_id_key", 3L);
+
+                            Chef chef = new Chef();
+                            chef.setId(1L);
+                            proposition.setChef(chef);
+
+                            Client client = associatedCommand.getClient();
+
+                            if (client != null) {
+                                proposition.setClient(client);
+                                proposition.setCommand(associatedCommand);
+                                proposition.setLastClientProposition(valueOf(associatedCommand.getPrice()));
+                            } else {
+                                Log.d("Command not provided","erorr");
+                            }
+
+                            EditText pricefield = popup.findViewById(R.id.price);
+
+                            if (pricefield != null) {
+                                String priceText = pricefield.getText().toString();
+                                float priceValue = Float.parseFloat(priceText.replace("DH", ""));
+
+                                if (!priceText.isEmpty()) {
+                                    try {
+                                        proposition.setLastChefProposition(priceValue);
+                                    } catch (NumberFormatException e) {
+                                        Log.d("NumberFormatException", "Failed to parse priceText to float");
+                                    }
+                                } else {
+                                    Log.d("EmptyFieldException", "Price field is empty");
+                                }
+                            } else {
+                                Log.d("NullPointerException", "Price field is null");
+                            }
+
+
+                            String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQzMDY2NTEsImV4cCI6MTcwNDM5MzA1MX0.FELi0YOBk6DGkdtvTgqUKqMgr_YTwfkWd6-vhclWe68";
+
+                            ApiService apiService = RetrofitClient.getApiService();
+                            Call<Void> call = apiService.sendProposition("Bearer " + accessToken, proposition);
+                            call.enqueue(new Callback<Void>() {
+                                @Override
+                                public void onResponse(Call<Void> call, Response<Void> response) {
+                                    if (response.isSuccessful()) {
+                                        popup.dismiss();
+                                        showSuccessDialog();
+                                    } else {
+                                        popup.dismiss();
+                                        showErrorDialog(popup);
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<Void> call, Throwable t) {
+                                    popup.dismiss();
+                                    showErrorDialog(popup);
+                                }
+                            });
+                        }
+                    });
                 }
             });
 
-
         }
+    }
+
+
+    private void showSuccessDialog() {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.popup_command_created);
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+        dialog.show();
+        Button tryAgainButton = dialog.findViewById(R.id.Ok);
+        tryAgainButton.setOnClickListener(v -> {
+            dialog.dismiss();
+        });
+    }
+
+    private void showErrorDialog(Dialog popup) {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.popup_command_failed);
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+        dialog.show();
+        Button tryAgainButton = dialog.findViewById(R.id.tryagain);
+        tryAgainButton.setOnClickListener(v -> {
+            dialog.dismiss();
+            popup.show();
+        });
     }
 
 

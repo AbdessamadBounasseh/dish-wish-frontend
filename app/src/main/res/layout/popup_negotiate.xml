@@ -98,7 +98,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <TextView
+        <EditText
             android:id="@+id/Description"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -116,11 +116,11 @@
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/finalizeButton"
+            android:id="@+id/sendOffer"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
-            android:text="Modify"
+            android:text="Send offer"
             android:layout_gravity="center"
             android:textAlignment="center"
             android:background="@drawable/rounded_edittext"

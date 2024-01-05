@@ -22,7 +22,6 @@ import java.util.regex.Pattern;
 
 import uit.ensak.dish_wish_frontend.Command.MapsHomeActivity;
 import uit.ensak.dish_wish_frontend.R;
-import uit.ensak.dish_wish_frontend.Profil_Folder.become_cook;
 
 public class connect extends AppCompatActivity {
     EditText email,password;
@@ -53,7 +52,7 @@ public class connect extends AppCompatActivity {
         newacc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1= new Intent(connect.this, createAcciunt.class);
+                Intent intent1= new Intent(connect.this, CreateAccount.class);
                 startActivity(intent1);
             }
         });
@@ -82,6 +81,7 @@ public class connect extends AppCompatActivity {
             }
         });
         forgot=findViewById(R.id.forgpass);
+
 
 
 

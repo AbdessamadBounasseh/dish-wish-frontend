@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -30,7 +31,7 @@ import uit.ensak.dish_wish_frontend.Models.Auth.RegisterRequest;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.service.AuthenticationService;
 
-public class createAcciunt extends AppCompatActivity {
+public class CreateAccount extends AppCompatActivity {
     private static final Logger logger = (Logger) LoggerFactory.getLogger(page_acceuil.class);
     EditText etemail, etpassword, etpasswordconfirm;
     Button signup;
@@ -59,7 +60,7 @@ public class createAcciunt extends AppCompatActivity {
         already.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(createAcciunt.this, connect.class);
+                Intent intent = new Intent(CreateAccount.this, connect.class);
                 startActivity(intent);
             }
         });
@@ -117,12 +118,15 @@ public class createAcciunt extends AppCompatActivity {
                 password = etpassword.getText().toString();
                 confirmpassword = etpasswordconfirm.getText().toString();
                 if (email.equals("") || password.equals("") || confirmpassword.equals("")) {
-                    Toast.makeText(createAcciunt.this, "all fields should be filled to sign up ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CreateAccount.this, "all fields should be filled to sign up ", Toast.LENGTH_LONG).show();
 
                 } else {
                     if (isValidEmail(email)) {
                         if (password.equals(confirmpassword)) {
-                            if(db.checkemail(email))
+                            if (!isStrongPassword(password)) {
+                                return;
+                            }
+                           /* if(db.checkemail(email))
                             {
                                 Toast.makeText(createAcciunt.this,"user already exists",Toast.LENGTH_LONG).show();
                                 return;
@@ -134,15 +138,19 @@ public class createAcciunt extends AppCompatActivity {
                                 startActivity(intent1);
 
                             } else
-                                Toast.makeText(createAcciunt.this,"failed to sign up",Toast.LENGTH_LONG).show();
+
+                              Toast.makeText(createAcciunt.this,"failed to sign up",Toast.LENGTH_LONG).show();
+                            */
                             handleRegistration(email, password);
 
 
+
+
                         } else {
-                            Toast.makeText(createAcciunt.this, "the two passwords should be the same", Toast.LENGTH_LONG).show();
+                            Toast.makeText(CreateAccount.this, "the two passwords should be the same", Toast.LENGTH_LONG).show();
                         }
                     } else {
-                        Toast.makeText(createAcciunt.this, "Invalid email format", Toast.LENGTH_LONG).show();
+                        Toast.makeText(CreateAccount.this, "Invalid email format", Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -166,20 +174,56 @@ public class createAcciunt extends AppCompatActivity {
         authenticationResponseCall.enqueue(new Callback<AuthenticationResponse>() {
             @Override
             public void onResponse(Call<AuthenticationResponse> call, Response<AuthenticationResponse> response) {
-                if (response.isSuccessful()) {
+                int statusCode = response.code();
+                Log.d("MyTag", "HTTP Status Code: " + statusCode);
+                //if (response.isSuccessful()) {
+
                     AuthenticationResponse authenticationResponse = response.body();
                     logger.info("succes");
+                    Intent intent1= new Intent(CreateAccount.this,VerifyEmail.class);
+                    startActivity(intent1);
 
-                }
+
+                //}
 
 
             }
 
             @Override
             public void onFailure(Call<AuthenticationResponse> call, Throwable t) {
+                Toast.makeText(CreateAccount.this, "account creation failed", Toast.LENGTH_LONG).show();
 
             }
         });
 
     }
+    private boolean isStrongPassword(String password) {
+        if (password.length() < 8) {
+            Toast.makeText(CreateAccount.this, "Password should be at least 8 characters long", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (!password.matches(".*[A-Z].*")) {
+            Toast.makeText(CreateAccount.this, "Password should contain at least one uppercase letter", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (!password.matches(".*[a-z].*")) {
+            Toast.makeText(CreateAccount.this, "Password should contain at least one lowercase letter", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (!password.matches(".*\\d.*")) {
+            Toast.makeText(CreateAccount.this, "Password should contain at least one digit", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (!password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\",.<>/?].*")) {
+            Toast.makeText(CreateAccount.this, "Password should contain at least one special character", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        return true;
+    }
+
 }

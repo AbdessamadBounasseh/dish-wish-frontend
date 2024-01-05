@@ -78,8 +78,14 @@ Enter your Phone number or Email address for sign in. Enjoy your food :)
     <string name="forget_pass">
 Forget Password?
 </string>
+    <string name="forgot">
+Forgot password
+</string>
     <string name="general_1_1">
 General\n1.1 Agreement: By using this Service, you acknowledge that you have read, understood, and agree to be bound by these Terms and all applicable laws and regulations.\n1.2 Eligibility: To use our online shopping platform, you must be at least [age] years old or of legal age in your country of residence.\n1.3 Modification: We reserve the right to modify or update these Terms at any time without prior notice. The most current version of these Terms will be posted on this page. By continuing to use the Service after any revisions become effective, you agree to be bound by the revised terms. It is your responsibility to review these Terms periodically for changes.\n2.2 Availability: All products and services displayed on our Website are subject to availability.
+</string>
+    <string name="having_prob">
+Having problem?
 </string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_gallery">Gallery</string>
@@ -94,6 +100,12 @@ General\n1.1 Agreement: By using this Service, you acknowledge that you have rea
     <string name="remember">
 REMEBER ME
 </string>
+    <string name="reset">
+Reset email sent
+</string>
+    <string name="send_email">
+Enter your email address and we will send you a reset instructions.
+</string>
     <string name="sign_in">
 Sign In
 </string>
@@ -101,6 +113,10 @@ Sign In
     <string name="title_activity_profile_preview">Activity_Profile_Preview</string>
     <string name="title_activity_profile_setting">Activity_profile_setting</string>
     <string name="title_activity_profile_settings">Activity_profile_setting</string>
+    <string name="verificatio">Verification email sent</string>
+    <string name="we_have_sen">
+We have sent a instructions email to
+</string>
     <string name="welcome_to_">
 Welcome to DishWish
 </string>

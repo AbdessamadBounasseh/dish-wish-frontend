@@ -4,6 +4,7 @@ import static androidx.constraintlayout.widget.ConstraintLayoutStates.TAG;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
@@ -22,6 +23,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -54,6 +57,7 @@ import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.databinding.ActivityMapsHomeBinding;
+import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
 
 public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -83,6 +87,26 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        // Load the FilterByNameOrCityFragment
+        loadFilterByNameOrCityFragment();
+
+    }
+
+    private void loadFilterByNameOrCityFragment() {
+        // Create a new instance of the fragment
+        filter_by_name_or_city filterFragment = new filter_by_name_or_city();
+
+        // Get the FragmentManager
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        // Begin a new FragmentTransaction
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        // Replace the existing content with the new fragment
+        fragmentTransaction.replace(R.id.search_bar, filterFragment);
+
+        // Commit the transaction
+        fragmentTransaction.commit();
     }
 
 
@@ -272,16 +296,16 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     }
 
     private void showCommandDetailsPopup(Command associatedCommand) {
-            Dialog dialog = new Dialog(this);
-            dialog.setContentView(R.layout.popup_chef_details);
-            dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.popup_chef_details);
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
 
-            Window window = dialog.getWindow();
-            if (window != null) {
-                WindowManager.LayoutParams layoutParams = window.getAttributes();
-                layoutParams.y = (int) getResources().getDisplayMetrics().density * 20;
-                window.setAttributes(layoutParams);
-            }
+        Window window = dialog.getWindow();
+        if (window != null) {
+            WindowManager.LayoutParams layoutParams = window.getAttributes();
+            layoutParams.y = (int) getResources().getDisplayMetrics().density * 20;
+            window.setAttributes(layoutParams);
+        }
         dialog.show();
 
         arrow = dialog.findViewById(R.id.animation);
@@ -299,7 +323,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDM0NTU0MzAsImV4cCI6MTcwMzU0MTgzMH0.3RjkaJzqZMeLiJeeAtOSPT9SQbZPvioSUW3JyxY0sOs";
+                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQzMDY2NTEsImV4cCI6MTcwNDM5MzA1MX0.FELi0YOBk6DGkdtvTgqUKqMgr_YTwfkWd6-vhclWe68";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Command>> call = apiService.getCommands("Bearer " + accessToken);
@@ -402,7 +426,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     }
 
     private void sendCommandToBackend() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDM0NTU0MzAsImV4cCI6MTcwMzU0MTgzMH0.3RjkaJzqZMeLiJeeAtOSPT9SQbZPvioSUW3JyxY0sOs";
+        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQzMDY2NTEsImV4cCI6MTcwNDM5MzA1MX0.FELi0YOBk6DGkdtvTgqUKqMgr_YTwfkWd6-vhclWe68";
 
         //form fields
         EditText Title = findViewById(R.id.title);
@@ -436,13 +460,18 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             command.setDeadline(deadline);
             command.setPrice(price);
 
-            // Mocking Chef and Client IDs
-            Chef chef = new Chef();
-            chef.setId(1L);
-            command.setChef(chef);
+           /* // Retrieve client ID from shared preferences
+            SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);
+            Long clientId = sharedPreferences.getLong("client_id_key", 3L);
 
             Client client = new Client();
-            client.setId(2L);
+            client.setId(clientId);
+            command.setClient(client);*/
+
+
+            // Mocking Client IDs
+            Client client = new Client();
+            client.setId(3L);
             command.setClient(client);
 
             ApiService apiService = RetrofitClient.getApiService();
@@ -454,6 +483,8 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                     if (response.isSuccessful()) {
                         sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                         showSuccessDialog();
+
+                        clearFields();
                     } else {
                         sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                         showErrorDialog();
@@ -468,6 +499,30 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             });
         }
     }
+
+    private void clearFields() {
+        EditText titleEditText = findViewById(R.id.title);
+        titleEditText.getText().clear();
+
+        EditText descriptionEditText = findViewById(R.id.Description);
+        descriptionEditText.getText().clear();
+
+        EditText servingEditText = findViewById(R.id.serving);
+        servingEditText.getText().clear();
+
+        EditText locationEditText = findViewById(R.id.location);
+        locationEditText.getText().clear();
+
+        EditText deliveryDateEditText = findViewById(R.id.deliveryDate);
+        deliveryDateEditText.getText().clear();
+
+        EditText deliveryTimeEditText = findViewById(R.id.deliveryTime);
+        deliveryTimeEditText.getText().clear();
+
+        EditText priceEditText = findViewById(R.id.price);
+        priceEditText.getText().clear();
+    }
+
 
     private void showSuccessDialog() {
         Dialog dialog = new Dialog(this);
