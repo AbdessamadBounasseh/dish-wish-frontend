@@ -1,4 +1,4 @@
-package uit.ensak.dish_wish_frontend;
+package uit.ensak.dish_wish_frontend.Profil_Folder;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -40,7 +40,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import uit.ensak.dish_wish_frontend.Command.ApiService;
 import uit.ensak.dish_wish_frontend.Command.RetrofitClient;
-
+import uit.ensak.dish_wish_frontend.R;
+import uit.ensak.dish_wish_frontend.Profil_Folder.change_profile;
 
 
 public class view_profile extends AppCompatActivity {
