@@ -33,16 +33,28 @@
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"/>
 
-        <ImageView
-            android:id="@+id/imageViewHeader"
-            android:layout_width="223.74dp"
+<!--        <ImageView-->
+<!--            android:id="@+id/imageViewHeader"-->
+<!--            android:layout_width="223.74dp"-->
+<!--            android:layout_height="254.1dp"-->
+<!--            android:layout_marginStart="100dp"-->
+<!--            android:layout_marginTop="100dp"-->
+<!--            android:layout_marginEnd="100dp"-->
+<!--            android:layout_marginBottom="100dp"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:src="@drawable/become_cook" />-->
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/Animation-cook-space"
+            android:layout_width="260.74dp"
             android:layout_height="254.1dp"
-            android:layout_marginStart="100dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="80dp"
             android:layout_marginTop="100dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="100dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/become_cook" />
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/details"
+            tools:layout_editor_absoluteX="75dp"
+            tools:layout_editor_absoluteY="46dp" />
 
     </RelativeLayout>
 
