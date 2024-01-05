@@ -79,9 +79,13 @@ public class become_cook extends AppCompatActivity {
                 if (byteIdCard != null && byteCertificate != null) {
                     sendImagesToBackend(byteIdCard, byteCertificate);
                     showToast("Import successful!");
+                    Intent intent = new Intent(become_cook.this, page_acceuil.class);
+                    startActivity(intent);
                 }
                 onBackPressed();
                 showToast("Import failed!");
+                Intent intent = new Intent(become_cook.this, become_cook.class);
+                startActivity(intent);
             }
 
 
