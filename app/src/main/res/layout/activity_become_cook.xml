@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Become a Cook"
-        android:textSize="24sp"
+        android:textSize="34sp"
         android:textColor="@android:color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,13 +25,14 @@
 
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/back"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_back"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"/>
+            android:layout_marginTop="22dp"
+            android:layout_marginStart="16dp"
+            android:background="@color/white"/>
 
 <!--        <ImageView-->
 <!--            android:id="@+id/imageViewHeader"-->
@@ -46,8 +47,8 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animation_cook_space"
-            android:layout_width="260.74dp"
-            android:layout_height="254.1dp"
+            android:layout_width="270.74dp"
+            android:layout_height="274.1dp"
             android:layout_gravity="center"
             android:layout_marginStart="80dp"
             android:layout_marginTop="100dp"
@@ -63,7 +64,7 @@
         android:id="@+id/btnScancard"
         android:layout_width="335dp"
         android:layout_height="62dp"
-        android:layout_marginBottom="208dp"
+        android:layout_marginBottom="258dp"
         android:backgroundTint="@color/nationalcard_scann"
         android:drawableLeft="@drawable/card"
         android:text="Select National ID card"
@@ -75,7 +76,7 @@
         android:id="@+id/btnScancertif"
         android:layout_width="335dp"
         android:layout_height="62dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="180dp"
         android:backgroundTint="@color/certificate_scann"
         android:drawableLeft="@drawable/cerf"
         android:text="Select restoration certificate"
@@ -91,6 +92,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginBottom="85dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
