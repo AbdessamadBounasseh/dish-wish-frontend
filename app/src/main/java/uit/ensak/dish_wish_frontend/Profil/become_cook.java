@@ -20,7 +20,6 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import java.io.ByteArrayOutputStream;
@@ -32,8 +31,6 @@ public class become_cook extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST_CARD = 1;
     private static final int PICK_IMAGE_REQUEST_CERTIF = 2;
-
-
     private byte[] byteIdCard = null;
     private byte[] byteCertificate = null;
     private LottieAnimationView animationCook;
@@ -72,8 +69,6 @@ public class become_cook extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
-
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,8 +83,6 @@ public class become_cook extends AppCompatActivity {
                 Intent intent = new Intent(become_cook.this, become_cook.class);
                 startActivity(intent);
             }
-
-
         });
     }
 
@@ -101,9 +94,7 @@ public class become_cook extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         Uri selectedImageUri = data.getData();
-
         switch (requestCode) {
             case PICK_IMAGE_REQUEST_CARD:
                 try {
@@ -112,7 +103,6 @@ public class become_cook extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 break;
-
             case PICK_IMAGE_REQUEST_CERTIF:
                 try {
                     byteCertificate = getImageBytes(selectedImageUri);
@@ -140,7 +130,6 @@ public class become_cook extends AppCompatActivity {
         String authToken = preferences.getString("accessToken", "");
         RequestBody idCardRequestBody = RequestBody.create(MediaType.parse("image/*"), idCardData);
         RequestBody certificateRequestBody = RequestBody.create(MediaType.parse("image/*"), certificateData);
-
         MultipartBody.Part idCardPart = MultipartBody.Part.createFormData("idCard", "idCard.jpg", idCardRequestBody);
         MultipartBody.Part certificatePart = MultipartBody.Part.createFormData("certificate", "certificate.jpg", certificateRequestBody);
         ApiService apiService = RetrofitClient.getApiService();
@@ -151,7 +140,6 @@ public class become_cook extends AppCompatActivity {
                 showToast("Import successful!");
                 Intent intent = new Intent(become_cook.this, page_acceuil.class);
                 startActivity(intent);
-               // finish();
             }
             @Override
             public void onFailure(Call<Chef> call, Throwable t) {
