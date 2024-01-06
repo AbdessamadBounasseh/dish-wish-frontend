@@ -96,12 +96,12 @@
         "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\arrow_up.xml"
     },
     {
-        "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_img_1.png.flat",
-        "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\img_1.png"
-    },
-    {
         "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_ic_visibility_off.xml.flat",
         "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\ic_visibility_off.xml"
+    },
+    {
+        "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_img_1.png.flat",
+        "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\img_1.png"
     },
     {
         "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_food_allergy.jpg.flat",
@@ -170,10 +170,6 @@
     {
         "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_arrow_down.xml.flat",
         "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\arrow_down.xml"
-    },
-    {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_become_cook.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_become_cook.xml"
     },
     {
         "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\layout_item_search_result.xml.flat",
@@ -402,6 +398,10 @@
     {
         "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\font_interlight.ttf.flat",
         "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\font\\interlight.ttf"
+    },
+    {
+        "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\raw_annimation_principal_cook.json.flat",
+        "source": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\raw\\annimation_principal_cook.json"
     },
     {
         "merged": "C:\\Users\\chaymae\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_ic_visibility_on.xml.flat",

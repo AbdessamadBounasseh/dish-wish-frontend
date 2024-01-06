@@ -53,7 +53,7 @@
             android:layout_marginStart="80dp"
             android:layout_marginTop="100dp"
             app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/details"
+            app:lottie_rawRes="@raw/annimation_principal_cook"
             tools:layout_editor_absoluteX="75dp"
             tools:layout_editor_absoluteY="46dp" />
 

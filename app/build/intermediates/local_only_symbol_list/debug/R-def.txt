@@ -245,7 +245,7 @@ mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 navigation mobile_navigation
-raw animation_cook_space
+raw annimation_principal_cook
 raw button
 raw cook
 raw cooking
