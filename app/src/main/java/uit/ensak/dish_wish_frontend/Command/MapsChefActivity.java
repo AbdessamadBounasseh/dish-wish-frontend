@@ -151,7 +151,7 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQzMDY2NTEsImV4cCI6MTcwNDM5MzA1MX0.FELi0YOBk6DGkdtvTgqUKqMgr_YTwfkWd6-vhclWe68";
+                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ0OTAxMTMsImV4cCI6MTcwNDU3NjUxM30.mE6klXO7GsletT7iL4FXiTPCayYQCrzxEDwFBf3vqFQ";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Command>> call = apiService.getCommands("Bearer " + accessToken);
@@ -386,7 +386,7 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                             }
 
 
-                            String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQzMDY2NTEsImV4cCI6MTcwNDM5MzA1MX0.FELi0YOBk6DGkdtvTgqUKqMgr_YTwfkWd6-vhclWe68";
+                            String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ0OTAxMTMsImV4cCI6MTcwNDU3NjUxM30.mE6klXO7GsletT7iL4FXiTPCayYQCrzxEDwFBf3vqFQ";
 
                             ApiService apiService = RetrofitClient.getApiService();
                             Call<Void> call = apiService.sendProposition("Bearer " + accessToken, proposition);

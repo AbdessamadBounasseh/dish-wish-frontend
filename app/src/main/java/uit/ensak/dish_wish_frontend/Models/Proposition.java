@@ -1,11 +1,33 @@
 package uit.ensak.dish_wish_frontend.Models;
 
 public class Proposition {
+    private Long id;
     private Command command;
     private Client client;
     private float lastClientProposition;
     private float lastChefProposition;
     private Chef chef;
+
+    public Proposition(Long id, Command command, Client client, float lastClientProposition, float lastChefProposition, Chef chef) {
+        this.id = id;
+        this.command = command;
+        this.client = client;
+        this.lastClientProposition = lastClientProposition;
+        this.lastChefProposition = lastChefProposition;
+        this.chef = chef;
+    }
+
+    public Proposition() {
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Command getCommand() {
         return command;

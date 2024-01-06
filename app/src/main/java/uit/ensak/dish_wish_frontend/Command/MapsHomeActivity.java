@@ -55,6 +55,7 @@ import retrofit2.Response;
 import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Command;
+import uit.ensak.dish_wish_frontend.Models.Proposition;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.databinding.ActivityMapsHomeBinding;
 import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
@@ -64,8 +65,8 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private GoogleMap mMap;
     private ActivityMapsHomeBinding binding;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
-    private Map<String, Command> markerCommandMap = new HashMap<>();
-    final ArrayList<Command> commandList = new ArrayList<>();
+    private Map<String, Proposition> markerPropositionMap = new HashMap<>();
+    final ArrayList<Proposition> propositionList = new ArrayList<>();
     private LinearLayout mBottomSheetLayout;
     private BottomSheetBehavior sheetBehavior;
     private ImageView header_Arrow_Image;
@@ -274,7 +275,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
 
                 MarkerOptions markerOptions = new MarkerOptions()
                         .position(latLng)
-                        .title("Order's Location")
+                        .title("Offer's Location")
                         .icon(BitmapFromVector(
                                 getApplicationContext(),
                                 R.drawable.dish));
@@ -287,15 +288,15 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-                Command associatedCommand = getCommandFromMarker(marker);
-                showCommandDetailsPopup(associatedCommand);
+                Proposition associatedProposition = getPropositionFromMarker(marker);
+                showPropositionDetailsPopup(associatedProposition);
                 return true;
             }
         });
 
     }
 
-    private void showCommandDetailsPopup(Command associatedCommand) {
+    private void showPropositionDetailsPopup(Proposition associatedProposition) {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.popup_chef_details);
         dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
@@ -323,20 +324,20 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQzMDY2NTEsImV4cCI6MTcwNDM5MzA1MX0.FELi0YOBk6DGkdtvTgqUKqMgr_YTwfkWd6-vhclWe68";
+                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ0OTAxMTMsImV4cCI6MTcwNDU3NjUxM30.mE6klXO7GsletT7iL4FXiTPCayYQCrzxEDwFBf3vqFQ";
 
                 ApiService apiService = RetrofitClient.getApiService();
-                Call<List<Command>> call = apiService.getCommands("Bearer " + accessToken);
+                Call<List<Proposition>> call = apiService.getPropositions("Bearer " + accessToken);
 
-                call.enqueue(new Callback<List<Command>>() {
+                call.enqueue(new Callback<List<Proposition>>() {
                     @Override
-                    public void onResponse(Call<List<Command>> call, Response<List<Command>> response) {
+                    public void onResponse(Call<List<Proposition>> call, Response<List<Proposition>> response) {
                         if (response.isSuccessful()) {
-                            List<Command> receivedCommands = response.body();
-                            if (receivedCommands != null) {
-                                for (Command command : receivedCommands) {
-                                    commandList.add(command);
-                                    addMarkersToMap(commandList);
+                            List<Proposition> receivedPropositions = response.body();
+                            if (receivedPropositions != null) {
+                                for (Proposition proposition : receivedPropositions) {
+                                    propositionList.add(proposition);
+                                    addMarkersToMap(propositionList);
                                 }
                             }
                         } else {
@@ -345,7 +346,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                     }
 
                     @Override
-                    public void onFailure(Call<List<Command>> call, Throwable t) {
+                    public void onFailure(Call<List<Proposition>> call, Throwable t) {
                         showCustomPopup();
                     }
                 });
@@ -365,37 +366,65 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         });
     }
 
-    private void addMarkersToMap(List<Command> commandList) {
-        if (mMap != null && commandList != null) {
-            for (Command command : commandList) {
-                String address = command.getAddress();
-                String title = command.getTitle();
-                String[] latLng = address.split(",");
+    private void addMarkersToMap(List<Proposition> propositionList) {
+        if (mMap != null && propositionList != null) {
+            for (Proposition proposition : propositionList) {
+                Chef chef = proposition.getChef();
+                float price = proposition.getLastChefProposition();
 
-                if (latLng.length == 2) {
-                    double latitude = Double.parseDouble(latLng[0]);
-                    double longitude = Double.parseDouble(latLng[1]);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ0OTAxMTMsImV4cCI6MTcwNDU3NjUxM30.mE6klXO7GsletT7iL4FXiTPCayYQCrzxEDwFBf3vqFQ";
 
-                    LatLng location = new LatLng(latitude, longitude);
-                    MarkerOptions markerOptions = new MarkerOptions()
-                            .position(location)
-                            .title(title)
-                            .icon(BitmapFromVector(
-                                    getApplicationContext(),
-                                    R.drawable.chef));
-                    Marker marker = mMap.addMarker(markerOptions);
-                    linkMarkerToCommand(marker, command);
-                }
+                        ApiService apiService = RetrofitClient.getApiService();
+                        Call<Client> call = apiService.getUser("Bearer " + accessToken, 1L);
+
+                        call.enqueue(new Callback<Client>() {
+                            @Override
+                            public void onResponse(Call<Client> call, Response<Client> response) {
+                                if (response.isSuccessful()) {
+                                    Client client = response.body();
+                                    if (client != null) {
+                                        String[] latLng = client.getAddress().split(",");
+                                        if (latLng.length == 2) {
+                                            double latitude = Double.parseDouble(latLng[0]);
+                                            double longitude = Double.parseDouble(latLng[1]);
+
+                                            LatLng location = new LatLng(latitude, longitude);
+                                            MarkerOptions markerOptions = new MarkerOptions()
+                                                    .position(location)
+                                                    .title("offer")
+                                                    .icon(BitmapFromVector(getApplicationContext(), R.drawable.chef));
+                                            Marker marker = mMap.addMarker(markerOptions);
+                                            linkMarkerToProposition(marker, proposition);
+                                        }
+                                    }
+                                } else {
+                                    showCustomPopup();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<Client> call, Throwable t) {
+                                showCustomPopup();
+                            }
+                        });
+                    }
+                }).start();
+
+
+
             }
         }
     }
 
-    private void linkMarkerToCommand(Marker marker, Command command) {
-        markerCommandMap.put(marker.getId(), command);
+    private void linkMarkerToProposition(Marker marker, Proposition proposition) {
+        markerPropositionMap.put(marker.getId(), proposition);
     }
 
-    private Command getCommandFromMarker(Marker marker) {
-        return markerCommandMap.get(marker.getId());
+    private Proposition getPropositionFromMarker(Marker marker) {
+        return markerPropositionMap.get(marker.getId());
     }
 
     //method to change the marker's icon
@@ -426,7 +455,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     }
 
     private void sendCommandToBackend() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQzMDY2NTEsImV4cCI6MTcwNDM5MzA1MX0.FELi0YOBk6DGkdtvTgqUKqMgr_YTwfkWd6-vhclWe68";
+        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ0OTAxMTMsImV4cCI6MTcwNDU3NjUxM30.mE6klXO7GsletT7iL4FXiTPCayYQCrzxEDwFBf3vqFQ";
 
         //form fields
         EditText Title = findViewById(R.id.title);

@@ -14,7 +14,7 @@ import uit.ensak.dish_wish_frontend.Models.Proposition;
 
 public interface ApiService {
     @GET("clients/{id}")
-    Call<Client> getUser(@Path("id") Long id);
+    Call<Client> getUser(@Header("Authorization") String authToken, @Path("id") Long id);
 
     @POST("clients/add")
     Call<Void> sendData(@Body Client client);
@@ -27,4 +27,7 @@ public interface ApiService {
 
     @POST("/propositions/offer")
     Call<Void> sendProposition(@Header("Authorization") String authToken,@Body Proposition proposition);
+
+    @GET("propositions")
+    Call<List<Proposition>> getPropositions(@Header("Authorization") String authToken);
 }

@@ -111,8 +111,8 @@
 68
 69        <activity
 69-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:47:9-56:20
-70            android:name="uit.ensak.dish_wish_frontend.Authentification.page_acceuil"
-70-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:48:13-58
+70            android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
+70-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:48:13-53
 71            android:exported="true"
 71-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:49:13-36
 72            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
@@ -138,8 +138,8 @@
 82-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:60:13-70
 83        <activity
 83-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:61:9-64:20
-84            android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
-84-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:62:13-53
+84            android:name="uit.ensak.dish_wish_frontend.Authentification.page_acceuil"
+84-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:62:13-58
 85            android:exported="false" >
 85-->D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:63:13-37
 86        </activity>
