@@ -13,15 +13,6 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-//menu
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.PopupMenu;
 
 // FilterByNameOrCityFragment.java
 import android.text.Editable;
@@ -31,14 +22,10 @@ import android.content.Intent;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import uit.ensak.dish_wish_frontend.Profil_Folder.*;
-import uit.ensak.dish_wish_frontend.Profil_Folder.view_profile;
+//import uit.ensak.dish_wish_frontend.Profil_Folder.change_profile;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.SearchResultsAdapter;
 import uit.ensak.dish_wish_frontend.SearchResult; // Import the SearchResult class
-import uit.ensak.dish_wish_frontend.Profil_Folder.become_cook;
-import uit.ensak.dish_wish_frontend.Profil_Folder.change_profile;
 
 
 public class filter_by_name_or_city extends Fragment implements SearchResultsAdapter.OnItemClickListener {
@@ -51,16 +38,6 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
 
         EditText searchEditText = rootView.findViewById(R.id.searchEditText);
         RecyclerView searchResultsRecyclerView = rootView.findViewById(R.id.searchResultsRecyclerView);
-
-        ImageView menuIcon = rootView.findViewById(R.id.menuIcon);
-
-        menuIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopupMenu(view);
-            }
-        });
-
 
         searchResultsAdapter = new SearchResultsAdapter();
         searchResultsAdapter.setOnItemClickListener(this);
@@ -85,32 +62,6 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
 
 
         return rootView;
-    }
-
-    private void showPopupMenu(View view) {
-        PopupMenu popupMenu = new PopupMenu(requireContext(), view);
-        popupMenu.inflate(R.menu.menu_main);
-
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                // Handling menu item clicks here
-                if (item.getItemId() == R.id.action_profile) {
-                    // Start the Profile activity
-                    startActivity(new Intent(requireContext(), view_profile.class));
-                    return true;
-                } else if (item.getItemId() == R.id.action_become_chef) {
-                    // Start the BecomeChef activity
-                    startActivity(new Intent(requireContext(), become_cook.class));
-                    return true;
-                }
-                // Handle other menu items here
-
-                return false;
-            }
-        });
-
-        popupMenu.show();
     }
 
     private void performSearch(String query) {
@@ -155,14 +106,14 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
     }
 
     private void navigateToProfilePage(SearchResult searchResult) {
-        Intent intent = new Intent(requireContext(), change_profile.class);
+//        Intent intent = new Intent(requireContext(), change_profile.class);
+//
+//        // Pass necessary data to the profile page
+//        intent.putExtra("firstName", searchResult.getFirstName());
+//        intent.putExtra("lastName", searchResult.getLastName());
+       // intent.putExtra("address", searchResult.getAddress());
 
-        // Pass necessary data to the profile page
-        intent.putExtra("firstName", searchResult.getFirstName());
-        intent.putExtra("lastName", searchResult.getLastName());
-        intent.putExtra("address", searchResult.getAddress());
 
-
-        startActivity(intent);
+      //  startActivity(intent);
     }
 }

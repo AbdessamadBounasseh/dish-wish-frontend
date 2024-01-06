@@ -2,15 +2,42 @@
 <resources>
     <string-array name="diet_array">
         <item>Aucun</item>
-        <item>Végétarien</item>
-        <item>Végétalien</item>
-        <item>Cétogène</item>
-        <item>Paleo</item>
-        <item>Sans gluten</item>
-        <item>Sans lactose</item>
-        <item>Alimentation méditerranéenne</item>
-        <item>Flexitarien</item>
-        <item>Régime DASH</item>
-        <item>Régime méditerranéen</item>
+        <item>Arachides</item>
+        <item>Noix (amandes, noisettes, noix de cajou, ...)</item>
+        <item>Lait</item>
+        <item>Œufs</item>
+        <item>Soja</item>
+        <item>Blé</item>
+        <item>Poisson</item>
+        <item>Viande de porc</item>
+        <item>Viande de bœuf</item>
+        <item>Viande de poulet</item>
+        <item>Viande d agneau</item>
+        <item>Viande de dinde</item>
+        <item>Viande de canard</item>
+        <item>Fruits de mer (crevettes, crabes, mollusques, ...)</item>
+        <item>Graines de sésame</item>
+        <item>Sulfites (présents dans certains vins, fruits secs, ...)</item>
+        <item>Céleri</item>
+        <item>Moutarde</item>
+        <item>Lupin</item>
+        <item>Mollusques (palourdes, moules, huîtres, ...)</item>
+        <item>Tomate</item>
+        <item>Kiwi</item>
+        <item>Ananas</item>
+        <item>Banane</item>
+        <item>Melon</item>
+        <item>Mangue</item>
+        <item>Avocat</item>
+        <item>Fruits à coque (pécan, noix de macadamia, pistaches, ...)</item>
+        <item>Baies (fraises, framboises, mûres, ...)</item>
+        <item>Fruits secs (raisins secs, dattes, figues, ...)</item>
+        <item>Chocolat</item>
+        <item>Carotte</item>
+        <item>Ail</item>
+        <item>Oignon</item>
+        <item>Céréales complètes</item>
+        <item>Pois</item>
+        <item>Épices (cannelle, coriandre, cumin, ...)</item>
     </string-array>
 </resources>

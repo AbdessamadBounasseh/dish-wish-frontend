@@ -12,4 +12,11 @@ public class Chef extends Client {
 
     private String certificate;
 
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
 }

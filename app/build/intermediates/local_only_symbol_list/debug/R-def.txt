@@ -124,6 +124,7 @@ id addressTextView
 id allergies
 id animation
 id animationView
+id animation_cook_space
 id bars_top_ba
 id bottom_sheet_arrow
 id bottom_sheet_layout
@@ -149,6 +150,7 @@ id dish
 id donthave
 id editTextConfirmPassword
 id editTextNewAddress
+id editTextNewAllergie
 id editTextNewBio
 id editTextNewFirstName
 id editTextNewLastName
@@ -169,7 +171,6 @@ id icon_24_bac
 id illustratio
 id imageDish
 id imageViewChangePhoto
-id imageViewHeader
 id lastNameTextView
 id location
 id lottie
@@ -202,7 +203,6 @@ id sendOffer
 id serving
 id sign
 id sign_in
-id spinnerAllergies
 id spinnerDiet
 id st
 id subtractButton
@@ -267,6 +267,7 @@ mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 navigation mobile_navigation
+raw annimation_principal_cook
 raw button
 raw cook
 raw cooking

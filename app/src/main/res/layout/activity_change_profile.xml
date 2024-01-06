@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profil_Folder.change_profile">
+    tools:context=".Profil.change_profile">
 
     <TextView
         android:id="@+id/textViewTitle"
@@ -156,8 +156,7 @@
                 android:id="@+id/editTextNewAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kenitra, kenitra , kenitra
-"
+                android:text="   "
                 android:textColor="#010F07"
                 android:textSize="18sp" />
             <!--  PhoneNumber-->
@@ -174,7 +173,7 @@
                 android:id="@+id/editTextNewPhoneNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+212 600000000"
+                android:text="  "
                 android:textColor="#010F07"
                 android:textSize="18sp" />
 
@@ -188,14 +187,22 @@
                 android:textColor="#868686"
                 android:textSize="14sp" />
 
-            <Spinner
-                android:id="@+id/spinnerAllergies"
+<!--            <Spinner-->
+<!--                android:id="@+id/spinnerAllergies"-->
+<!--                android:layout_width="200dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginRight="20dp"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:textColor="#010F07"-->
+<!--                android:textSize="18sp"-->
+<!--                android:entries="@array/allergies_array"/>-->
+            <EditText
+                android:id="@+id/editTextNewAllergie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:text="  "
                 android:textColor="#010F07"
-                android:textSize="18sp"
-                android:entries="@array/allergies_array"/>
+                android:textSize="18sp" />
 
 
             <!--  DIET -->
@@ -233,7 +240,7 @@
                 android:id="@+id/editTextNewBio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="I am the  Best"
+                android:text="   "
                 android:textColor="#010F07"
                 android:textSize="18sp"
                 android:visibility="visible" />

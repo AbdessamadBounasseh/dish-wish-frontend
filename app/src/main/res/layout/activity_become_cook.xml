@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profil_Folder.become_cook">
+    tools:context=".Profil.become_cook">
 
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Become a Cook"
-        android:textSize="24sp"
+        android:textSize="34sp"
         android:textColor="@android:color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,24 +25,25 @@
 
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/back"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_back"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"/>
-
-        <ImageView
-            android:id="@+id/imageViewHeader"
-            android:layout_width="223.74dp"
-            android:layout_height="254.1dp"
-            android:layout_marginStart="100dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginStart="16dp"
+            android:background="@color/white"/>
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_cook_space"
+            android:layout_width="270.74dp"
+            android:layout_height="274.1dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="80dp"
             android:layout_marginTop="100dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="100dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/become_cook" />
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/annimation_principal_cook"
+            tools:layout_editor_absoluteX="75dp"
+            tools:layout_editor_absoluteY="46dp" />
 
     </RelativeLayout>
 
@@ -51,7 +52,7 @@
         android:id="@+id/btnScancard"
         android:layout_width="335dp"
         android:layout_height="62dp"
-        android:layout_marginBottom="208dp"
+        android:layout_marginBottom="258dp"
         android:backgroundTint="@color/nationalcard_scann"
         android:drawableLeft="@drawable/card"
         android:text="Select National ID card"
@@ -63,7 +64,7 @@
         android:id="@+id/btnScancertif"
         android:layout_width="335dp"
         android:layout_height="62dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="180dp"
         android:backgroundTint="@color/certificate_scann"
         android:drawableLeft="@drawable/cerf"
         android:text="Select restoration certificate"
@@ -79,6 +80,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginBottom="85dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
