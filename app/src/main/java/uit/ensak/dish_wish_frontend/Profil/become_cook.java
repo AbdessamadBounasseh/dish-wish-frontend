@@ -187,7 +187,7 @@ public class become_cook extends AppCompatActivity {
             public void onResponse(Call<Chef> call, Response<Chef> response) {
                 System.out.println("test");
                 showToast("Import successful!");
-                Intent intent = new Intent(become_cook.this, view_profile.class);
+                Intent intent = new Intent(become_cook.this, page_acceuil.class);
                 startActivity(intent);
             }
             @Override
