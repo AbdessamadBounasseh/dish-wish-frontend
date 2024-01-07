@@ -100,10 +100,9 @@ public class become_cook extends AppCompatActivity {
 
                 if (byteIdCard != null && byteCertificate != null) {
                     sendImagesToBackend(byteIdCard, byteCertificate);
-                    showToast("Importation réussie!");
+                    showToast("Import successful!");
                 }
-               // onBackPressed();
-                //ajouter un pop msg
+                showToast("Import failed!");
             }
 
 
@@ -186,16 +185,14 @@ public class become_cook extends AppCompatActivity {
         call.enqueue(new Callback<Chef>() {
             @Override
             public void onResponse(Call<Chef> call, Response<Chef> response) {
-                // Gérer la réponse du serveur
                 System.out.println("test");
-                showToast("Importation réussie!");
-                //se retourner vers la page d'accueil
+                showToast("Import successful!");
                 Intent intent = new Intent(become_cook.this, view_profile.class);
                 startActivity(intent);
             }
             @Override
             public void onFailure(Call<Chef> call, Throwable t) {
-                showToast("Importation échoué!");
+                showToast("Import failed!");
                 Intent intent = new Intent(become_cook.this, view_profile.class);
 
             }
