@@ -53,7 +53,8 @@ public class connect extends AppCompatActivity {
         newacc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1= new Intent(connect.this, createAcciunt.class);
+                Intent intent1= new Intent(connect.this, CreateAccount.class);
+
                 startActivity(intent1);
             }
         });
