@@ -134,7 +134,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             @Override
             public void onClick(View v) {
 
-                if(sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED){
+                if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
                     sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 } else {
                     sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
@@ -146,6 +146,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
             }
+
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
 
@@ -288,13 +289,23 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-                Proposition associatedProposition = getPropositionFromMarker(marker);
-                showPropositionDetailsPopup(associatedProposition);
+                String markerType = (String) marker.getTag();
+                if ("command".equals(markerType)) {
+                    // Handle command marker
+                    Proposition associatedProposition = getPropositionFromMarker(marker);
+                    showPropositionDetailsPopup(associatedProposition);
+                } else if ("offer".equals(markerType)) {
+                    // Handle offer marker
+                    Proposition associatedProposition = getPropositionFromMarker(marker);
+                    showPropositionDetailsPopup(associatedProposition);
+                }
                 return true;
             }
         });
 
+
     }
+
 
     private void showPropositionDetailsPopup(Proposition associatedProposition) {
         Dialog dialog = new Dialog(this);
@@ -324,7 +335,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ0OTAxMTMsImV4cCI6MTcwNDU3NjUxM30.mE6klXO7GsletT7iL4FXiTPCayYQCrzxEDwFBf3vqFQ";
+                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5MTQ1ODIsImV4cCI6MTcwNTAwMDk4Mn0.5XYpxjLALTqVgR-saq9zPkcKiyWOiwAta7Q_nhpMhlA";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Proposition>> call = apiService.getPropositions("Bearer " + accessToken);
@@ -375,7 +386,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ0OTAxMTMsImV4cCI6MTcwNDU3NjUxM30.mE6klXO7GsletT7iL4FXiTPCayYQCrzxEDwFBf3vqFQ";
+                        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5MTQ1ODIsImV4cCI6MTcwNTAwMDk4Mn0.5XYpxjLALTqVgR-saq9zPkcKiyWOiwAta7Q_nhpMhlA";
 
                         ApiService apiService = RetrofitClient.getApiService();
                         Call<Client> call = apiService.getUser("Bearer " + accessToken, 1L);
@@ -392,11 +403,23 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                                             double longitude = Double.parseDouble(latLng[1]);
 
                                             LatLng location = new LatLng(latitude, longitude);
+
+                                            // Determine the type of marker based on your logic
+                                            boolean isCommandMarker = false;
+
+                                            // Create marker options
                                             MarkerOptions markerOptions = new MarkerOptions()
                                                     .position(location)
-                                                    .title("offer")
-                                                    .icon(BitmapFromVector(getApplicationContext(), R.drawable.chef));
+                                                    .title(isCommandMarker ? "Command" : "Offer")
+                                                    .icon(BitmapFromVector(getApplicationContext(), isCommandMarker ? R.drawable.dish : R.drawable.chef));
+
+                                            // Add marker to the map
                                             Marker marker = mMap.addMarker(markerOptions);
+
+                                            // Add additional information to the marker to identify its type
+                                            marker.setTag(isCommandMarker ? "command" : "offer");
+
+                                            // Link marker to proposition
                                             linkMarkerToProposition(marker, proposition);
                                         }
                                     }
@@ -455,7 +478,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     }
 
     private void sendCommandToBackend() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ0OTAxMTMsImV4cCI6MTcwNDU3NjUxM30.mE6klXO7GsletT7iL4FXiTPCayYQCrzxEDwFBf3vqFQ";
+        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5MTQ1ODIsImV4cCI6MTcwNTAwMDk4Mn0.5XYpxjLALTqVgR-saq9zPkcKiyWOiwAta7Q_nhpMhlA";
 
         //form fields
         EditText Title = findViewById(R.id.title);
@@ -500,8 +523,9 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
 
             // Mocking Client IDs
             Client client = new Client();
-            client.setId(3L);
+            client.setId(2L);
             command.setClient(client);
+            command.setStatus("IN_PROGRESS");
 
             ApiService apiService = RetrofitClient.getApiService();
             Call<Void> call = apiService.createCommand("Bearer " + accessToken, command);

@@ -68,10 +68,6 @@
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\ic_camera.png"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_maps_chef.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_maps_chef.xml"
-    },
-    {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
@@ -574,6 +570,10 @@
     {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable-hdpi_ic_menu_become_chef.png.flat",
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable-hdpi\\ic_menu_become_chef.png"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_popup_command_created.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/popup_command_created.xml"
     },
     {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\raw_profil.json.flat",
