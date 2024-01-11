@@ -1,5 +1,7 @@
 package uit.ensak.dish_wish_frontend.Command;
 
+import com.google.gson.GsonBuilder;
+
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
@@ -16,7 +18,7 @@ public class RetrofitClient {
 
     private static Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setLenient().create()))
             .build();
 
     public static AuthenticationService getAuthenticationService() {

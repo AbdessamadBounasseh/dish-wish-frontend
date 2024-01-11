@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-95:12
-INJECTED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-95:12
-INJECTED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-95:12
-INJECTED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-95:12
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-98:12
+INJECTED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-98:12
+INJECTED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-98:12
+INJECTED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-98:12
 MERGED from [androidx.databinding:viewbinding:8.1.2] C:\Users\mamin\.gradle\caches\transforms-3\95e487026fa5dcde1dea76d3300c0810\transformed\viewbinding-8.1.2\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-common:2.7.5] C:\Users\mamin\.gradle\caches\transforms-3\5d2cdadcef2a6c15afeaf2acd5a8dbbe\transformed\navigation-common-2.7.5\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-runtime:2.7.5] C:\Users\mamin\.gradle\caches\transforms-3\1c74eaebbda73931c62e970b01062acc\transformed\navigation-runtime-2.7.5\AndroidManifest.xml:17:1-22:12
@@ -127,8 +127,8 @@ ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:10:5-
 	android:name
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:10:22-82
 application
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:12:5-93:19
-INJECTED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:12:5-93:19
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:12:5-96:19
+INJECTED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:12:5-96:19
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\mamin\.gradle\caches\transforms-3\926dfcd3a43590fc233973e651980766\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\mamin\.gradle\caches\transforms-3\926dfcd3a43590fc233973e651980766\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\mamin\.gradle\caches\transforms-3\c810f68f4fb02972cb287aa417674494\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -187,112 +187,122 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\mamin\.gradle\cach
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:14:9-65
 	android:usesCleartextTraffic
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:21:9-44
-activity#uit.ensak.dish_wish_frontend.Authentification.VerifyEmail
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:26:9-28:40
-	android:exported
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:28:13-37
-	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:27:13-57
 meta-data#com.google.android.geo.API_KEY
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:40:9-42:71
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:35:9-37:71
 	android:value
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:42:13-68
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:37:13-68
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:41:13-58
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:36:13-58
 meta-data#preloaded_fonts
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:43:9-45:57
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:38:9-40:57
 	android:resource
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:45:13-54
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:40:13-54
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:44:13-43
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:39:13-43
 activity#uit.ensak.dish_wish_frontend.Command.MapsHomeActivity
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:47:9-56:20
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:42:9-51:20
 	android:exported
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:49:13-36
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:44:13-36
 	android:theme
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:50:13-70
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:45:13-70
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:48:13-53
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:43:13-53
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:51:13-55:29
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:46:13-50:29
 action#android.intent.action.MAIN
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:52:17-69
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:47:17-69
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:52:25-66
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:47:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:54:17-77
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:49:17-77
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:54:27-74
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:49:27-74
+activity#uit.ensak.dish_wish_frontend.Command.UpdateActivity
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:52:9-55:73
+	android:exported
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:54:13-37
+	android:theme
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:55:13-70
+	android:name
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:53:13-51
+activity#uit.ensak.dish_wish_frontend.Authentification.VerifyEmail
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:56:9-59:73
+	android:exported
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:58:13-37
+	android:theme
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:59:13-70
+	android:name
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:57:13-57
 activity#uit.ensak.dish_wish_frontend.history_folder.HistoryActivity
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:57:9-60:73
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:60:9-63:73
 	android:exported
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:59:13-37
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:62:13-37
 	android:theme
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:60:13-70
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:63:13-70
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:58:13-59
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:61:13-59
 activity#uit.ensak.dish_wish_frontend.Authentification.page_acceuil
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:61:9-64:20
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:64:9-67:20
 	android:exported
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:63:13-37
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:66:13-37
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:62:13-58
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:65:13-58
 activity#uit.ensak.dish_wish_frontend.Profil_Folder.become_cook
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:65:9-68:73
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:68:9-71:73
 	android:exported
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:67:13-37
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:70:13-37
 	android:theme
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:68:13-70
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:71:13-70
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:66:13-54
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:69:13-54
 activity#uit.ensak.dish_wish_frontend.Profil_Folder.change_profile
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:69:9-72:73
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:72:9-75:73
 	android:exported
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:71:13-37
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:74:13-37
 	android:theme
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:72:13-70
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:75:13-70
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:70:13-57
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:73:13-57
 activity#uit.ensak.dish_wish_frontend.Profil_Folder.view_profile
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:73:9-76:73
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:76:9-79:73
 	android:exported
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:75:13-37
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:78:13-37
 	android:theme
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:76:13-70
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:79:13-70
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:74:13-55
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:77:13-55
 activity#uit.ensak.dish_wish_frontend.Command.MapsChefActivity
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:77:9-80:73
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:80:9-83:73
 	android:exported
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:79:13-37
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:82:13-37
 	android:theme
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:80:13-70
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:83:13-70
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:78:13-53
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:81:13-53
 activity#uit.ensak.dish_wish_frontend.Authentification.connect
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:81:9-84:73
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:84:9-87:73
 	android:exported
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:83:13-37
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:86:13-37
 	android:theme
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:84:13-70
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:87:13-70
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:82:13-53
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:85:13-53
 activity#uit.ensak.dish_wish_frontend.Authentification.terms
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:85:9-88:73
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:88:9-91:73
 	android:exported
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:87:13-37
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:90:13-37
 	android:theme
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:88:13-70
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:91:13-70
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:86:13-51
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:89:13-51
 activity#uit.ensak.dish_wish_frontend.Authentification.CreateAccount
-ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:89:9-92:73
+ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:92:9-95:73
 	android:exported
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:91:13-37
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:94:13-37
 	android:theme
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:92:13-70
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:95:13-70
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:90:13-59
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:93:13-59
 uses-sdk
 INJECTED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml

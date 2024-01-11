@@ -4,10 +4,13 @@ import static androidx.constraintlayout.widget.ConstraintLayoutStates.TAG;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,12 +43,14 @@ import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 
@@ -75,6 +80,8 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private Button pickDate;
     private Marker currentMarker;
     private ImageView arrow;
+    private long createdCommandId;
+    private Command associatedCommand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,7 +141,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             @Override
             public void onClick(View v) {
 
-                if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
+                if(sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED){
                     sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 } else {
                     sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
@@ -146,7 +153,6 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
             }
-
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
 
@@ -276,7 +282,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
 
                 MarkerOptions markerOptions = new MarkerOptions()
                         .position(latLng)
-                        .title("Offer's Location")
+                        .title("Command's Location")
                         .icon(BitmapFromVector(
                                 getApplicationContext(),
                                 R.drawable.dish));
@@ -289,23 +295,21 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-                String markerType = (String) marker.getTag();
-                if ("command".equals(markerType)) {
-                    // Handle command marker
-                    Proposition associatedProposition = getPropositionFromMarker(marker);
-                    showPropositionDetailsPopup(associatedProposition);
-                } else if ("offer".equals(markerType)) {
-                    // Handle offer marker
+                String markerTitle = marker.getTitle();
+
+                if (associatedCommand != null && "Command's Location".equals(markerTitle)) {
+                    showUpdatePopup(associatedCommand);
+                } else if ("offer".equals(markerTitle)) {
                     Proposition associatedProposition = getPropositionFromMarker(marker);
                     showPropositionDetailsPopup(associatedProposition);
                 }
+
                 return true;
             }
         });
 
 
     }
-
 
     private void showPropositionDetailsPopup(Proposition associatedProposition) {
         Dialog dialog = new Dialog(this);
@@ -335,7 +339,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5MTQ1ODIsImV4cCI6MTcwNTAwMDk4Mn0.5XYpxjLALTqVgR-saq9zPkcKiyWOiwAta7Q_nhpMhlA";
+                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5NjgzMzUsImV4cCI6MTcwNTA1NDczNX0.492foEuc2CyhQbIWrMT8xSe--2n1egUoV_mu-aVuuG4";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Proposition>> call = apiService.getPropositions("Bearer " + accessToken);
@@ -377,6 +381,88 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         });
     }
 
+    private void showUpdatePopup (Command associatedCommand) {
+        if (associatedCommand != null) {
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.popup_update_command);
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+
+            Window window = dialog.getWindow();
+            if (window != null) {
+                WindowManager.LayoutParams layoutParams = window.getAttributes();
+                layoutParams.y = (int) getResources().getDisplayMetrics().density * 20;
+                window.setAttributes(layoutParams);
+            }
+
+
+            String address = associatedCommand.getAddress();
+            String[] latLng = address.split(",");
+
+            if (latLng.length == 2) {
+                double latitude = Double.parseDouble(latLng[0]);
+                double longitude = Double.parseDouble(latLng[1]);
+
+                // Perform reverse geocoding to get the location name from latitude and longitude
+                Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+                try {
+                    List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
+                    if (addresses != null && addresses.size() > 0) {
+                        String locationName = addresses.get(0).getAdminArea();
+                        TextView location = dialog.findViewById(R.id.location);
+                        location.setText(locationName);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            TextView title = dialog.findViewById(R.id.title);
+            TextView description = dialog.findViewById(R.id.Description);
+            TextView serving = dialog.findViewById(R.id.serving);
+            TextView delivary = dialog.findViewById(R.id.delivary);
+            TextView price = dialog.findViewById(R.id.price);
+
+            title.setText(associatedCommand.getTitle());
+            description.setText(associatedCommand.getDescription());
+            serving.setText(associatedCommand.getServing());
+            delivary.setText(associatedCommand.getDeadline());
+            price.setText(associatedCommand.getPrice() + "DH");
+
+            dialog.show();
+
+            arrow = dialog.findViewById(R.id.animation);
+            if (arrow != null) {
+                arrow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+            }
+
+            Button updateButton = dialog.findViewById(R.id.update);
+            if (updateButton != null) {
+                updateButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                        Intent intent = new Intent(MapsHomeActivity.this, UpdateActivity.class);
+                        // Pass associatedCommand data to the new intent
+                        intent.putExtra("title", associatedCommand.getTitle());
+                        intent.putExtra("description", associatedCommand.getDescription());
+                        intent.putExtra("serving", associatedCommand.getServing());
+                        intent.putExtra("deadline", associatedCommand.getDeadline());
+                        intent.putExtra("price", associatedCommand.getPrice());
+                        intent.putExtra("address", associatedCommand.getAddress());
+
+                        // Start the new activity
+                        startActivity(intent);
+                    }
+                });
+            }
+        }
+    }
+
     private void addMarkersToMap(List<Proposition> propositionList) {
         if (mMap != null && propositionList != null) {
             for (Proposition proposition : propositionList) {
@@ -386,7 +472,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5MTQ1ODIsImV4cCI6MTcwNTAwMDk4Mn0.5XYpxjLALTqVgR-saq9zPkcKiyWOiwAta7Q_nhpMhlA";
+                        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5NjgzMzUsImV4cCI6MTcwNTA1NDczNX0.492foEuc2CyhQbIWrMT8xSe--2n1egUoV_mu-aVuuG4";
 
                         ApiService apiService = RetrofitClient.getApiService();
                         Call<Client> call = apiService.getUser("Bearer " + accessToken, 1L);
@@ -403,23 +489,11 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                                             double longitude = Double.parseDouble(latLng[1]);
 
                                             LatLng location = new LatLng(latitude, longitude);
-
-                                            // Determine the type of marker based on your logic
-                                            boolean isCommandMarker = false;
-
-                                            // Create marker options
                                             MarkerOptions markerOptions = new MarkerOptions()
                                                     .position(location)
-                                                    .title(isCommandMarker ? "Command" : "Offer")
-                                                    .icon(BitmapFromVector(getApplicationContext(), isCommandMarker ? R.drawable.dish : R.drawable.chef));
-
-                                            // Add marker to the map
+                                                    .title("offer")
+                                                    .icon(BitmapFromVector(getApplicationContext(), R.drawable.chef));
                                             Marker marker = mMap.addMarker(markerOptions);
-
-                                            // Add additional information to the marker to identify its type
-                                            marker.setTag(isCommandMarker ? "command" : "offer");
-
-                                            // Link marker to proposition
                                             linkMarkerToProposition(marker, proposition);
                                         }
                                     }
@@ -478,7 +552,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     }
 
     private void sendCommandToBackend() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5MTQ1ODIsImV4cCI6MTcwNTAwMDk4Mn0.5XYpxjLALTqVgR-saq9zPkcKiyWOiwAta7Q_nhpMhlA";
+        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5NjgzMzUsImV4cCI6MTcwNTA1NDczNX0.492foEuc2CyhQbIWrMT8xSe--2n1egUoV_mu-aVuuG4";
 
         //form fields
         EditText Title = findViewById(R.id.title);
@@ -524,19 +598,21 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             // Mocking Client IDs
             Client client = new Client();
             client.setId(2L);
+            client.setRole("CLIENT");
             command.setClient(client);
             command.setStatus("IN_PROGRESS");
 
             ApiService apiService = RetrofitClient.getApiService();
-            Call<Void> call = apiService.createCommand("Bearer " + accessToken, command);
+            Call<Command> call = apiService.createCommand("Bearer " + accessToken, command);
 
-            call.enqueue(new Callback<Void>() {
+
+            call.enqueue(new Callback<Command>() {
                 @Override
-                public void onResponse(Call<Void> call, Response<Void> response) {
+                public void onResponse(Call<Command> call, Response<Command> response) {
                     if (response.isSuccessful()) {
                         sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                        associatedCommand = response.body();
                         showSuccessDialog();
-
                         clearFields();
                     } else {
                         sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
@@ -545,7 +621,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 }
 
                 @Override
-                public void onFailure(Call<Void> call, Throwable t) {
+                public void onFailure(Call<Command> call, Throwable t) {
                     sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                     showErrorDialog();
                 }

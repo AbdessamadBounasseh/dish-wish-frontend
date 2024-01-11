@@ -7,8 +7,10 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -108,6 +110,17 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
 
         //Get Commands and place them on the map
         retryRequest();
+
+
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("selected_location", latLng);
+                setResult(Activity.RESULT_OK, resultIntent);
+                finish();
+            }
+        });
 
         // Check for location permission
         /*if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)

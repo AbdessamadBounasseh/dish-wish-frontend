@@ -235,6 +235,7 @@ id text_welcome
 id title
 id toolbar
 id tryagain
+id update
 id verify
 id welcome
 id welcome_to_
@@ -248,6 +249,7 @@ layout activity_maps_home
 layout activity_page_acceuil
 layout activity_reset_password
 layout activity_terms
+layout activity_update
 layout activity_verify_email
 layout activity_view_profile
 layout bottom_sheet_layout
@@ -262,6 +264,7 @@ layout popup_command_failed
 layout popup_negotiate
 layout popup_proposition_created
 layout popup_proposition_failed
+layout popup_update_command
 menu menu_main
 mipmap ic_launcher
 mipmap ic_launcher_foreground

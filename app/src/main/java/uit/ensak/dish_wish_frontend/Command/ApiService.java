@@ -2,7 +2,9 @@ package uit.ensak.dish_wish_frontend.Command;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
@@ -21,10 +23,13 @@ public interface ApiService {
     Call<Void> sendData(@Body Client client);
 
     @POST("commands/create")
-    Call<Void> createCommand(@Header("Authorization") String authToken, @Body Command command);
+    Call<Command> createCommand(@Header("Authorization") String authToken, @Body Command command);
 
     @GET("commands")
     Call<List<Command>> getCommands(@Header("Authorization") String authToken);
+
+    @GET("commands/{id}")
+    Call<Command> getCommandById(@Header("Authorization") String authToken, @Path("id") Long id);
 
     @POST("/propositions/offer")
     Call<Void> sendProposition(@Header("Authorization") String authToken,@Body Proposition proposition);

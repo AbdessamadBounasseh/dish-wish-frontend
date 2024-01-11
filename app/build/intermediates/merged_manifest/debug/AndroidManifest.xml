@@ -45,9 +45,7 @@
         android:testOnly="true"
         android:theme="@style/Theme.Dishwishfrontend"
         android:usesCleartextTraffic="true" >
-        <activity
-            android:name="uit.ensak.dish_wish_frontend.Authentification.VerifyEmail"
-            android:exported="false" />
+
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -76,6 +74,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Command.UpdateActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Authentification.VerifyEmail"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name="uit.ensak.dish_wish_frontend.history_folder.HistoryActivity"
             android:exported="false"
