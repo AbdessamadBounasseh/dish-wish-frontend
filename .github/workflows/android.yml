@@ -75,6 +75,7 @@ jobs:
           from: "${{ secrets.EMAIL_SENDER }}"
   sonarcloud:
       runs-on: ubuntu-latest
+      needs: build
       steps:
         - uses: actions/checkout@v3
         - name: SonarCloud Scan
