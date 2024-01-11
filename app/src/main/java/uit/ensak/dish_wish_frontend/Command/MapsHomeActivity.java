@@ -292,21 +292,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             }
         });
 
-        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(Marker marker) {
-                String markerTitle = marker.getTitle();
 
-                if (associatedCommand != null && "Command's Location".equals(markerTitle)) {
-                    showUpdatePopup(associatedCommand);
-                } else if ("offer".equals(markerTitle)) {
-                    Proposition associatedProposition = getPropositionFromMarker(marker);
-                    showPropositionDetailsPopup(associatedProposition);
-                }
-
-                return true;
-            }
-        });
 
 
     }
