@@ -358,11 +358,6 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         delivary.setText(associatedProposition.getCommand().getDeadline());
 
 
-
-
-
-
-
         Window window = dialog.getWindow();
         if (window != null) {
             WindowManager.LayoutParams layoutParams = window.getAttributes();
@@ -377,6 +372,25 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 @Override
                 public void onClick(View v) {
                     dialog.dismiss();
+                }
+            });
+        }
+
+        Button chooseCook = dialog.findViewById(R.id.cook);
+        if (chooseCook != null) {
+            chooseCook.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MapsHomeActivity.this, FinalizeOrderActivity.class);
+                    // Pass associatedCommand data to the new intent
+                    intent.putExtra("CommandId", associatedProposition.getId());
+                    intent.putExtra("ChefId", associatedProposition.getChef().getId());
+                    intent.putExtra("price", associatedProposition.getLastChefProposition());
+
+                    intent.putExtra("delivary", associatedProposition.getCommand().getDeadline());
+                    intent.putExtra("description", associatedProposition.getChef().getFirstName());
+                    intent.putExtra("serving", associatedProposition.getChef().getLastName());
+                    startActivity(intent);
                 }
             });
         }

@@ -88,8 +88,7 @@
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name="uit.ensak.dish_wish_frontend.Authentification.page_acceuil"
-            android:exported="false" >
-        </activity>
+            android:exported="false" />
         <activity
             android:name="uit.ensak.dish_wish_frontend.Profil.become_cook"
             android:exported="false"
@@ -97,8 +96,7 @@
         <activity
             android:name="uit.ensak.dish_wish_frontend.Profil.change_profile"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
-        <!-- <activity -->
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" /> <!-- <activity -->
         <!-- android:name=".Profil_Folder.view_profile" -->
         <!-- android:exported="false" -->
         <!-- android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/> -->
@@ -116,6 +114,10 @@
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name="uit.ensak.dish_wish_frontend.Authentification.CreateAccount"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Command.FinalizeOrderActivity"
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
