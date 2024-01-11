@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -40,6 +41,8 @@ public class UpdateActivity extends AppCompatActivity {
     private Button pickTime;
     private Button pickDate;
     private Long CommandID;
+    private ImageView arrow;
+
     private static final int MAPS_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
@@ -191,6 +194,17 @@ public class UpdateActivity extends AppCompatActivity {
             }
         });
 
+        arrow = findViewById(R.id.animation);
+        if (arrow != null) {
+            arrow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+        }
+
+
     }
 
 
@@ -253,16 +267,16 @@ public class UpdateActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<Command> call, Response<Command> response) {
                     if (response.isSuccessful()) {
-                        Toast.makeText(getApplicationContext(), "amiiiiiiiiii", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Command Updated", Toast.LENGTH_LONG).show();
                         clearFields();
                     } else {
-                        Toast.makeText(getApplicationContext(), "amiiiiiiiii", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Something went wrong, please try again", Toast.LENGTH_LONG).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<Command> call, Throwable t) {
-                    Toast.makeText(getApplicationContext(), "ziiiiiiii", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Something went wrong, please try again", Toast.LENGTH_LONG).show();
                 }
             });
         }

@@ -445,7 +445,6 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 updateButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        dialog.dismiss();
                         Intent intent = new Intent(MapsHomeActivity.this, UpdateActivity.class);
                         // Pass associatedCommand data to the new intent
                         intent.putExtra("id",associatedCommand.getId());
