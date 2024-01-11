@@ -10,6 +10,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Command;
@@ -36,4 +37,10 @@ public interface ApiService {
 
     @GET("propositions")
     Call<List<Proposition>> getPropositions(@Header("Authorization") String authToken);
+
+    @PUT("commands/update/{id}")
+    Call<Command> updateCommand(@Header("Authorization") String authToken,
+            @Path("id") Long commandId,
+            @Body Command command
+    );
 }

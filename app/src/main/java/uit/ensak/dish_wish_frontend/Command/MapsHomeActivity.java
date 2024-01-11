@@ -448,6 +448,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                         dialog.dismiss();
                         Intent intent = new Intent(MapsHomeActivity.this, UpdateActivity.class);
                         // Pass associatedCommand data to the new intent
+                        intent.putExtra("id",associatedCommand.getId());
                         intent.putExtra("title", associatedCommand.getTitle());
                         intent.putExtra("description", associatedCommand.getDescription());
                         intent.putExtra("serving", associatedCommand.getServing());

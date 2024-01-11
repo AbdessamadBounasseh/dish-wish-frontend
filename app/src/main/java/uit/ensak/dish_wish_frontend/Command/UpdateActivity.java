@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -20,9 +21,17 @@ import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 
+import java.security.PrivateKey;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import uit.ensak.dish_wish_frontend.Models.Client;
+import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.R;
 
 public class UpdateActivity extends AppCompatActivity {
@@ -30,6 +39,7 @@ public class UpdateActivity extends AppCompatActivity {
     private Button chooseLocationButton;
     private Button pickTime;
     private Button pickDate;
+    private Long CommandID;
     private static final int MAPS_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
@@ -38,7 +48,7 @@ public class UpdateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update);
 
         chooseLocationButton = findViewById(R.id.ChooseLocation);
-        Button sendCommandButton = findViewById(R.id.order);
+        Button updateCommand = findViewById(R.id.update);
         pickTime = findViewById(R.id.pickTime);
         pickDate = findViewById(R.id.pickDate);
         EditText DelivaryTime = findViewById(R.id.deliveryTime);
@@ -46,6 +56,8 @@ public class UpdateActivity extends AppCompatActivity {
 
         // Retrieve data from the intent
         Intent intent = getIntent();
+        long receivedId = intent.getLongExtra("id", -1);
+        CommandID = receivedId;
         String title = intent.getStringExtra("title");
         String description = intent.getStringExtra("description");
         String serving = intent.getStringExtra("serving");
@@ -172,8 +184,93 @@ public class UpdateActivity extends AppCompatActivity {
             }
         });
 
+        updateCommand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UpdateCommand();
+            }
+        });
 
     }
+
+
+    private void UpdateCommand() {
+        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5NjgzMzUsImV4cCI6MTcwNTA1NDczNX0.492foEuc2CyhQbIWrMT8xSe--2n1egUoV_mu-aVuuG4";
+
+        //form fields
+        EditText Title = findViewById(R.id.title);
+        String title = Title.getText().toString();
+        EditText Description = findViewById(R.id.Description);
+        String description = Description.getText().toString();
+        EditText Serving = findViewById(R.id.serving);
+        String serving = Serving.getText().toString();
+        EditText Location = findViewById(R.id.location);
+        String location = Location.getText().toString();
+        EditText DelivaryDate = findViewById(R.id.deliveryDate);
+        String delivaryDate = DelivaryDate.getText().toString();
+        EditText DelivaryTime = findViewById(R.id.deliveryTime);
+        String delivaryTime = DelivaryTime.getText().toString();
+        String deadline =  delivaryDate + "/" + delivaryTime;
+        Log.d("deadline", deadline);
+
+        EditText Price = findViewById(R.id.price);
+        String price = Price.getText().toString();
+
+
+
+        if (isValidCommand(title, description, serving, location, delivaryDate,delivaryTime, price)) {
+
+            // Create a Command object
+            Command command = new Command();
+            command.setTitle(title);
+            command.setDescription(description);
+            command.setServing(serving);
+            command.setAddress(location);
+            command.setDeadline(deadline);
+            command.setPrice(price);
+
+           /* // Retrieve client ID from shared preferences
+            SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);
+            Long clientId = sharedPreferences.getLong("client_id_key", 3L);
+
+            Client client = new Client();
+            client.setId(clientId);
+            command.setClient(client);*/
+
+
+            // Mocking Client IDs
+            Client client = new Client();
+            client.setId(2L);
+            client.setRole("CLIENT");
+            command.setClient(client);
+            command.setStatus("IN_PROGRESS");
+
+            ApiService apiService = RetrofitClient.getApiService();
+            Call<Command> call = apiService.updateCommand("Bearer " + accessToken,CommandID, command);
+
+
+            call.enqueue(new Callback<Command>() {
+                @Override
+                public void onResponse(Call<Command> call, Response<Command> response) {
+                    if (response.isSuccessful()) {
+                        Toast.makeText(getApplicationContext(), "amiiiiiiiiii", Toast.LENGTH_LONG).show();
+                        clearFields();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "amiiiiiiiii", Toast.LENGTH_LONG).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Command> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), "ziiiiiiii", Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+    }
+
+
+
+
 
 
 }
