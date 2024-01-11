@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Dishwishfrontend"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31">
+        tools:targetApi="31" >
 
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -41,8 +41,9 @@
 
 
         <activity
-            android:name=".Profil.become_cook"
+            android:name=".Command.MapsHomeActivity"
             android:exported="true"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
             android:label="@string/app_name"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
             <intent-filter>
@@ -53,6 +54,14 @@
         </activity>
 
 
+        <activity
+            android:name=".Command.UpdateActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+        <activity
+            android:name=".Authentification.VerifyEmail"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name=".history_folder.HistoryActivity"
             android:exported="false"
@@ -65,6 +74,15 @@
 <!--            android:exported="false"-->
          <activity
             android:name=".Profil.change_profile"
+            android:name=".Authentification.page_acceuil"
+            android:exported="false" >
+        </activity>
+        <activity
+            android:name=".Profil_Folder.become_cook"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+        <activity
+            android:name=".Profil_Folder.change_profile"
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
 <!--        <activity-->

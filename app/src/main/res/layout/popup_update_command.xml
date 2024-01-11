@@ -73,8 +73,6 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp">
 
-           
-
 
             <TextView
                 android:layout_width="match_parent"
@@ -261,35 +259,23 @@
         android:layout_marginBottom="10dp">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/cook"
-            android:layout_width="124dp"
+            android:id="@+id/update"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="105dp"
+            android:layout_marginRight="20dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/rounded_edittext"
             android:backgroundTint="@color/principalColor"
-            android:text="Negotiate"
+            android:text="Update"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="15sp" />
 
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/profile"
-            android:layout_width="124dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="-4dp"
-            android:layout_marginRight="27dp"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/profil"
-            tools:layout_editor_absoluteX="75dp"
-            tools:layout_editor_absoluteY="46dp" />
+
 
 
     </LinearLayout>

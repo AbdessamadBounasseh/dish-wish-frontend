@@ -7,8 +7,10 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -110,6 +112,17 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
         //Get Commands and place them on the map
         retryRequest();
 
+
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("selected_location", latLng);
+                setResult(Activity.RESULT_OK, resultIntent);
+                finish();
+            }
+        });
+
         // Check for location permission
         /*if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED &&
@@ -152,7 +165,7 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQzMDY2NTEsImV4cCI6MTcwNDM5MzA1MX0.FELi0YOBk6DGkdtvTgqUKqMgr_YTwfkWd6-vhclWe68";
+                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5MTQ1ODIsImV4cCI6MTcwNTAwMDk4Mn0.5XYpxjLALTqVgR-saq9zPkcKiyWOiwAta7Q_nhpMhlA";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Command>> call = apiService.getCommands("Bearer " + accessToken);
@@ -387,7 +400,7 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                             }
 
 
-                            String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQzMDY2NTEsImV4cCI6MTcwNDM5MzA1MX0.FELi0YOBk6DGkdtvTgqUKqMgr_YTwfkWd6-vhclWe68";
+                            String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5MTQ1ODIsImV4cCI6MTcwNTAwMDk4Mn0.5XYpxjLALTqVgR-saq9zPkcKiyWOiwAta7Q_nhpMhlA";
 
                             ApiService apiService = RetrofitClient.getApiService();
                             Call<Void> call = apiService.sendProposition("Bearer " + accessToken, proposition);
