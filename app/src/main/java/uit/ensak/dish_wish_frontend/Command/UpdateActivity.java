@@ -270,7 +270,76 @@ public class UpdateActivity extends AppCompatActivity {
 
 
 
+    private boolean isValidCommand(String title, String description, String serving, String address, String delivaryDate, String delivaryTime, String price) {
+        boolean allFieldsFilled = !title.isEmpty() && !description.isEmpty() && !serving.isEmpty() && !address.isEmpty() && !delivaryDate.isEmpty() && !price.isEmpty() && !delivaryTime.isEmpty();
+        if (!allFieldsFilled) {
+            Toast.makeText(getApplicationContext(), "Please fill all details", Toast.LENGTH_LONG).show();
+            return false;
+        }
 
+        boolean isServingValid = isValidServing(serving);
+        boolean isDateValid = isValidDate(delivaryDate,delivaryTime);
+        boolean isPriceValid = isValidPrice(price);
+
+        return isServingValid && isPriceValid && isDateValid;
+    }
+
+    private boolean isValidServing(String serving) {
+        try {
+            double value = Double.parseDouble(serving);
+            return true;
+        } catch (NumberFormatException e) {
+            Toast.makeText(getApplicationContext(),"Please enter a valid number as a portion",Toast.LENGTH_LONG).show();
+            return false;
+        }
+    }
+
+    private boolean isValidDate(String dateString, String timeString) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+
+        try {
+            dateFormat.parse(dateString);
+            timeFormat.parse(timeString);
+            return true;
+        } catch (ParseException e) {
+            Toast.makeText(getApplicationContext(), "Please enter a valid date and time", Toast.LENGTH_LONG).show();
+            return false;
+        }
+    }
+
+    private boolean isValidPrice(String price) {
+        try {
+            double value = Double.parseDouble(price);
+            return true;
+        } catch (NumberFormatException e) {
+            Toast.makeText(getApplicationContext(), "Please enter a valid number for the price", Toast.LENGTH_LONG).show();
+            return false;
+        }
+    }
+
+    private void clearFields() {
+        EditText titleEditText = findViewById(R.id.title);
+        titleEditText.getText().clear();
+
+        EditText descriptionEditText = findViewById(R.id.Description);
+        descriptionEditText.getText().clear();
+
+        EditText servingEditText = findViewById(R.id.serving);
+        servingEditText.getText().clear();
+
+        EditText locationEditText = findViewById(R.id.location);
+        locationEditText.getText().clear();
+
+        EditText deliveryDateEditText = findViewById(R.id.deliveryDate);
+        deliveryDateEditText.getText().clear();
+
+        EditText deliveryTimeEditText = findViewById(R.id.deliveryTime);
+        deliveryTimeEditText.getText().clear();
+
+        EditText priceEditText = findViewById(R.id.price);
+        priceEditText.getText().clear();
+    }
 
 
 }
