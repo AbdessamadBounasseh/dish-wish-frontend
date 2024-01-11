@@ -20,6 +20,7 @@ import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.Models.Proposition;
+import uit.ensak.dish_wish_frontend.Models.Rating;
 
 public interface ApiService {
     @GET("clients/{id}")
@@ -62,4 +63,6 @@ public interface ApiService {
             @Path("id") Long commandId,
             @Body Command command
     );
+    @GET("chef-ratings/{chefId}")
+    Call<Double> getChefRatings(@Path("chefId") long chefId, @Header("Authorization") String accessToken);
 }

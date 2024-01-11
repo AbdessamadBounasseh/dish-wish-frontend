@@ -424,6 +424,10 @@
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\layout\\item_search_result.xml"
     },
     {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/drawable_avatar.png.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/drawable/avatar.png"
+    },
+    {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable-anydpi_ic_menu_my_orders.xml.flat",
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable-anydpi\\ic_menu_my_orders.xml"
     },
