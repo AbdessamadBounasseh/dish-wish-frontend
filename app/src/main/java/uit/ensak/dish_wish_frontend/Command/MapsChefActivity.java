@@ -66,6 +66,8 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
     private ImageView arrow;
     private ImageView arrow_popup;
     private Button sendOffer;
+    String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwMDM1MTcsImV4cCI6MTcwNTA4OTkxN30.Fopqf7m3vtQfsachpcm6H3PAQBZ4I5HjgqUe6n7kEeM";
+
 
 
 
@@ -165,7 +167,6 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5MTQ1ODIsImV4cCI6MTcwNTAwMDk4Mn0.5XYpxjLALTqVgR-saq9zPkcKiyWOiwAta7Q_nhpMhlA";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Command>> call = apiService.getCommands("Bearer " + accessToken);
@@ -362,12 +363,13 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                         public void onClick(View v) {
                             Proposition proposition = new Proposition();
 
-                            // Retrieve client ID from shared preferences
-                            SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);
-                            Long chefId = sharedPreferences.getLong("client_id_key", 3L);
+                            // Retrieve Chef ID from shared preferences
+                            /*SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);
+                            Long chefId = sharedPreferences.getLong("client_id_key", 2L);*/
 
                             Chef chef = new Chef();
-                            chef.setId(1L);
+                            chef.setId(2L);
+                            chef.setRole("CHEF");
                             proposition.setChef(chef);
 
                             Client client = associatedCommand.getClient();
@@ -377,7 +379,7 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                                 proposition.setCommand(associatedCommand);
                                 proposition.setLastClientProposition(valueOf(associatedCommand.getPrice()));
                             } else {
-                                Log.d("Command not provided","erorr");
+                                Log.d("Command not provided","eroor");
                             }
 
                             EditText pricefield = popup.findViewById(R.id.price);
@@ -399,8 +401,6 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                                 Log.d("NullPointerException", "Price field is null");
                             }
 
-
-                            String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5MTQ1ODIsImV4cCI6MTcwNTAwMDk4Mn0.5XYpxjLALTqVgR-saq9zPkcKiyWOiwAta7Q_nhpMhlA";
 
                             ApiService apiService = RetrofitClient.getApiService();
                             Call<Void> call = apiService.sendProposition("Bearer " + accessToken, proposition);
