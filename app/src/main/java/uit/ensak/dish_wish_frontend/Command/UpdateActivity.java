@@ -37,6 +37,46 @@ public class UpdateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
+        chooseLocationButton = findViewById(R.id.ChooseLocation);
+        Button sendCommandButton = findViewById(R.id.order);
+        pickTime = findViewById(R.id.pickTime);
+        pickDate = findViewById(R.id.pickDate);
+        EditText DelivaryTime = findViewById(R.id.deliveryTime);
+        EditText DelivaryDate = findViewById(R.id.deliveryDate);
+
+        // Retrieve data from the intent
+        Intent intent = getIntent();
+        String title = intent.getStringExtra("title");
+        String description = intent.getStringExtra("description");
+        String serving = intent.getStringExtra("serving");
+        String deadlineString = intent.getStringExtra("deadline");
+        String price = intent.getStringExtra("price");
+        String address = intent.getStringExtra("address");
+
+        deadlineString = deadlineString.replace("/", " ");
+
+        String[] parts = deadlineString.split(" ");
+
+        EditText titleEditText = findViewById(R.id.title);
+        EditText descriptionEditText = findViewById(R.id.Description);
+        EditText servingEditText = findViewById(R.id.serving);
+        EditText deliveryDateEditText = findViewById(R.id.deliveryDate);
+        EditText deliveryTimeEditText = findViewById(R.id.deliveryTime);
+        EditText priceEditText = findViewById(R.id.price);
+        EditText addressEditText = findViewById(R.id.location);
+
+        titleEditText.setText(title);
+        descriptionEditText.setText(description);
+        servingEditText.setText(serving);
+        deliveryDateEditText.setText(parts[0]);
+        deliveryTimeEditText.setText(parts[1]);
+        priceEditText.setText(price);
+        addressEditText.setText(address);
+
+
+
+
+
 
     }
 
