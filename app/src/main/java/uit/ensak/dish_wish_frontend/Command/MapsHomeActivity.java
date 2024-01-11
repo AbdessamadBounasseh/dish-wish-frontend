@@ -317,6 +317,19 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         dialog.setContentView(R.layout.popup_chef_details);
         dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
 
+        TextView chefFirstName = dialog.findViewById(R.id.firstname);
+        TextView chefLastName = dialog.findViewById(R.id.lastname);
+        TextView price = dialog.findViewById(R.id.price);
+        TextView delivary = dialog.findViewById(R.id.delivary);
+
+        chefFirstName.setText(associatedProposition.getChef().getFirstName());
+        chefLastName.setText(associatedProposition.getChef().getLastName());
+        float chefProposition = associatedProposition.getLastChefProposition();
+        String chefPropositionString = String.valueOf(chefProposition);
+        price.setText(chefPropositionString + " DH");
+        delivary.setText(associatedProposition.getCommand().getDeadline());
+
+
         Window window = dialog.getWindow();
         if (window != null) {
             WindowManager.LayoutParams layoutParams = window.getAttributes();
@@ -468,54 +481,26 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         if (mMap != null && propositionList != null) {
             for (Proposition proposition : propositionList) {
                 Chef chef = proposition.getChef();
-                float price = proposition.getLastChefProposition();
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5NjgzMzUsImV4cCI6MTcwNTA1NDczNX0.492foEuc2CyhQbIWrMT8xSe--2n1egUoV_mu-aVuuG4";
+                if (chef != null && chef.getAddress() != null) {
+                    String[] latLng = chef.getAddress().split(",");
+                    if (latLng.length == 2) {
+                        double latitude = Double.parseDouble(latLng[0]);
+                        double longitude = Double.parseDouble(latLng[1]);
 
-                        ApiService apiService = RetrofitClient.getApiService();
-                        Call<Client> call = apiService.getUser("Bearer " + accessToken, 1L);
-
-                        call.enqueue(new Callback<Client>() {
-                            @Override
-                            public void onResponse(Call<Client> call, Response<Client> response) {
-                                if (response.isSuccessful()) {
-                                    Client client = response.body();
-                                    if (client != null) {
-                                        String[] latLng = client.getAddress().split(",");
-                                        if (latLng.length == 2) {
-                                            double latitude = Double.parseDouble(latLng[0]);
-                                            double longitude = Double.parseDouble(latLng[1]);
-
-                                            LatLng location = new LatLng(latitude, longitude);
-                                            MarkerOptions markerOptions = new MarkerOptions()
-                                                    .position(location)
-                                                    .title("offer")
-                                                    .icon(BitmapFromVector(getApplicationContext(), R.drawable.chef));
-                                            Marker marker = mMap.addMarker(markerOptions);
-                                            linkMarkerToProposition(marker, proposition);
-                                        }
-                                    }
-                                } else {
-                                    showCustomPopup();
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<Client> call, Throwable t) {
-                                showCustomPopup();
-                            }
-                        });
+                        LatLng location = new LatLng(latitude, longitude);
+                        MarkerOptions markerOptions = new MarkerOptions()
+                                .position(location)
+                                .title("offer")
+                                .icon(BitmapFromVector(getApplicationContext(), R.drawable.chef));
+                        Marker marker = mMap.addMarker(markerOptions);
+                        linkMarkerToProposition(marker, proposition);
                     }
-                }).start();
-
-
-
+                }
             }
         }
     }
+
 
     private void linkMarkerToProposition(Marker marker, Proposition proposition) {
         markerPropositionMap.put(marker.getId(), proposition);

@@ -160,6 +160,7 @@ id email
 id email_addre
 id enter_your_
 id firstNameTextView
+id firstname
 id forg
 id forgpass
 id form_2_fill
@@ -172,6 +173,7 @@ id illustratio
 id imageDish
 id imageViewChangePhoto
 id lastNameTextView
+id lastname
 id location
 id lottie
 id map
