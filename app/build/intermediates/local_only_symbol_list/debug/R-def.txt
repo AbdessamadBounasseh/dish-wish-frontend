@@ -33,6 +33,7 @@ drawable arr
 drawable arrow
 drawable arrow_down
 drawable arrow_up
+drawable avatar
 drawable back
 drawable baseline_menu_24
 drawable baseline_notifications_active_24
@@ -319,6 +320,7 @@ string verificatio
 string we_have_sen
 string welcome_to_
 style MyMaterialTimePickerTheme
+style RatingBar
 style SCBSwitch
 style Theme.Dishwishfrontend
 style Theme.Dishwishfrontend.AppBarOverlay

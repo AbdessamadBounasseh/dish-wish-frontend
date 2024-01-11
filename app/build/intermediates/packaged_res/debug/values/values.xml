@@ -165,6 +165,10 @@ Welcome to DishWish
         <item name="colorOnPrimary">@android:color/white</item>
         <item name="colorOnSurface">@color/principalColor</item>
     </style>
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/principalColor</item>
+        <item name="colorControlActivated">@color/principalColor</item>
+    </style>
     <style name="SCBSwitch" parent="Theme.AppCompat.Light">
         <item name="colorControlActivated">@color/principalColor</item>
         <item name="colorSwitchThumbNormal">#f1f1f1
