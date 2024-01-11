@@ -93,13 +93,3 @@ jobs:
             See the build log here: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           to: ${{ steps.set-email.outputs.email_recipient }}
           from: "${{ secrets.EMAIL_SENDER }}"
-  sonarcloud:
-      runs-on: ubuntu-latest
-      needs: build
-      steps:
-        - uses: actions/checkout@v3
-        - name: SonarCloud Scan
-          uses: SonarSource/sonarcloud-github-action@master  # Official action
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Required for analysis
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   # Your SonarCloud token
