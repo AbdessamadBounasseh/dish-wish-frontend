@@ -2,6 +2,8 @@ package uit.ensak.dish_wish_frontend.Authentification;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 
@@ -12,6 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,6 +34,10 @@ public class connect extends AppCompatActivity {
     TextView newacc,forgot;
     DBHelper db;
     ImageView back;
+    private SharedPreferences sharedPreferences;
+    private static final String SHARED_PREFS_NAME = "mypref";
+    private static final String KEY_EMAIL = "email";
+    private static final String KEY_PASSWORD = "password";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +63,27 @@ public class connect extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String email1 = sharedPreferences.getString(KEY_EMAIL, "");
+        String pass = sharedPreferences.getString(KEY_PASSWORD, "");
+        email.setText(email1);
+        password.setText(pass);
+
+        remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(remember.isChecked()){
+
+                    String emailEditText = email.getText().toString();
+                    String passwordEditText = password.getText().toString();
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString(KEY_EMAIL, emailEditText);
+                    editor.putString(KEY_PASSWORD, passwordEditText);
+                    editor.apply();
+                }
+            }
+        });
+
 
         password.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -90,8 +118,12 @@ public class connect extends AppCompatActivity {
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String emailEditText= email.getText().toString();
+                String emailEditText = email.getText().toString();
                 String passwordEditText = password.getText().toString();
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString(KEY_EMAIL, emailEditText);
+                editor.putString(KEY_PASSWORD, passwordEditText);
+                editor.apply();
 
                 if (emailEditText.equals("") || passwordEditText.equals("")) {
                     Toast.makeText(connect.this, "All fields should be filled to sign in", Toast.LENGTH_LONG).show();

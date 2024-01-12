@@ -67,8 +67,9 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name="uit.ensak.dish_wish_frontend.Profil_Folder.become_cook"
+            android:name="uit.ensak.dish_wish_frontend.Authentification.page_acceuil"
             android:exported="true"
+            android:label="@string/app_name"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -82,12 +83,11 @@
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
-            android:exported="false" >
-        </activity>
-        <!-- <activity -->
-        <!-- android:name=".Profil_Folder.become_cook" -->
-        <!-- android:exported="false" -->
-        <!-- android:theme="@style/Theme.Dishwishfrontend.NoActionBar" /> -->
+            android:exported="false" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Profil_Folder.become_cook"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name="uit.ensak.dish_wish_frontend.Profil_Folder.change_profile"
             android:exported="false"
