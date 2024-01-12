@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -21,6 +22,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.jetbrains.annotations.Nullable;
@@ -32,10 +34,11 @@ import uit.ensak.dish_wish_frontend.R;
 public class change_profile extends AppCompatActivity {
 
     private EditText editTextNewFirstName, editTextNewLastName, editTextNewAddress, editTextNewPhoneNumber, editTextNewAllergie,editTextNewBio;
-
+    private TextView textViewBioTitle;
     private Button btnSubmit;
     Spinner spinnerDiet;
     private String currentFirstName, currentLastName, currentAddress,currentPhoneNumber,currentBio,currentAllergie;
+
     private String newDiet;
 
     private static final int REQUEST_IMAGE_CAPTURE = 101;
@@ -50,7 +53,22 @@ public class change_profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("isCook",false);
+        editor.apply();
+        Boolean isCook= preferences.getBoolean("isCook", false);
+
         setContentView(R.layout.activity_change_profile);
+
+        editTextNewBio = findViewById(R.id.editTextNewBio);
+       textViewBioTitle = findViewById(R.id.textViewBio);
+
+        if (isCook) {
+            textViewBioTitle.setVisibility(View.VISIBLE);
+            editTextNewBio.setVisibility(View.VISIBLE);
+        }
+
         spinnerDiet = findViewById(R.id.spinnerDiet);
         ArrayAdapter<CharSequence> adapterDiet = ArrayAdapter.createFromResource(this, R.array.diet_array, android.R.layout.simple_spinner_item);
         adapterDiet.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -91,21 +109,25 @@ public class change_profile extends AppCompatActivity {
         editTextNewLastName = findViewById(R.id.editTextNewLastName);
         editTextNewAddress = findViewById(R.id.editTextNewAddress);
         editTextNewPhoneNumber = findViewById(R.id.editTextNewPhoneNumber);
-        editTextNewBio = findViewById(R.id.editTextNewBio);
+
         editTextNewAllergie = findViewById(R.id.editTextNewAllergie);
         btnSubmit = findViewById(R.id.btnsubmit);
         // Récupérer le prénom actuel
         currentFirstName = getIntent().getStringExtra("CURRENT_FIRST_NAME");
         currentLastName = getIntent().getStringExtra("CURRENT_LAST_NAME");
         currentAddress = getIntent().getStringExtra("CURRENT_ADDRESS");
-        currentBio = getIntent().getStringExtra("CURRENT_BIO");
+        if (isCook) {
+            currentBio = getIntent().getStringExtra("CURRENT_BIO");
+        }
         currentAllergie = getIntent().getStringExtra("CURRENT_ALLERGY");
         currentPhoneNumber = getIntent().getStringExtra("CURRENT_PHONE_NUMBER");
         editTextNewFirstName.setText(currentFirstName);
         editTextNewLastName.setText(currentLastName);
         editTextNewAddress.setText(currentAddress);
         editTextNewPhoneNumber.setText(currentPhoneNumber);
-        editTextNewBio.setText(currentBio);
+        if (isCook) {
+            editTextNewBio.setText(currentBio);
+        }
         editTextNewAllergie.setText(currentAllergie);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -121,8 +143,11 @@ public class change_profile extends AppCompatActivity {
                 String newAddress = editTextNewAddress.getText().toString();
 
                 String newPhoneNumber = editTextNewPhoneNumber.getText().toString();
+                String newBio = "";
+                if (isCook) {
 
-                String newBio = editTextNewBio.getText().toString();
+                   newBio = editTextNewBio.getText().toString();
+                }
 
                 String newAllergie = editTextNewAllergie.getText().toString();
 
@@ -136,7 +161,9 @@ public class change_profile extends AppCompatActivity {
                 resultIntent.putExtra("NEW_ADDRESS", newAddress);
                 resultIntent.putExtra("NEW_ALLERGY", newAllergie);
                 resultIntent.putExtra("NEW_PHONE_NUMBER", newPhoneNumber);
-                resultIntent.putExtra("NEW_BIO", newBio);
+                if (isCook) {
+                    resultIntent.putExtra("NEW_BIO", newBio);
+                }
                 resultIntent.putExtra("NEW_DIET", newDiet);
                 resultIntent.putExtra("NEW_PROFILE_IMAGE_BITMAP", imageBitmap);
                 // Afficher un message de succès

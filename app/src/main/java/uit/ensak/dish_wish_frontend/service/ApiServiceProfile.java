@@ -26,12 +26,12 @@ public interface ApiServiceProfile {
             @Header("Authorization") String authToken,
             @Path("chefId") Long chefId);
     @Multipart
-
-    @PUT("clients/update/{clientId}")
+    @PUT("clients/update/{id}")
     Call<Client> updateClient(
-            @Header("Authorization") String authToken,
-            @Path("clientId") Long clientId,@Part("user") ChefDTO userDTO,
-            @Part("photo") MultipartBody.Part photo
+            @Header("Authorization") String authorization,
+            @Path("id") Long id,
+            @Part("user") ChefDTO chefDTO,
+            @Part MultipartBody.Part photoPart
             );
 
 

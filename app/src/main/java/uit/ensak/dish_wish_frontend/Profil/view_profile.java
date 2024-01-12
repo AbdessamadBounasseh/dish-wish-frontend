@@ -17,10 +17,12 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import okhttp3.MediaType;
@@ -47,27 +49,22 @@ public class view_profile extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE = 2;
     static final int REQUEST_PICK_IMAGE = 3;
 
+    private ChefDTO chefDTO;
 
-    private TextView textViewFirstName,textViewLastName,textViewAddress,textViewDiet,textViewBioContent, textViewPHONE_NUMBER, textViewAllergies;
 
+    private TextView textViewFirstName,textViewLastName,textViewAddress, textViewBio, textViewDiet, textViewPHONE_NUMBER, textViewAllergies,textViewBioContent;
+    private Spinner spinnerAllergies;
     private ImageView profileImageView;
-     private  ChefDTO chefDTO;
-     private Bitmap newProfileImageBitmap;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("userId",2L);
-        editor.putString("accessToken","eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiZXJuYXJkYWxwaGFvbWVnYWRla3BlQGdtYWlsLmNvbSIsImlhdCI6MTcwMzg4ODI0MywiZXhwIjoxNzAzOTc0NjQzfQ.sZaz6HH0qcz6PcwHghzDI4w-Fl438RlU9n-efvj9hQE");
-       //si c'est un chef
-       editor.putBoolean("isCook",false);
-       editor.apply();
-
-
+        editor.putLong("userId",7L);
+        editor.putString("accessToken","eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWEyMjAxOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwNzAyNDUsImV4cCI6MTcwNTE1NjY0NX0.-BF8SYg-QZI_PoqeQ5Wy9YzvVX_zLRn_4LCa02F6qJY");
+        editor.putBoolean("isCook",false);
+        editor.apply();
         Boolean isCook= preferences.getBoolean("isCook", false);
 
 
@@ -82,11 +79,9 @@ public class view_profile extends AppCompatActivity {
         textViewDiet = findViewById(R.id.textViewActualDiet);
         textViewPHONE_NUMBER = findViewById(R.id.textViewActualPhoneNumber);
         textViewAllergies = findViewById(R.id.textViewActualAllergies);
+        profileImageView = findViewById(R.id.portrait_of);
         textViewBioContent = findViewById(R.id.textViewActualBio);
-
         TextView textViewBioTitle = findViewById(R.id.textViewBio);
-
-
 
         if (isCook) {
             textViewBioTitle.setVisibility(View.VISIBLE);
@@ -99,7 +94,7 @@ public class view_profile extends AppCompatActivity {
                     textViewAddress.setText(chef.getAddress());
                     textViewPHONE_NUMBER.setText(chef.getPhoneNumber());
                     if(chef.getDiet()!= null){
-                    textViewDiet.setText(chef.getDiet().getTitle());}
+                        textViewDiet.setText(chef.getDiet().getTitle());}
                     textViewAllergies.setText(chef.getAllergies());
                     textViewBioContent.setText(chef.getBio());
                 }
@@ -120,7 +115,7 @@ public class view_profile extends AppCompatActivity {
                     textViewAddress.setText(client.getAddress());
                     textViewPHONE_NUMBER.setText(client.getPhoneNumber());
                     if(client.getDiet()!=null){
-                    textViewDiet.setText(client.getDiet().getTitle());}
+                        textViewDiet.setText(client.getDiet().getTitle());}
                     textViewAllergies.setText(client.getAllergies());
                 }
 
@@ -132,25 +127,34 @@ public class view_profile extends AppCompatActivity {
         }
 
 
+        setContentView(R.layout.activity_view_profile);
+
+        textViewFirstName = findViewById(R.id.textViewActualFirstName);
+        textViewLastName = findViewById(R.id.textViewActualLastName);
+        textViewAddress = findViewById(R.id.textViewActualAddress);
+        textViewDiet = findViewById(R.id.textViewActualDiet);
+        textViewBio = findViewById(R.id.textViewActualBio);
+        textViewPHONE_NUMBER = findViewById(R.id.textViewActualPhoneNumber);
+        textViewAllergies = findViewById(R.id.textViewActualAllergies);
         profileImageView = findViewById(R.id.portrait_of);
         ImageButton btnBack = findViewById(R.id.btnBack);
+
         Button btnChange = findViewById(R.id.btnchange);
         Button btnDeleteAccount = findViewById(R.id.btnDeleteAccount);
         btnChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Lancez l'activité ChangeProfileActivity avec startActivityForResult
-
                 Intent intent = new Intent(view_profile.this, change_profile.class);
                 // Passer la valeur actuelle du prénom à l'intention
                 intent.putExtra("CURRENT_FIRST_NAME", textViewFirstName.getText().toString());
                 intent.putExtra("CURRENT_LAST_NAME", textViewLastName.getText().toString());
                 intent.putExtra("CURRENT_ADDRESS", textViewAddress.getText().toString());
                 intent.putExtra("CURRENT_PHONE_NUMBER", textViewPHONE_NUMBER.getText().toString());
-                intent.putExtra("CURRENT_Allergy", textViewAllergies.getText().toString());
                 if (isCook) {
-                    intent.putExtra("CURRENT_BIO", textViewBioContent.getText().toString());
+                    intent.putExtra("CURRENT_BIO", textViewBio.getText().toString());
                 }
+                intent.putExtra("CURRENT_DIET", textViewDiet.getText().toString());
                 startActivityForResult(intent, REQUEST_CODE_CHANGE_PROFILE);
 
             }
@@ -196,85 +200,57 @@ public class view_profile extends AppCompatActivity {
         });
         builder.show();
     }
-    private void deleteAccount() {
-        // Ajoutez ici la logique réelle pour supprimer le compte
-
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        Long userId = preferences.getLong("userId", 0);
-        String authToken = preferences.getString("accessToken", "");
-
-        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
-
-        // Appeler la méthode becomeCook
-        Call<Void> call = apiService.deleteUserAccount("Bearer " + authToken, userId);
-        call.enqueue(new Callback<Void>() {
-            @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                if (response.isSuccessful()) {
-                    Toast.makeText(view_profile.this, "Account has been successfully deleted", Toast.LENGTH_SHORT).show();
-                    //il faut retourner a login activity
-                    Intent loginIntent = new Intent(view_profile.this, page_acceuil.class);
-                    startActivity(loginIntent);
-                    finish(); // Pour fermer l'activité actuelle après la suppression du compte
-                } else {
-                    Toast.makeText(view_profile.this, "Error", Toast.LENGTH_SHORT).show();
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(view_profile.this, "Error2", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-        // Par exemple, vous pourriez appeler une API de suppression de compte, ou supprimer les données localement, etc.
-
-
-    }
-
+    //delte
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        Boolean isCook= preferences.getBoolean("isCook", false);
-        String newBio="";
-
         super.onActivityResult(requestCode, resultCode, data);
+
         if (requestCode == 1 && resultCode == RESULT_OK) {
-            DietDTO dietDTO= new DietDTO();
-            chefDTO.setFirstName(data.getStringExtra("NEW_FIRST_NAME"));
-            chefDTO.setLastName(data.getStringExtra("NEW_LAST_NAME"));
-            chefDTO.setAddress(data.getStringExtra("NEW_ADDRESS"));
-            chefDTO.setPhoneNumber(data.getStringExtra("NEW_PHONE_NUMBER"));
-            chefDTO.setAllergies(data.getStringExtra("NEW_ALLERGY"));
-            dietDTO.setTitle(data.getStringExtra("NEW_DIET"));
-            chefDTO.setDietDTO(dietDTO);
-            if (isCook) {
-                chefDTO.setBio(data.getStringExtra("NEW_BIO"));
-            }
-            // Ajoutez ces lignes pour récupérer l'image redimensionnée dans MainActivity
-            newProfileImageBitmap = data.getParcelableExtra("NEW_PROFILE_IMAGE_BITMAP");
+
+            String newFirstName = data.getStringExtra("NEW_FIRST_NAME");
+            String newLastName = data.getStringExtra("NEW_LAST_NAME");
+            String newAddress = data.getStringExtra("NEW_ADDRESS");
+            String newBio = data.getStringExtra("NEW_BIO");
+            String newDiet = data.getStringExtra("NEW_DIET");
+            String newPhoneNumber = data.getStringExtra("NEW_PHONE_NUMBER");
+            String newAllergy = data.getStringExtra("NEW_ALLERGY");
+
+            Bitmap newProfileImageBitmap = data.getParcelableExtra("NEW_PROFILE_IMAGE_BITMAP");
 
             if (newProfileImageBitmap != null) {
                 profileImageView.setImageBitmap(getRoundedBitmap(newProfileImageBitmap));
             } else {
-                // Faites quelque chose ici pour gérer le cas où newProfileImageBitmap est null
-            }
-            textViewFirstName.setText(chefDTO.getFirstName());
-            textViewLastName.setText(chefDTO.getLastName());
-            textViewAddress.setText(chefDTO.getAddress());
-            textViewPHONE_NUMBER.setText(chefDTO.getPhoneNumber());
-            textViewAllergies.setText(chefDTO.getAllergies());
-            textViewDiet.setText(dietDTO.getTitle());
-            if (isCook) {
-                textViewBioContent.setText(chefDTO.getBio());
+
             }
 
-        }
+            textViewFirstName.setText(newFirstName);
+            textViewLastName.setText(newLastName);
+            textViewAddress.setText(newAddress);
+            textViewPHONE_NUMBER.setText(newPhoneNumber);
+            textViewBio.setText(newBio);
+            textViewDiet.setText(newDiet);
+            textViewAllergies.setText(newAllergy);
+            SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+            Boolean isCook= preferences.getBoolean("isCook",false);
+            DietDTO dietDTO= new DietDTO();
+
+            ChefDTO chefDTO = new ChefDTO();
+
+
+            chefDTO.setFirstName(newFirstName);
+            chefDTO.setLastName(newLastName);
+            chefDTO.setAddress(newAddress);
+            chefDTO.setPhoneNumber(newPhoneNumber);
+            chefDTO.setAllergies(newAllergy);
+            dietDTO.setTitle(newDiet);
+            chefDTO.setDietDTO(dietDTO);
+            if (isCook) {
+                chefDTO.setBio(newBio);
+            }
+            updateUser(chefDTO,newProfileImageBitmap);
+       }
         if ((requestCode == REQUEST_IMAGE_CAPTURE || requestCode == REQUEST_PICK_IMAGE) && resultCode == RESULT_OK) {
-            // Gérer la sélection d'une nouvelle image de profil
             if (requestCode == REQUEST_IMAGE_CAPTURE) {
                 Bundle extras = data.getExtras();
                 Bitmap imageBitmap = (Bitmap) extras.get("data");
@@ -289,126 +265,6 @@ public class view_profile extends AppCompatActivity {
                 }
             }
         }
-        updateUser(chefDTO,newProfileImageBitmap);
-
-    }
-
-    private Bitmap getRoundedBitmap(Bitmap bitmap) {
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        int diameter = Math.min(width, height);
-
-        Bitmap output = Bitmap.createBitmap(diameter, diameter, Bitmap.Config.ARGB_8888);
-
-        Canvas canvas = new Canvas(output);
-        Paint paint = new Paint();
-        Rect rect = new Rect(0, 0, diameter, diameter);
-
-        paint.setAntiAlias(true);
-        canvas.drawARGB(0, 0, 0, 0);
-        paint.setColor(Color.WHITE);
-        canvas.drawCircle(diameter / 2f, diameter / 2f, diameter / 2f, paint);
-        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-        canvas.drawBitmap(bitmap, null, rect, paint);
-
-        return output;
-    }
-
-    private void getClient(ApiClientCallback apiClientCallback) {
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        Long userId = preferences.getLong("userId", 0);
-        String authToken = preferences.getString("accessToken", "");
-        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
-        Call<Client> call = apiService.getClientById("Bearer " + authToken, userId);
-        call.enqueue(new Callback<Client>() {
-            @Override
-            public void onResponse(Call<Client> call, Response<Client> response) {
-                if (response.isSuccessful()) {
-                    Client client = response.body();
-                    apiClientCallback.onClientReceived(client);
-                } else {
-                    apiClientCallback.onFailure("Error: " + response.code());
-                }
-            }
-            @Override
-            public void onFailure(Call<Client> call, Throwable t) {
-
-                t.printStackTrace();
-                apiClientCallback.onFailure("Error: " + t.getMessage());
-            }
-        });
-    }
-
-    private void getChef(ApiChefCallback apiChefCallback) {
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        Long userId = preferences.getLong("userId", 0);
-        String authToken = preferences.getString("accessToken", "");
-
-        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
-
-        Call<Chef> call = apiService.getChefById("Bearer " + authToken, userId);
-
-        call.enqueue(new Callback<Chef>() {
-            @Override
-            public void onResponse(Call<Chef> call, Response<Chef> response) {
-                if (response.isSuccessful()) {
-                    Chef chef = response.body();
-                    apiChefCallback.onChefReceived(chef);
-                } else {
-                    apiChefCallback.onFailure("Error: " + response.code());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Chef> call, Throwable t) {
-
-                t.printStackTrace();
-                apiChefCallback.onFailure("Error: " + t.getMessage());
-            }
-        });
-    }
-
-    private void updateUser(ChefDTO chefDTO, Bitmap imageBitmap) {
-        // Convertir le Bitmap en tableau de bytes
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] imageBytes = baos.toByteArray();
-
-        // Créer une RequestBody à partir du tableau de bytes
-        RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), imageBytes);
-
-        // Créer un MultipartBody.Part à partir de la RequestBody
-        MultipartBody.Part photoPart = MultipartBody.Part.createFormData("photo", "photo.jpg", requestFile);
-
-        // Le reste de votre code
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        Long userId = preferences.getLong("userId", 0);
-        String authToken = preferences.getString("accessToken", "");
-        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
-        Call<Client> call = apiService.updateClient("Bearer " + authToken, userId, chefDTO, photoPart);
-
-        // Continuez avec le reste de votre logique...
-        call.enqueue(new Callback<Client>() {
-            @Override
-            public void onResponse(Call<Client> call, Response<Client> response) {
-                if (response.isSuccessful()) {
-                    Client client = response.body();
-                    Toast.makeText(view_profile.this, "User updat succesful", Toast.LENGTH_SHORT).show();
-
-                } else {
-                    Toast.makeText(view_profile.this, "Error", Toast.LENGTH_SHORT).show();
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Client> call, Throwable t) {
-
-                t.printStackTrace();
-
-
-            }
-        });
     }
 
 

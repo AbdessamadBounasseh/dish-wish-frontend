@@ -199,7 +199,7 @@ ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\mai
 		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:40:13-54
 	android:name
 		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:39:13-43
-activity#uit.ensak.dish_wish_frontend.Profil.become_cook
+activity#uit.ensak.dish_wish_frontend.Profil.view_profile
 ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:43:9-53:20
 	android:label
 		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:46:13-45
@@ -208,7 +208,7 @@ ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\mai
 	android:theme
 		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:47:13-70
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:44:13-47
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:44:13-48
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:48:13-51:29
 action#android.intent.action.MAIN
@@ -265,7 +265,7 @@ ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\mai
 		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:85:13-70
 	android:name
 		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:83:13-51
-activity#uit.ensak.dish_wish_frontend.Authentification.createAcciunt
+activity#uit.ensak.dish_wish_frontend.Authentification.CreateAccount
 ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:86:9-89:72
 	android:exported
 		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:88:13-37
