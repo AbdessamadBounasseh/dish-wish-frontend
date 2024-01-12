@@ -1,6 +1,7 @@
 package uit.ensak.dish_wish_frontend.Authentification;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import ch.qos.logback.classic.Logger;
 
 
@@ -50,7 +51,7 @@ public class CreateAccount extends AppCompatActivity {
         db = new DBHelper(this);
         already = findViewById(R.id.create_acco);
         ImageView back;
-        back=findViewById(R.id.icon_24_bac);
+        back = findViewById(R.id.icon_24_bac);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,8 +145,6 @@ public class CreateAccount extends AppCompatActivity {
                             handleRegistration(email, password);
 
 
-
-
                         } else {
                             Toast.makeText(CreateAccount.this, "the two passwords should be the same", Toast.LENGTH_LONG).show();
                         }
@@ -180,14 +179,14 @@ public class CreateAccount extends AppCompatActivity {
 
                     AuthenticationResponse authenticationResponse = response.body();
                     logger.info("succes");
-                    Intent intent1= new Intent(CreateAccount.this,VerifyEmail.class);
+                    Intent intent1 = new Intent(CreateAccount.this, VerifyEmail.class);
                     startActivity(intent1);
 
 
-                //}
+                }
 
 
-            }
+            //}
 
             @Override
             public void onFailure(Call<AuthenticationResponse> call, Throwable t) {
@@ -197,6 +196,7 @@ public class CreateAccount extends AppCompatActivity {
         });
 
     }
+
     private boolean isStrongPassword(String password) {
         if (password.length() < 8) {
             Toast.makeText(CreateAccount.this, "Password should be at least 8 characters long", Toast.LENGTH_LONG).show();
