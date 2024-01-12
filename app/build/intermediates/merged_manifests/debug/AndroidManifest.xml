@@ -46,6 +46,11 @@
         android:theme="@style/Theme.Dishwishfrontend"
         android:usesCleartextTraffic="true" >
         <activity
+            android:name="uit.ensak.dish_wish_frontend.Authentification.ForgotPasswordActivity"
+            android:exported="false"
+            android:label="@string/title_activity_forgot_password"
+            android:theme="@style/Theme.Dishwishfrontend" />
+        <activity
             android:name="uit.ensak.dish_wish_frontend.Authentification.ResetEmailActivity"
             android:exported="false" />
         <activity
@@ -93,8 +98,7 @@
         <activity
             android:name="uit.ensak.dish_wish_frontend.Profil.change_profile"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
-        <!-- <activity -->
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" /> <!-- <activity -->
         <!-- android:name=".Profil_Folder.view_profile" -->
         <!-- android:exported="false" -->
         <!-- android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/> -->
