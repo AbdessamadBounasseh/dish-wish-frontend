@@ -148,25 +148,41 @@ public class change_profile extends AppCompatActivity {
                    newBio = editTextNewBio.getText().toString();
                 }
                 String newAllergie = editTextNewAllergie.getText().toString();
+                if (newFirstName.trim().isEmpty()) {
+                    Toast.makeText(change_profile.this, "First name is required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (newLastName.trim().isEmpty()) {
+                    Toast.makeText(change_profile.this, "Last name is required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (!isValidFirstName(newFirstName)) {
+                    Toast.makeText(change_profile.this, "Invalid first name format", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (!isValidLastName(newLastName)) {
+                    Toast.makeText(change_profile.this, "Invalid last name format", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if (!isValidNumber(newPhoneNumber)) {
                     Toast.makeText(change_profile.this, "Invalid phone number", Toast.LENGTH_SHORT).show();
-                    return;  // Arrêter le traitement si le numéro n'est pas valide
+                    return;
                 }
                 if (!isValidAllergie(newAllergie)) {
                     Toast.makeText(change_profile.this, "Invalid allergy format", Toast.LENGTH_SHORT).show();
-                    return;  // Arrêter le traitement si l'allergie n'est pas valide
+                    return;
                 }
 
-                // Vérifier la validité de l'adresse
                 if (!isValidAdresse(newAddress)) {
                     Toast.makeText(change_profile.this, "Invalid address format", Toast.LENGTH_SHORT).show();
-                    return;  // Arrêter le traitement si l'adresse n'est pas valide
+                    return;
                 }
 
-                // Vérifier la validité de la bio
                 if (isCook && !isValidBio(newBio)) {
                     Toast.makeText(change_profile.this, "Invalid bio format", Toast.LENGTH_SHORT).show();
-                    return;  // Arrêter le traitement si la bio n'est pas valide
+                    return;
                 }
 
                 Intent resultIntent = new Intent();
