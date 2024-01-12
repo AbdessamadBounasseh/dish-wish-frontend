@@ -318,7 +318,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
 
         if (showSuccessDialog) {
             Dialog dialog = new Dialog(this);
-            dialog.setContentView(R.layout.popup_command_created);
+            dialog.setContentView(R.layout.popup_offer_confirmed);
             dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
 
             dialog.show();
