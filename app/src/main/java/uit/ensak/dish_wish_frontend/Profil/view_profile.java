@@ -200,7 +200,31 @@ public class view_profile extends AppCompatActivity {
         });
         builder.show();
     }
-    //delte
+    private void deleteAccount() {
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        Long userId = preferences.getLong("userId", 0);
+        String authToken = preferences.getString("accessToken", "");
+
+        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
+        Call<Void> call = apiService.deleteUserAccount("Bearer " + authToken, userId);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(view_profile.this, "Account has been successfully deleted", Toast.LENGTH_SHORT).show();
+                    Intent loginIntent = new Intent(view_profile.this, page_acceuil.class);
+                    startActivity(loginIntent);
+                    finish();
+                } else {
+                    Toast.makeText(view_profile.this, "Error", Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(view_profile.this, "Error2", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
