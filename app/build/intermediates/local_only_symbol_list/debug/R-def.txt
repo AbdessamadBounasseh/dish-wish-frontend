@@ -144,6 +144,7 @@ id btnsubmit
 id buttons_bar
 id checkbox
 id component_1
+id confirmOffer
 id cook
 id create_acco
 id delivary
