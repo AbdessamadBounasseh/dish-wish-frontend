@@ -29,6 +29,8 @@ import android.widget.Toast;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -127,6 +129,7 @@ public class change_profile extends AppCompatActivity {
         editTextNewLastName.setText(currentLastName);
         editTextNewAddress.setText(currentAddress);
         editTextNewPhoneNumber.setText(currentPhoneNumber);
+
         editTextNewAllergie.setText(currentAllergie);
         if (isCook) {
             editTextNewBio.setText(currentBio);
@@ -137,6 +140,7 @@ public class change_profile extends AppCompatActivity {
             public void onClick(View v) {
                 String newFirstName = editTextNewFirstName.getText().toString();
                 String newLastName = editTextNewLastName.getText().toString();
+
                 String newAddress = editTextNewAddress.getText().toString();
                 String newPhoneNumber = editTextNewPhoneNumber.getText().toString();
                 String newBio = "";
@@ -144,6 +148,27 @@ public class change_profile extends AppCompatActivity {
                    newBio = editTextNewBio.getText().toString();
                 }
                 String newAllergie = editTextNewAllergie.getText().toString();
+                if (!isValidNumber(newPhoneNumber)) {
+                    Toast.makeText(change_profile.this, "Invalid phone number", Toast.LENGTH_SHORT).show();
+                    return;  // Arrêter le traitement si le numéro n'est pas valide
+                }
+                if (!isValidAllergie(newAllergie)) {
+                    Toast.makeText(change_profile.this, "Invalid allergy format", Toast.LENGTH_SHORT).show();
+                    return;  // Arrêter le traitement si l'allergie n'est pas valide
+                }
+
+                // Vérifier la validité de l'adresse
+                if (!isValidAdresse(newAddress)) {
+                    Toast.makeText(change_profile.this, "Invalid address format", Toast.LENGTH_SHORT).show();
+                    return;  // Arrêter le traitement si l'adresse n'est pas valide
+                }
+
+                // Vérifier la validité de la bio
+                if (isCook && !isValidBio(newBio)) {
+                    Toast.makeText(change_profile.this, "Invalid bio format", Toast.LENGTH_SHORT).show();
+                    return;  // Arrêter le traitement si la bio n'est pas valide
+                }
+
                 Intent resultIntent = new Intent();
 
                 resultIntent.putExtra("NEW_FIRST_NAME", newFirstName);
@@ -282,6 +307,46 @@ public class change_profile extends AppCompatActivity {
             }
         });
 
+    }
+    private boolean isValidNumber(String number) {
+        String numberPattern = "\\d{10}";
+        Pattern pattern = Pattern.compile(numberPattern);
+        Matcher matcher = pattern.matcher(number);
+        return matcher.matches();
+    }
+    private boolean isValidAllergie(String Allergy) {
+        String AllergyPattern = "[\\dA-Za-z ]{0,40}";
+        Pattern pattern = Pattern.compile(AllergyPattern);
+        Matcher matcher = pattern.matcher(Allergy);
+        return matcher.matches();
+    }
+
+
+    private static boolean isValidAdresse(String adresse) {
+        String adressePattern = "[\\dA-Za-z ,.-:]+";
+        Pattern pattern = Pattern.compile(adressePattern);
+        Matcher matcher = pattern.matcher(adresse);
+        return matcher.matches();
+    }
+
+    private static boolean isValidBio(String bio) {
+        String bioPattern = "[A-Za-z ]+";
+        Pattern pattern = Pattern.compile(bioPattern);
+        Matcher matcher = pattern.matcher(bio);
+        return matcher.matches();
+    }
+    private boolean isValidFirstName(String firstName) {
+        String firstNamePattern = "[A-Za-z ]{4,30}";
+        Pattern pattern = Pattern.compile(firstNamePattern);
+        Matcher matcher = pattern.matcher(firstName);
+        return matcher.matches();
+    }
+
+    private boolean isValidLastName(String lastName) {
+        String lastNamePattern = "[A-Za-z ]{4,30}";
+        Pattern pattern = Pattern.compile(lastNamePattern);
+        Matcher matcher = pattern.matcher(lastName);
+        return matcher.matches();
     }
 }
 

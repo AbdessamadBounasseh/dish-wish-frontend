@@ -59,22 +59,18 @@ public class become_cook extends AppCompatActivity {
         editor.putLong("userId",1L);
         editor.putString("accessToken","eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWEyMDE4QGdtYWlsLm1hIiwiaWF0IjoxNzA1MDg1NjEzLCJleHAiOjE3MDUxNzIwMTN9.u_N2ix3R_j4LjzQrlb4JrZ3C5ClGCg7i6AYT9X_3Kek");
         editor.apply();
-
         btnScancard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //  launchGalleryPicker();
                 launchGalleryPicker(PICK_IMAGE_REQUEST_CARD);
             }
         });
-
         btnScancertif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 launchGalleryPicker(PICK_IMAGE_REQUEST_CERTIF);
             }
         });
-
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,12 +89,10 @@ public class become_cook extends AppCompatActivity {
             }
         });
     }
-
     private void launchGalleryPicker( int requestCode) {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, requestCode);
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -111,7 +105,6 @@ public class become_cook extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 break;
-
             case PICK_IMAGE_REQUEST_CERTIF:
                 try {
                     byteCertificate = getImageBytes(selectedImageUri);
@@ -121,7 +114,6 @@ public class become_cook extends AppCompatActivity {
                 break;
         }
     }
-
     private byte[] getImageBytes(Uri uri) throws IOException {
         InputStream inputStream = getContentResolver().openInputStream(uri);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -156,7 +148,6 @@ public class become_cook extends AppCompatActivity {
                     Intent intent = new Intent(become_cook.this, become_cook.class);
                     startActivity(intent);
                 }
-
             }
             @Override
             public void onFailure(Call<Chef> call, Throwable t) {
@@ -169,5 +160,4 @@ public class become_cook extends AppCompatActivity {
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
-
 }
