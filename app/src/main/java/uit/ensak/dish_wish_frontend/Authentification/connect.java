@@ -83,6 +83,13 @@ public class connect extends AppCompatActivity {
             }
         });
         forgot=findViewById(R.id.forgpass);
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent4= new Intent(connect.this, ForgotPasswordActivity.class);
+                startActivity(intent4);
+            }
+        });
 
 
 

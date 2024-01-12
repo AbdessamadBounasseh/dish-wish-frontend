@@ -110,9 +110,13 @@ font poppins_regular
 id ChooseLocation
 id ConfirmPasswordTitle
 id Description
+id FirstFragment
 id Ok
 id PasswordTitle
+id SecondFragment
 id action_FAQ
+id action_FirstFragment_to_SecondFragment
+id action_SecondFragment_to_FirstFragment
 id action_become_chef
 id action_logout
 id action_notifications
@@ -178,6 +182,7 @@ id map
 id menuIcon
 id mobile_navigation
 id nav_gallery
+id nav_graph
 id nav_home
 id nav_slideshow
 id notificationIcon
@@ -243,6 +248,7 @@ layout activity_become_cook
 layout activity_change_profile
 layout activity_connect
 layout activity_create_acciunt
+layout activity_forgot_password
 layout activity_history
 layout activity_maps_chef
 layout activity_maps_home
@@ -271,6 +277,7 @@ mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 navigation mobile_navigation
+navigation nav_graph
 raw annimation_principal_cook
 raw button
 raw cook
@@ -292,11 +299,13 @@ string app_name
 string by_signing_
 string email_addre
 string enter_your_
+string first_fragment_label
 string forget_pass
 string forgot
 string general_1_1
 string having_prob
 string hello_blank_fragment
+string lorem_ipsum
 string menu_gallery
 string menu_home
 string menu_slideshow
@@ -305,11 +314,15 @@ string nav_header_subtitle
 string nav_header_title
 string navigation_drawer_close
 string navigation_drawer_open
+string next
 string password
+string previous
 string remember
 string reset
+string second_fragment_label
 string send_email
 string sign_in
+string title_activity_forgot_password
 string title_activity_maps_home
 string title_activity_profile_preview
 string title_activity_profile_setting
@@ -317,6 +330,7 @@ string title_activity_profile_settings
 string verificatio
 string we_have_sen
 string welcome_to_
+style Base.Theme.Dishwishfrontend
 style MyMaterialTimePickerTheme
 style SCBSwitch
 style Theme.Dishwishfrontend
