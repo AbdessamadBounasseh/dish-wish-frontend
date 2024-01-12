@@ -364,7 +364,41 @@ public class view_profile extends AppCompatActivity {
 
         return output;
     }
+    private void updateUser(ChefDTO chefDTO, Bitmap imageBitmap) {
+        // Convertir le Bitmap en tableau de bytes
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), imageBytes);
+        MultipartBody.Part photoPart = MultipartBody.Part.createFormData("photo", "photo.jpg", requestFile);
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        Long userId = preferences.getLong("userId", 0);
+        String authToken = preferences.getString("accessToken", "");
+        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
+        Call<Client> call = apiService.updateClient("Bearer " + authToken, userId, chefDTO, photoPart);
+        Log.d("TAG", "Message de débogage");
+        call.enqueue(new Callback<Client>() {
+            @Override
+            public void onResponse(Call<Client> call, Response<Client> response) {
+                if (response.isSuccessful()) {
+                    Client client = response.body();
+                    Toast.makeText(view_profile.this, "User updat succesful", Toast.LENGTH_SHORT).show();
 
+                } else {
+                    Toast.makeText(view_profile.this, "Error", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Client> call, Throwable t) {
+
+                t.printStackTrace();
+
+
+            }
+        });
+    }
 
 
 }
