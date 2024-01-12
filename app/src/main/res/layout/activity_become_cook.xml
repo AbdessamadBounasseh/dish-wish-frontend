@@ -55,7 +55,7 @@
         android:layout_marginBottom="258dp"
         android:backgroundTint="@color/nationalcard_scann"
         android:drawableLeft="@drawable/card"
-        android:text="Select National ID card"
+        android:text="Select National card"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

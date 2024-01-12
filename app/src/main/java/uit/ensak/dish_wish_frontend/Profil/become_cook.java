@@ -55,8 +55,8 @@ public class become_cook extends AppCompatActivity {
 
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("userId",1L);
-        editor.putString("accessToken","eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWEyMjAxOEBnbWFpbC5jb20iLCJpYXQiOjE3MDMzMzkxMjgsImV4cCI6MTcwMzQyNTUyOH0.PjpPWRtTjpseAR0YrMwfC30RGps4l3H5JRd-uIvX8Bg");
+        editor.putLong("userId",12L);
+        editor.putString("accessToken","eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWEyMDE4QGdtYWlsLm1hIiwiaWF0IjoxNzA1MDgzNzg5LCJleHAiOjE3MDUxNzAxODl9.9lQNJhQcfZzzTG2BDHQzVzhRMOMZCOYKpBPc3WvVmjM");
         editor.apply();
 
         btnScancard.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +83,7 @@ public class become_cook extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 if (byteIdCard != null && byteCertificate != null) {
+                if (byteIdCard != null && byteCertificate != null) {
                     sendImagesToBackend(byteIdCard, byteCertificate);
                     showToast("Import successful!");
                 }
@@ -117,9 +117,9 @@ public class become_cook extends AppCompatActivity {
                     byteCertificate = getImageBytes(selectedImageUri);
                 } catch (IOException e) {
                     e.printStackTrace();
-                  }
+                }
                 break;
-         }
+        }
     }
 
     private byte[] getImageBytes(Uri uri) throws IOException {
@@ -143,23 +143,22 @@ public class become_cook extends AppCompatActivity {
         MultipartBody.Part idCardPart = MultipartBody.Part.createFormData("idCard", "idCard.jpg", idCardRequestBody);
         MultipartBody.Part certificatePart = MultipartBody.Part.createFormData("certificate", "certificate.jpg", certificateRequestBody);
         ApiService apiService = RetrofitClient.getApiService();
-         Call<Chef> call = apiService.becomeCook("Bearer " + authToken, userId, idCardPart, certificatePart);
+        Call<Chef> call = apiService.becomeCook("Bearer " + authToken, userId, idCardPart, certificatePart);
         call.enqueue(new Callback<Chef>() {
             @Override
             public void onResponse(Call<Chef> call, Response<Chef> response) {
                 showToast("Import successful!");
                 Intent intent = new Intent(become_cook.this, page_acceuil.class);
-                startActivity(intent);
+
             }
             @Override
             public void onFailure(Call<Chef> call, Throwable t) {
                 showToast("Import failed!");
-                Intent intent = new Intent(become_cook.this, view_profile.class);
+                Intent intent = new Intent(become_cook.this, become_cook.class);
 
             }
         });
     }
-    //si tout est bien , vers page d'accueil
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }

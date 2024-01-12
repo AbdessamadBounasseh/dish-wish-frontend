@@ -1,6 +1,7 @@
 package uit.ensak.dish_wish_frontend.service;
 
 import okhttp3.MultipartBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -44,6 +45,14 @@ public interface ApiServiceProfile {
             @Part MultipartBody.Part certificate
     );
 
+    @GET("clients/profile/{id}")
+    Call<ResponseBody> getClientProfile(
+            @Header("Authorization") String authToken,
+            @Path("id") Long id
+    );
+
     @DELETE("clients/delete/{id}")
     Call<Void> deleteUserAccount(@Header("Authorization") String authToken, @Path("id") Long id);
 }
+
+

@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -28,6 +29,7 @@ import android.widget.Toast;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 
 import java.io.ByteArrayOutputStream;
@@ -35,6 +37,7 @@ import java.io.IOException;
 
 import retrofit2.Callback;
 import retrofit2.Response;
+import uit.ensak.dish_wish_frontend.Authentification.CreateAccount;
 import uit.ensak.dish_wish_frontend.Authentification.page_acceuil;
 import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
@@ -52,7 +55,7 @@ public class view_profile extends AppCompatActivity {
     private ChefDTO chefDTO;
 
 
-    private TextView textViewFirstName,textViewLastName,textViewAddress, textViewBio, textViewDiet, textViewPHONE_NUMBER, textViewAllergies,textViewBioContent;
+    private TextView textViewFirstName, textViewLastName, textViewAddress, textViewBio, textViewDiet, textViewPHONE_NUMBER, textViewAllergies, textViewBioContent;
     private Spinner spinnerAllergies;
     private ImageView profileImageView;
 
@@ -61,11 +64,11 @@ public class view_profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("userId",7L);
-        editor.putString("accessToken","eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWEyMjAxOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwNzAyNDUsImV4cCI6MTcwNTE1NjY0NX0.-BF8SYg-QZI_PoqeQ5Wy9YzvVX_zLRn_4LCa02F6qJY");
-        editor.putBoolean("isCook",false);
+        editor.putLong("userId", 1L);
+        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWEyMDE4QGdtYWlsLm1hIiwiaWF0IjoxNzA1MDg1NjEzLCJleHAiOjE3MDUxNzIwMTN9.u_N2ix3R_j4LjzQrlb4JrZ3C5ClGCg7i6AYT9X_3Kek");
+        editor.putBoolean("isCook", false);
         editor.apply();
-        Boolean isCook= preferences.getBoolean("isCook", false);
+        Boolean isCook = preferences.getBoolean("isCook", false);
 
         setContentView(R.layout.activity_view_profile);
 
@@ -89,8 +92,9 @@ public class view_profile extends AppCompatActivity {
                     textViewLastName.setText(chef.getLastName());
                     textViewAddress.setText(chef.getAddress());
                     textViewPHONE_NUMBER.setText(chef.getPhoneNumber());
-                    if(chef.getDiet()!= null){
-                        textViewDiet.setText(chef.getDiet().getTitle());}
+                    if (chef.getDiet() != null) {
+                        textViewDiet.setText(chef.getDiet().getTitle());
+                    }
                     textViewAllergies.setText(chef.getAllergies());
                     textViewBioContent.setText(chef.getBio());
                 }
@@ -110,8 +114,9 @@ public class view_profile extends AppCompatActivity {
                     textViewLastName.setText(client.getLastName());
                     textViewAddress.setText(client.getAddress());
                     textViewPHONE_NUMBER.setText(client.getPhoneNumber());
-                    if(client.getDiet()!=null){
-                        textViewDiet.setText(client.getDiet().getTitle());}
+                    if (client.getDiet() != null) {
+                        textViewDiet.setText(client.getDiet().getTitle());
+                    }
                     textViewAllergies.setText(client.getAllergies());
                 }
 
@@ -122,17 +127,17 @@ public class view_profile extends AppCompatActivity {
             });
         }
 
+        getClientProfile();
 
-        setContentView(R.layout.activity_view_profile);
 
-        textViewFirstName = findViewById(R.id.textViewActualFirstName);
-        textViewLastName = findViewById(R.id.textViewActualLastName);
-        textViewAddress = findViewById(R.id.textViewActualAddress);
-        textViewDiet = findViewById(R.id.textViewActualDiet);
-        textViewBio = findViewById(R.id.textViewActualBio);
-        textViewPHONE_NUMBER = findViewById(R.id.textViewActualPhoneNumber);
-        textViewAllergies = findViewById(R.id.textViewActualAllergies);
-        profileImageView = findViewById(R.id.portrait_of);
+//        textViewFirstName = findViewById(R.id.textViewActualFirstName);
+//        textViewLastName = findViewById(R.id.textViewActualLastName);
+//        textViewAddress = findViewById(R.id.textViewActualAddress);
+//        textViewDiet = findViewById(R.id.textViewActualDiet);
+//        textViewBio = findViewById(R.id.textViewActualBio);
+//        textViewPHONE_NUMBER = findViewById(R.id.textViewActualPhoneNumber);
+//        textViewAllergies = findViewById(R.id.textViewActualAllergies);
+//       profileImageView = findViewById(R.id.portrait_of);
         ImageButton btnBack = findViewById(R.id.btnBack);
 
         Button btnChange = findViewById(R.id.btnchange);
@@ -167,6 +172,7 @@ public class view_profile extends AppCompatActivity {
             }
         });
     }
+
     private void showDeleteConfirmationDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirmation");
@@ -175,9 +181,7 @@ public class view_profile extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 deleteAccount();
-                showToast("Import successful!");
-                Intent intent = new Intent(become_cook.this, page_acceuil.class);
-                startActivity(intent);
+
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -187,6 +191,7 @@ public class view_profile extends AppCompatActivity {
         });
         builder.show();
     }
+
     private void deleteAccount() {
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         Long userId = preferences.getLong("userId", 0);
@@ -198,17 +203,21 @@ public class view_profile extends AppCompatActivity {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
-                    Toast.makeText(view_profile.this, "Account has been successfully deleted", Toast.LENGTH_SHORT).show();
-                    Intent loginIntent = new Intent(view_profile.this, page_acceuil.class);
+                    Toast.makeText(view_profile.this, "Account deleted successfully", Toast.LENGTH_SHORT).show();
+                    Intent loginIntent = new Intent(view_profile.this, CreateAccount.class);
                     startActivity(loginIntent);
-                    finish();
                 } else {
-                    Toast.makeText(view_profile.this, "Error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view_profile.this, "Error deleting the account. Please try again", Toast.LENGTH_SHORT).show();
+                    Intent loginIntent = new Intent(view_profile.this, view_profile.class);
+                    startActivity(loginIntent);
                 }
             }
+
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(view_profile.this, "Error2", Toast.LENGTH_SHORT).show();
+                Toast.makeText(view_profile.this, "Error deleting the account. Please try again", Toast.LENGTH_SHORT).show();
+                Intent loginIntent = new Intent(view_profile.this, view_profile.class);
+                startActivity(loginIntent);
             }
         });
     }
@@ -243,8 +252,8 @@ public class view_profile extends AppCompatActivity {
             textViewDiet.setText(newDiet);
             textViewAllergies.setText(newAllergy);
             SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-            Boolean isCook= preferences.getBoolean("isCook",false);
-            DietDTO dietDTO= new DietDTO();
+            Boolean isCook = preferences.getBoolean("isCook", false);
+            DietDTO dietDTO = new DietDTO();
 
             ChefDTO chefDTO = new ChefDTO();
 
@@ -259,8 +268,8 @@ public class view_profile extends AppCompatActivity {
             if (isCook) {
                 chefDTO.setBio(newBio);
             }
-            updateUser(chefDTO,newProfileImageBitmap);
-       }
+            updateUser(chefDTO, newProfileImageBitmap);
+        }
         if ((requestCode == REQUEST_IMAGE_CAPTURE || requestCode == REQUEST_PICK_IMAGE) && resultCode == RESULT_OK) {
             if (requestCode == REQUEST_IMAGE_CAPTURE) {
                 Bundle extras = data.getExtras();
@@ -294,6 +303,7 @@ public class view_profile extends AppCompatActivity {
                     apiClientCallback.onFailure("Error: " + response.code());
                 }
             }
+
             @Override
             public void onFailure(Call<Client> call, Throwable t) {
                 t.printStackTrace();
@@ -301,6 +311,7 @@ public class view_profile extends AppCompatActivity {
             }
         });
     }
+
     private void getChef(ApiChefCallback apiChefCallback) {
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         Long userId = preferences.getLong("userId", 0);
@@ -350,6 +361,7 @@ public class view_profile extends AppCompatActivity {
 
         return output;
     }
+
     private void updateUser(ChefDTO chefDTO, Bitmap imageBitmap) {
         // Convertir le Bitmap en tableau de bytes
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -382,8 +394,43 @@ public class view_profile extends AppCompatActivity {
             }
         });
     }
+
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
+
+    private void getClientProfile() {
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        Long userId = preferences.getLong("userId", 0);
+        String authToken = preferences.getString("accessToken", "");
+
+        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
+
+        Call<ResponseBody> call = apiService.getClientProfile("Bearer " + authToken, userId);
+
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    try {
+                        // Utiliser BitmapFactory.decodeStream pour créer un Bitmap directement à partir du flux
+                        Bitmap newProfileImageBitmap = BitmapFactory.decodeStream(response.body().byteStream());
+                        profileImageView.setImageBitmap(getRoundedBitmap(newProfileImageBitmap));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    // Gérer le cas où la réponse est vide ou le code de statut indique une erreur
+                    Toast.makeText(view_profile.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+
+    }
 }
