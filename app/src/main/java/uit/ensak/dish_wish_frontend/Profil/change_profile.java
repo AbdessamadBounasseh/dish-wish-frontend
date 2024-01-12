@@ -78,41 +78,32 @@ public class change_profile extends AppCompatActivity {
         spinnerDiet.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                // Mettez à jour la nouvelle allergie lorsque l'utilisateur sélectionne une option dans le spinner
                 newDiet = parentView.getItemAtPosition(position).toString();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-                // Cette méthode est requise mais nous n'avons rien à faire ici pour le moment
+
             }
 
         });
-        //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
         profileImageView = findViewById(R.id.portrait_of);
         if (getIntent().hasExtra("IMAGE_BITMAP")) {
             imageBitmap = getIntent().getParcelableExtra("IMAGE_BITMAP");
             profileImageView.setImageBitmap(imageBitmap);
         }
-
         ImageView changePhotoImageView = findViewById(R.id.imageViewChangePhoto);
-        // Ajoutez un écouteur de clic pour le changement d'image
         changePhotoImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showImageSourceDialog();
             }
         });
-
-
-        //#########################################
         editTextNewFirstName = findViewById(R.id.editTextNewFirstName);
         editTextNewLastName = findViewById(R.id.editTextNewLastName);
         editTextNewAddress = findViewById(R.id.editTextNewAddress);
         editTextNewPhoneNumber = findViewById(R.id.editTextNewPhoneNumber);
-
         editTextNewAllergie = findViewById(R.id.editTextNewAllergie);
         btnSubmit = findViewById(R.id.btnsubmit);
-        // Récupérer le prénom actuel
         currentFirstName = getIntent().getStringExtra("CURRENT_FIRST_NAME");
         currentLastName = getIntent().getStringExtra("CURRENT_LAST_NAME");
         currentAddress = getIntent().getStringExtra("CURRENT_ADDRESS");
@@ -133,27 +124,16 @@ public class change_profile extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Mettre à jour le prénom avec la nouvelle valeur
-
-
                 String newFirstName = editTextNewFirstName.getText().toString();
-
                 String newLastName = editTextNewLastName.getText().toString();
-
                 String newAddress = editTextNewAddress.getText().toString();
-
                 String newPhoneNumber = editTextNewPhoneNumber.getText().toString();
                 String newBio = "";
                 if (isCook) {
 
                    newBio = editTextNewBio.getText().toString();
                 }
-
                 String newAllergie = editTextNewAllergie.getText().toString();
-
-                // String imagePath = saveImageToInternalStorage(imageBitmap);
-
-                // Créer un Intent pour contenir les nouvelles valeurs
                 Intent resultIntent = new Intent();
 
                 resultIntent.putExtra("NEW_FIRST_NAME", newFirstName);
@@ -166,9 +146,7 @@ public class change_profile extends AppCompatActivity {
                 }
                 resultIntent.putExtra("NEW_DIET", newDiet);
                 resultIntent.putExtra("NEW_PROFILE_IMAGE_BITMAP", imageBitmap);
-                // Afficher un message de succès
                 Toast.makeText(change_profile.this, "Changes successful", Toast.LENGTH_SHORT).show();
-                // Revenir à l'activité précédente avec les données mises à jour
                 setResult(RESULT_OK, resultIntent);
                 finish();
             }
@@ -202,15 +180,9 @@ public class change_profile extends AppCompatActivity {
     }
 
     private String saveImageToInternalStorage(Bitmap bitmap) {
-        // Vous devez définir la logique pour sauvegarder l'image dans le stockage interne ici
-        // Retournez le chemin du fichier après l'enregistrement
-
-        String imagePath = getFilesDir() + "/profile_image.jpg";
-
+            String imagePath = getFilesDir() + "/profile_image.jpg";
         return imagePath;
     }
-
-
     private void pickImageFromGallery() {
         Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(galleryIntent, REQUEST_PICK_IMAGE);

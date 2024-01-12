@@ -67,10 +67,6 @@ public class view_profile extends AppCompatActivity {
         editor.apply();
         Boolean isCook= preferences.getBoolean("isCook", false);
 
-
-        // Supposons que vous avez déjà une référence à votre TextView
-
-
         setContentView(R.layout.activity_view_profile);
 
         textViewFirstName = findViewById(R.id.textViewActualFirstName);
@@ -144,9 +140,7 @@ public class view_profile extends AppCompatActivity {
         btnChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lancez l'activité ChangeProfileActivity avec startActivityForResult
                 Intent intent = new Intent(view_profile.this, change_profile.class);
-                // Passer la valeur actuelle du prénom à l'intention
                 intent.putExtra("CURRENT_FIRST_NAME", textViewFirstName.getText().toString());
                 intent.putExtra("CURRENT_LAST_NAME", textViewLastName.getText().toString());
                 intent.putExtra("CURRENT_ADDRESS", textViewAddress.getText().toString());
@@ -156,14 +150,12 @@ public class view_profile extends AppCompatActivity {
                 }
                 intent.putExtra("CURRENT_DIET", textViewDiet.getText().toString());
                 startActivityForResult(intent, REQUEST_CODE_CHANGE_PROFILE);
-
             }
         });
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Appel de la méthode pour revenir en arrière
                 onBackPressed();
             }
         });
@@ -171,31 +163,26 @@ public class view_profile extends AppCompatActivity {
         btnDeleteAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Demander confirmation à l'utilisateur avant de supprimer le compte
                 showDeleteConfirmationDialog();
             }
         });
     }
-
     private void showDeleteConfirmationDialog() {
-        // Utilisez une boîte de dialogue (AlertDialog) pour demander la confirmation
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Confirmation");
         builder.setMessage("Are you sure you want to delete your account?");
-        builder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // Ajoutez ici la logique de suppression du compte
-                // Vous pouvez appeler une méthode pour effectuer la suppression ou utiliser une API appropriée
-
-                // Exemple fictif : Supprimer le compte et retourner à l'écran de connexion
                 deleteAccount();
+                showToast("Import successful!");
+                Intent intent = new Intent(become_cook.this, page_acceuil.class);
+                startActivity(intent);
             }
         });
-        builder.setNegativeButton("Non", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // L'utilisateur a annulé la suppression, ne rien faire
             }
         });
         builder.show();
@@ -314,7 +301,6 @@ public class view_profile extends AppCompatActivity {
             }
         });
     }
-
     private void getChef(ApiChefCallback apiChefCallback) {
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         Long userId = preferences.getLong("userId", 0);
@@ -392,13 +378,12 @@ public class view_profile extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Client> call, Throwable t) {
-
                 t.printStackTrace();
-
-
             }
         });
     }
-
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
 
 }

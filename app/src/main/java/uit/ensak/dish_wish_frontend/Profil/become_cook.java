@@ -38,18 +38,14 @@ import java.io.InputStream;
 
 public class become_cook extends AppCompatActivity {
 
-
     private static final int PICK_IMAGE_REQUEST_CARD = 1;
     private static final int PICK_IMAGE_REQUEST_CERTIF = 2;
-
-
-    private byte[] byteIdCard = null; // Pour stocker les données de l'image de la carte d'identité
+    private byte[] byteIdCard = null;
     private byte[] byteCertificate = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_become_cook);
 
         Button btnScancard = findViewById(R.id.btnScancard);
@@ -57,8 +53,6 @@ public class become_cook extends AppCompatActivity {
         ImageButton btnBack = findViewById(R.id.btnBack);
         Button  btnSubmit = findViewById(R.id.btnsubmit);
 
-
-        // Obtenez une référence à SharedPreferences
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putLong("userId",1L);
@@ -70,16 +64,12 @@ public class become_cook extends AppCompatActivity {
             public void onClick(View v) {
                 //  launchGalleryPicker();
                 launchGalleryPicker(PICK_IMAGE_REQUEST_CARD);
-
-
             }
         });
 
         btnScancertif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                // launchGalleryPicker();
                 launchGalleryPicker(PICK_IMAGE_REQUEST_CERTIF);
             }
         });
@@ -87,18 +77,13 @@ public class become_cook extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Appel de la méthode pour revenir en arrière
                 onBackPressed();
             }
         });
-
-
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Appel de la méthode pour revenir en arrière
-
-                if (byteIdCard != null && byteCertificate != null) {
+                 if (byteIdCard != null && byteCertificate != null) {
                     sendImagesToBackend(byteIdCard, byteCertificate);
                     showToast("Import successful!");
                 }
@@ -110,44 +95,31 @@ public class become_cook extends AppCompatActivity {
     }
 
     private void launchGalleryPicker( int requestCode) {
-        // Intent pour choisir une image depuis la galerie
-//        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//        startActivityForResult(intent, PICK_IMAGE_REQUEST);
-
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, requestCode);
-//
-
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         Uri selectedImageUri = data.getData();
-
         switch (requestCode) {
             case PICK_IMAGE_REQUEST_CARD:
-                // Récupérer les données de l'image de la carte d'identité
                 try {
                     byteIdCard = getImageBytes(selectedImageUri);
                 } catch (IOException e) {
                     e.printStackTrace();
-                    // Gérer l'erreur de conversion en bytes
                 }
                 break;
 
             case PICK_IMAGE_REQUEST_CERTIF:
-                // Récupérer les données de l'image du certificat
                 try {
                     byteCertificate = getImageBytes(selectedImageUri);
                 } catch (IOException e) {
                     e.printStackTrace();
-                    // Gérer l'erreur de conversion en bytes
-                }
+                  }
                 break;
-    }
-
+         }
     }
 
     private byte[] getImageBytes(Uri uri) throws IOException {
@@ -166,26 +138,15 @@ public class become_cook extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         Long userId = preferences.getLong("userId", 0);
         String authToken = preferences.getString("accessToken", "");
-
-        // Convertir les données d'image en RequestBody
         RequestBody idCardRequestBody = RequestBody.create(MediaType.parse("image/*"), idCardData);
         RequestBody certificateRequestBody = RequestBody.create(MediaType.parse("image/*"), certificateData);
-
-        // Créer les parties du corps de la requête
         MultipartBody.Part idCardPart = MultipartBody.Part.createFormData("idCard", "idCard.jpg", idCardRequestBody);
         MultipartBody.Part certificatePart = MultipartBody.Part.createFormData("certificate", "certificate.jpg", certificateRequestBody);
-        // Créer une instance de Retrofit
-
         ApiService apiService = RetrofitClient.getApiService();
-
-        // Appeler la méthode becomeCook
-        Call<Chef> call = apiService.becomeCook("Bearer " + authToken, userId, idCardPart, certificatePart);
-
-        // Exécuter l'appel
+         Call<Chef> call = apiService.becomeCook("Bearer " + authToken, userId, idCardPart, certificatePart);
         call.enqueue(new Callback<Chef>() {
             @Override
             public void onResponse(Call<Chef> call, Response<Chef> response) {
-                System.out.println("test");
                 showToast("Import successful!");
                 Intent intent = new Intent(become_cook.this, page_acceuil.class);
                 startActivity(intent);
