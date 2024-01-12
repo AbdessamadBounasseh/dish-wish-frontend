@@ -230,6 +230,8 @@ public class UpdateActivity extends AppCompatActivity {
         EditText Price = findViewById(R.id.price);
         String price = Price.getText().toString();
 
+
+
         if (isValidCommand(title, description, serving, location, delivaryDate,delivaryTime, price)) {
 
             // Create a Command object

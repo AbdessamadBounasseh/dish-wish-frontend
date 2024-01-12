@@ -20,7 +20,6 @@ import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.Models.Proposition;
-import uit.ensak.dish_wish_frontend.Models.Rating;
 
 public interface ApiService {
     @GET("clients/{id}")
@@ -62,24 +61,5 @@ public interface ApiService {
     Call<Command> updateCommand(@Header("Authorization") String authToken,
             @Path("id") Long commandId,
             @Body Command command
-    );
-    @GET("chef-ratings/{chefId}")
-    Call<Double> getChefRatings(@Path("chefId") long chefId, @Header("Authorization") String accessToken);
-
-    @PUT("commands/{commandId}/assign/{chefId}")
-    Call<Void> assignChefToCommand(
-            @Path("commandId") long commandId,
-            @Path("chefId") long chefId,
-            @Header("Authorization") String accessToken
-    );
-
-    @DELETE("propositions/delete/{propositionId}")
-    Call<Void> deleteProposition(@Header("Authorization") String authToken,@Path("propositionId") Long propositionId);
-
-    @PUT("propositions/update/{propositionId}")
-    Call<Proposition> updateProposition(
-            @Path("propositionId") Long propositionId,
-            @Body Proposition proposition,
-            @Header("Authorization") String accessToken
     );
 }

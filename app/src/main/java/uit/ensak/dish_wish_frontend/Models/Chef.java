@@ -19,5 +19,4 @@ public class Chef extends Client {
     public void setBio(String bio) {
         this.bio = bio;
     }
-
 }

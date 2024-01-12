@@ -20,11 +20,6 @@
         <item name="colorOnSurface">@color/principalColor</item>
     </style>
 
-    <style name="RatingBar" parent="Theme.AppCompat">
-        <item name="colorControlNormal">@color/principalColor</item>
-        <item name="colorControlActivated">@color/principalColor</item>
-    </style>
-
     <style name="Theme.Dishwishfrontend.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
