@@ -315,6 +315,34 @@ public class view_profile extends AppCompatActivity {
         });
     }
 
+    private void getChef(ApiChefCallback apiChefCallback) {
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        Long userId = preferences.getLong("userId", 0);
+        String authToken = preferences.getString("accessToken", "");
+
+        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
+
+        Call<Chef> call = apiService.getChefById("Bearer " + authToken, userId);
+
+        call.enqueue(new Callback<Chef>() {
+            @Override
+            public void onResponse(Call<Chef> call, Response<Chef> response) {
+                if (response.isSuccessful()) {
+                    Chef chef = response.body();
+                    apiChefCallback.onChefReceived(chef);
+                } else {
+                    apiChefCallback.onFailure("Error: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Chef> call, Throwable t) {
+
+                t.printStackTrace();
+                apiChefCallback.onFailure("Error: " + t.getMessage());
+            }
+        });
+    }
 
 
 
