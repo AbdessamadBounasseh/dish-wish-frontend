@@ -158,6 +158,7 @@ id editTextNewPhoneNumber
 id editTextPassword
 id email
 id email_addre
+id emailres
 id enter_your_
 id firstNameTextView
 id forg
@@ -246,6 +247,7 @@ layout activity_history
 layout activity_maps_chef
 layout activity_maps_home
 layout activity_page_acceuil
+layout activity_reset_email
 layout activity_reset_password
 layout activity_terms
 layout activity_update

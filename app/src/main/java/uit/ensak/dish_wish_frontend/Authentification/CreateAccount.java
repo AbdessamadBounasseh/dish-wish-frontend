@@ -6,6 +6,7 @@ import ch.qos.logback.classic.Logger;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -39,6 +40,9 @@ public class CreateAccount extends AppCompatActivity {
     TextView already;
     boolean passwordvisible;
     DBHelper db;
+    SharedPreferences sharedPreferences;
+    private static final String SHARED_PREFS_NAME="mypref";
+    private static final String KEY_EMAIL="email";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,7 @@ public class CreateAccount extends AppCompatActivity {
         signup = findViewById(R.id.sign);
         db = new DBHelper(this);
         already = findViewById(R.id.create_acco);
+        sharedPreferences=getSharedPreferences(SHARED_PREFS_NAME,MODE_PRIVATE);
         ImageView back;
         back = findViewById(R.id.icon_24_bac);
         back.setOnClickListener(new View.OnClickListener() {
@@ -118,6 +123,9 @@ public class CreateAccount extends AppCompatActivity {
                 email = etemail.getText().toString();
                 password = etpassword.getText().toString();
                 confirmpassword = etpasswordconfirm.getText().toString();
+                SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString(KEY_EMAIL,email);
+                editor.apply();
                 if (email.equals("") || password.equals("") || confirmpassword.equals("")) {
                     Toast.makeText(CreateAccount.this, "all fields should be filled to sign up ", Toast.LENGTH_LONG).show();
 
