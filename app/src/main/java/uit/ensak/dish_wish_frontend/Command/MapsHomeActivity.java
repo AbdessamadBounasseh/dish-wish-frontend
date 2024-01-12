@@ -63,7 +63,7 @@ import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.Models.Proposition;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.databinding.ActivityMapsHomeBinding;
-import uit.ensak.dish_wish_frontend.search_folder.filter_by_name_or_city;
+import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
 //import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
 
 public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCallback {
