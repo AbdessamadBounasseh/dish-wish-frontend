@@ -291,5 +291,31 @@ public class view_profile extends AppCompatActivity {
         }
     }
 
+    private void getClient(ApiClientCallback apiClientCallback) {
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        Long userId = preferences.getLong("userId", 0);
+        String authToken = preferences.getString("accessToken", "");
+        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
+        Call<Client> call = apiService.getClientById("Bearer " + authToken, userId);
+        call.enqueue(new Callback<Client>() {
+            @Override
+            public void onResponse(Call<Client> call, Response<Client> response) {
+                if (response.isSuccessful()) {
+                    Client client = response.body();
+                    apiClientCallback.onClientReceived(client);
+                } else {
+                    apiClientCallback.onFailure("Error: " + response.code());
+                }
+            }
+            @Override
+            public void onFailure(Call<Client> call, Throwable t) {
+                t.printStackTrace();
+                apiClientCallback.onFailure("Error: " + t.getMessage());
+            }
+        });
+    }
+
+
+
 
 }
