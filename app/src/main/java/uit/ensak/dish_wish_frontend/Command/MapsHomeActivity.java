@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -81,7 +82,8 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private Button pickDate;
     private Marker currentMarker;
     private ImageView arrow;
-    private long createdCommandId;
+    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwNjQyMDEsImV4cCI6MTcwNTE1MDYwMX0.Trk2cmuXm9SlyXrjNRuGb2mRwlbbGLqlSPB05YQekeM";
+
     private Command associatedCommand;
 
     @Override
@@ -98,6 +100,8 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
 
         // Load the FilterByNameOrCityFragment
         loadFilterByNameOrCityFragment();
+
+
 
     }
 
@@ -142,7 +146,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             @Override
             public void onClick(View v) {
 
-                if(sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED){
+                if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
                     sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 } else {
                     sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
@@ -154,6 +158,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
             }
+
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
 
@@ -309,13 +314,66 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             }
         });
 
+        boolean showSuccessDialog = getIntent().getBooleanExtra("showSuccessDialog", false);
+
+        if (showSuccessDialog) {
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.popup_offer_confirmed);
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+
+            dialog.show();
+
+            Button tryAgainButton = dialog.findViewById(R.id.Ok);
+            tryAgainButton.setOnClickListener(v -> {
+                dialog.dismiss();
+            });
+        }
+
 
     }
 
     private void showPropositionDetailsPopup(Proposition associatedProposition) {
+
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.popup_chef_details);
         dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+
+
+        ApiService apiService = RetrofitClient.getApiService();
+        Call<Double> call = apiService.getChefRatings(associatedProposition.getChef().getId(), "Bearer " + accessToken);
+
+        call.enqueue(new Callback<Double>() {
+            @Override
+            public void onResponse(Call<Double> call, Response<Double> response) {
+                if (response.isSuccessful()) {
+                    RatingBar ratingBar = dialog.findViewById(R.id.ratingBar);
+                    double chefRatings = response.body();
+
+                    float floatChefRatings = (float) chefRatings;
+                    ratingBar.setRating(floatChefRatings);
+                } else {
+                    showCustomPopup();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Double> call, Throwable t) {
+                showCustomPopup();
+            }
+        });
+
+        TextView chefFirstName = dialog.findViewById(R.id.firstname);
+        TextView chefLastName = dialog.findViewById(R.id.lastname);
+        TextView price = dialog.findViewById(R.id.price);
+        TextView delivary = dialog.findViewById(R.id.delivary);
+
+        chefFirstName.setText(associatedProposition.getChef().getFirstName());
+        chefLastName.setText(associatedProposition.getChef().getLastName());
+        float chefProposition = associatedProposition.getLastChefProposition();
+        String chefPropositionString = String.valueOf(chefProposition);
+        price.setText(chefPropositionString + " DH");
+        delivary.setText(associatedProposition.getCommand().getDeadline());
+
 
         Window window = dialog.getWindow();
         if (window != null) {
@@ -334,13 +392,31 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 }
             });
         }
+
+        Button chooseCook = dialog.findViewById(R.id.cook);
+        if (chooseCook != null) {
+            chooseCook.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MapsHomeActivity.this, FinalizeOrderActivity.class);
+                    // Pass associatedCommand data to the new intent
+                    intent.putExtra("CommandId", associatedProposition.getCommand().getId());
+                    intent.putExtra("ChefId", associatedProposition.getChef().getId());
+                    intent.putExtra("price", associatedProposition.getLastChefProposition());
+                    intent.putExtra("PropositionId", associatedProposition.getId());
+                    intent.putExtra("delivary", associatedProposition.getCommand().getDeadline());
+                    intent.putExtra("description", associatedProposition.getChef().getFirstName());
+                    intent.putExtra("serving", associatedProposition.getChef().getLastName());
+                    startActivity(intent);
+                }
+            });
+        }
     }
 
     private void retryRequest() {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5NjgzMzUsImV4cCI6MTcwNTA1NDczNX0.492foEuc2CyhQbIWrMT8xSe--2n1egUoV_mu-aVuuG4";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Proposition>> call = apiService.getPropositions("Bearer " + accessToken);
@@ -382,7 +458,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         });
     }
 
-    private void showUpdatePopup (Command associatedCommand) {
+    private void showUpdatePopup(Command associatedCommand) {
         if (associatedCommand != null) {
             Dialog dialog = new Dialog(this);
             dialog.setContentView(R.layout.popup_update_command);
@@ -448,7 +524,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                     public void onClick(View v) {
                         Intent intent = new Intent(MapsHomeActivity.this, UpdateActivity.class);
                         // Pass associatedCommand data to the new intent
-                        intent.putExtra("id",associatedCommand.getId());
+                        intent.putExtra("id", associatedCommand.getId());
                         intent.putExtra("title", associatedCommand.getTitle());
                         intent.putExtra("description", associatedCommand.getDescription());
                         intent.putExtra("serving", associatedCommand.getServing());
@@ -468,54 +544,26 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         if (mMap != null && propositionList != null) {
             for (Proposition proposition : propositionList) {
                 Chef chef = proposition.getChef();
-                float price = proposition.getLastChefProposition();
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5NjgzMzUsImV4cCI6MTcwNTA1NDczNX0.492foEuc2CyhQbIWrMT8xSe--2n1egUoV_mu-aVuuG4";
+                if (chef != null && chef.getAddress() != null) {
+                    String[] latLng = chef.getAddress().split(",");
+                    if (latLng.length == 2) {
+                        double latitude = Double.parseDouble(latLng[0]);
+                        double longitude = Double.parseDouble(latLng[1]);
 
-                        ApiService apiService = RetrofitClient.getApiService();
-                        Call<Client> call = apiService.getUser("Bearer " + accessToken, 1L);
-
-                        call.enqueue(new Callback<Client>() {
-                            @Override
-                            public void onResponse(Call<Client> call, Response<Client> response) {
-                                if (response.isSuccessful()) {
-                                    Client client = response.body();
-                                    if (client != null) {
-                                        String[] latLng = client.getAddress().split(",");
-                                        if (latLng.length == 2) {
-                                            double latitude = Double.parseDouble(latLng[0]);
-                                            double longitude = Double.parseDouble(latLng[1]);
-
-                                            LatLng location = new LatLng(latitude, longitude);
-                                            MarkerOptions markerOptions = new MarkerOptions()
-                                                    .position(location)
-                                                    .title("offer")
-                                                    .icon(BitmapFromVector(getApplicationContext(), R.drawable.chef));
-                                            Marker marker = mMap.addMarker(markerOptions);
-                                            linkMarkerToProposition(marker, proposition);
-                                        }
-                                    }
-                                } else {
-                                    showCustomPopup();
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<Client> call, Throwable t) {
-                                showCustomPopup();
-                            }
-                        });
+                        LatLng location = new LatLng(latitude, longitude);
+                        MarkerOptions markerOptions = new MarkerOptions()
+                                .position(location)
+                                .title("offer")
+                                .icon(BitmapFromVector(getApplicationContext(), R.drawable.chef));
+                        Marker marker = mMap.addMarker(markerOptions);
+                        linkMarkerToProposition(marker, proposition);
                     }
-                }).start();
-
-
-
+                }
             }
         }
     }
+
 
     private void linkMarkerToProposition(Marker marker, Proposition proposition) {
         markerPropositionMap.put(marker.getId(), proposition);
@@ -527,8 +575,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
 
     //method to change the marker's icon
     private BitmapDescriptor
-    BitmapFromVector(Context context, int vectorResId)
-    {
+    BitmapFromVector(Context context, int vectorResId) {
         Drawable vectorDrawable = ContextCompat.getDrawable(context, vectorResId);
         vectorDrawable.setBounds(0, 0, vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight());
         Bitmap bitmap = Bitmap.createBitmap(
@@ -553,7 +600,6 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     }
 
     private void sendCommandToBackend() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5NjgzMzUsImV4cCI6MTcwNTA1NDczNX0.492foEuc2CyhQbIWrMT8xSe--2n1egUoV_mu-aVuuG4";
 
         //form fields
         EditText Title = findViewById(R.id.title);
@@ -568,15 +614,14 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         String delivaryDate = DelivaryDate.getText().toString();
         EditText DelivaryTime = findViewById(R.id.deliveryTime);
         String delivaryTime = DelivaryTime.getText().toString();
-        String deadline =  delivaryDate + "/" + delivaryTime;
+        String deadline = delivaryDate + "/" + delivaryTime;
         Log.d("deadline", deadline);
 
         EditText Price = findViewById(R.id.price);
         String price = Price.getText().toString();
 
 
-
-        if (isValidCommand(title, description, serving, location, delivaryDate,delivaryTime, price)) {
+        if (isValidCommand(title, description, serving, location, delivaryDate, delivaryTime, price)) {
 
             // Create a Command object
             Command command = new Command();
@@ -685,7 +730,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         }
 
         boolean isServingValid = isValidServing(serving);
-        boolean isDateValid = isValidDate(delivaryDate,delivaryTime);
+        boolean isDateValid = isValidDate(delivaryDate, delivaryTime);
         boolean isPriceValid = isValidPrice(price);
 
         return isServingValid && isPriceValid && isDateValid;
@@ -696,7 +741,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             double value = Double.parseDouble(serving);
             return true;
         } catch (NumberFormatException e) {
-            Toast.makeText(getApplicationContext(),"Please enter a valid number as a portion",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter a valid number as a portion", Toast.LENGTH_LONG).show();
             return false;
         }
     }
@@ -724,11 +769,5 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             return false;
         }
     }
-
-
-
-
-
-
 
 }
