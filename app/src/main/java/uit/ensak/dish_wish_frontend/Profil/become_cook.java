@@ -15,6 +15,7 @@ import uit.ensak.dish_wish_frontend.Command.ApiService;
 import uit.ensak.dish_wish_frontend.Command.RetrofitClient;
 import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.R;
+import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -55,8 +56,8 @@ public class become_cook extends AppCompatActivity {
 
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("userId",12L);
-        editor.putString("accessToken","eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWEyMDE4QGdtYWlsLm1hIiwiaWF0IjoxNzA1MDgzNzg5LCJleHAiOjE3MDUxNzAxODl9.9lQNJhQcfZzzTG2BDHQzVzhRMOMZCOYKpBPc3WvVmjM");
+        editor.putLong("userId",1L);
+        editor.putString("accessToken","eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWEyMDE4QGdtYWlsLm1hIiwiaWF0IjoxNzA1MDg1NjEzLCJleHAiOjE3MDUxNzIwMTN9.u_N2ix3R_j4LjzQrlb4JrZ3C5ClGCg7i6AYT9X_3Kek");
         editor.apply();
 
         btnScancard.setOnClickListener(new View.OnClickListener() {
@@ -85,12 +86,11 @@ public class become_cook extends AppCompatActivity {
             public void onClick(View v) {
                 if (byteIdCard != null && byteCertificate != null) {
                     sendImagesToBackend(byteIdCard, byteCertificate);
-                    showToast("Import successful!");
                 }
-                showToast("Import failed!");
+                else{
+                showToast("Choose Id card and Certificate!");
+                }
             }
-
-
         });
     }
 
@@ -142,20 +142,27 @@ public class become_cook extends AppCompatActivity {
         RequestBody certificateRequestBody = RequestBody.create(MediaType.parse("image/*"), certificateData);
         MultipartBody.Part idCardPart = MultipartBody.Part.createFormData("idCard", "idCard.jpg", idCardRequestBody);
         MultipartBody.Part certificatePart = MultipartBody.Part.createFormData("certificate", "certificate.jpg", certificateRequestBody);
-        ApiService apiService = RetrofitClient.getApiService();
+        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
         Call<Chef> call = apiService.becomeCook("Bearer " + authToken, userId, idCardPart, certificatePart);
         call.enqueue(new Callback<Chef>() {
             @Override
             public void onResponse(Call<Chef> call, Response<Chef> response) {
-                showToast("Import successful!");
-                Intent intent = new Intent(become_cook.this, page_acceuil.class);
+                if (response.isSuccessful()) {
+                    showToast("Now you are a cook!");
+                    Intent intent = new Intent(become_cook.this, page_acceuil.class);
+                    startActivity(intent);
+                }else{
+                    showToast("Error during operation. Try again!");
+                    Intent intent = new Intent(become_cook.this, become_cook.class);
+                    startActivity(intent);
+                }
 
             }
             @Override
             public void onFailure(Call<Chef> call, Throwable t) {
-                showToast("Import failed!");
+                showToast("Unavailable Server");
                 Intent intent = new Intent(become_cook.this, become_cook.class);
-
+                startActivity(intent);
             }
         });
     }

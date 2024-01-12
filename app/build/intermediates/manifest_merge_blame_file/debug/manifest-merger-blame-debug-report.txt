@@ -106,8 +106,8 @@
 66
 67        <activity
 67-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:43:9-53:20
-68            android:name="uit.ensak.dish_wish_frontend.Profil.view_profile"
-68-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:44:13-48
+68            android:name="uit.ensak.dish_wish_frontend.Profil.become_cook"
+68-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:44:13-47
 69            android:exported="true"
 69-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:45:13-36
 70            android:label="@string/app_name"

@@ -150,6 +150,7 @@ public class view_profile extends AppCompatActivity {
                 intent.putExtra("CURRENT_LAST_NAME", textViewLastName.getText().toString());
                 intent.putExtra("CURRENT_ADDRESS", textViewAddress.getText().toString());
                 intent.putExtra("CURRENT_PHONE_NUMBER", textViewPHONE_NUMBER.getText().toString());
+                intent.putExtra("CURRENT_ALLERGY", textViewAllergies.getText().toString());
                 if (isCook) {
                     intent.putExtra("CURRENT_BIO", textViewBio.getText().toString());
                 }
@@ -203,12 +204,12 @@ public class view_profile extends AppCompatActivity {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
-                    Toast.makeText(view_profile.this, "Account deleted successfully", Toast.LENGTH_SHORT).show();
                     Intent loginIntent = new Intent(view_profile.this, CreateAccount.class);
+                    Toast.makeText(view_profile.this, "Account deleted successfully", Toast.LENGTH_SHORT).show();
                     startActivity(loginIntent);
                 } else {
-                    Toast.makeText(view_profile.this, "Error deleting the account. Please try again", Toast.LENGTH_SHORT).show();
                     Intent loginIntent = new Intent(view_profile.this, view_profile.class);
+                    Toast.makeText(view_profile.this, "Error deleting the account. Please try again", Toast.LENGTH_SHORT).show();
                     startActivity(loginIntent);
                 }
             }
@@ -243,20 +244,21 @@ public class view_profile extends AppCompatActivity {
             } else {
 
             }
+            SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+            Boolean isCook = preferences.getBoolean("isCook", false);
 
             textViewFirstName.setText(newFirstName);
             textViewLastName.setText(newLastName);
             textViewAddress.setText(newAddress);
             textViewPHONE_NUMBER.setText(newPhoneNumber);
-            textViewBio.setText(newBio);
             textViewDiet.setText(newDiet);
             textViewAllergies.setText(newAllergy);
-            SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-            Boolean isCook = preferences.getBoolean("isCook", false);
+            if(isCook) {
+                textViewBio.setText(newBio);
+            }
+
             DietDTO dietDTO = new DietDTO();
-
             ChefDTO chefDTO = new ChefDTO();
-
 
             chefDTO.setFirstName(newFirstName);
             chefDTO.setLastName(newLastName);
@@ -300,14 +302,14 @@ public class view_profile extends AppCompatActivity {
                     Client client = response.body();
                     apiClientCallback.onClientReceived(client);
                 } else {
-                    apiClientCallback.onFailure("Error: " + response.code());
+                    apiClientCallback.onFailure("Error during user fetching " + response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<Client> call, Throwable t) {
                 t.printStackTrace();
-                apiClientCallback.onFailure("Error: " + t.getMessage());
+                apiClientCallback.onFailure("Unavailable Server " + t.getMessage());
             }
         });
     }
@@ -328,7 +330,7 @@ public class view_profile extends AppCompatActivity {
                     Chef chef = response.body();
                     apiChefCallback.onChefReceived(chef);
                 } else {
-                    apiChefCallback.onFailure("Error: " + response.code());
+                    apiChefCallback.onFailure("Error during user fetching " + response.code());
                 }
             }
 
@@ -336,7 +338,7 @@ public class view_profile extends AppCompatActivity {
             public void onFailure(Call<Chef> call, Throwable t) {
 
                 t.printStackTrace();
-                apiChefCallback.onFailure("Error: " + t.getMessage());
+                apiChefCallback.onFailure("Unavailable Server " + t.getMessage());
             }
         });
     }
@@ -363,7 +365,6 @@ public class view_profile extends AppCompatActivity {
     }
 
     private void updateUser(ChefDTO chefDTO, Bitmap imageBitmap) {
-        // Convertir le Bitmap en tableau de bytes
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] imageBytes = baos.toByteArray();
@@ -374,23 +375,27 @@ public class view_profile extends AppCompatActivity {
         String authToken = preferences.getString("accessToken", "");
         ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
         Call<Client> call = apiService.updateClient("Bearer " + authToken, userId, chefDTO, photoPart);
-        Log.d("TAG", "Message de débogage");
         call.enqueue(new Callback<Client>() {
             @Override
             public void onResponse(Call<Client> call, Response<Client> response) {
                 if (response.isSuccessful()) {
                     Client client = response.body();
-                    Toast.makeText(view_profile.this, "User updat succesful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view_profile.this, "User updated succesfully", Toast.LENGTH_SHORT).show();
+
 
                 } else {
-                    Toast.makeText(view_profile.this, "Error", Toast.LENGTH_SHORT).show();
-
+                    Intent intent = new Intent(view_profile.this, view_profile.class);
+                    Toast.makeText(view_profile.this, "Error during updating", Toast.LENGTH_SHORT).show();
+                    startActivity(intent);
                 }
             }
 
             @Override
             public void onFailure(Call<Client> call, Throwable t) {
+                Intent intent = new Intent(view_profile.this, view_profile.class);
+                Toast.makeText(view_profile.this, "Unavailable Server", Toast.LENGTH_SHORT).show();
                 t.printStackTrace();
+                startActivity(intent);
             }
         });
     }
@@ -398,7 +403,6 @@ public class view_profile extends AppCompatActivity {
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
-
 
     private void getClientProfile() {
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
@@ -414,23 +418,22 @@ public class view_profile extends AppCompatActivity {
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     try {
-                        // Utiliser BitmapFactory.decodeStream pour créer un Bitmap directement à partir du flux
                         Bitmap newProfileImageBitmap = BitmapFactory.decodeStream(response.body().byteStream());
                         profileImageView.setImageBitmap(getRoundedBitmap(newProfileImageBitmap));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+
                 } else {
-                    // Gérer le cas où la réponse est vide ou le code de statut indique une erreur
-                    Toast.makeText(view_profile.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+                     Toast.makeText(view_profile.this, "Error during user profile fetching " + response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 t.printStackTrace();
+                Toast.makeText(view_profile.this, "Unavailable Sever " ,Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }

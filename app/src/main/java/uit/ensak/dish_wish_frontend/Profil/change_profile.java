@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -29,7 +30,12 @@ import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import uit.ensak.dish_wish_frontend.R;
+import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
 
 public class change_profile extends AppCompatActivity {
 
@@ -37,7 +43,7 @@ public class change_profile extends AppCompatActivity {
     private TextView textViewBioTitle;
     private Button btnSubmit;
     Spinner spinnerDiet;
-    private String currentFirstName, currentLastName, currentAddress,currentPhoneNumber,currentBio,currentAllergie;
+    private String currentFirstName, currentLastName, currentAddress,currentPhoneNumber,currentBio,currentAllergie,currentDiet;
 
     private String newDiet;
 
@@ -48,7 +54,6 @@ public class change_profile extends AppCompatActivity {
     private Bitmap resizeBitmap(Bitmap originalBitmap, int newWidth, int newHeight) {
         return Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, false);
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +66,8 @@ public class change_profile extends AppCompatActivity {
 
         setContentView(R.layout.activity_change_profile);
 
+        getClientProfile();
+
         editTextNewBio = findViewById(R.id.editTextNewBio);
        textViewBioTitle = findViewById(R.id.textViewBio);
 
@@ -68,11 +75,16 @@ public class change_profile extends AppCompatActivity {
             textViewBioTitle.setVisibility(View.VISIBLE);
             editTextNewBio.setVisibility(View.VISIBLE);
         }
-
+        currentDiet = getIntent().getStringExtra("CURRENT_DIET");
         spinnerDiet = findViewById(R.id.spinnerDiet);
         ArrayAdapter<CharSequence> adapterDiet = ArrayAdapter.createFromResource(this, R.array.diet_array, android.R.layout.simple_spinner_item);
         adapterDiet.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDiet.setAdapter(adapterDiet);
+
+        int index = adapterDiet.getPosition(currentDiet);
+        if (index != -1) {
+            spinnerDiet.setSelection(index);
+        }
 
 
         spinnerDiet.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -82,9 +94,7 @@ public class change_profile extends AppCompatActivity {
             }
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-
             }
-
         });
         profileImageView = findViewById(R.id.portrait_of);
         if (getIntent().hasExtra("IMAGE_BITMAP")) {
@@ -107,19 +117,20 @@ public class change_profile extends AppCompatActivity {
         currentFirstName = getIntent().getStringExtra("CURRENT_FIRST_NAME");
         currentLastName = getIntent().getStringExtra("CURRENT_LAST_NAME");
         currentAddress = getIntent().getStringExtra("CURRENT_ADDRESS");
+        currentAllergie = getIntent().getStringExtra("CURRENT_ALLERGY");
+        currentPhoneNumber = getIntent().getStringExtra("CURRENT_PHONE_NUMBER");
+
         if (isCook) {
             currentBio = getIntent().getStringExtra("CURRENT_BIO");
         }
-        currentAllergie = getIntent().getStringExtra("CURRENT_ALLERGY");
-        currentPhoneNumber = getIntent().getStringExtra("CURRENT_PHONE_NUMBER");
         editTextNewFirstName.setText(currentFirstName);
         editTextNewLastName.setText(currentLastName);
         editTextNewAddress.setText(currentAddress);
         editTextNewPhoneNumber.setText(currentPhoneNumber);
+        editTextNewAllergie.setText(currentAllergie);
         if (isCook) {
             editTextNewBio.setText(currentBio);
         }
-        editTextNewAllergie.setText(currentAllergie);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,7 +141,6 @@ public class change_profile extends AppCompatActivity {
                 String newPhoneNumber = editTextNewPhoneNumber.getText().toString();
                 String newBio = "";
                 if (isCook) {
-
                    newBio = editTextNewBio.getText().toString();
                 }
                 String newAllergie = editTextNewAllergie.getText().toString();
@@ -146,7 +156,6 @@ public class change_profile extends AppCompatActivity {
                 }
                 resultIntent.putExtra("NEW_DIET", newDiet);
                 resultIntent.putExtra("NEW_PROFILE_IMAGE_BITMAP", imageBitmap);
-                Toast.makeText(change_profile.this, "Changes successful", Toast.LENGTH_SHORT).show();
                 setResult(RESULT_OK, resultIntent);
                 finish();
             }
@@ -238,5 +247,41 @@ public class change_profile extends AppCompatActivity {
         return output;
 
 
-    }}
+    }
+    private void getClientProfile() {
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        Long userId = preferences.getLong("userId", 0);
+        String authToken = preferences.getString("accessToken", "");
+
+        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
+
+        Call<ResponseBody> call = apiService.getClientProfile("Bearer " + authToken, userId);
+
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    try {
+                        // Utiliser BitmapFactory.decodeStream pour créer un Bitmap directement à partir du flux
+                        Bitmap newProfileImageBitmap = BitmapFactory.decodeStream(response.body().byteStream());
+                        imageBitmap = newProfileImageBitmap;
+                        profileImageView.setImageBitmap(getRoundedBitmap(newProfileImageBitmap));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    // Gérer le cas où la réponse est vide ou le code de statut indique une erreur
+                    Toast.makeText(change_profile.this, "Error during user profile fetching " + response.code(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                t.printStackTrace();
+                Toast.makeText(change_profile.this, "Unavailable Sever " ,Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+}
 

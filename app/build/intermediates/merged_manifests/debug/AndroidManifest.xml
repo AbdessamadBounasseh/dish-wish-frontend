@@ -65,7 +65,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name="uit.ensak.dish_wish_frontend.Profil.view_profile"
+            android:name="uit.ensak.dish_wish_frontend.Profil.become_cook"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
