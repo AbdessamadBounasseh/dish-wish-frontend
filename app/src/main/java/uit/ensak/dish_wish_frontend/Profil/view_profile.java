@@ -64,8 +64,8 @@ public class view_profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("userId", 2L);
-        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWEyMDE5QGdtYWlsLm1hIiwiaWF0IjoxNzA1MDk5ODQ5LCJleHAiOjE3MDUxODYyNDl9.qZVYkPX5BBnosP8EOlcWPB-0UKVOcmJh44On4A0EHVg");
+        editor.putLong("userId", 3L);
+        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWEyMDEwOUBnbWFpbC5tYSIsImlhdCI6MTcwNTEwMjIyNywiZXhwIjoxNzA1MTg4NjI3fQ.m2KZ6tfyofV9mk8M9-lxh_oG04l1kOD4jBMvhuILNag");
         editor.putBoolean("isCook", false);
         editor.apply();
         Boolean isCook = preferences.getBoolean("isCook", false);

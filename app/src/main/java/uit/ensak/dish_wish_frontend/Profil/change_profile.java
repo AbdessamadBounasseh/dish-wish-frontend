@@ -157,6 +157,10 @@ public class change_profile extends AppCompatActivity {
                     Toast.makeText(change_profile.this, "Last name is required", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if (newPhoneNumber.trim().isEmpty()) {
+                    Toast.makeText(change_profile.this, "Phone Number is required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if (!isValidFirstName(newFirstName)) {
                     Toast.makeText(change_profile.this, "Invalid first name format", Toast.LENGTH_SHORT).show();
                     return;
@@ -339,7 +343,7 @@ public class change_profile extends AppCompatActivity {
 
 
     private static boolean isValidAdresse(String adresse) {
-        String adressePattern = "[\\dA-Za-z ,.-:]+";
+        String adressePattern = "[\\dA-Za-z ,.-:]{5,50}";
         Pattern pattern = Pattern.compile(adressePattern);
         Matcher matcher = pattern.matcher(adresse);
         return matcher.matches();

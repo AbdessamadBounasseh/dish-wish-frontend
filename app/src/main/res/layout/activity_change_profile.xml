@@ -112,7 +112,7 @@
                         android:id="@+id/editTextNewFirstName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Faycal"
+                        android:text=""
                         android:textColor="#010F07"
                         android:textSize="18sp" />
                 </LinearLayout>
@@ -137,7 +137,7 @@
                         android:id="@+id/editTextNewLastName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="El Ourrat"
+                        android:text=""
                         android:textColor="#010F07"
                         android:textSize="18sp" />
                 </LinearLayout>
@@ -160,6 +160,14 @@
                 android:text="   "
                 android:textColor="#010F07"
                 android:textSize="18sp" />
+<!--            <Spinner-->
+<!--                android:id="@+id/spinnerCity"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:textColor="#010F07"-->
+<!--                android:textSize="18sp"-->
+<!--                android:entries="@array/city"/>-->
             <!--  PhoneNumber-->
             <TextView
                 android:id="@+id/textViewPhoneNumber"
