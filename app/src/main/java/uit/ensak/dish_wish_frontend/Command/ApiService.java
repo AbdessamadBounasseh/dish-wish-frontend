@@ -75,4 +75,11 @@ public interface ApiService {
 
     @DELETE("propositions/delete/{propositionId}")
     Call<Void> deleteProposition(@Header("Authorization") String authToken,@Path("propositionId") Long propositionId);
+
+    @PUT("propositions/update/{propositionId}")
+    Call<Proposition> updateProposition(
+            @Path("propositionId") Long propositionId,
+            @Body Proposition proposition,
+            @Header("Authorization") String accessToken
+    );
 }

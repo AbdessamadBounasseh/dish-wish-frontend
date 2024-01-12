@@ -66,7 +66,7 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
     private ImageView arrow;
     private ImageView arrow_popup;
     private Button sendOffer;
-    String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwMDM1MTcsImV4cCI6MTcwNTA4OTkxN30.Fopqf7m3vtQfsachpcm6H3PAQBZ4I5HjgqUe6n7kEeM";
+    String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwNjQyMDEsImV4cCI6MTcwNTE1MDYwMX0.Trk2cmuXm9SlyXrjNRuGb2mRwlbbGLqlSPB05YQekeM";
 
 
 
