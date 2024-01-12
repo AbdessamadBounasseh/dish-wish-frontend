@@ -65,4 +65,14 @@ public interface ApiService {
     );
     @GET("chef-ratings/{chefId}")
     Call<Double> getChefRatings(@Path("chefId") long chefId, @Header("Authorization") String accessToken);
+
+    @PUT("commands/{commandId}/assign/{chefId}")
+    Call<Void> assignChefToCommand(
+            @Path("commandId") long commandId,
+            @Path("chefId") long chefId,
+            @Header("Authorization") String accessToken
+    );
+
+    @DELETE("propositions/delete/{propositionId}")
+    Call<Void> deleteProposition(@Header("Authorization") String authToken,@Path("propositionId") Long propositionId);
 }

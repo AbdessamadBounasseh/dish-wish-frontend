@@ -82,7 +82,8 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private Button pickDate;
     private Marker currentMarker;
     private ImageView arrow;
-    private long createdCommandId;
+    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwNjQyMDEsImV4cCI6MTcwNTE1MDYwMX0.Trk2cmuXm9SlyXrjNRuGb2mRwlbbGLqlSPB05YQekeM";
+
     private Command associatedCommand;
 
     @Override
@@ -99,6 +100,8 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
 
         // Load the FilterByNameOrCityFragment
         loadFilterByNameOrCityFragment();
+
+
 
     }
 
@@ -311,6 +314,21 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             }
         });
 
+        boolean showSuccessDialog = getIntent().getBooleanExtra("showSuccessDialog", false);
+
+        if (showSuccessDialog) {
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.popup_command_created);
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+
+            dialog.show();
+
+            Button tryAgainButton = dialog.findViewById(R.id.Ok);
+            tryAgainButton.setOnClickListener(v -> {
+                dialog.dismiss();
+            });
+        }
+
 
     }
 
@@ -320,7 +338,6 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         dialog.setContentView(R.layout.popup_chef_details);
         dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
 
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwMDM1MTcsImV4cCI6MTcwNTA4OTkxN30.Fopqf7m3vtQfsachpcm6H3PAQBZ4I5HjgqUe6n7kEeM";
 
         ApiService apiService = RetrofitClient.getApiService();
         Call<Double> call = apiService.getChefRatings(associatedProposition.getChef().getId(), "Bearer " + accessToken);
@@ -383,10 +400,10 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 public void onClick(View v) {
                     Intent intent = new Intent(MapsHomeActivity.this, FinalizeOrderActivity.class);
                     // Pass associatedCommand data to the new intent
-                    intent.putExtra("CommandId", associatedProposition.getId());
+                    intent.putExtra("CommandId", associatedProposition.getCommand().getId());
                     intent.putExtra("ChefId", associatedProposition.getChef().getId());
                     intent.putExtra("price", associatedProposition.getLastChefProposition());
-
+                    intent.putExtra("PropositionId", associatedProposition.getId());
                     intent.putExtra("delivary", associatedProposition.getCommand().getDeadline());
                     intent.putExtra("description", associatedProposition.getChef().getFirstName());
                     intent.putExtra("serving", associatedProposition.getChef().getLastName());
@@ -400,7 +417,6 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwMDM1MTcsImV4cCI6MTcwNTA4OTkxN30.Fopqf7m3vtQfsachpcm6H3PAQBZ4I5HjgqUe6n7kEeM";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Proposition>> call = apiService.getPropositions("Bearer " + accessToken);
@@ -584,7 +600,6 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     }
 
     private void sendCommandToBackend() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwMDM1MTcsImV4cCI6MTcwNTA4OTkxN30.Fopqf7m3vtQfsachpcm6H3PAQBZ4I5HjgqUe6n7kEeM";
 
         //form fields
         EditText Title = findViewById(R.id.title);
