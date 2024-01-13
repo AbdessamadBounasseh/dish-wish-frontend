@@ -21,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -43,7 +44,7 @@ public class change_profile extends AppCompatActivity {
 
     private EditText editTextNewFirstName, editTextNewLastName, editTextNewAddress,editTextNewPosition, editTextNewPhoneNumber, editTextNewAllergie,editTextNewBio;
     private TextView textViewBioTitle;
-    private Button btnSubmit;
+    private Button btnSubmit,btnPosition;
     Spinner spinnerDiet,spinnerCity;
     private String currentFirstName, currentLastName, currentAddress,currentPosition,currentPhoneNumber,currentBio,currentAllergie,currentDiet,currentCity;
 
@@ -69,6 +70,8 @@ public class change_profile extends AppCompatActivity {
         setContentView(R.layout.activity_change_profile);
 
         getClientProfile();
+
+
 
         editTextNewBio = findViewById(R.id.editTextNewBio);
        textViewBioTitle = findViewById(R.id.textViewBio);
@@ -157,6 +160,16 @@ public class change_profile extends AppCompatActivity {
         if (isCook) {
             editTextNewBio.setText(currentBio);
         }
+
+        ImageButton btnBack = findViewById(R.id.btnBack);
+
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
