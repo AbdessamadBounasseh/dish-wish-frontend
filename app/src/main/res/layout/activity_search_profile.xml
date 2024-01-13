@@ -174,17 +174,17 @@
             android:scaleX="0.5"
             android:scaleY="0.5"
             android:numStars="5"
-            android:layout_marginLeft="28dp"/>
+            android:layout_marginStart="28dp"/>
 
         <Button
             android:id="@+id/btnAddReview"
             android:layout_width="120dp"
             android:layout_height="38dp"
             android:layout_marginTop="40dp"
-            android:layout_marginLeft="87dp"
+            android:layout_marginStart="87dp"
             android:backgroundTint="@color/principalColor"
             android:text="Add review"
-            android:textSize="11dp"
+            android:textSize="11sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ratingBar" />
