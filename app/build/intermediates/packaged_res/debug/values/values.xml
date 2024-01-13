@@ -98,6 +98,9 @@ Change Password
     <string name="change_password">
 CHANGE PASSWORD
 </string>
+    <string name="code">
+CODE
+</string>
     <string name="confirm">
 CONFIRM PASSWORD
 </string>
@@ -151,12 +154,18 @@ Enter your email address and we will send you a reset instructions.
     <string name="sign_in">
 Sign In
 </string>
+    <string name="started">
+VERIFY
+</string>
     <string name="title_activity_forgot_password">ForgotPasswordActivity</string>
     <string name="title_activity_maps_home">MapsHomeActivity</string>
     <string name="title_activity_profile_preview">Activity_Profile_Preview</string>
     <string name="title_activity_profile_setting">Activity_profile_setting</string>
     <string name="title_activity_profile_settings">Activity_profile_setting</string>
     <string name="verificatio">Verification email sent</string>
+    <string name="verify">
+VERIFY
+</string>
     <string name="we_have_sen">
 We have sent a instructions email to
 </string>

@@ -46,7 +46,7 @@
         android:theme="@style/Theme.Dishwishfrontend"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="uit.ensak.dish_wish_frontend.Authentification.page_acceuil"
+            android:name="uit.ensak.dish_wish_frontend.Authentification.ChangePasswordActivity"
             android:exported="false" />
         <activity
             android:name="uit.ensak.dish_wish_frontend.Authentification.ForgotPasswordActivity"
@@ -57,7 +57,7 @@
             android:name="uit.ensak.dish_wish_frontend.Authentification.ResetEmailActivity"
             android:exported="false" />
         <activity
-            android:name="uit.ensak.dish_wish_frontend.Authentification.VerifyEmail"
+            android:name="uit.ensak.dish_wish_frontend.Authentification.page_acceuil"
             android:exported="false" />
 
         <!--
@@ -79,7 +79,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name="uit.ensak.dish_wish_frontend.Authentification.page_acceuil"
+            android:name="uit.ensak.dish_wish_frontend.Authentification.VerifyEmail"
             android:exported="true"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
             <intent-filter>
@@ -101,6 +101,13 @@
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name="uit.ensak.dish_wish_frontend.Profil.change_profile"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" /> <!-- <activity -->
+        <!-- android:name=".Profil_Folder.view_profile" -->
+        <!-- android:exported="false" -->
+        <!-- android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/> -->
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Command.MapsChefActivity"
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity

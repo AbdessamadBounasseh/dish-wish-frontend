@@ -33,6 +33,7 @@ drawable arr
 drawable arrow
 drawable arrow_down
 drawable arrow_up
+drawable avatar
 drawable back
 drawable baseline_menu_24
 drawable baseline_notifications_active_24
@@ -125,10 +126,12 @@ id action_profile
 id action_support
 id addButton
 id addressTextView
+id adjustprice
 id allergies
 id animation
 id animationView
 id animation_cook_space
+id arrow
 id bars_top_ba
 id bottom_sheet_arrow
 id bottom_sheet_layout
@@ -146,6 +149,7 @@ id buttons_bar
 id changed
 id checkbox
 id component_1
+id confirmOffer
 id cook
 id create_acco
 id delivary
@@ -166,6 +170,7 @@ id email_addre
 id emailres
 id enter_your_
 id firstNameTextView
+id firstname
 id forg
 id forgpass
 id form_2_fill
@@ -177,6 +182,7 @@ id icon_24_bac
 id imageDish
 id imageViewChangePhoto
 id lastNameTextView
+id lastname
 id location
 id lottie
 id map
@@ -250,6 +256,7 @@ layout activity_change_password
 layout activity_change_profile
 layout activity_connect
 layout activity_create_acciunt
+layout activity_finalize_order
 layout activity_forgot_password
 layout activity_history
 layout activity_maps_chef
@@ -271,6 +278,7 @@ layout popup_command_created
 layout popup_command_details
 layout popup_command_failed
 layout popup_negotiate
+layout popup_offer_confirmed
 layout popup_proposition_created
 layout popup_proposition_failed
 layout popup_update_command
@@ -281,13 +289,16 @@ mipmap ic_launcher_round
 navigation mobile_navigation
 navigation nav_graph
 raw annimation_principal_cook
+raw arrowconfirm
 raw button
+raw confirm
 raw cook
 raw cooking
 raw details
 raw dish
 raw dishwish
 raw fail
+raw finalize
 raw forgotpassword
 raw offersent
 raw profil
@@ -301,6 +312,7 @@ string app_name
 string by_signing_
 string change
 string change_password
+string code
 string confirm
 string email_addre
 string enter_change
@@ -328,16 +340,19 @@ string reset
 string second_fragment_label
 string send_email
 string sign_in
+string started
 string title_activity_forgot_password
 string title_activity_maps_home
 string title_activity_profile_preview
 string title_activity_profile_setting
 string title_activity_profile_settings
 string verificatio
+string verify
 string we_have_sen
 string welcome_to_
 style Base.Theme.Dishwishfrontend
 style MyMaterialTimePickerTheme
+style RatingBar
 style SCBSwitch
 style Theme.Dishwishfrontend
 style Theme.Dishwishfrontend.AppBarOverlay
