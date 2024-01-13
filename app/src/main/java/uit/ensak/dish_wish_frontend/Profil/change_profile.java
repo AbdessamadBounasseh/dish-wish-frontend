@@ -41,11 +41,11 @@ import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
 
 public class change_profile extends AppCompatActivity {
 
-    private EditText editTextNewFirstName, editTextNewLastName, editTextNewAddress, editTextNewPhoneNumber, editTextNewAllergie,editTextNewBio;
+    private EditText editTextNewFirstName, editTextNewLastName, editTextNewAddress,editTextNewPosition, editTextNewPhoneNumber, editTextNewAllergie,editTextNewBio;
     private TextView textViewBioTitle;
     private Button btnSubmit;
     Spinner spinnerDiet,spinnerCity;
-    private String currentFirstName, currentLastName, currentAddress,currentPhoneNumber,currentBio,currentAllergie,currentDiet,currentCity;
+    private String currentFirstName, currentLastName, currentAddress,currentPosition,currentPhoneNumber,currentBio,currentAllergie,currentDiet,currentCity;
 
     private String newDiet, newCity;
 
@@ -108,6 +108,16 @@ public class change_profile extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parentView) {
             }
         });
+
+        spinnerCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                newCity = parentView.getItemAtPosition(position).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+            }
+        });
         profileImageView = findViewById(R.id.portrait_of);
         if (getIntent().hasExtra("IMAGE_BITMAP")) {
             imageBitmap = getIntent().getParcelableExtra("IMAGE_BITMAP");
@@ -122,12 +132,14 @@ public class change_profile extends AppCompatActivity {
         });
         editTextNewFirstName = findViewById(R.id.editTextNewFirstName);
         editTextNewLastName = findViewById(R.id.editTextNewLastName);
+        editTextNewPosition = findViewById(R.id.editTextPosition);
         editTextNewAddress = findViewById(R.id.editTextNewAddress);
         editTextNewPhoneNumber = findViewById(R.id.editTextNewPhoneNumber);
         editTextNewAllergie = findViewById(R.id.editTextNewAllergie);
         btnSubmit = findViewById(R.id.btnsubmit);
         currentFirstName = getIntent().getStringExtra("CURRENT_FIRST_NAME");
         currentLastName = getIntent().getStringExtra("CURRENT_LAST_NAME");
+        currentPosition = getIntent().getStringExtra("CURRENT_POSITION");
         currentAddress = getIntent().getStringExtra("CURRENT_ADDRESS");
         currentAllergie = getIntent().getStringExtra("CURRENT_ALLERGY");
         currentPhoneNumber = getIntent().getStringExtra("CURRENT_PHONE_NUMBER");
@@ -138,6 +150,7 @@ public class change_profile extends AppCompatActivity {
         editTextNewFirstName.setText(currentFirstName);
         editTextNewLastName.setText(currentLastName);
         editTextNewAddress.setText(currentAddress);
+        editTextNewPosition.setText(currentPosition);
         editTextNewPhoneNumber.setText(currentPhoneNumber);
 
         editTextNewAllergie.setText(currentAllergie);
@@ -152,6 +165,7 @@ public class change_profile extends AppCompatActivity {
                 String newLastName = editTextNewLastName.getText().toString();
 
                 String newAddress = editTextNewAddress.getText().toString();
+                String newPosition = editTextNewPosition.getText().toString();
                 String newPhoneNumber = editTextNewPhoneNumber.getText().toString();
                 String newBio = "";
                 if (isCook) {
@@ -160,6 +174,10 @@ public class change_profile extends AppCompatActivity {
                 String newAllergie = editTextNewAllergie.getText().toString();
                 if (newFirstName.trim().isEmpty()) {
                     Toast.makeText(change_profile.this, "First name is required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (newCity.trim().isEmpty()) {
+                    Toast.makeText(change_profile.this, "City is required", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -203,6 +221,7 @@ public class change_profile extends AppCompatActivity {
 
                 resultIntent.putExtra("NEW_FIRST_NAME", newFirstName);
                 resultIntent.putExtra("NEW_LAST_NAME", newLastName);
+                resultIntent.putExtra("NEW_POSITION",newPosition);
                 resultIntent.putExtra("NEW_ADDRESS", newAddress);
                 resultIntent.putExtra("NEW_ALLERGY", newAllergie);
                 resultIntent.putExtra("NEW_PHONE_NUMBER", newPhoneNumber);
@@ -210,6 +229,7 @@ public class change_profile extends AppCompatActivity {
                     resultIntent.putExtra("NEW_BIO", newBio);
                 }
                 resultIntent.putExtra("NEW_DIET", newDiet);
+                resultIntent.putExtra("NEW_CITY",newCity);
                 resultIntent.putExtra("NEW_PROFILE_IMAGE_BITMAP", imageBitmap);
                 setResult(RESULT_OK, resultIntent);
                 finish();

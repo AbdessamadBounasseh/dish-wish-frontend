@@ -55,7 +55,7 @@ public class view_profile extends AppCompatActivity {
     private ChefDTO chefDTO;
 
 
-    private TextView textViewFirstName, textViewLastName, textViewAddress, textViewBio, textViewDiet, textViewPHONE_NUMBER, textViewAllergies, textViewBioContent;
+    private TextView textViewFirstName, textViewLastName, textViewAddress, textViewBio, textViewDiet,textViewCity, textViewPHONE_NUMBER, textViewAllergies, textViewBioContent;
     private Spinner spinnerAllergies;
     private ImageView profileImageView;
 
@@ -75,6 +75,7 @@ public class view_profile extends AppCompatActivity {
         textViewFirstName = findViewById(R.id.textViewActualFirstName);
         textViewLastName = findViewById(R.id.textViewActualLastName);
         textViewAddress = findViewById(R.id.textViewActualAddress);
+        textViewCity= findViewById(R.id.textViewActualCity);
         textViewDiet = findViewById(R.id.textViewActualDiet);
         textViewPHONE_NUMBER = findViewById(R.id.textViewActualPhoneNumber);
         textViewAllergies = findViewById(R.id.textViewActualAllergies);
@@ -130,14 +131,6 @@ public class view_profile extends AppCompatActivity {
         getClientProfile();
 
 
-//        textViewFirstName = findViewById(R.id.textViewActualFirstName);
-//        textViewLastName = findViewById(R.id.textViewActualLastName);
-//        textViewAddress = findViewById(R.id.textViewActualAddress);
-//        textViewDiet = findViewById(R.id.textViewActualDiet);
-//        textViewBio = findViewById(R.id.textViewActualBio);
-//        textViewPHONE_NUMBER = findViewById(R.id.textViewActualPhoneNumber);
-//        textViewAllergies = findViewById(R.id.textViewActualAllergies);
-//       profileImageView = findViewById(R.id.portrait_of);
         ImageButton btnBack = findViewById(R.id.btnBack);
 
         Button btnChange = findViewById(R.id.btnchange);
@@ -154,6 +147,7 @@ public class view_profile extends AppCompatActivity {
                 if (isCook) {
                     intent.putExtra("CURRENT_BIO", textViewBio.getText().toString());
                 }
+                intent.putExtra("CURRET_CITY", textViewCity.getText().toString());
                 intent.putExtra("CURRENT_DIET", textViewDiet.getText().toString());
                 startActivityForResult(intent, REQUEST_CODE_CHANGE_PROFILE);
             }
@@ -233,6 +227,7 @@ public class view_profile extends AppCompatActivity {
             String newLastName = data.getStringExtra("NEW_LAST_NAME");
             String newAddress = data.getStringExtra("NEW_ADDRESS");
             String newBio = data.getStringExtra("NEW_BIO");
+            String newCity = data.getStringExtra("NEW_CITY");
             String newDiet = data.getStringExtra("NEW_DIET");
             String newPhoneNumber = data.getStringExtra("NEW_PHONE_NUMBER");
             String newAllergy = data.getStringExtra("NEW_ALLERGY");
@@ -251,6 +246,7 @@ public class view_profile extends AppCompatActivity {
             textViewLastName.setText(newLastName);
             textViewAddress.setText(newAddress);
             textViewPHONE_NUMBER.setText(newPhoneNumber);
+            textViewCity.setText(newCity);
             textViewDiet.setText(newDiet);
             textViewAllergies.setText(newAllergy);
             if(isCook) {
@@ -265,6 +261,7 @@ public class view_profile extends AppCompatActivity {
             chefDTO.setAddress(newAddress);
             chefDTO.setPhoneNumber(newPhoneNumber);
             chefDTO.setAllergies(newAllergy);
+
             dietDTO.setTitle(newDiet);
             chefDTO.setDietDTO(dietDTO);
             if (isCook) {

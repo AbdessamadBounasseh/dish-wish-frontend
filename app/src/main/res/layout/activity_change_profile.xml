@@ -177,12 +177,12 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/editTextAdditionalInfo"
+                    android:id="@+id/editTextPosition"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="38dp"
                     android:layout_marginStart="8dp"
-                    android:hint="Additional Info"
+                    android:hint="Position"
                     android:textColor="#010F07"
                     android:textSize="15sp" />
 
