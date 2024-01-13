@@ -128,6 +128,10 @@
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\raw\\profil.json"
     },
     {
+        "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\navigation_nav_graph.xml.flat",
+        "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\navigation\\nav_graph.xml"
+    },
+    {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\layout_activity_view_profile.xml.flat",
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\layout\\activity_view_profile.xml"
     },
@@ -340,6 +344,10 @@
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\raw\\details.json"
     },
     {
+        "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\layout_activity_forgot_password.xml.flat",
+        "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\layout\\activity_forgot_password.xml"
+    },
+    {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\raw_returnarrow.json.flat",
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\raw\\returnarrow.json"
     },
@@ -488,6 +496,10 @@
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\card.png"
     },
     {
+        "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\layout_activity_change_password.xml.flat",
+        "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\layout\\activity_change_password.xml"
+    },
+    {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\raw_dish.json.flat",
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\raw\\dish.json"
     },
@@ -518,6 +530,10 @@
     {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable-anydpi_ic_menu_logout.xml.flat",
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable-anydpi\\ic_menu_logout.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_change_password.xml.flat",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_change_password.xml"
     },
     {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\raw_profile.json.flat",
@@ -568,10 +584,6 @@
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/layout_activity_forgot_password.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/activity_forgot_password.xml"
-    },
-    {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_rounded_corners.xml.flat",
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\rounded_corners.xml"
     },
@@ -598,10 +610,6 @@
     {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_money.xml.flat",
         "source": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\drawable\\money.xml"
-    },
-    {
-        "merged": "uit.ensak.dish_wish_frontend.app-merged_res-70:/navigation_nav_graph.xml.flat",
-        "source": "uit.ensak.dish_wish_frontend.app-main-72:/navigation/nav_graph.xml"
     },
     {
         "merged": "C:\\Users\\KhawLa\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-merged_res-70:\\drawable_food_allergy.jpg.flat",

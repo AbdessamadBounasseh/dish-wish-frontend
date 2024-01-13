@@ -143,6 +143,7 @@ id btnScancertif
 id btnchange
 id btnsubmit
 id buttons_bar
+id changed
 id checkbox
 id component_1
 id cook
@@ -245,6 +246,7 @@ id verify
 id welcome
 id welcome_to_
 layout activity_become_cook
+layout activity_change_password
 layout activity_change_profile
 layout activity_connect
 layout activity_create_acciunt
@@ -297,7 +299,11 @@ raw success
 string action_settings
 string app_name
 string by_signing_
+string change
+string change_password
+string confirm
 string email_addre
+string enter_change
 string enter_your_
 string first_fragment_label
 string forget_pass
@@ -305,7 +311,7 @@ string forgot
 string general_1_1
 string having_prob
 string hello_blank_fragment
-string lorem_ipsum
+string last
 string menu_gallery
 string menu_home
 string menu_slideshow
