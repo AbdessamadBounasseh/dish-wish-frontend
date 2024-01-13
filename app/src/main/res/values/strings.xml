@@ -38,6 +38,9 @@ Enter your Phone number or Email address for sign in. Enjoy your food :)
     <string name="sign_in">
 Sign In
 </string>
+    <string name="sign_up">
+SIGN UP
+</string>
     <string name="welcome_to_">
 Welcome to DishWish
 </string>
