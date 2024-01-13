@@ -260,7 +260,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cook"
             android:layout_width="124dp"
             android:layout_height="50dp"
@@ -270,7 +270,7 @@
             android:layout_marginRight="105dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/rounded_edittext"
-            android:backgroundTint="#D41881"
+            android:backgroundTint="@color/principalColor"
             android:text="Negotiate"
             android:textAlignment="center"
             android:textColor="@color/white"

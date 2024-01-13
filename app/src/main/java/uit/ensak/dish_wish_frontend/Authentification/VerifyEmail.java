@@ -53,9 +53,9 @@ public class VerifyEmail extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(SHARED_PREFS_NAME, MODE_PRIVATE);
         String email = sharedPreferences.getString(KEY_EMAIL, null);
         String code = sharedPreferences.getString(KEY_CODE, null);
-        if (email != null) {
+
             etemail.setText(email);
-        }
+
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +84,7 @@ public class VerifyEmail extends AppCompatActivity {
             public void onResponse(Call<String> call, Response<String> response) {
                 int statusCode = response.code();
                 Log.d("MyTag", "HTTP Status Code: " + statusCode);
-                //if (response.isSuccessful()) {
+                if (response.isSuccessful()) {
 
                 String verificationResponse = response.body();
                 logger.info("succes");
@@ -92,7 +92,7 @@ public class VerifyEmail extends AppCompatActivity {
                 startActivity(intent1);
 
 
-                //}
+                }
 
 
             }

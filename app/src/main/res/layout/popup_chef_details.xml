@@ -84,7 +84,6 @@
                 android:text="price"
                 android:textAllCaps="false"
                 android:textSize="18sp"
-
                 android:layout_marginTop="5dp"
                 android:textColor="@color/gray"/>
 
@@ -126,10 +125,17 @@
 
         <RatingBar
             android:id="@+id/ratingBar"
-            android:layout_width="201dp"
+            android:layout_width="250dp"
             android:layout_height="match_parent"
+            android:clickable="false"
+            android:focusable="false"
+            android:isIndicator="true"
             android:paddingLeft="10dp"
-            android:progressTint="@color/principalColor" />
+            android:progressTint="@color/principalColor"
+            android:rating="5"
+            android:stepSize="0.1"
+            android:theme="@style/RatingBar"/>
+
 
     </LinearLayout>
 
@@ -140,7 +146,6 @@
             android:orientation="vertical"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp">
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="25dp"
@@ -153,7 +158,7 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/firstname"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:gravity="left"
@@ -186,7 +191,7 @@
                 />
 
             <TextView
-                android:id="@+id/serving"
+                android:id="@+id/lastname"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:gravity="left"
@@ -198,6 +203,7 @@
                 android:textColor="@color/gray"/>
 
         </LinearLayout>
+
 
 
 

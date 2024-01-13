@@ -4,10 +4,13 @@ import static androidx.constraintlayout.widget.ConstraintLayoutStates.TAG;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,12 +44,14 @@ import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 
@@ -55,9 +61,10 @@ import retrofit2.Response;
 import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Command;
+import uit.ensak.dish_wish_frontend.Models.Proposition;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.databinding.ActivityMapsHomeBinding;
-import uit.ensak.dish_wish_frontend.search_folder.filter_by_name_or_city;
+import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
 //import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
 
 public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -65,8 +72,8 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private GoogleMap mMap;
     private ActivityMapsHomeBinding binding;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
-    private Map<String, Command> markerCommandMap = new HashMap<>();
-    final ArrayList<Command> commandList = new ArrayList<>();
+    private Map<String, Proposition> markerPropositionMap = new HashMap<>();
+    final ArrayList<Proposition> propositionList = new ArrayList<>();
     private LinearLayout mBottomSheetLayout;
     private BottomSheetBehavior sheetBehavior;
     private ImageView header_Arrow_Image;
@@ -75,6 +82,9 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private Button pickDate;
     private Marker currentMarker;
     private ImageView arrow;
+    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwNjQyMDEsImV4cCI6MTcwNTE1MDYwMX0.Trk2cmuXm9SlyXrjNRuGb2mRwlbbGLqlSPB05YQekeM";
+
+    private Command associatedCommand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +100,8 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
 
         // Load the FilterByNameOrCityFragment
         loadFilterByNameOrCityFragment();
+
+
 
     }
 
@@ -134,7 +146,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             @Override
             public void onClick(View v) {
 
-                if(sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED){
+                if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
                     sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 } else {
                     sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
@@ -146,6 +158,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
             }
+
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
 
@@ -275,7 +288,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
 
                 MarkerOptions markerOptions = new MarkerOptions()
                         .position(latLng)
-                        .title("Order's Location")
+                        .title("Command's Location")
                         .icon(BitmapFromVector(
                                 getApplicationContext(),
                                 R.drawable.dish));
@@ -288,18 +301,79 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
-                Command associatedCommand = getCommandFromMarker(marker);
-                showCommandDetailsPopup(associatedCommand);
+                String markerTitle = marker.getTitle();
+
+                if (associatedCommand != null && "Command's Location".equals(markerTitle)) {
+                    showUpdatePopup(associatedCommand);
+                } else if ("offer".equals(markerTitle)) {
+                    Proposition associatedProposition = getPropositionFromMarker(marker);
+                    showPropositionDetailsPopup(associatedProposition);
+                }
+
                 return true;
             }
         });
 
+        boolean showSuccessDialog = getIntent().getBooleanExtra("showSuccessDialog", false);
+
+        if (showSuccessDialog) {
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.popup_offer_confirmed);
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+
+            dialog.show();
+
+            Button tryAgainButton = dialog.findViewById(R.id.Ok);
+            tryAgainButton.setOnClickListener(v -> {
+                dialog.dismiss();
+            });
+        }
+
+
     }
 
-    private void showCommandDetailsPopup(Command associatedCommand) {
+    private void showPropositionDetailsPopup(Proposition associatedProposition) {
+
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.popup_chef_details);
         dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+
+
+        ApiService apiService = RetrofitClient.getApiService();
+        Call<Double> call = apiService.getChefRatings(associatedProposition.getChef().getId(), "Bearer " + accessToken);
+
+        call.enqueue(new Callback<Double>() {
+            @Override
+            public void onResponse(Call<Double> call, Response<Double> response) {
+                if (response.isSuccessful()) {
+                    RatingBar ratingBar = dialog.findViewById(R.id.ratingBar);
+                    double chefRatings = response.body();
+
+                    float floatChefRatings = (float) chefRatings;
+                    ratingBar.setRating(floatChefRatings);
+                } else {
+                    showCustomPopup();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Double> call, Throwable t) {
+                showCustomPopup();
+            }
+        });
+
+        TextView chefFirstName = dialog.findViewById(R.id.firstname);
+        TextView chefLastName = dialog.findViewById(R.id.lastname);
+        TextView price = dialog.findViewById(R.id.price);
+        TextView delivary = dialog.findViewById(R.id.delivary);
+
+        chefFirstName.setText(associatedProposition.getChef().getFirstName());
+        chefLastName.setText(associatedProposition.getChef().getLastName());
+        float chefProposition = associatedProposition.getLastChefProposition();
+        String chefPropositionString = String.valueOf(chefProposition);
+        price.setText(chefPropositionString + " DH");
+        delivary.setText(associatedProposition.getCommand().getDeadline());
+
 
         Window window = dialog.getWindow();
         if (window != null) {
@@ -318,26 +392,44 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 }
             });
         }
+
+        Button chooseCook = dialog.findViewById(R.id.cook);
+        if (chooseCook != null) {
+            chooseCook.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MapsHomeActivity.this, FinalizeOrderActivity.class);
+                    // Pass associatedCommand data to the new intent
+                    intent.putExtra("CommandId", associatedProposition.getCommand().getId());
+                    intent.putExtra("ChefId", associatedProposition.getChef().getId());
+                    intent.putExtra("price", associatedProposition.getLastChefProposition());
+                    intent.putExtra("PropositionId", associatedProposition.getId());
+                    intent.putExtra("delivary", associatedProposition.getCommand().getDeadline());
+                    intent.putExtra("description", associatedProposition.getChef().getFirstName());
+                    intent.putExtra("serving", associatedProposition.getChef().getLastName());
+                    startActivity(intent);
+                }
+            });
+        }
     }
 
     private void retryRequest() {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQzMDY2NTEsImV4cCI6MTcwNDM5MzA1MX0.FELi0YOBk6DGkdtvTgqUKqMgr_YTwfkWd6-vhclWe68";
 
                 ApiService apiService = RetrofitClient.getApiService();
-                Call<List<Command>> call = apiService.getCommands("Bearer " + accessToken);
+                Call<List<Proposition>> call = apiService.getPropositions("Bearer " + accessToken);
 
-                call.enqueue(new Callback<List<Command>>() {
+                call.enqueue(new Callback<List<Proposition>>() {
                     @Override
-                    public void onResponse(Call<List<Command>> call, Response<List<Command>> response) {
+                    public void onResponse(Call<List<Proposition>> call, Response<List<Proposition>> response) {
                         if (response.isSuccessful()) {
-                            List<Command> receivedCommands = response.body();
-                            if (receivedCommands != null) {
-                                for (Command command : receivedCommands) {
-                                    commandList.add(command);
-                                    addMarkersToMap(commandList);
+                            List<Proposition> receivedPropositions = response.body();
+                            if (receivedPropositions != null) {
+                                for (Proposition proposition : receivedPropositions) {
+                                    propositionList.add(proposition);
+                                    addMarkersToMap(propositionList);
                                 }
                             }
                         } else {
@@ -346,7 +438,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                     }
 
                     @Override
-                    public void onFailure(Call<List<Command>> call, Throwable t) {
+                    public void onFailure(Call<List<Proposition>> call, Throwable t) {
                         showCustomPopup();
                     }
                 });
@@ -366,43 +458,124 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         });
     }
 
-    private void addMarkersToMap(List<Command> commandList) {
-        if (mMap != null && commandList != null) {
-            for (Command command : commandList) {
-                String address = command.getAddress();
-                String title = command.getTitle();
-                String[] latLng = address.split(",");
+    private void showUpdatePopup(Command associatedCommand) {
+        if (associatedCommand != null) {
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.popup_update_command);
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
 
-                if (latLng.length == 2) {
-                    double latitude = Double.parseDouble(latLng[0]);
-                    double longitude = Double.parseDouble(latLng[1]);
+            Window window = dialog.getWindow();
+            if (window != null) {
+                WindowManager.LayoutParams layoutParams = window.getAttributes();
+                layoutParams.y = (int) getResources().getDisplayMetrics().density * 20;
+                window.setAttributes(layoutParams);
+            }
 
-                    LatLng location = new LatLng(latitude, longitude);
-                    MarkerOptions markerOptions = new MarkerOptions()
-                            .position(location)
-                            .title(title)
-                            .icon(BitmapFromVector(
-                                    getApplicationContext(),
-                                    R.drawable.chef));
-                    Marker marker = mMap.addMarker(markerOptions);
-                    linkMarkerToCommand(marker, command);
+
+            String address = associatedCommand.getAddress();
+            String[] latLng = address.split(",");
+
+            if (latLng.length == 2) {
+                double latitude = Double.parseDouble(latLng[0]);
+                double longitude = Double.parseDouble(latLng[1]);
+
+                // Perform reverse geocoding to get the location name from latitude and longitude
+                Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+                try {
+                    List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
+                    if (addresses != null && addresses.size() > 0) {
+                        String locationName = addresses.get(0).getAdminArea();
+                        TextView location = dialog.findViewById(R.id.location);
+                        location.setText(locationName);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            TextView title = dialog.findViewById(R.id.title);
+            TextView description = dialog.findViewById(R.id.Description);
+            TextView serving = dialog.findViewById(R.id.serving);
+            TextView delivary = dialog.findViewById(R.id.delivary);
+            TextView price = dialog.findViewById(R.id.price);
+
+            title.setText(associatedCommand.getTitle());
+            description.setText(associatedCommand.getDescription());
+            serving.setText(associatedCommand.getServing());
+            delivary.setText(associatedCommand.getDeadline());
+            price.setText(associatedCommand.getPrice() + "DH");
+
+            dialog.show();
+
+            arrow = dialog.findViewById(R.id.animation);
+            if (arrow != null) {
+                arrow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+            }
+
+            Button updateButton = dialog.findViewById(R.id.update);
+            if (updateButton != null) {
+                updateButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MapsHomeActivity.this, UpdateActivity.class);
+                        // Pass associatedCommand data to the new intent
+                        intent.putExtra("id", associatedCommand.getId());
+                        intent.putExtra("title", associatedCommand.getTitle());
+                        intent.putExtra("description", associatedCommand.getDescription());
+                        intent.putExtra("serving", associatedCommand.getServing());
+                        intent.putExtra("deadline", associatedCommand.getDeadline());
+                        intent.putExtra("price", associatedCommand.getPrice());
+                        intent.putExtra("address", associatedCommand.getAddress());
+
+                        // Start the new activity
+                        startActivity(intent);
+                    }
+                });
+            }
+        }
+    }
+
+    private void addMarkersToMap(List<Proposition> propositionList) {
+        if (mMap != null && propositionList != null) {
+            for (Proposition proposition : propositionList) {
+                Chef chef = proposition.getChef();
+
+                if (chef != null && chef.getAddress() != null) {
+                    String[] latLng = chef.getAddress().split(",");
+                    if (latLng.length == 2) {
+                        double latitude = Double.parseDouble(latLng[0]);
+                        double longitude = Double.parseDouble(latLng[1]);
+
+                        LatLng location = new LatLng(latitude, longitude);
+                        MarkerOptions markerOptions = new MarkerOptions()
+                                .position(location)
+                                .title("offer")
+                                .icon(BitmapFromVector(getApplicationContext(), R.drawable.chef));
+                        Marker marker = mMap.addMarker(markerOptions);
+                        linkMarkerToProposition(marker, proposition);
+                    }
                 }
             }
         }
     }
 
-    private void linkMarkerToCommand(Marker marker, Command command) {
-        markerCommandMap.put(marker.getId(), command);
+
+    private void linkMarkerToProposition(Marker marker, Proposition proposition) {
+        markerPropositionMap.put(marker.getId(), proposition);
     }
 
-    private Command getCommandFromMarker(Marker marker) {
-        return markerCommandMap.get(marker.getId());
+    private Proposition getPropositionFromMarker(Marker marker) {
+        return markerPropositionMap.get(marker.getId());
     }
 
     //method to change the marker's icon
     private BitmapDescriptor
-    BitmapFromVector(Context context, int vectorResId)
-    {
+    BitmapFromVector(Context context, int vectorResId) {
         Drawable vectorDrawable = ContextCompat.getDrawable(context, vectorResId);
         vectorDrawable.setBounds(0, 0, vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight());
         Bitmap bitmap = Bitmap.createBitmap(
@@ -427,7 +600,6 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     }
 
     private void sendCommandToBackend() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQzMDY2NTEsImV4cCI6MTcwNDM5MzA1MX0.FELi0YOBk6DGkdtvTgqUKqMgr_YTwfkWd6-vhclWe68";
 
         //form fields
         EditText Title = findViewById(R.id.title);
@@ -442,15 +614,14 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         String delivaryDate = DelivaryDate.getText().toString();
         EditText DelivaryTime = findViewById(R.id.deliveryTime);
         String delivaryTime = DelivaryTime.getText().toString();
-        String deadline =  delivaryDate + "/" + delivaryTime;
+        String deadline = delivaryDate + "/" + delivaryTime;
         Log.d("deadline", deadline);
 
         EditText Price = findViewById(R.id.price);
         String price = Price.getText().toString();
 
 
-
-        if (isValidCommand(title, description, serving, location, delivaryDate,delivaryTime, price)) {
+        if (isValidCommand(title, description, serving, location, delivaryDate, delivaryTime, price)) {
 
             // Create a Command object
             Command command = new Command();
@@ -472,19 +643,22 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
 
             // Mocking Client IDs
             Client client = new Client();
-            client.setId(3L);
+            client.setId(2L);
+            client.setRole("CLIENT");
             command.setClient(client);
+            command.setStatus("IN_PROGRESS");
 
             ApiService apiService = RetrofitClient.getApiService();
-            Call<Void> call = apiService.createCommand("Bearer " + accessToken, command);
+            Call<Command> call = apiService.createCommand("Bearer " + accessToken, command);
 
-            call.enqueue(new Callback<Void>() {
+
+            call.enqueue(new Callback<Command>() {
                 @Override
-                public void onResponse(Call<Void> call, Response<Void> response) {
+                public void onResponse(Call<Command> call, Response<Command> response) {
                     if (response.isSuccessful()) {
                         sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                        associatedCommand = response.body();
                         showSuccessDialog();
-
                         clearFields();
                     } else {
                         sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
@@ -493,7 +667,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 }
 
                 @Override
-                public void onFailure(Call<Void> call, Throwable t) {
+                public void onFailure(Call<Command> call, Throwable t) {
                     sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                     showErrorDialog();
                 }
@@ -556,7 +730,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         }
 
         boolean isServingValid = isValidServing(serving);
-        boolean isDateValid = isValidDate(delivaryDate,delivaryTime);
+        boolean isDateValid = isValidDate(delivaryDate, delivaryTime);
         boolean isPriceValid = isValidPrice(price);
 
         return isServingValid && isPriceValid && isDateValid;
@@ -567,7 +741,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             double value = Double.parseDouble(serving);
             return true;
         } catch (NumberFormatException e) {
-            Toast.makeText(getApplicationContext(),"Please enter a valid number as a portion",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter a valid number as a portion", Toast.LENGTH_LONG).show();
             return false;
         }
     }
@@ -595,11 +769,5 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             return false;
         }
     }
-
-
-
-
-
-
 
 }

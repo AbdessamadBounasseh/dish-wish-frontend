@@ -33,6 +33,15 @@ public class Client {
 
     private String  allergies;
 
+    private String role;
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     public Long getId() {
         return id;
     }
@@ -59,13 +68,6 @@ public class Client {
         this.lastName = lastName;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -98,5 +100,14 @@ public class Client {
 
     public void setAllergies(String allergies) {
         this.allergies = allergies;
+    }
+
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

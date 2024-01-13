@@ -7,8 +7,10 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -51,9 +53,7 @@ import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.Models.Proposition;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.databinding.ActivityMapsChefBinding;
-import uit.ensak.dish_wish_frontend.search_folder.filter_by_name_or_city;
-//import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
-
+import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
 public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -64,6 +64,8 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
     private ImageView arrow;
     private ImageView arrow_popup;
     private Button sendOffer;
+    String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwNjQyMDEsImV4cCI6MTcwNTE1MDYwMX0.Trk2cmuXm9SlyXrjNRuGb2mRwlbbGLqlSPB05YQekeM";
+
 
 
 
@@ -110,6 +112,17 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
         //Get Commands and place them on the map
         retryRequest();
 
+
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("selected_location", latLng);
+                setResult(Activity.RESULT_OK, resultIntent);
+                finish();
+            }
+        });
+
         // Check for location permission
         /*if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED &&
@@ -152,7 +165,6 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQzMDY2NTEsImV4cCI6MTcwNDM5MzA1MX0.FELi0YOBk6DGkdtvTgqUKqMgr_YTwfkWd6-vhclWe68";
 
                 ApiService apiService = RetrofitClient.getApiService();
                 Call<List<Command>> call = apiService.getCommands("Bearer " + accessToken);
@@ -349,12 +361,13 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                         public void onClick(View v) {
                             Proposition proposition = new Proposition();
 
-                            // Retrieve client ID from shared preferences
-                            SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);
-                            Long chefId = sharedPreferences.getLong("client_id_key", 3L);
+                            // Retrieve Chef ID from shared preferences
+                            /*SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);
+                            Long chefId = sharedPreferences.getLong("client_id_key", 2L);*/
 
                             Chef chef = new Chef();
-                            chef.setId(1L);
+                            chef.setId(2L);
+                            chef.setRole("CHEF");
                             proposition.setChef(chef);
 
                             Client client = associatedCommand.getClient();
@@ -364,7 +377,7 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                                 proposition.setCommand(associatedCommand);
                                 proposition.setLastClientProposition(valueOf(associatedCommand.getPrice()));
                             } else {
-                                Log.d("Command not provided","erorr");
+                                Log.d("Command not provided","eroor");
                             }
 
                             EditText pricefield = popup.findViewById(R.id.price);
@@ -386,8 +399,6 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                                 Log.d("NullPointerException", "Price field is null");
                             }
 
-
-                            String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQzMDY2NTEsImV4cCI6MTcwNDM5MzA1MX0.FELi0YOBk6DGkdtvTgqUKqMgr_YTwfkWd6-vhclWe68";
 
                             ApiService apiService = RetrofitClient.getApiService();
                             Call<Void> call = apiService.sendProposition("Bearer " + accessToken, proposition);
