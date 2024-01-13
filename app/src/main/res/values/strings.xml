@@ -41,6 +41,9 @@ Sign In
     <string name="sign_up">
 SIGN UP
 </string>
+    <string name="start">
+start
+</string>
     <string name="withFacebook">
 SIGN UP WITH FACEBOOK
 </string>
