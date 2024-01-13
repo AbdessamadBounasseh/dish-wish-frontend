@@ -44,6 +44,11 @@ public interface ApiServiceProfile {
             @Part MultipartBody.Part idCard,
             @Part MultipartBody.Part certificate
     );
+    @GET("clients/profile/{id}")
+    Call<ResponseBody> getClientProfile(
+            @Header("Authorization") String authToken,
+            @Path("id") Long id
+    );
 
     @GET("clients/profile/{id}")
     Call<ResponseBody> getClientProfile(
