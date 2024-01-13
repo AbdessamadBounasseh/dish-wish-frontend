@@ -57,7 +57,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".Command.MapsHomeActivity"
+            android:name=".Profil.search_profile"
             android:exported="true"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
             <intent-filter>

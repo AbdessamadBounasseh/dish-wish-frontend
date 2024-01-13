@@ -163,8 +163,17 @@ SEND COMPLAINT
     <string name="send_email">
 Enter your email address and we will send you a reset instructions.
 </string>
+    <string name="sendemail">
+send email
+</string>
     <string name="sign_in">
 Sign In
+</string>
+    <string name="sign_up">
+SIGN UP
+</string>
+    <string name="start">
+start
 </string>
     <string name="started">
 VERIFY
@@ -183,6 +192,12 @@ We have sent a instructions email to
 </string>
     <string name="welcome_to_">
 Welcome to DishWish
+</string>
+    <string name="withFacebook">
+SIGN UP WITH FACEBOOK
+</string>
+    <string name="withGoogle">
+SIGN UP WITH GOOGLE
 </string>
     <style name="Base.Theme.Dishwishfrontend" parent="Theme.Material3.DayNight.NoActionBar">
         

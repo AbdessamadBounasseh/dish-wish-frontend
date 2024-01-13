@@ -50,11 +50,7 @@ public interface ApiServiceProfile {
             @Path("id") Long id
     );
 
-    @GET("clients/profile/{id}")
-    Call<ResponseBody> getClientProfile(
-            @Header("Authorization") String authToken,
-            @Path("id") Long id
-    );
+
 
     @DELETE("clients/delete/{id}")
     Call<Void> deleteUserAccount(@Header("Authorization") String authToken, @Path("id") Long id);
