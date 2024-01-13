@@ -147,6 +147,7 @@ id btnchange
 id btnsubmit
 id buttonInfo
 id buttons_bar
+id changed
 id checkbox
 id component_1
 id confirmOffer
@@ -256,6 +257,7 @@ id verify
 id welcome
 id welcome_to_
 layout activity_become_cook
+layout activity_change_password
 layout activity_change_profile
 layout activity_connect
 layout activity_create_acciunt
@@ -313,7 +315,12 @@ raw success
 string action_settings
 string app_name
 string by_signing_
+string change
+string change_password
+string code
+string confirm
 string email_addre
+string enter_change
 string enter_your_
 string first_fragment_label
 string forget_pass
@@ -321,7 +328,7 @@ string forgot
 string general_1_1
 string having_prob
 string hello_blank_fragment
-string lorem_ipsum
+string last
 string menu_gallery
 string menu_home
 string menu_slideshow
@@ -338,12 +345,14 @@ string reset
 string second_fragment_label
 string send_email
 string sign_in
+string started
 string title_activity_forgot_password
 string title_activity_maps_home
 string title_activity_profile_preview
 string title_activity_profile_setting
 string title_activity_profile_settings
 string verificatio
+string verify
 string we_have_sen
 string welcome_to_
 style Base.Theme.Dishwishfrontend

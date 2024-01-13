@@ -50,6 +50,20 @@
         android:testOnly="true"
         android:theme="@style/Theme.Dishwishfrontend"
         android:usesCleartextTraffic="true" >
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Authentification.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Authentification.ForgotPasswordActivity"
+            android:exported="false"
+            android:label="@string/title_activity_forgot_password"
+            android:theme="@style/Theme.Dishwishfrontend" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Authentification.ResetEmailActivity"
+            android:exported="false" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Authentification.page_acceuil"
+            android:exported="false" />
 
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -70,9 +84,8 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name="uit.ensak.dish_wish_frontend.Profil.view_profile"
+            android:name="uit.ensak.dish_wish_frontend.Authentification.VerifyEmail"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -88,11 +101,18 @@
             android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
             android:exported="false" />
         <activity
-            android:name="uit.ensak.dish_wish_frontend.Command.MapsChefActivity"
+            android:name="uit.ensak.dish_wish_frontend.Profil.become_cook"
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name="uit.ensak.dish_wish_frontend.Profil.change_profile"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" /> <!-- <activity -->
+        <!-- android:name=".Profil_Folder.view_profile" -->
+        <!-- android:exported="false" -->
+        <!-- android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/> -->
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Command.MapsChefActivity"
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
