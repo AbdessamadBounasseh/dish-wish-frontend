@@ -77,7 +77,15 @@ CHANGE PASSWORD
     <string name="last">
 CURRENT PASSWORD
 </string>
-
+    <string name="code">
+CODE
+</string>
+    <string name="verify">
+VERIFY
+</string>
+    <string name="started">
+VERIFY
+</string>
     <string name="confirm">
 CONFIRM PASSWORD
 </string>

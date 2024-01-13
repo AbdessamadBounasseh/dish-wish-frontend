@@ -32,7 +32,7 @@
             android:name=".Authentification.ResetEmailActivity"
             android:exported="false" />
         <activity
-            android:name=".Authentification.VerifyEmail"
+            android:name=".Authentification.page_acceuil"
             android:exported="false" />
 
         <!--
@@ -54,7 +54,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".Authentification.page_acceuil"
+            android:name=".Authentification.VerifyEmail"
             android:exported="true"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
             <intent-filter>
