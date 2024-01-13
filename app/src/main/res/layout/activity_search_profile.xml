@@ -152,7 +152,8 @@
                 android:layout_marginTop="15dp"
                 android:text="Bio"
                 android:textColor="#868686"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:visibility="invisible"/>
 
             <TextView
                 android:id="@+id/textViewActualBio"
@@ -161,7 +162,7 @@
                 android:text=""
                 android:textColor="#010F07"
                 android:textSize="18sp"
-                android:visibility="visible" />
+                android:visibility="invisible" />
 
 
         </LinearLayout>

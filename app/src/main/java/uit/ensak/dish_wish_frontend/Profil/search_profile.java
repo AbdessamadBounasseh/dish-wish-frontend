@@ -1,10 +1,7 @@
 package uit.ensak.dish_wish_frontend.Profil;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -18,27 +15,17 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
-
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-
 import retrofit2.Callback;
 import retrofit2.Response;
-import uit.ensak.dish_wish_frontend.Authentification.CreateAccount;
-import uit.ensak.dish_wish_frontend.Authentification.page_acceuil;
 import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.R;
@@ -48,15 +35,11 @@ import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
 
 public class search_profile extends AppCompatActivity{
 
-        static final int REQUEST_CODE_CHANGE_PROFILE = 1;
+    static final int REQUEST_CODE_CHANGE_PROFILE = 1;
     static final int REQUEST_IMAGE_CAPTURE = 2;
     static final int REQUEST_PICK_IMAGE = 3;
-
     private ChefDTO chefDTO;
-
-
     private TextView textViewFirstName, textViewLastName, textViewAddress, textViewBio, textViewDiet, textViewPHONE_NUMBER, textViewAllergies, textViewBioContent;
-    private Spinner spinnerAllergies;
     private ImageView profileImageView;
 
     @Override
