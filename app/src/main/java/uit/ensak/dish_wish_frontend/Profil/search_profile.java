@@ -30,6 +30,7 @@ import android.widget.Toast;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Callback;
@@ -354,5 +355,9 @@ public class search_profile extends AppCompatActivity{
             editTextComment.setText("");
             scrollToBottom();
         }
+    }
+    private List<Comment> loadCommentsFromPrefs() {
+        CommentAdapter commentAdapter = new CommentAdapter(this, new ArrayList<>());
+        return commentAdapter.getCommentsFromPrefs();
     }
 }
