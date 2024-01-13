@@ -82,4 +82,9 @@ public interface ApiService {
             @Body Proposition proposition,
             @Header("Authorization") String accessToken
     );
+    @GET("propositions/{clientId}")
+    Call<List<Proposition>> getPropositionsByClientId(@Header("Authorization") String authToken, @Path("clientId") long clientId);
+
+    @GET("commands/client/{clientId}")
+    Call<List<Command>> getCommandsByClientId(@Header("Authorization") String authToken, @Path("clientId") long clientId);
 }
