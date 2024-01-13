@@ -42,7 +42,7 @@
     <RelativeLayout
         android:id="@+id/profile_infos"
         android:layout_width="304dp"
-        android:layout_height="550dp"
+        android:layout_height="590dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="64dp"
         app:layout_constraintStart_toStartOf="@id/profile"
@@ -50,7 +50,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="417dp"
+            android:layout_height="467dp"
             android:layout_marginTop="80dp"
             android:orientation="vertical">
 
@@ -225,32 +225,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <EditText
-                    android:id="@+id/editTextComment"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:hint="Add comment" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btnAddComment"
-                    android:layout_width="90dp"
-                    android:layout_height="40dp"
-                    android:layout_below="@id/editTextComment"
-                    android:text="Send"
-                    android:layout_marginStart="100dp"
-                    android:backgroundTint="@color/principalColor"/>
+                    <EditText
+                        android:id="@+id/editTextComment"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:hint="Add comment" />
+
+                    <Button
+                        android:id="@+id/btnAddComment"
+                        android:layout_width="90dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="@color/principalColor"
+                        android:text="Send" />
+                </LinearLayout>
 
                 <androidx.core.widget.NestedScrollView
                     android:id="@+id/nestedScrollView"
-                    android:layout_width="match_parent"
-                    android:layout_height="34dp"
+                    android:layout_width="292dp"
+                    android:layout_height="122dp"
                     android:layout_below="@id/btnAddComment"
-                    android:layout_marginTop="16dp">
+                    android:layout_marginTop="43dp">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerViewComments"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="150dp" />
                 </androidx.core.widget.NestedScrollView>
             </RelativeLayout>
 
