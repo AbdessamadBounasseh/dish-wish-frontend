@@ -41,6 +41,12 @@ Sign In
     <string name="sign_up">
 SIGN UP
 </string>
+    <string name="withFacebook">
+SIGN UP WITH FACEBOOK
+</string>
+    <string name="withGoogle">
+SIGN UP WITH GOOGLE
+</string>
     <string name="welcome_to_">
 Welcome to DishWish
 </string>
