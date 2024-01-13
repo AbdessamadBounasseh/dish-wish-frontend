@@ -145,6 +145,7 @@ id btnScancard
 id btnScancertif
 id btnchange
 id btnsubmit
+id buttonInfo
 id buttons_bar
 id checkbox
 id component_1
@@ -156,6 +157,7 @@ id deliveryDate
 id deliveryTime
 id dish
 id donthave
+id editTextAdditionalInfo
 id editTextConfirmPassword
 id editTextNewAddress
 id editTextNewAllergie
@@ -214,6 +216,7 @@ id sendOffer
 id serving
 id sign
 id sign_in
+id spinnerCity
 id spinnerDiet
 id st
 id subtractButton
@@ -230,10 +233,12 @@ id textView2
 id textViewActualAddress
 id textViewActualAllergies
 id textViewActualBio
+id textViewActualCity
 id textViewActualDiet
 id textViewActualFirstName
 id textViewActualLastName
 id textViewActualPhoneNumber
+id textViewActualPosition
 id textViewAddress
 id textViewAllergies
 id textViewBio

@@ -44,10 +44,10 @@ public class change_profile extends AppCompatActivity {
     private EditText editTextNewFirstName, editTextNewLastName, editTextNewAddress, editTextNewPhoneNumber, editTextNewAllergie,editTextNewBio;
     private TextView textViewBioTitle;
     private Button btnSubmit;
-    Spinner spinnerDiet;
-    private String currentFirstName, currentLastName, currentAddress,currentPhoneNumber,currentBio,currentAllergie,currentDiet;
+    Spinner spinnerDiet,spinnerCity;
+    private String currentFirstName, currentLastName, currentAddress,currentPhoneNumber,currentBio,currentAllergie,currentDiet,currentCity;
 
-    private String newDiet;
+    private String newDiet, newCity;
 
     private static final int REQUEST_IMAGE_CAPTURE = 101;
     private static final int REQUEST_PICK_IMAGE = 102;
@@ -78,14 +78,24 @@ public class change_profile extends AppCompatActivity {
             editTextNewBio.setVisibility(View.VISIBLE);
         }
         currentDiet = getIntent().getStringExtra("CURRENT_DIET");
+        currentCity =getIntent().getStringExtra("CURRENT_CITY");
         spinnerDiet = findViewById(R.id.spinnerDiet);
+        spinnerCity = findViewById(R.id.spinnerCity);
         ArrayAdapter<CharSequence> adapterDiet = ArrayAdapter.createFromResource(this, R.array.diet_array, android.R.layout.simple_spinner_item);
         adapterDiet.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDiet.setAdapter(adapterDiet);
 
-        int index = adapterDiet.getPosition(currentDiet);
-        if (index != -1) {
-            spinnerDiet.setSelection(index);
+        ArrayAdapter<CharSequence> adapterCity = ArrayAdapter.createFromResource(this, R.array.city, android.R.layout.simple_spinner_item);
+        adapterCity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCity.setAdapter(adapterCity);
+
+        int indexDiet = adapterDiet.getPosition(currentDiet);
+        int indexCity = adapterCity.getPosition(currentCity);
+        if (indexDiet != -1) {
+            spinnerDiet.setSelection(indexDiet);
+        }
+        if (indexCity != -1) {
+            spinnerCity.setSelection(indexCity);
         }
 
 
