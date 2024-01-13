@@ -665,7 +665,34 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     }
 
 
+    private void addCommandMarkersToMap(List<Command> commandList) {
+        if (mMap != null && commandList != null) {
+            for (Command command : commandList) {
+                String[] latLng = command.getAddress().split(",");
 
+                if (latLng != null && latLng.length == 2) {
+                    double latitude = Double.parseDouble(latLng[0]);
+                    double longitude = Double.parseDouble(latLng[1]);
+
+                    LatLng location = new LatLng(latitude, longitude);
+                    MarkerOptions markerOptions = new MarkerOptions()
+                            .position(location)
+                            .title("Command Created" + command.getId())
+                            .icon(BitmapFromVector(getApplicationContext(), R.drawable.order_marker));
+                    Marker marker = mMap.addMarker(markerOptions);
+                    linkMarkerToCommand(marker, command);
+                }
+            }
+        }
+    }
+
+    private void linkMarkerToCommand(Marker marker, Command command) {
+        markerCommandMap.put(marker.getId(), command);
+    }
+
+    private Command getCommandFromMarker(Marker marker) {
+        return markerCommandMap.get(marker.getId());
+    }
 
 
 
