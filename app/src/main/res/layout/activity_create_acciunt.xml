@@ -205,20 +205,19 @@
 
                 />
 
-            <Button
-                android:layout_width="333dp"
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="336dp"
                 android:layout_height="48dp"
-                android:background="@drawable/rounded_corners"
-                android:backgroundTint="#EEA734"
-                android:text="SIGN UP"
-                android:textColor="#FFFFFFFF"
+                android:background="@drawable/rounded_edittext"
+                android:backgroundTint="@color/principalColor"
+                android:onClick="getstarted"
+                android:text="@string/sign_up"
+                android:textColor="@color/white"
                 android:textSize="14sp"
-                app:backgroundTint="@null"
-                android:id="@+id/sign"
                 android:layout_marginTop="25dp"
-                android:layout_below="@+id/pass2"
-
-                />
+                android:layout_marginLeft="4dp"
+                android:id="@+id/sign"
+                android:layout_below="@+id/pass2"/>
             <TextView
 
                 android:layout_width="284dp"
