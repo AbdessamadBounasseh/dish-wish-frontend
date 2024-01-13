@@ -58,6 +58,8 @@ public class search_profile extends AppCompatActivity{
     private CommentAdapter commentAdapter;
     private List<Comment> comments;
     private NestedScrollView nestedScrollView;
+    private String clientFirstName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,6 +127,7 @@ public class search_profile extends AppCompatActivity{
             getClient(new ApiClientCallback() {
                 @Override
                 public void onClientReceived(Client client) {
+                    clientFirstName = client.getFirstName();
                     textViewFirstName.setText(client.getFirstName());
                     textViewLastName.setText(client.getLastName());
                     textViewAddress.setText(client.getAddress());
@@ -355,7 +358,7 @@ public class search_profile extends AppCompatActivity{
 
 
     private void addComment() {
-        String username = "Utilisateur"; // A Remplacez
+        String username = clientFirstName;
         String commentContent = editTextComment.getText().toString().trim();
         if (!commentContent.isEmpty()) {
             comments.add(new Comment(username, commentContent));
