@@ -51,6 +51,9 @@
         android:theme="@style/Theme.Dishwishfrontend"
         android:usesCleartextTraffic="true" >
         <activity
+            android:name="uit.ensak.dish_wish_frontend.Authentification.VerifyEmail"
+            android:exported="false" />
+        <activity
             android:name="uit.ensak.dish_wish_frontend.Authentification.ChangePasswordActivity"
             android:exported="false" />
         <activity
@@ -64,7 +67,6 @@
         <activity
             android:name="uit.ensak.dish_wish_frontend.Authentification.page_acceuil"
             android:exported="false" />
-
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -84,7 +86,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name="uit.ensak.dish_wish_frontend.Authentification.VerifyEmail"
+            android:name="uit.ensak.dish_wish_frontend.Contact.ComplaintActivity"
             android:exported="true"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
             <intent-filter>

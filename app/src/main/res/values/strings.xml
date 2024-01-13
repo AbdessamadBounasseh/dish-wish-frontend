@@ -86,6 +86,19 @@ VERIFY
     <string name="started">
 VERIFY
 </string>
+    <string name="COMPLAINT">
+Complaint
+</string>
+
+    <string name="send_complaint">
+SEND COMPLAINT
+</string>
+    <string name="helpful_number">
+Helpline Number
+</string>
+    <string name="number">
+8754575445
+</string>
     <string name="confirm">
 CONFIRM PASSWORD
 </string>

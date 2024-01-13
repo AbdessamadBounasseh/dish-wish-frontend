@@ -106,6 +106,8 @@ drawable yourposition
 font abelregular
 font inter
 font interlight
+font intermeduim
+font interregular
 font poppins_bold
 font poppins_regular
 id ChooseLocation
@@ -149,6 +151,7 @@ id buttonInfo
 id buttons_bar
 id changed
 id checkbox
+id complaint
 id component_1
 id confirmOffer
 id cook
@@ -259,6 +262,7 @@ id welcome_to_
 layout activity_become_cook
 layout activity_change_password
 layout activity_change_profile
+layout activity_complaint
 layout activity_connect
 layout activity_create_acciunt
 layout activity_finalize_order
@@ -312,6 +316,8 @@ raw reset
 raw returnarrow
 raw sent
 raw success
+raw support
+string COMPLAINT
 string action_settings
 string app_name
 string by_signing_
@@ -328,6 +334,7 @@ string forgot
 string general_1_1
 string having_prob
 string hello_blank_fragment
+string helpful_number
 string last
 string menu_gallery
 string menu_home
@@ -338,11 +345,13 @@ string nav_header_title
 string navigation_drawer_close
 string navigation_drawer_open
 string next
+string number
 string password
 string previous
 string remember
 string reset
 string second_fragment_label
+string send_complaint
 string send_email
 string sign_in
 string started
