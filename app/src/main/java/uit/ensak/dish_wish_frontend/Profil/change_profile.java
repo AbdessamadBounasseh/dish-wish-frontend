@@ -162,8 +162,13 @@ public class change_profile extends AppCompatActivity {
         }
 
         ImageButton btnBack = findViewById(R.id.btnBack);
-
-
+//le bouton pour lancer le map
+       btnPosition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
