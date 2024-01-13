@@ -18,7 +18,6 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import okhttp3.ResponseBody;
@@ -47,13 +46,13 @@ public class search_profile extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("userId", 3L);
-        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWEyMDEwOUBnbWFpbC5tYSIsImlhdCI6MTcwNTEwMjIyNywiZXhwIjoxNzA1MTg4NjI3fQ.m2KZ6tfyofV9mk8M9-lxh_oG04l1kOD4jBMvhuILNag");
+        editor.putLong("userId", 6L);
+        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWEyMDEwMkBnbWFpbC5tYSIsImlhdCI6MTcwNTE4MDE5NiwiZXhwIjoxNzA1MjY2NTk2fQ.6F-wVZL4avcj4lRGYGDBZ91jfaC2JT_QsPTsSiNoAwY");
         editor.putBoolean("isCook", false);
         editor.apply();
         Boolean isCook = preferences.getBoolean("isCook", false);
 
-        setContentView(R.layout.activity_view_profile);
+        setContentView(R.layout.activity_search_profile);
 
         textViewFirstName = findViewById(R.id.textViewActualFirstName);
         textViewLastName = findViewById(R.id.textViewActualLastName);
@@ -111,10 +110,7 @@ public class search_profile extends AppCompatActivity{
         }
 
         getClientProfile();
-
         ImageButton btnBack = findViewById(R.id.btnBack);
-
-
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,7 +127,6 @@ public class search_profile extends AppCompatActivity{
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 1 && resultCode == RESULT_OK) {
-
             String newFirstName = data.getStringExtra("NEW_FIRST_NAME");
             String newLastName = data.getStringExtra("NEW_LAST_NAME");
             String newAddress = data.getStringExtra("NEW_ADDRESS");
@@ -139,7 +134,6 @@ public class search_profile extends AppCompatActivity{
             String newDiet = data.getStringExtra("NEW_DIET");
             String newPhoneNumber = data.getStringExtra("NEW_PHONE_NUMBER");
             String newAllergy = data.getStringExtra("NEW_ALLERGY");
-
             Bitmap newProfileImageBitmap = data.getParcelableExtra("NEW_PROFILE_IMAGE_BITMAP");
 
             if (newProfileImageBitmap != null) {

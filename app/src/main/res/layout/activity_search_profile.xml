@@ -144,6 +144,63 @@
                 android:text=""
                 android:textColor="#010F07"
                 android:textSize="18sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <!-- Allergies -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textViewAllergies"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Allergies"
+                        android:textColor="#868686"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/textViewActualAllergies"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#010F07"
+                        android:textSize="18sp"
+                        android:layout_marginStart="8dp"/>
+                </LinearLayout>
+
+                <!-- Diet -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="76dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textViewDiet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Diet"
+                        android:textColor="#868686"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:id="@+id/textViewActualDiet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#010F07"
+                        android:textSize="18sp"
+                        android:layout_marginStart="8dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
 
             <TextView
                 android:id="@+id/textViewBio"

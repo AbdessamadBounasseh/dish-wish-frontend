@@ -128,6 +128,7 @@ id animation_cook_space
 id bars_top_ba
 id bottom_sheet_arrow
 id bottom_sheet_layout
+id btnAddReview
 id btnBack
 id btnDeleteAccount
 id btnInProgress
@@ -247,6 +248,7 @@ layout activity_maps_chef
 layout activity_maps_home
 layout activity_page_acceuil
 layout activity_reset_password
+layout activity_search_profile
 layout activity_terms
 layout activity_verify_email
 layout activity_view_profile
