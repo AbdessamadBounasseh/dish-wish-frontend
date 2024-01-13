@@ -16,8 +16,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import okhttp3.ResponseBody;
@@ -50,6 +52,13 @@ public class search_profile extends AppCompatActivity{
         editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWEyMDEwMkBnbWFpbC5tYSIsImlhdCI6MTcwNTE4MDE5NiwiZXhwIjoxNzA1MjY2NTk2fQ.6F-wVZL4avcj4lRGYGDBZ91jfaC2JT_QsPTsSiNoAwY");
         editor.putBoolean("isCook", false);
         editor.apply();
+
+        final RatingBar ratingBar =(RatingBar) findViewById(R.id.ratingBar);
+        Button btnRating = findViewById(R.id.btnAddReview);
+        //final  TextView RatingResult = findViewById(R.id.textViewActualRating);
+        double ratingVlue = (double) ratingBar.getRating();
+        // float ratingValue = 4.2f;
+
         Boolean isCook = preferences.getBoolean("isCook", false);
 
         setContentView(R.layout.activity_search_profile);
