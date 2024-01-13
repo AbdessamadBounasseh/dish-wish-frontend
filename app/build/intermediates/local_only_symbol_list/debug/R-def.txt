@@ -137,6 +137,7 @@ id arrow
 id bars_top_ba
 id bottom_sheet_arrow
 id bottom_sheet_layout
+id btnAddComment
 id btnAddReview
 id btnBack
 id btnDeleteAccount
@@ -162,6 +163,7 @@ id deliveryDate
 id deliveryTime
 id dish
 id donthave
+id editTextComment
 id editTextConfirmPassword
 id editTextNewAddress
 id editTextNewAllergie
@@ -198,6 +200,7 @@ id nav_gallery
 id nav_graph
 id nav_home
 id nav_slideshow
+id nestedScrollView
 id notificationIcon
 id ob_forms_ti
 id order
@@ -214,6 +217,7 @@ id price
 id profile
 id profile_infos
 id ratingBar
+id recyclerViewComments
 id searchEditText
 id searchResultsRecyclerView
 id search_bar
