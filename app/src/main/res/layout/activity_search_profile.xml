@@ -4,57 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profil.view_profile">
+    tools:context=".Profil.search_profile">
 
-    <!-- TextView pour le titre centré horizontalement -->
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profile Settings"
-        android:textSize="24sp"
-        android:textColor="@android:color/black"
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_back"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        android:layout_marginTop="35dp"/>
-
-    <!-- RelativeLayout pour les éléments de l'activité -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:src="@drawable/ic_back"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="22dp"
-            android:layout_marginStart="16dp"
-            android:background="@color/white"/>
-
-
-    </RelativeLayout>
-
-    <!-- First View: profile_folder -->
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/white"/>
     <View
         android:id="@+id/profile"
         android:layout_width="332dp"
-        android:layout_height="428dp"
+        android:layout_height="628dp"
         android:background="@drawable/border_background"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="75dp"/>
     <!-- Second View: portrait_of -->
     <ImageView
         android:id="@+id/portrait_of"
         android:layout_width="92dp"
         android:layout_height="92dp"
-
         android:layout_marginEnd="120dp"
         android:background="@drawable/portrait_of"
         android:elevation="4dp"
@@ -63,12 +39,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/profile_infos"
         tools:layout_editor_absoluteY="83dp" />
-
-
     <RelativeLayout
         android:id="@+id/profile_infos"
         android:layout_width="304dp"
-        android:layout_height="399dp"
+        android:layout_height="499dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="64dp"
         app:layout_constraintStart_toStartOf="@id/profile"
@@ -76,22 +50,22 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="404dp"
+            android:layout_marginTop="80dp"
             android:orientation="vertical">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
 
-
-                <!-- First Name -->
                 <LinearLayout
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textViewFirstName"
@@ -99,7 +73,7 @@
                         android:layout_height="wrap_content"
                         android:text="First name"
                         android:textColor="#868686"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textViewActualFirstName"
@@ -107,16 +81,16 @@
                         android:layout_height="wrap_content"
                         android:text=""
                         android:textColor="#010F07"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <!-- Last Name -->
                 <LinearLayout
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_below="@id/textViewFirstName"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textViewLastName"
@@ -124,7 +98,7 @@
                         android:layout_height="wrap_content"
                         android:text="LAST name"
                         android:textColor="#868686"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/textViewActualLastName"
@@ -132,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:text=""
                         android:textColor="#010F07"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -144,7 +118,7 @@
                 android:layout_marginTop="15dp"
                 android:text="address"
                 android:textColor="#868686"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textViewActualAddress"
@@ -152,8 +126,8 @@
                 android:layout_height="wrap_content"
                 android:text=""
                 android:textColor="#010F07"
-                android:textSize="18sp"/>
-            <!--  PhoneNumber-->
+                android:textSize="18sp" />
+
             <TextView
                 android:id="@+id/textViewPhoneNumber"
                 android:layout_width="wrap_content"
@@ -161,7 +135,7 @@
                 android:layout_marginTop="15dp"
                 android:text="Phone number"
                 android:textColor="#868686"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textViewActualPhoneNumber"
@@ -169,86 +143,52 @@
                 android:layout_height="wrap_content"
                 android:text=""
                 android:textColor="#010F07"
-                android:textSize="18sp"/>
-
-            <!--  Allergies -->
-            <TextView
-                android:id="@+id/textViewAllergies"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Allergies"
-                android:textColor="#868686"
-                android:textSize="14sp"/>
-
-            <TextView
-                android:id="@+id/textViewActualAllergies"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="#010F07"
                 android:textSize="18sp" />
 
-            <!--  DIET -->
-            <TextView
-                android:id="@+id/textViewDiet"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="diet"
-                android:textColor="#868686"
-                android:textSize="14sp"/>
-
-            <TextView
-                android:id="@+id/textViewActualDiet"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="#010F07"
-                android:textSize="18sp"/>
-
-            <!--  BIO -->
             <TextView
                 android:id="@+id/textViewBio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:text="BIO"
-                android:visibility="invisible"
+                android:text="Bio"
                 android:textColor="#868686"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textViewActualBio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:visibility="visible"
                 android:textColor="#010F07"
-                android:textSize="18sp"/>
+                android:textSize="18sp"
+                android:visibility="visible" />
+
+
         </LinearLayout>
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stepSize="1"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:numStars="5"
+            android:layout_marginLeft="28dp"/>
+
+        <Button
+            android:id="@+id/btnAddReview"
+            android:layout_width="120dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="87dp"
+            android:backgroundTint="@color/principalColor"
+            android:text="Add review"
+            android:textSize="11dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ratingBar" />
+
+
     </RelativeLayout>
-
-    <Button
-        android:id="@+id/btnchange"
-        android:layout_width="335dp"
-        android:layout_height="62dp"
-        android:text="Change"
-        android:backgroundTint="@color/principalColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="70dp"/>
-    <Button
-        android:id="@+id/btnDeleteAccount"
-        android:layout_width="335dp"
-        android:layout_height="62dp"
-        android:text="Delete Account"
-        android:backgroundTint="@color/principalColor"
-        app:layout_constraintTop_toBottomOf="@id/btnchange"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
