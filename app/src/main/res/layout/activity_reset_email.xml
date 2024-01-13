@@ -167,7 +167,6 @@
         android:layout_height="48dp"
         android:background="@drawable/rounded_edittext"
         android:backgroundTint="@color/principalColor"
-        android:onClick="getstarted"
         android:text="@string/verify"
         android:textColor="@color/white"
         android:textSize="14sp"

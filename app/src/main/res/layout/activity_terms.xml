@@ -76,19 +76,19 @@
             />
     </LinearLayout>
 
-    <Button
-        android:layout_width="283dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="333dp"
         android:layout_height="48dp"
         android:background="@drawable/rounded_edittext"
-        android:backgroundTint="#EEA734"
-        android:text="START"
-        android:textColor="#FFFFFFFF"
+        android:backgroundTint="@color/principalColor"
+        android:onClick="getstarted"
+        android:text="@string/start"
+        android:textColor="@color/white"
         android:textSize="14sp"
-        app:backgroundTint="@null"
-        android:id="@+id/st"
         android:layout_marginTop="630dp"
-        android:layout_marginLeft="95dp"
-
+        android:layout_marginLeft="80dp"
+        android:id="@+id/st"
+/>
         />
 
 </RelativeLayout>
