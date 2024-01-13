@@ -198,19 +198,19 @@
 
                 />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="333dp"
                 android:layout_height="48dp"
-                android:layout_below="@id/checkbox"
-                android:background="@drawable/rounded_corners"
-                android:backgroundTint="#EEA734"
-                android:text="SIGN IN"
-                android:textColor="#FFFFFFFF"
+                android:background="@drawable/rounded_edittext"
+                android:backgroundTint="@color/principalColor"
+                android:onClick="getstarted"
+                android:text="@string/sign_in"
+                android:textColor="@color/white"
                 android:textSize="14sp"
-                app:backgroundTint="@null"
+                android:layout_marginLeft="12dp"
                 android:id="@+id/sign"
-
-                />
+                android:layout_below="@id/checkbox"
+               />
             <TextView
                 android:id="@+id/create_acco"
                 android:layout_width="wrap_content"
