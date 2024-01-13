@@ -2,6 +2,10 @@ package uit.ensak.dish_wish_frontend.Profil;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -17,6 +21,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -25,13 +30,17 @@ import android.widget.Toast;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import java.io.IOException;
+import java.util.List;
+
 import retrofit2.Callback;
 import retrofit2.Response;
 import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
+import uit.ensak.dish_wish_frontend.Models.Comment;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.dto.ChefDTO;
 import uit.ensak.dish_wish_frontend.dto.DietDTO;
+import uit.ensak.dish_wish_frontend.search_folder.CommentAdapter;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
 
 public class search_profile extends AppCompatActivity{
@@ -42,6 +51,12 @@ public class search_profile extends AppCompatActivity{
     private ChefDTO chefDTO;
     private TextView textViewFirstName, textViewLastName, textViewAddress, textViewBio, textViewDiet, textViewPHONE_NUMBER, textViewAllergies, textViewBioContent;
     private ImageView profileImageView;
+    private EditText editTextComment;
+    private Button btnAddComment;
+    private RecyclerView recyclerViewComments;
+    private CommentAdapter commentAdapter;
+    private List<Comment> comments;
+    private NestedScrollView nestedScrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +85,15 @@ public class search_profile extends AppCompatActivity{
         textViewAllergies = findViewById(R.id.textViewActualAllergies);
         profileImageView = findViewById(R.id.portrait_of);
         textViewBioContent = findViewById(R.id.textViewActualBio);
+        editTextComment = findViewById(R.id.editTextComment);
+        btnAddComment = findViewById(R.id.btnAddComment);
+        recyclerViewComments = findViewById(R.id.recyclerViewComments);
+        nestedScrollView = findViewById(R.id.nestedScrollView);
+
+        comments = loadCommentsFromPrefs();
+        commentAdapter = new CommentAdapter(this, comments);
+        recyclerViewComments.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewComments.setAdapter(commentAdapter);
         TextView textViewBioTitle = findViewById(R.id.textViewBio);
 
         if (isCook) {
@@ -135,7 +159,15 @@ public class search_profile extends AppCompatActivity{
 //            }
 //        });
 //        ratingBar.setRating((float) ratingValue);
+
+        btnAddComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addComment();
+            }
+        });
     }
+
 
 
     @Override
@@ -312,5 +344,15 @@ public class search_profile extends AppCompatActivity{
                 Toast.makeText(search_profile.this, "Unavailable Sever " ,Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    private void addComment() {
+        String username = "Utilisateur"; // A Remplacez
+        String commentContent = editTextComment.getText().toString().trim();
+        if (!commentContent.isEmpty()) {
+            comments.add(new Comment(username, commentContent));
+            commentAdapter.notifyDataSetChanged();
+            editTextComment.setText("");
+            scrollToBottom();
+        }
     }
 }
