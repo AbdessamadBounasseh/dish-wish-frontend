@@ -30,7 +30,6 @@ public class FinalizeOrderActivity extends AppCompatActivity {
     private ImageView arrow;
     private ImageView negotiate;
     private long propositionId;
-    private ImageView arrow_popup;
     private Button sendOffer;
     String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwNjQyMDEsImV4cCI6MTcwNTE1MDYwMX0.Trk2cmuXm9SlyXrjNRuGb2mRwlbbGLqlSPB05YQekeM";
 

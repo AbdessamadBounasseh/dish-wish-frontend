@@ -14,6 +14,7 @@ public class Command implements Serializable {
     private String serving;
     private String address;
     private String deadline;
+    private String city;
     private String price;
     private String status;
     private Client client;
@@ -21,7 +22,7 @@ public class Command implements Serializable {
 
     // Constructor
     public Command(Long id, String title, String description, String serving, String address, String deadline,
-                   String price, String status,
+                   String city,String price, String status,
                    Client client, Chef chef) {
         this.id = id;
         this.title= title;
@@ -29,6 +30,7 @@ public class Command implements Serializable {
         this.serving = serving;
         this.address = address;
         this.deadline = deadline;
+        this.city = city;
         this.price = price;
         this.status = status;
         this.client = client;
@@ -85,6 +87,12 @@ public class Command implements Serializable {
 
     public void setDeadline(String deadline) {
         this.deadline = deadline;
+    }
+    public String getCity() {
+        return city;
+    }
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getPrice() {

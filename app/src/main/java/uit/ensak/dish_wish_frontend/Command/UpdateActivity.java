@@ -98,8 +98,7 @@ public class UpdateActivity extends AppCompatActivity {
                         Intent data = result.getData();
                         LatLng selectedLatLng = data.getParcelableExtra("selected_location");
 
-                        // Now you can use the selectedLatLng as needed
-                        // For example, set it to an EditText
+                        // Now we can use the selectedLatLng as needed
                         EditText addressEditTe = findViewById(R.id.location);
                         addressEditTe.setText(selectedLatLng.latitude + "," + selectedLatLng.longitude);
                     }
@@ -209,7 +208,7 @@ public class UpdateActivity extends AppCompatActivity {
 
 
     private void UpdateCommand() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5NjgzMzUsImV4cCI6MTcwNTA1NDczNX0.492foEuc2CyhQbIWrMT8xSe--2n1egUoV_mu-aVuuG4";
+        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwNjQyMDEsImV4cCI6MTcwNTE1MDYwMX0.Trk2cmuXm9SlyXrjNRuGb2mRwlbbGLqlSPB05YQekeM";
 
         //form fields
         EditText Title = findViewById(R.id.title);

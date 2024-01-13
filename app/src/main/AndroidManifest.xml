@@ -57,7 +57,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".Authentification.page_acceuil"
+            android:name=".Command.MapsHomeActivity"
             android:exported="true"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
             <intent-filter>
@@ -71,19 +71,28 @@
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
-            android:name=".Command.MapsHomeActivity"
+            android:name=".Authentification.page_acceuil"
             android:exported="false" />
         <activity
             android:name=".Profil.become_cook"
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
+            android:name=".Command.FinalizeOrderActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+        <activity
+            android:name=".Command.UpdateActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+        <activity
             android:name=".Profil.change_profile"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" /> <!-- <activity -->
-        <!-- android:name=".Profil_Folder.view_profile" -->
-        <!-- android:exported="false" -->
-        <!-- android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/> -->
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+         <activity
+        android:name=".Profil.view_profile"
+        android:exported="false"
+         android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
         <activity
             android:name=".Command.MapsChefActivity"
             android:exported="false"
