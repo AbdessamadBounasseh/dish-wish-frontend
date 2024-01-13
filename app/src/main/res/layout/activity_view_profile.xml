@@ -157,7 +157,7 @@
                     android:id="@+id/textViewActualCity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="city"
+                    android:text=""
                     android:textColor="#010F07"
                     android:textSize="18sp"
                     android:layout_marginRight="10dp"/>
@@ -166,7 +166,7 @@
                     android:id="@+id/textViewActualAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="full adress"
+                    android:text=""
                     android:layout_marginLeft="5dp"
                     android:textColor="#010F07"
                     android:textSize="18sp" />
@@ -175,7 +175,7 @@
                 android:id="@+id/textViewActualPosition"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="full adress"
+                android:text=""
                 android:textColor="#010F07"
                 android:textSize="18sp" />
 
