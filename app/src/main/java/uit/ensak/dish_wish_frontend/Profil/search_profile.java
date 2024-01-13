@@ -56,8 +56,7 @@ public class search_profile extends AppCompatActivity{
         final RatingBar ratingBar =(RatingBar) findViewById(R.id.ratingBar);
         Button btnRating = findViewById(R.id.btnAddReview);
         //final  TextView RatingResult = findViewById(R.id.textViewActualRating);
-        double ratingVlue = (double) ratingBar.getRating();
-        // float ratingValue = 4.2f;
+         double ratingValue = (double) ratingBar.getRating();
 
         Boolean isCook = preferences.getBoolean("isCook", false);
 
@@ -127,7 +126,13 @@ public class search_profile extends AppCompatActivity{
             }
         });
 
-
+        btnRating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //RatingResult.setText("yourRating is "+ ratingBar.getRating());
+            }
+        });
+       ratingBar.setRating((float) ratingValue);
     }
 
 
