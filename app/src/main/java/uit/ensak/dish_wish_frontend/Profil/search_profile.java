@@ -164,9 +164,15 @@ public class search_profile extends AppCompatActivity{
         btnAddComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 addComment();
             }
         });
+
+
+
+
+
     }
 
 
@@ -346,6 +352,8 @@ public class search_profile extends AppCompatActivity{
             }
         });
     }
+
+
     private void addComment() {
         String username = "Utilisateur"; // A Remplacez
         String commentContent = editTextComment.getText().toString().trim();
@@ -360,4 +368,11 @@ public class search_profile extends AppCompatActivity{
         CommentAdapter commentAdapter = new CommentAdapter(this, new ArrayList<>());
         return commentAdapter.getCommentsFromPrefs();
     }
+    private void scrollToBottom() {
+        nestedScrollView.post(new Runnable() {
+            @Override
+            public void run() {
+                nestedScrollView.fullScroll(View.FOCUS_DOWN);
+            }
+        });}
 }
