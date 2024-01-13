@@ -126,13 +126,7 @@ public class search_profile extends AppCompatActivity{
             }
         });
 
-        btnRating.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //RatingResult.setText("yourRating is "+ ratingBar.getRating());
-            }
-        });
-       ratingBar.setRating((float) ratingValue);
+
     }
 
 
