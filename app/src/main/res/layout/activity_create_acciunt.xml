@@ -206,7 +206,7 @@
                 />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="336dp"
+                android:layout_width="333dp"
                 android:layout_height="48dp"
                 android:background="@drawable/rounded_edittext"
                 android:backgroundTint="@color/principalColor"
@@ -289,19 +289,19 @@
             android:layout_marginLeft="158dp"
 
             />
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:layout_width="333dp"
             android:layout_height="48dp"
+            android:background="@drawable/rounded_edittext"
             android:backgroundTint="#395998"
-            android:text="SIGN UP WITH FACEBOOK"
-            android:gravity="center_horizontal|center_vertical"
+            android:onClick="getstarted"
+            android:text="@string/withFacebook"
+            android:textColor="@color/white"
             android:textSize="12sp"
-            android:textColor="#FFFFFFFF"
             android:letterSpacing="0.07"
-            app:backgroundTint="@null"
-
-            android:background="@drawable/rounded_corners"
-            />
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_marginLeft="4dp"
+            android:layout_below="@+id/pass2"/>
         <Button
             android:layout_width="333dp"
             android:layout_height="48dp"
