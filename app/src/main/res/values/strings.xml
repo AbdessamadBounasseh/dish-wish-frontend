@@ -47,6 +47,9 @@ SIGN UP WITH FACEBOOK
     <string name="withGoogle">
 SIGN UP WITH GOOGLE
 </string>
+    <string name="sendemail">
+send email
+</string>
     <string name="welcome_to_">
 Welcome to DishWish
 </string>
