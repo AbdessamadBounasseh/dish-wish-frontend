@@ -113,6 +113,9 @@ EMAIL ADDRESS
     <string name="enter_change">
 Enter your current and your new password in order to change it
 </string>
+    <string name="enter_new">
+ Enter your new password
+</string>
     <string name="enter_your_">
 Enter your Phone number or Email address for sign in. Enjoy your food :)
 </string>
@@ -155,6 +158,9 @@ REMEBER ME
 </string>
     <string name="reset">
 Reset email sent
+</string>
+    <string name="reset_pass">
+  Reset password
 </string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="send_complaint">

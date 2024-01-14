@@ -183,7 +183,7 @@ public class CreateAccount extends AppCompatActivity {
             public void onResponse(Call<AuthenticationResponse> call, Response<AuthenticationResponse> response) {
                 int statusCode = response.code();
                 Log.d("MyTag", "HTTP Status Code: " + statusCode);
-                if (response.isSuccessful()) {
+                //if (response.isSuccessful()) {
 
                     AuthenticationResponse authenticationResponse = response.body();
                     logger.info("succes");
@@ -194,7 +194,7 @@ public class CreateAccount extends AppCompatActivity {
                 }
 
 
-            }
+            //}
 
             @Override
             public void onFailure(Call<AuthenticationResponse> call, Throwable t) {

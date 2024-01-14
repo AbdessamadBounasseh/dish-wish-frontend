@@ -58,7 +58,7 @@ public class VerifyEmail extends AppCompatActivity {
         String email = sharedPreferences.getString(KEY_EMAIL, null);
         String code = sharedPreferences.getString(KEY_CODE, null);
 
-        etemail.setText(email);
+            etemail.setText(email);
 
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -103,15 +103,18 @@ public class VerifyEmail extends AppCompatActivity {
                     Log.d("MyTag", "Response is null or not successful");
                     Toast.makeText(VerifyEmail.this, "Verification failed", Toast.LENGTH_LONG).show();
                 }
+
+
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 t.printStackTrace();
                 Toast.makeText(VerifyEmail.this, "Verification failed", Toast.LENGTH_LONG).show();
+
             }
         });
-    }
 
+    }
 
 }
