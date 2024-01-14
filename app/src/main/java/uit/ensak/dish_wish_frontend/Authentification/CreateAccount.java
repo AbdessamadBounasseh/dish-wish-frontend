@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import uit.ensak.dish_wish_frontend.Command.RetrofitClient;
+import uit.ensak.dish_wish_frontend.service.RetrofitClient;
 import uit.ensak.dish_wish_frontend.Models.Auth.AuthenticationResponse;
 import uit.ensak.dish_wish_frontend.Models.Auth.RegisterRequest;
 import uit.ensak.dish_wish_frontend.R;
@@ -183,7 +183,7 @@ public class CreateAccount extends AppCompatActivity {
             public void onResponse(Call<AuthenticationResponse> call, Response<AuthenticationResponse> response) {
                 int statusCode = response.code();
                 Log.d("MyTag", "HTTP Status Code: " + statusCode);
-                //if (response.isSuccessful()) {
+                if (response.isSuccessful()) {
 
                     AuthenticationResponse authenticationResponse = response.body();
                     logger.info("succes");
@@ -194,7 +194,7 @@ public class CreateAccount extends AppCompatActivity {
                 }
 
 
-            //}
+            }
 
             @Override
             public void onFailure(Call<AuthenticationResponse> call, Throwable t) {
