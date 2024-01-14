@@ -1,5 +1,6 @@
 package uit.ensak.dish_wish_frontend.notification_folder;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,22 +25,19 @@ public class NotificationsChef extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications_chef);
 
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putLong("userId", 2L);
+        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJCZXJuYXJkQGdtYWlsLmNvbSIsImlhdCI6MTcwNTI0ODI2NSwiZXhwIjoxNzA1MzM0NjY1fQ.p-QEpjva7wJ5Y0Wt8ilM48gvShCYtcNSBufeXFgwaIw");
+        editor.putBoolean("isCook", true);
+        editor.apply();
+        Boolean isCook = preferences.getBoolean("isCook", false);
+
         // Assuming you have a list of commands
-        List<Command> commandList = GetDummyData();
 
-        notificationAdapter = new NotificationChefAdapter(commandList);
-        notificationRecyclerView = findViewById(R.id.NotificationResultsRecyclerView);
-        notificationRecyclerView.setAdapter(notificationAdapter);
-        notificationRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-    }
-
-    private List<Command> GetDummyData() {
-        List<Command> dummyResults = new ArrayList<>();
-
-//        Client client1 = new Client();
-//        Chef chef1 = new Chef();
-//        dummyResults.add(new Command(1L, "TAJINE", "with berqouq", null, null, null,  "50 DH",  null, client1, chef1));
-
-        return dummyResults;
+//        notificationAdapter = new NotificationChefAdapter(commandList);
+//        notificationRecyclerView = findViewById(R.id.NotificationResultsRecyclerView);
+//        notificationRecyclerView.setAdapter(notificationAdapter);
+//        notificationRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }

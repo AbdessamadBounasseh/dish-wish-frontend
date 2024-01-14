@@ -19,6 +19,7 @@ import retrofit2.http.Path;
 import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Command;
+import uit.ensak.dish_wish_frontend.Models.Notification;
 import uit.ensak.dish_wish_frontend.Models.Proposition;
 import uit.ensak.dish_wish_frontend.Models.Rating;
 
@@ -87,4 +88,11 @@ public interface ApiService {
 
     @GET("commands/client/{clientId}")
     Call<List<Command>> getCommandsByClientId(@Header("Authorization") String authToken, @Path("clientId") long clientId);
+
+
+    @GET("notifications/client/{clientId}")
+    Call<List<Notification>> getClientNotifications(
+            @Header("Authorization") String authToken,
+            @Path("clientId") int clientId
+    );
 }

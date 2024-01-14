@@ -113,6 +113,19 @@
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
 
         </activity>
+        <activity
+            android:name=".notification_folder.NotificationsClient"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".notification_folder.NotificationsChef"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
+
+        </activity>
+
     </application>
 
 </manifest>

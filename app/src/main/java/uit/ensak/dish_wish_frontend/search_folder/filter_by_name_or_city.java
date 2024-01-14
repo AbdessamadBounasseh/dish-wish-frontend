@@ -1,13 +1,12 @@
 package uit.ensak.dish_wish_frontend;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.content.Context;
 
 import android.text.TextUtils;
 
@@ -43,7 +42,10 @@ import uit.ensak.dish_wish_frontend.Profil.change_profile;
 import uit.ensak.dish_wish_frontend.Profil.view_profile;
 import uit.ensak.dish_wish_frontend.SearchResultsAdapter;
 import uit.ensak.dish_wish_frontend.notification_folder.NotificationsChef;
+import uit.ensak.dish_wish_frontend.notification_folder.NotificationsClient;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
+
+import android.content.SharedPreferences;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -60,10 +62,13 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
 
     private SearchResultsAdapter searchResultsAdapter;  // Declare searchResultsAdapter as a class variable
 
+    private boolean isCook;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View rootView = inflater.inflate(R.layout.fragment_filter_by_name_or_city, container, false);
+
+        SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        isCook = preferences.getBoolean("isCook", false);
 
         EditText searchEditText = rootView.findViewById(R.id.searchEditText);
         RecyclerView searchResultsRecyclerView = rootView.findViewById(R.id.searchResultsRecyclerView);
@@ -79,6 +84,20 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
 
         ImageView notificationIcon = rootView.findViewById(R.id.notificationIcon);
 
+        notificationIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle the click event
+                Intent intent;
+
+                if (isCook) {
+                    intent = new Intent(requireContext() , NotificationsChef.class);
+                } else {
+                    intent = new Intent(requireContext() , NotificationsClient.class);
+                }
+                startActivity(intent);
+            }
+        });
 
         searchResultsAdapter = new SearchResultsAdapter();
         searchResultsAdapter.setOnItemClickListener(this);
