@@ -64,8 +64,8 @@ public class search_profile extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("userId", 6L);
-        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWFlQGdtYWlsLm1hIiwiaWF0IjoxNzA1MjYzNzgzLCJleHAiOjE3MDUzNTAxODN9.8Q5gYIindYqqO0fz1JqoHrKPCWzAk4HPPdKgv3si2RY");
+        editor.putLong("userId", 7L);
+        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWFhQGdtYWlsLm1hIiwiaWF0IjoxNzA1MjY1NDUwLCJleHAiOjE3MDUzNTE4NTB9.5_6y496HNAAAbpSiwZBq5yMLidhGQMTNx4EzzLhUqbM");
         editor.putBoolean("isCook", false);
         editor.apply();
 

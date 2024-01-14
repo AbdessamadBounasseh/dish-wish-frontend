@@ -56,7 +56,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".Profil.view_profile"
+            android:name=".Profil.search_profile"
             android:exported="true"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
             <intent-filter>

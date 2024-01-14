@@ -233,14 +233,14 @@ ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\mai
 		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:56:13-54
 	android:name
 		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:55:13-43
-activity#uit.ensak.dish_wish_frontend.Profil.view_profile
+activity#uit.ensak.dish_wish_frontend.Profil.search_profile
 ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:58:9-67:20
 	android:exported
 		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:60:13-36
 	android:theme
 		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:61:13-70
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:59:13-48
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:59:13-50
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:62:13-66:29
 action#android.intent.action.MAIN

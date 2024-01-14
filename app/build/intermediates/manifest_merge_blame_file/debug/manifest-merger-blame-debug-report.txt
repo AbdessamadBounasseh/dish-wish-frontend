@@ -139,8 +139,8 @@
 82
 83        <activity
 83-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:58:9-67:20
-84            android:name="uit.ensak.dish_wish_frontend.Profil.view_profile"
-84-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:59:13-48
+84            android:name="uit.ensak.dish_wish_frontend.Profil.search_profile"
+84-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:59:13-50
 85            android:exported="true"
 85-->C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:60:13-36
 86            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >

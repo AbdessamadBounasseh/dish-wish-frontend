@@ -81,7 +81,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name="uit.ensak.dish_wish_frontend.Profil.view_profile"
+            android:name="uit.ensak.dish_wish_frontend.Profil.search_profile"
             android:exported="true"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
             <intent-filter>
