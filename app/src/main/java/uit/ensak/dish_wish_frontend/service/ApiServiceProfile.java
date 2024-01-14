@@ -16,8 +16,10 @@ import retrofit2.http.Part;
 import retrofit2.http.Path;
 import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
+import uit.ensak.dish_wish_frontend.dto.ChefCommandHistoryDTO;
 import uit.ensak.dish_wish_frontend.dto.ChefDTO;
 import uit.ensak.dish_wish_frontend.SearchResult;
+import uit.ensak.dish_wish_frontend.dto.ClientCommandHistoryDTO;
 
 
 public interface ApiServiceProfile {
@@ -37,7 +39,7 @@ public interface ApiServiceProfile {
             @Path("id") Long id,
             @Part("user") ChefDTO chefDTO,
             @Part MultipartBody.Part photoPart
-            );
+    );
 
 
     @Multipart
@@ -64,4 +66,13 @@ public interface ApiServiceProfile {
     Call<List<SearchResult>> filterByNameAndCity(
             @Header("Authorization") String authToken,
             @Path("query") String query );
+
+    @GET("commands/history/client/{clientId}")
+    Call<ClientCommandHistoryDTO> getClientCommandsHistory(
+            @Header("Authorization") String authToken,
+            @Path("clientId") Long clientId);
+    @GET("commands/history/chef/{chefId}")
+    Call<ChefCommandHistoryDTO> getChefCommandsHistory(
+            @Header("Authorization") String authToken,
+            @Path("chefId") Long chefId);
 }

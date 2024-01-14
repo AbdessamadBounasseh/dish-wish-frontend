@@ -34,9 +34,10 @@ public class CommandAdapter extends ArrayAdapter<Command> {
         // we use this image for simulation.
         imageDish.setImageResource(R.drawable.homemade_beef_burger);
 
-        textDishName.setText(command.getDescription());
-        textDishPrice.setText(command.getPrice());
-
+        if(command !=null ) {
+            textDishName.setText(command.getTitle());
+            textDishPrice.setText(command.getPrice());
+        }
         return convertView;
     }
 }

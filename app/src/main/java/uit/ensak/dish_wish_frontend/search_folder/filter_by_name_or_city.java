@@ -42,6 +42,7 @@ import uit.ensak.dish_wish_frontend.Profil.become_cook;
 import uit.ensak.dish_wish_frontend.Profil.change_profile;
 import uit.ensak.dish_wish_frontend.Profil.view_profile;
 import uit.ensak.dish_wish_frontend.SearchResultsAdapter;
+import uit.ensak.dish_wish_frontend.notification_folder.NotificationsChef;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
 
 import okhttp3.MediaType;
@@ -75,6 +76,8 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
                 showPopupMenu(view);
             }
         });
+
+        ImageView notificationIcon = rootView.findViewById(R.id.notificationIcon);
 
 
         searchResultsAdapter = new SearchResultsAdapter();

@@ -18,42 +18,56 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnOrdered"
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                android:text="Ordered"
-                android:textSize="11sp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="0dp"
-                android:background="@drawable/custom_rounded_back_shape"
-                android:textColor="@color/black"
-                android:contentDescription="Button to indicate ordered status"
-                android:importantForAccessibility="yes" />
-
-            <Button
                 android:id="@+id/btnInProgress"
-                android:layout_width="120dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="In Progress"
-                android:textSize="11sp"
+                android:layout_marginEnd="0dp"
+                android:text="In Progress For Me"
+                android:textSize="9sp"
                 android:visibility="visible"
                 android:background="@drawable/custom_rounded_back_shape"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:layout_weight="1"/>
 
             <Button
                 android:id="@+id/btnPrepared"
-                android:layout_width="110dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Prepared"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:textSize="11sp"
-                android:visibility="visible"
+                android:layout_marginEnd="0dp"
                 android:background="@drawable/custom_rounded_back_shape"
-                android:textColor="@color/black" />
+                android:text="Prepared For Me"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                android:visibility="visible"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/btnPreparedByMe"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/custom_rounded_back_shape"
+                android:text="Prepared By Me"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                android:visibility="gone"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/btnInProgressByMe"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="0dp"
+                android:text="In Progress By Me"
+                android:textSize="9sp"
+                android:visibility="gone"
+                android:background="@drawable/custom_rounded_back_shape"
+                android:textColor="@color/black"
+                android:layout_weight="1"/>
 
         </LinearLayout>
 
@@ -70,4 +84,3 @@
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

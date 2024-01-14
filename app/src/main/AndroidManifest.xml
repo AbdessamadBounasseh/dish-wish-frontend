@@ -60,11 +60,17 @@
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
-            android:name=".history_folder.HistoryActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
-        <activity
             android:name=".Command.MapsHomeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".history_folder.HistoryActivity"
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
 
@@ -103,13 +109,9 @@
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name=".Authentification.CreateAccount"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
