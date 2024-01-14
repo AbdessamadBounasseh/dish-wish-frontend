@@ -282,7 +282,14 @@ public class change_profile extends AppCompatActivity {
 
 
 
-
+        chooseLocationButton = findViewById(R.id.btnPosition);
+        chooseLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(change_profile.this, MapsChefActivity.class);
+                mapsActivityLauncher.launch(intent);
+            }
+        });
 
 
 
