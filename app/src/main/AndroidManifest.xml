@@ -57,7 +57,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".Command.MapsHomeActivity"
+            android:name=".Command.MapsChefActivity"
             android:exported="true"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
             <intent-filter>
@@ -94,7 +94,7 @@
         android:exported="false"
          android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
         <activity
-            android:name=".Command.MapsChefActivity"
+            android:name=".Command.MapsHomeActivity"
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity

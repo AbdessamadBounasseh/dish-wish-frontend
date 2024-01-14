@@ -17,10 +17,12 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -84,7 +86,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private Button pickDate;
     private Marker currentMarker;
     private ImageView arrow;
-    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUxNTkzNzIsImV4cCI6MTcwNTI0NTc3Mn0.8zf5K_NqGnZq2MCssrJUOlaHQYf8ppLdwwzAe3HWB20";
+    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUyMzUzMDAsImV4cCI6MTcwNTMyMTcwMH0.ZhulnzT4vzPRdyjglYUFaWtr06LW9W6p0edjzgizm_Q";
     private long associatedCommandId;
     private Command commandCreated;
 
@@ -743,7 +745,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         EditText Price = findViewById(R.id.price);
         String price = Price.getText().toString();
 
-
+        Switch allergiesSwitch = findViewById(R.id.allergies);
 
 
         if (isValidCommand(title, description, serving, location, delivaryDate, delivaryTime, price)) {
@@ -770,12 +772,14 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                     if (addresses != null && addresses.size() > 0) {
                         String locationName = addresses.get(0).getLocality();
                         String city = locationName;
-//                        command.setCity(city);
+//                      command.setCity(city);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
+
+
 
            /* // Retrieve client ID from shared preferences
             SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);

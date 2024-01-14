@@ -208,7 +208,7 @@ public class UpdateActivity extends AppCompatActivity {
 
 
     private void UpdateCommand() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwNjQyMDEsImV4cCI6MTcwNTE1MDYwMX0.Trk2cmuXm9SlyXrjNRuGb2mRwlbbGLqlSPB05YQekeM";
+        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUyMzUzMDAsImV4cCI6MTcwNTMyMTcwMH0.ZhulnzT4vzPRdyjglYUFaWtr06LW9W6p0edjzgizm_Q";
 
         //form fields
         EditText Title = findViewById(R.id.title);
@@ -254,30 +254,30 @@ public class UpdateActivity extends AppCompatActivity {
             // Mocking Client IDs
             Client client = new Client();
             client.setId(2L);
-         //  client.setRole("CLIENT");
+            client.setRole("CLIENT");
             command.setClient(client);
             command.setStatus("IN_PROGRESS");
 
             ApiService apiService = RetrofitClient.getApiService();
-           // Call<Command> call = apiService.updateCommand("Bearer " + accessToken,CommandID, command);
+            Call<Command> call = apiService.updateCommand("Bearer " + accessToken,CommandID, command);
 
 
-//            call.enqueue(new Callback<Command>() {
-//                @Override
-//                public void onResponse(Call<Command> call, Response<Command> response) {
-//                    if (response.isSuccessful()) {
-//                        Toast.makeText(getApplicationContext(), "Command Updated", Toast.LENGTH_LONG).show();
-//                        clearFields();
-//                    } else {
-//                        Toast.makeText(getApplicationContext(), "Something went wrong, please try again", Toast.LENGTH_LONG).show();
-//                    }
-//                }
-//
-//                @Override
-//                public void onFailure(Call<Command> call, Throwable t) {
-//                    Toast.makeText(getApplicationContext(), "Something went wrong, please try again", Toast.LENGTH_LONG).show();
-//                }
-//            });
+            call.enqueue(new Callback<Command>() {
+                @Override
+                public void onResponse(Call<Command> call, Response<Command> response) {
+                    if (response.isSuccessful()) {
+                        Toast.makeText(getApplicationContext(), "Command Updated", Toast.LENGTH_LONG).show();
+                        clearFields();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Something went wrong, please try again", Toast.LENGTH_LONG).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Command> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), "Something went wrong, please try again", Toast.LENGTH_LONG).show();
+                }
+            });
         }
     }
 

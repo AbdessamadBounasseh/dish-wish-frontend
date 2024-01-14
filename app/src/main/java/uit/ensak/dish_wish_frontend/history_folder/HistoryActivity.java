@@ -44,7 +44,7 @@ public class HistoryActivity extends AppCompatActivity {
         // Generate some dummy data for testing
         List<Command> testData = new ArrayList<>();
         testData.add(new Command(1L,"Title 1", "Dish 1", "Serving 1", "Address 1", "Deadline 1","city",
-                "$10.99", "Ordered", null, null));
+                "$10.99", "Ordered", null, null,true));
         /*testData.add(new Command(2L,"Title 2", "Dish 2", "Serving 2", "Address 2", "Deadline 2",
                 "$12.99", "In Progress", null, null));
         testData.add(new Command(3L,"Title 3", "Dish 3", "Serving 3", "Address 3", "Deadline 3",
