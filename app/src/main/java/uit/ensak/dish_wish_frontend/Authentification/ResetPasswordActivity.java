@@ -21,11 +21,11 @@ public class ResetPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset_password);
 
-        final EditText passwordEditText = findViewById(R.id.editTextPassword);
-        final TextInputEditText confirmPasswordEditText = findViewById(R.id.editTextConfirmPassword);
+        final EditText passwordEditText = findViewById(R.id.verify);
+        final TextInputEditText confirmPasswordEditText = findViewById(R.id.changed);
 
 
-        Button btnResetPassword = findViewById(R.id.btnResetPassword);
+        Button btnResetPassword = findViewById(R.id.sign);
         btnResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
