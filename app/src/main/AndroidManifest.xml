@@ -57,6 +57,11 @@
 
         <activity
             android:name=".Profil.view_profile"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
+        </activity>
+        <activity
+            android:name=".history_folder.HistoryActivity"
             android:exported="true"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
             <intent-filter>
@@ -64,15 +69,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity
-            android:name=".history_folder.HistoryActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name=".Command.MapsHomeActivity"
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
+
+
         </activity>
 
         <activity

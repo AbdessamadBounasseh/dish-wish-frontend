@@ -129,6 +129,7 @@ id action_support
 id addButton
 id addressTextView
 id adjustprice
+id allergie
 id allergies
 id animation
 id animationView
@@ -142,9 +143,10 @@ id btnAddReview
 id btnBack
 id btnDeleteAccount
 id btnInProgress
-id btnOrdered
+id btnInProgressByMe
 id btnPosition
 id btnPrepared
+id btnPreparedByMe
 id btnResetPassword
 id btnScancard
 id btnScancertif
@@ -302,6 +304,7 @@ mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 navigation mobile_navigation
 navigation nav_graph
+raw allergie
 raw annimation_principal_cook
 raw arrowconfirm
 raw button
