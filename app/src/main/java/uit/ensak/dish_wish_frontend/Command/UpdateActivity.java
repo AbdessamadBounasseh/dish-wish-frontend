@@ -90,8 +90,124 @@ public class UpdateActivity extends AppCompatActivity {
 
 
 
+        ActivityResultLauncher<Intent> mapsActivityLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        // Get the selected location (LatLng) from the result
+                        Intent data = result.getData();
+                        LatLng selectedLatLng = data.getParcelableExtra("selected_location");
+
+                        // Now we can use the selectedLatLng as needed
+                        EditText addressEditTe = findViewById(R.id.location);
+                        addressEditTe.setText(selectedLatLng.latitude + "," + selectedLatLng.longitude);
+                    }
+                }
+        );
+
+        chooseLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UpdateActivity.this, MapsChefActivity.class);
+                mapsActivityLauncher.launch(intent);
+            }
+        });
+
+
+
+        pickTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MaterialTimePicker picker = new MaterialTimePicker.Builder()
+                        .setTimeFormat(TimeFormat.CLOCK_12H)
+                        .setHour(9)
+                        .setMinute(30)
+                        .setTitleText("Select a deadline")
+                        .build();
+
+                picker.addOnCancelListener(dialogInterface -> {
+                    Log.d("TimePicker", "Time picker cancelled");
+                });
+
+                picker.addOnPositiveButtonClickListener(r -> {
+                    int hour = picker.getHour();
+                    int minute = picker.getMinute();
+                    String selectedTime = hour + ":" + minute;
+                    DelivaryTime.setText(selectedTime);
+                    Log.d("TimePicker", selectedTime);
+                });
+
+                picker.addOnDismissListener(dialogInterface -> {
+                    Log.d("TimePicker", "Time picker dismissed");
+                });
+
+                picker.addOnNegativeButtonClickListener(dialogInterface -> {
+                    Log.d("TimePicker", "Time picker failed");
+                });
+
+                picker.show(getSupportFragmentManager(), TAG);
+
+            }
+        });
+
+        pickDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MaterialDatePicker<Long> datePicker = MaterialDatePicker.Builder.datePicker()
+                        .setTitleText("")
+                        .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                        .build();
+
+                datePicker.addOnCancelListener(dialog -> {
+                    Log.d("DatePicker", "Date picker cancelled");
+                });
+
+                datePicker.addOnDismissListener(dialog -> {
+                    Log.d("DatePicker", "Date picker Dismiss");
+
+                });
+
+                datePicker.addOnPositiveButtonClickListener(selection -> {
+                    Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+                    calendar.setTimeInMillis(selection);
+                    int year = calendar.get(Calendar.YEAR);
+                    int month = calendar.get(Calendar.MONTH);
+                    int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+                    String selectedDate = year + "-" + (month + 1) + "-" + dayOfMonth;
+                    DelivaryDate.setText(selectedDate);
+                    Log.d("DatePicker", selectedDate);
+                });
+
+                datePicker.addOnNegativeButtonClickListener(dialog -> {
+                    Log.d("DatePicker", "Date picker failed");
+                });
+
+                datePicker.show(getSupportFragmentManager(), TAG);
+            }
+        });
+
+        updateCommand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UpdateCommand();
+            }
+        });
+
+        arrow = findViewById(R.id.animation);
+        if (arrow != null) {
+            arrow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+        }
+
 
     }
+
+
+
 
 
 }
