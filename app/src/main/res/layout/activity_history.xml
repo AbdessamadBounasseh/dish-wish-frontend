@@ -24,7 +24,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="0dp"
                 android:text="In Progress For Me"
-                android:textSize="11sp"
+                android:textSize="9sp"
                 android:visibility="visible"
                 android:background="@drawable/custom_rounded_back_shape"
                 android:textColor="@color/black"
@@ -39,7 +39,7 @@
                 android:background="@drawable/custom_rounded_back_shape"
                 android:text="Prepared For Me"
                 android:textColor="@color/black"
-                android:textSize="11sp"
+                android:textSize="9sp"
                 android:visibility="visible"
                 android:layout_weight="1"/>
 
@@ -52,7 +52,7 @@
                 android:background="@drawable/custom_rounded_back_shape"
                 android:text="Prepared By Me"
                 android:textColor="@color/black"
-                android:textSize="11sp"
+                android:textSize="9sp"
                 android:visibility="gone"
                 android:layout_weight="1"/>
 
@@ -63,7 +63,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="0dp"
                 android:text="In Progress By Me"
-                android:textSize="11sp"
+                android:textSize="9sp"
                 android:visibility="gone"
                 android:background="@drawable/custom_rounded_back_shape"
                 android:textColor="@color/black"

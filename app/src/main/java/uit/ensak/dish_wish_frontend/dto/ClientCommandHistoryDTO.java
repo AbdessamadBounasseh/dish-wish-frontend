@@ -6,22 +6,22 @@ import uit.ensak.dish_wish_frontend.Models.Command;
 
 public class ClientCommandHistoryDTO {
 
-    private List<Command> CommandsInProgress;
-    private List<Command> CommandsFinished;
+    private List<Command> commandsInProgress;
+    private List<Command> commandsFinished;
 
     public List<Command> getCommandsInProgress() {
-        return CommandsInProgress;
+        return commandsInProgress;
     }
 
     public void setCommandsInProgress(List<Command> commandsInProgress) {
-        CommandsInProgress = commandsInProgress;
+        this.commandsInProgress = commandsInProgress;
     }
 
     public List<Command> getCommandsFinished() {
-        return CommandsFinished;
+        return commandsFinished;
     }
 
     public void setCommandsFinished(List<Command> commandsFinished) {
-        CommandsFinished = commandsFinished;
+        this.commandsFinished = commandsFinished;
     }
 }

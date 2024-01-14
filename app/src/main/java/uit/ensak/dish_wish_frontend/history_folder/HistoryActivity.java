@@ -28,21 +28,16 @@ import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
 public class HistoryActivity extends AppCompatActivity {
 
     private GridView gridViewDishes;
-    private Button btnOrdered , btnInProgress, btnPrepared, btnInProgressByMe, btnPreparedByMe;
-
-//    private List<Command> allCommands;
-
-    private ClientCommandHistoryDTO clientCommandHistoryDTO;
-    private ChefCommandHistoryDTO chefCommandHistoryDTO;
+    private Button btnInProgress, btnPrepared, btnInProgressByMe, btnPreparedByMe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("userId", 3L);
-        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaW5kYTFAZ21haWwuY29tIiwiaWF0IjoxNzA1MjQ5MzU5LCJleHAiOjE3MDUzMzU3NTl9.4OCq43UiXf76wE2kf74ioCovv6F64gFUkHr9O5-_SdE");
-        editor.putBoolean("isCook", false);
+        editor.putLong("userId", 2L);
+        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJCZXJuYXJkQGdtYWlsLmNvbSIsImlhdCI6MTcwNTI0ODI2NSwiZXhwIjoxNzA1MzM0NjY1fQ.p-QEpjva7wJ5Y0Wt8ilM48gvShCYtcNSBufeXFgwaIw");
+        editor.putBoolean("isCook", true);
         editor.apply();
         Boolean isCook = preferences.getBoolean("isCook", false);
 
@@ -53,32 +48,16 @@ public class HistoryActivity extends AppCompatActivity {
         btnInProgress = findViewById(R.id.btnInProgress);
         btnPrepared = findViewById(R.id.btnPrepared);
 
-        if(isCook) {
+        if(isCook){
             btnInProgressByMe = findViewById(R.id.btnInProgressByMe);
             btnPreparedByMe = findViewById(R.id.btnPreparedByMe);
             btnPreparedByMe.setVisibility(View.VISIBLE);
             btnInProgressByMe.setVisibility(View.VISIBLE);
-        }
-
-        if(isCook){
             getChefCommandsHistory();
         }
         else {
             getClientCommandsHistory();
         }
-
-        if(!isCook) {
-            btnInProgress.setOnClickListener(v -> updateGridView(clientCommandHistoryDTO.getCommandsInProgress()));
-            btnPrepared.setOnClickListener(v -> updateGridView(clientCommandHistoryDTO.getCommandsFinished()));
-        }
-        if(isCook){
-            btnInProgress.setOnClickListener(v -> updateGridView(chefCommandHistoryDTO.getCommandsInProgressForMe()));
-            btnPrepared.setOnClickListener(v -> updateGridView(chefCommandHistoryDTO.getCommandsFinishedForMe()));
-            btnInProgressByMe.setOnClickListener(v -> updateGridView(chefCommandHistoryDTO.getCommandsInProgressByMe()));
-            btnPreparedByMe.setOnClickListener(v -> updateGridView(chefCommandHistoryDTO.getCommandsFinishedByMe()));
-
-        }
-
     }
 
     // updateGridView(filteredCommands);
@@ -103,8 +82,8 @@ public class HistoryActivity extends AppCompatActivity {
             public void onResponse(Call<ClientCommandHistoryDTO> call, Response<ClientCommandHistoryDTO> response) {
                 if (response.isSuccessful()) {
                     ClientCommandHistoryDTO cl1 = response.body();
-                    clientCommandHistoryDTO.setCommandsFinished(cl1.getCommandsFinished());
-                    clientCommandHistoryDTO.setCommandsInProgress(cl1.getCommandsInProgress());
+                    btnInProgress.setOnClickListener(v -> updateGridView(cl1.getCommandsInProgress()));
+                    btnPrepared.setOnClickListener(v -> updateGridView(cl1.getCommandsFinished()));
                 }
                 else {
                     Log.d("error","not successful");
@@ -133,10 +112,10 @@ public class HistoryActivity extends AppCompatActivity {
             public void onResponse(Call<ChefCommandHistoryDTO> call, Response<ChefCommandHistoryDTO> response) {
                 if (response.isSuccessful()) {
                     ChefCommandHistoryDTO ch1 = response.body();
-                    chefCommandHistoryDTO.setCommandsFinishedForMe(ch1.getCommandsFinishedForMe());
-                    chefCommandHistoryDTO.setCommandsInProgressByMe(ch1.getCommandsInProgressByMe());
-                    chefCommandHistoryDTO.setCommandsInProgressForMe(ch1.getCommandsInProgressForMe());
-                    chefCommandHistoryDTO.setCommandsFinishedByMe(ch1.getCommandsFinishedByMe());
+                    btnInProgress.setOnClickListener(v -> updateGridView(ch1.getCommandsInProgressForMe()));
+                    btnPrepared.setOnClickListener(v -> updateGridView(ch1.getCommandsFinishedForMe()));
+                    btnInProgressByMe.setOnClickListener(v -> updateGridView(ch1.getCommandsInProgressByMe()));
+                    btnPreparedByMe.setOnClickListener(v -> updateGridView(ch1.getCommandsFinishedByMe()));
                 }
                 else {
                     Log.d("error","not successful");

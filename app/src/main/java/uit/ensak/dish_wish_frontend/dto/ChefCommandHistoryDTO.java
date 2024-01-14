@@ -6,40 +6,40 @@ import uit.ensak.dish_wish_frontend.Models.Command;
 
 public class ChefCommandHistoryDTO {
 
-    private List<Command> CommandsInProgressForMe;
-    private List<Command> CommandsFinishedForMe;
-    private List<Command> CommandsInProgressByMe;
-    private List<Command> CommandsFinishedByMe;
+    private List<Command> commandsInProgressForMe;
+    private List<Command> commandsFinishedForMe;
+    private List<Command> commandsInProgressByMe;
+    private List<Command> commandsFinishedByMe;
 
     public List<Command> getCommandsInProgressForMe() {
-        return CommandsInProgressForMe;
+        return commandsInProgressForMe;
     }
 
     public void setCommandsInProgressForMe(List<Command> commandsInProgressForMe) {
-        CommandsInProgressForMe = commandsInProgressForMe;
+        this.commandsInProgressForMe = commandsInProgressForMe;
     }
 
     public List<Command> getCommandsFinishedForMe() {
-        return CommandsFinishedForMe;
+        return commandsFinishedForMe;
     }
 
     public void setCommandsFinishedForMe(List<Command> commandsFinishedForMe) {
-        CommandsFinishedForMe = commandsFinishedForMe;
+        this.commandsFinishedForMe = commandsFinishedForMe;
     }
 
     public List<Command> getCommandsInProgressByMe() {
-        return CommandsInProgressByMe;
+        return commandsInProgressByMe;
     }
 
     public void setCommandsInProgressByMe(List<Command> commandsInProgressByMe) {
-        CommandsInProgressByMe = commandsInProgressByMe;
+        this.commandsInProgressByMe = commandsInProgressByMe;
     }
 
     public List<Command> getCommandsFinishedByMe() {
-        return CommandsFinishedByMe;
+        return commandsFinishedByMe;
     }
 
     public void setCommandsFinishedByMe(List<Command> commandsFinishedByMe) {
-        CommandsFinishedByMe = commandsFinishedByMe;
+        this.commandsFinishedByMe = commandsFinishedByMe;
     }
 }
