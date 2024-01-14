@@ -141,13 +141,13 @@ id btnBack
 id btnDeleteAccount
 id btnInProgress
 id btnOrdered
+id btnPosition
 id btnPrepared
 id btnResetPassword
 id btnScancard
 id btnScancertif
 id btnchange
 id btnsubmit
-id buttonInfo
 id buttons_bar
 id changed
 id checkbox
@@ -161,7 +161,6 @@ id deliveryDate
 id deliveryTime
 id dish
 id donthave
-id editTextAdditionalInfo
 id editTextConfirmPassword
 id editTextNewAddress
 id editTextNewAllergie
@@ -170,6 +169,7 @@ id editTextNewFirstName
 id editTextNewLastName
 id editTextNewPhoneNumber
 id editTextPassword
+id editTextPosition
 id email
 id email_addre
 id emailres
@@ -353,7 +353,10 @@ string reset
 string second_fragment_label
 string send_complaint
 string send_email
+string sendemail
 string sign_in
+string sign_up
+string start
 string started
 string title_activity_forgot_password
 string title_activity_maps_home
@@ -364,6 +367,8 @@ string verificatio
 string verify
 string we_have_sen
 string welcome_to_
+string withFacebook
+string withGoogle
 style Base.Theme.Dishwishfrontend
 style MyMaterialTimePickerTheme
 style RatingBar

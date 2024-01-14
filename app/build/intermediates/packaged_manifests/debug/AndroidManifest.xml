@@ -9,6 +9,11 @@
         android:targetSdkVersion="34" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -46,6 +51,12 @@
         android:theme="@style/Theme.Dishwishfrontend"
         android:usesCleartextTraffic="true" >
         <activity
+            android:name="uit.ensak.dish_wish_frontend.Authentification.VerifyEmail"
+            android:exported="false" />
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Authentification.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
             android:name="uit.ensak.dish_wish_frontend.Authentification.ForgotPasswordActivity"
             android:exported="false"
             android:label="@string/title_activity_forgot_password"
@@ -54,7 +65,7 @@
             android:name="uit.ensak.dish_wish_frontend.Authentification.ResetEmailActivity"
             android:exported="false" />
         <activity
-            android:name="uit.ensak.dish_wish_frontend.Authentification.VerifyEmail"
+            android:name="uit.ensak.dish_wish_frontend.Contact.ComplaintActivity"
             android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
