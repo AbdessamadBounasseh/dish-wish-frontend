@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -67,6 +68,7 @@ public class UpdateActivity extends AppCompatActivity {
         String deadlineString = intent.getStringExtra("deadline");
         String price = intent.getStringExtra("price");
         String address = intent.getStringExtra("address");
+        Boolean allergie = intent.getBooleanExtra("allergie",false);
 
         deadlineString = deadlineString.replace("/", " ");
 
@@ -79,7 +81,9 @@ public class UpdateActivity extends AppCompatActivity {
         EditText deliveryTimeEditText = findViewById(R.id.deliveryTime);
         EditText priceEditText = findViewById(R.id.price);
         EditText addressEditText = findViewById(R.id.location);
+        Switch allergiesSwitch = findViewById(R.id.allergies);
 
+        allergiesSwitch.setChecked(allergie);
         titleEditText.setText(title);
         descriptionEditText.setText(description);
         servingEditText.setText(serving);
@@ -241,6 +245,12 @@ public class UpdateActivity extends AppCompatActivity {
             command.setAddress(location);
             command.setDeadline(deadline);
             command.setPrice(price);
+
+            Switch allergiesSwitch = findViewById(R.id.allergies);
+
+            boolean isAllergieChecked = allergiesSwitch.isChecked();
+            Log.d("Switch State=", "" + isAllergieChecked);
+            command.setAllergie(isAllergieChecked);
 
            /* // Retrieve client ID from shared preferences
             SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);

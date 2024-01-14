@@ -632,6 +632,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                         intent.putExtra("deadline", associatedCommand.getDeadline());
                         intent.putExtra("price", associatedCommand.getPrice());
                         intent.putExtra("address", associatedCommand.getAddress());
+                        intent.putExtra("allergie", associatedCommand.getAllergie());
 
                         // Start the new activity
                         startActivity(intent);

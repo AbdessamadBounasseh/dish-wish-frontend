@@ -186,7 +186,7 @@
                     android:textColor="#010F07"
                     android:textSize="15sp" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnPosition"
                     android:layout_width="28dp"
                     android:layout_height="28dp"
