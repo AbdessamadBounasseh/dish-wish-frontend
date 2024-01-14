@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-114:12
-INJECTED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-114:12
-INJECTED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-114:12
-INJECTED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-114:12
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-117:12
+INJECTED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-117:12
+INJECTED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-117:12
+INJECTED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:2:1-117:12
 MERGED from [androidx.databinding:viewbinding:8.1.2] C:\Users\chaymae\.gradle\caches\transforms-3\aae4243b2d51b32d50d4ea11da825230\transformed\viewbinding-8.1.2\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-common:2.7.5] C:\Users\chaymae\.gradle\caches\transforms-3\9fabc27c169cba8bb6d1c9484594a8be\transformed\navigation-common-2.7.5\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-runtime:2.7.5] C:\Users\chaymae\.gradle\caches\transforms-3\9e0d62f1bad7f0d213a920002620aa89\transformed\navigation-runtime-2.7.5\AndroidManifest.xml:17:1-22:12
@@ -104,37 +104,31 @@ MERGED from [com.google.android.gms:play-services-maps:18.0.0] C:\Users\chaymae\
 MERGED from [com.google.android.gms:play-services-maps:18.0.0] C:\Users\chaymae\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:24:5-67
 	android:name
 		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:5:22-64
-uses-feature#android.hardware.camera
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:6:5-84
-	android:required
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:6:58-81
-	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:6:19-57
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:7:5-79
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:6:5-79
 MERGED from [com.google.android.gms:play-services-maps:18.0.0] C:\Users\chaymae\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-maps:18.0.0] C:\Users\chaymae\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:23:5-79
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:7:22-76
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:6:22-76
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:8:5-80
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:7:5-80
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:8:22-77
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:7:22-77
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:9:5-79
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:8:5-79
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:9:22-76
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:8:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:10:5-81
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:9:5-81
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:10:22-78
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:9:22-78
 uses-permission#android.permission.ACCESS_BACKGROUND_LOCATION
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:11:5-85
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:10:5-85
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:11:22-82
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:10:22-82
 application
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:13:5-112:19
-INJECTED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:13:5-112:19
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:12:5-115:19
+INJECTED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:12:5-115:19
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\chaymae\.gradle\caches\transforms-3\19f98ca6f477d4749c4ef5b61b80c8e0\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.10.0] C:\Users\chaymae\.gradle\caches\transforms-3\19f98ca6f477d4749c4ef5b61b80c8e0\transformed\material-1.10.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\chaymae\.gradle\caches\transforms-3\3fb09e88cc2b9b51eeb4cac40401ee0c\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -174,175 +168,177 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\chaymae\.gradle\ca
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.9.0] C:\Users\chaymae\.gradle\caches\transforms-3\35b344453f48599f0b42152d8138086f\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:20:9-35
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:19:9-35
 	android:label
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:18:9-41
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:17:9-41
 	android:fullBackupContent
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:16:9-54
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:15:9-54
 	android:roundIcon
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:19:9-59
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:18:9-59
 	tools:targetApi
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:23:9-29
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:22:9-29
 	android:icon
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:17:9-54
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:16:9-54
 	android:allowBackup
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:14:9-35
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:13:9-35
 	android:theme
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:21:9-54
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:20:9-54
 	android:dataExtractionRules
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:15:9-65
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:14:9-65
 	android:usesCleartextTraffic
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:22:9-44
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:21:9-44
 activity#uit.ensak.dish_wish_frontend.Authentification.VerifyEmail
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:24:9-26:40
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:23:9-25:40
 	android:exported
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:26:13-37
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:25:13-37
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:25:13-57
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:24:13-57
 activity#uit.ensak.dish_wish_frontend.Authentification.ChangePasswordActivity
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:27:9-29:40
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:26:9-28:40
 	android:exported
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:29:13-37
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:28:13-37
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:28:13-68
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:27:13-68
 activity#uit.ensak.dish_wish_frontend.Authentification.ForgotPasswordActivity
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:30:9-34:61
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:29:9-33:61
 	android:label
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:33:13-67
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:32:13-67
 	android:exported
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:32:13-37
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:31:13-37
 	android:theme
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:34:13-58
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:33:13-58
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:31:13-68
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:30:13-68
 activity#uit.ensak.dish_wish_frontend.Authentification.ResetEmailActivity
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:35:9-37:40
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:34:9-36:40
 	android:exported
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:37:13-37
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:36:13-37
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:36:13-64
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:35:13-64
 activity#uit.ensak.dish_wish_frontend.Contact.ComplaintActivity
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:38:9-40:40
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:37:9-39:40
 	android:exported
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:40:13-37
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:39:13-37
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:39:13-54
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:38:13-54
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:52:9-54:71
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:51:9-53:71
 	android:value
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:54:13-68
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:53:13-68
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:53:13-58
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:52:13-58
 meta-data#preloaded_fonts
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:55:9-57:57
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:54:9-56:57
 	android:resource
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:57:13-54
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:56:13-54
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:56:13-43
-activity#uit.ensak.dish_wish_frontend.Profil.search_profile
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:59:9-68:20
-	android:exported
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:61:13-36
-	android:theme
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:62:13-70
-	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:60:13-50
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:63:13-67:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:64:17-69
-	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:64:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:66:17-77
-	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:66:27-74
-activity#uit.ensak.dish_wish_frontend.history_folder.HistoryActivity
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:69:9-72:73
-	android:exported
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:71:13-37
-	android:theme
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:72:13-70
-	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:70:13-59
-activity#uit.ensak.dish_wish_frontend.Authentification.page_acceuil
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:73:9-75:40
-	android:exported
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:75:13-37
-	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:74:13-58
-activity#uit.ensak.dish_wish_frontend.Profil.become_cook
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:76:9-79:73
-	android:exported
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:78:13-37
-	android:theme
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:79:13-70
-	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:77:13-47
-activity#uit.ensak.dish_wish_frontend.Command.FinalizeOrderActivity
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:80:9-83:73
-	android:exported
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:82:13-37
-	android:theme
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:83:13-70
-	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:81:13-58
-activity#uit.ensak.dish_wish_frontend.Command.UpdateActivity
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:84:9-87:73
-	android:exported
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:86:13-37
-	android:theme
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:87:13-70
-	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:85:13-51
-activity#uit.ensak.dish_wish_frontend.Profil.change_profile
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:88:9-91:73
-	android:exported
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:90:13-37
-	android:theme
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:91:13-70
-	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:89:13-50
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:55:13-43
 activity#uit.ensak.dish_wish_frontend.Profil.view_profile
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:92:10-95:69
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:58:9-67:20
 	android:exported
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:94:9-33
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:60:13-36
 	android:theme
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:95:10-67
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:61:13-70
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:93:9-44
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:59:13-48
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:62:13-66:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:63:17-69
+	android:name
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:63:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:65:17-77
+	android:name
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:65:27-74
+activity#uit.ensak.dish_wish_frontend.history_folder.HistoryActivity
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:68:9-71:73
+	android:exported
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:70:13-37
+	android:theme
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:71:13-70
+	android:name
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:69:13-59
+activity#uit.ensak.dish_wish_frontend.Command.MapsHomeActivity
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:72:9-76:20
+	android:exported
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:74:13-37
+	android:theme
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:75:13-70
+	android:name
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:73:13-53
+activity#uit.ensak.dish_wish_frontend.Profil.search_profile
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:78:9-81:72
+	android:exported
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:80:13-37
+	android:theme
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:81:13-70
+	android:name
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:79:13-50
+activity#uit.ensak.dish_wish_frontend.Profil.become_cook
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:82:9-85:73
+	android:exported
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:84:13-37
+	android:theme
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:85:13-70
+	android:name
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:83:13-47
+activity#uit.ensak.dish_wish_frontend.Command.FinalizeOrderActivity
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:86:9-89:73
+	android:exported
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:88:13-37
+	android:theme
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:89:13-70
+	android:name
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:87:13-58
+activity#uit.ensak.dish_wish_frontend.Command.UpdateActivity
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:90:9-93:73
+	android:exported
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:92:13-37
+	android:theme
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:93:13-70
+	android:name
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:91:13-51
+activity#uit.ensak.dish_wish_frontend.Profil.change_profile
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:94:9-97:73
+	android:exported
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:96:13-37
+	android:theme
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:97:13-70
+	android:name
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:95:13-50
 activity#uit.ensak.dish_wish_frontend.Command.MapsChefActivity
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:96:9-99:73
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:99:9-102:73
 	android:exported
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:98:13-37
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:101:13-37
 	android:theme
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:99:13-70
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:102:13-70
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:97:13-53
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:100:13-53
 activity#uit.ensak.dish_wish_frontend.Authentification.connect
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:100:9-103:73
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:103:9-106:73
 	android:exported
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:102:13-37
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:105:13-37
 	android:theme
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:103:13-70
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:106:13-70
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:101:13-53
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:104:13-53
 activity#uit.ensak.dish_wish_frontend.Authentification.terms
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:104:9-107:73
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:107:9-110:73
 	android:exported
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:106:13-37
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:109:13-37
 	android:theme
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:107:13-70
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:110:13-70
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:105:13-51
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:108:13-51
 activity#uit.ensak.dish_wish_frontend.Authentification.CreateAccount
-ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:108:9-111:73
+ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:111:9-114:73
 	android:exported
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:110:13-37
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:113:13-37
 	android:theme
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:111:13-70
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:114:13-70
 	android:name
-		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:109:13-59
+		ADDED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml:112:13-59
 uses-sdk
 INJECTED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\chaymae\AndroidStudioProjects\dish-wish-frontend\app\src\main\AndroidManifest.xml

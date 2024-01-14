@@ -56,7 +56,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".Authentification.page_acceuil"
+            android:name=".Profil.view_profile"
             android:exported="true"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
             <intent-filter>
@@ -95,10 +95,7 @@
             android:name=".Profil.change_profile"
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
-         <activity
-        android:name=".Profil.view_profile"
-        android:exported="false"
-         android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
+
         <activity
             android:name=".Command.MapsChefActivity"
             android:exported="false"

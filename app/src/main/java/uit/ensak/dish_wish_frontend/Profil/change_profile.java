@@ -16,6 +16,7 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -50,7 +51,6 @@ public class change_profile extends AppCompatActivity {
 
     private String newDiet, newCity;
 
-    private static final int REQUEST_IMAGE_CAPTURE = 101;
     private static final int REQUEST_PICK_IMAGE = 102;
     private ImageView profileImageView;
     private Bitmap imageBitmap;
@@ -62,9 +62,6 @@ public class change_profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("isCook",false);
-        editor.apply();
         Boolean isCook= preferences.getBoolean("isCook", false);
 
         setContentView(R.layout.activity_change_profile);
@@ -135,11 +132,12 @@ public class change_profile extends AppCompatActivity {
         });
         editTextNewFirstName = findViewById(R.id.editTextNewFirstName);
         editTextNewLastName = findViewById(R.id.editTextNewLastName);
-        editTextNewPosition = findViewById(R.id.editTextPosition);
         editTextNewAddress = findViewById(R.id.editTextNewAddress);
         editTextNewPhoneNumber = findViewById(R.id.editTextNewPhoneNumber);
         editTextNewAllergie = findViewById(R.id.editTextNewAllergie);
+        editTextNewPosition= findViewById(R.id.editTextPosition);
         btnSubmit = findViewById(R.id.btnsubmit);
+        btnPosition= findViewById(R.id.btnPosition);
         currentFirstName = getIntent().getStringExtra("CURRENT_FIRST_NAME");
         currentLastName = getIntent().getStringExtra("CURRENT_LAST_NAME");
         currentPosition = getIntent().getStringExtra("CURRENT_POSITION");
@@ -166,7 +164,7 @@ public class change_profile extends AppCompatActivity {
        btnPosition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+
             }
         });
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -181,7 +179,6 @@ public class change_profile extends AppCompatActivity {
             public void onClick(View v) {
                 String newFirstName = editTextNewFirstName.getText().toString();
                 String newLastName = editTextNewLastName.getText().toString();
-
                 String newAddress = editTextNewAddress.getText().toString();
                 String newPosition = editTextNewPosition.getText().toString();
                 String newPhoneNumber = editTextNewPhoneNumber.getText().toString();
@@ -249,6 +246,7 @@ public class change_profile extends AppCompatActivity {
                 resultIntent.putExtra("NEW_DIET", newDiet);
                 resultIntent.putExtra("NEW_CITY",newCity);
                 resultIntent.putExtra("NEW_PROFILE_IMAGE_BITMAP", imageBitmap);
+                Log.d("aa","bb");
                 setResult(RESULT_OK, resultIntent);
                 finish();
             }
@@ -259,32 +257,16 @@ public class change_profile extends AppCompatActivity {
     private void showImageSourceDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Choose Image Source");
-        builder.setItems(new CharSequence[]{"Camera", "Gallery"}, new DialogInterface.OnClickListener() {
+        builder.setItems(new CharSequence[]{"Gallery"}, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                switch (which) {
-                    case 0:
-                        dispatchTakePictureIntent();
-                        break;
-                    case 1:
                         pickImageFromGallery();
-                        break;
-                }
+
             }
         });
         builder.show();
     }
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-        }
-    }
 
-    private String saveImageToInternalStorage(Bitmap bitmap) {
-            String imagePath = getFilesDir() + "/profile_image.jpg";
-        return imagePath;
-    }
     private void pickImageFromGallery() {
         Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(galleryIntent, REQUEST_PICK_IMAGE);
@@ -293,17 +275,7 @@ public class change_profile extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            switch (requestCode) {
-                case REQUEST_IMAGE_CAPTURE:
-                    Bundle extras = data.getExtras();
-                    imageBitmap = (Bitmap) extras.get("data");
-                    imageBitmap = resizeBitmap(imageBitmap, 92, 92);
-                    imageBitmap=getRoundedBitmap(imageBitmap);
-                    profileImageView.setImageBitmap(imageBitmap);
-                    imageBitmap = getIntent().getParcelableExtra("IMAGE_BITMAP");
-                    break;
-                case REQUEST_PICK_IMAGE:
+        if (resultCode == RESULT_OK && requestCode ==REQUEST_PICK_IMAGE) {
                     Uri selectedImage = data.getData();
                     try {
                         imageBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
@@ -312,8 +284,7 @@ public class change_profile extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    break;
-            }
+
         }
 
 
@@ -358,6 +329,7 @@ public class change_profile extends AppCompatActivity {
                         // Utiliser BitmapFactory.decodeStream pour créer un Bitmap directement à partir du flux
                         Bitmap newProfileImageBitmap = BitmapFactory.decodeStream(response.body().byteStream());
                         imageBitmap = newProfileImageBitmap;
+
                         profileImageView.setImageBitmap(getRoundedBitmap(newProfileImageBitmap));
                     } catch (Exception e) {
                         e.printStackTrace();

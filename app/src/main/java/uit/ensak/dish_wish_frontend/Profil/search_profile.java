@@ -35,6 +35,7 @@ import java.util.List;
 
 import retrofit2.Callback;
 import retrofit2.Response;
+import uit.ensak.dish_wish_frontend.Models.Address;
 import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Comment;
@@ -107,7 +108,7 @@ public class search_profile extends AppCompatActivity{
                 public void onChefReceived(Chef chef) {
                     textViewFirstName.setText(chef.getFirstName());
                     textViewLastName.setText(chef.getLastName());
-                    textViewAddress.setText(chef.getAddress());
+                    textViewAddress.setText(chef.getAddress().getCity().getName());
                     textViewPHONE_NUMBER.setText(chef.getPhoneNumber());
                     if (chef.getDiet() != null) {
                         textViewDiet.setText(chef.getDiet().getTitle());
@@ -130,7 +131,7 @@ public class search_profile extends AppCompatActivity{
                     clientFirstName = client.getFirstName();
                     textViewFirstName.setText(client.getFirstName());
                     textViewLastName.setText(client.getLastName());
-                    textViewAddress.setText(client.getAddress());
+                    textViewAddress.setText(client.getAddress().getAddress());
                     textViewPHONE_NUMBER.setText(client.getPhoneNumber());
                     if (client.getDiet() != null) {
                         textViewDiet.setText(client.getDiet().getTitle());
@@ -211,13 +212,13 @@ public class search_profile extends AppCompatActivity{
             if(isCook) {
                 textViewBio.setText(newBio);
             }
-
             DietDTO dietDTO = new DietDTO();
             ChefDTO chefDTO = new ChefDTO();
+            Address address = new Address();
 
             chefDTO.setFirstName(newFirstName);
             chefDTO.setLastName(newLastName);
-            chefDTO.setAddress(newAddress);
+            chefDTO.setAddress(address);
             chefDTO.setPhoneNumber(newPhoneNumber);
             chefDTO.setAllergies(newAllergy);
             dietDTO.setTitle(newDiet);

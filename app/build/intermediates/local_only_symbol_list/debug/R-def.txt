@@ -247,7 +247,6 @@ id textViewActualDiet
 id textViewActualFirstName
 id textViewActualLastName
 id textViewActualPhoneNumber
-id textViewActualPosition
 id textViewAddress
 id textViewAllergies
 id textViewBio

@@ -39,7 +39,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import uit.ensak.dish_wish_frontend.Authentification.CreateAccount;
 import uit.ensak.dish_wish_frontend.Authentification.page_acceuil;
+import uit.ensak.dish_wish_frontend.Models.Address;
 import uit.ensak.dish_wish_frontend.Models.Chef;
+import uit.ensak.dish_wish_frontend.Models.City;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.dto.ChefDTO;
@@ -49,13 +51,13 @@ import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
 public class view_profile extends AppCompatActivity {
 
     static final int REQUEST_CODE_CHANGE_PROFILE = 1;
-    static final int REQUEST_IMAGE_CAPTURE = 2;
     static final int REQUEST_PICK_IMAGE = 3;
 
     private ChefDTO chefDTO;
+    private  String position;
 
 
-    private TextView textViewFirstName, textViewLastName, textViewAddress, textViewPosition,textViewBio, textViewDiet,textViewCity, textViewPHONE_NUMBER, textViewAllergies, textViewBioContent;
+    private TextView textViewFirstName, textViewLastName, textViewAddress,textViewBio, textViewDiet,textViewCity, textViewPHONE_NUMBER, textViewAllergies, textViewBioContent;
     private Spinner spinnerAllergies;
     private ImageView profileImageView;
 
@@ -64,8 +66,8 @@ public class view_profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("userId", 5L);
-        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWEyMDEwQGdtYWlsLm1hIiwiaWF0IjoxNzA1MTQ3ODY3LCJleHAiOjE3MDUyMzQyNjd9.3cL-8fGsXkT0DIgRkV3MYDa6qNsYZ9GYIqmllNVyDJ0");
+        editor.putLong("userId", 2L);
+        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWFlMjAxMGNAZ21haWwubWEiLCJpYXQiOjE3MDUyMzY2MTAsImV4cCI6MTcwNTMyMzAxMH0.IZOEOkD4FcUxc8ajwLdnP7vUMASEyOSlc-UctbhBi2U");
         editor.putBoolean("isCook", false);
         editor.apply();
         Boolean isCook = preferences.getBoolean("isCook", false);
@@ -74,7 +76,6 @@ public class view_profile extends AppCompatActivity {
 
         textViewFirstName = findViewById(R.id.textViewActualFirstName);
         textViewLastName = findViewById(R.id.textViewActualLastName);
-        textViewPosition = findViewById(R.id.textViewActualPosition);
         textViewAddress = findViewById(R.id.textViewActualAddress);
         textViewCity= findViewById(R.id.textViewActualCity);
         textViewDiet = findViewById(R.id.textViewActualDiet);
@@ -92,18 +93,16 @@ public class view_profile extends AppCompatActivity {
                 public void onChefReceived(Chef chef) {
                     textViewFirstName.setText(chef.getFirstName());
                     textViewLastName.setText(chef.getLastName());
-                    textViewAddress.setText(chef.getAddress());
-                    //il faut mettre a jour le model
-                    // textViewPosition.setText(chef.getPosition());
+                    if(chef.getAddress()!=null){
+                    textViewAddress.setText(chef.getAddress().getAddress());
+                        textViewCity.setText(chef.getAddress().getCity().getName());
+                        position= chef.getAddress().getPosition();
+                    }
                     textViewPHONE_NUMBER.setText(chef.getPhoneNumber());
                     if (chef.getDiet() != null) {
                         textViewDiet.setText(chef.getDiet().getTitle());
                     }
                     textViewAllergies.setText(chef.getAllergies());
-                    //il faut mettre a jour le model
-                    // if(chef.getCity()!=null){
-                    // textViewCity.setText(chef.getCity.getTitle);
-                    // }
                     textViewBioContent.setText(chef.getBio());
                 }
 
@@ -120,17 +119,15 @@ public class view_profile extends AppCompatActivity {
                 public void onClientReceived(Client client) {
                     textViewFirstName.setText(client.getFirstName());
                     textViewLastName.setText(client.getLastName());
- //il faut mettre a jour le model
-                   // textViewCity.setText(client.getCity);
-                    textViewAddress.setText(client.getAddress());
+                    if(client.getAddress()!=null) {
+                        textViewAddress.setText(client.getAddress().getAddress());
+                        textViewCity.setText(client.getAddress().getCity().getName());
+                        position= client.getAddress().getPosition();
+                    }
                     textViewPHONE_NUMBER.setText(client.getPhoneNumber());
                     if (client.getDiet() != null) {
                         textViewDiet.setText(client.getDiet().getTitle());
                     }
-//il faut mettre a jour le model
-                    // if(client.getCity()!=null){
-                    // textViewCity.setText(client.getCity.getTitle);
-                    // }
                     textViewAllergies.setText(client.getAllergies());
                 }
 
@@ -154,14 +151,14 @@ public class view_profile extends AppCompatActivity {
                 Intent intent = new Intent(view_profile.this, change_profile.class);
                 intent.putExtra("CURRENT_FIRST_NAME", textViewFirstName.getText().toString());
                 intent.putExtra("CURRENT_LAST_NAME", textViewLastName.getText().toString());
-                intent.putExtra("CURRENT_POSITION",textViewPosition.getText().toString());
                 intent.putExtra("CURRENT_ADDRESS", textViewAddress.getText().toString());
                 intent.putExtra("CURRENT_PHONE_NUMBER", textViewPHONE_NUMBER.getText().toString());
                 intent.putExtra("CURRENT_ALLERGY", textViewAllergies.getText().toString());
+                intent.putExtra("CURRENT_POSITION", position);
                 if (isCook) {
                     intent.putExtra("CURRENT_BIO", textViewBio.getText().toString());
                 }
-                intent.putExtra("CURRET_CITY", textViewCity.getText().toString());
+                intent.putExtra("CURRENT_CITY", textViewCity.getText().toString());
                 intent.putExtra("CURRENT_DIET", textViewDiet.getText().toString());
                 startActivityForResult(intent, REQUEST_CODE_CHANGE_PROFILE);
             }
@@ -260,7 +257,6 @@ public class view_profile extends AppCompatActivity {
             textViewFirstName.setText(newFirstName);
             textViewLastName.setText(newLastName);
             textViewAddress.setText(newAddress);
-            textViewPosition.setText(newPosition);
             textViewPHONE_NUMBER.setText(newPhoneNumber);
             textViewCity.setText(newCity);
             textViewDiet.setText(newDiet);
@@ -268,20 +264,22 @@ public class view_profile extends AppCompatActivity {
             if(isCook) {
                 textViewBio.setText(newBio);
             }
-//reste CityDTO
             DietDTO dietDTO = new DietDTO();
             ChefDTO chefDTO = new ChefDTO();
+            Address address = new Address();
+            City city = new City();
 
             chefDTO.setFirstName(newFirstName);
             chefDTO.setLastName(newLastName);
-//il faut mettre a jour le model
-           // chefDTO.setPosition(newPosition);
-            chefDTO.setAddress(newAddress);
+            city.setName(newCity);
+            address.setAddress(newAddress);
+            address.setCity(city);
+
+            chefDTO.setAddress(address);
             chefDTO.setPhoneNumber(newPhoneNumber);
             chefDTO.setAllergies(newAllergy);
 
             dietDTO.setTitle(newDiet);
-//reste CityDTO
 
             chefDTO.setDietDTO(dietDTO);
             if (isCook) {
@@ -289,12 +287,7 @@ public class view_profile extends AppCompatActivity {
             }
             updateUser(chefDTO, newProfileImageBitmap);
         }
-        if ((requestCode == REQUEST_IMAGE_CAPTURE || requestCode == REQUEST_PICK_IMAGE) && resultCode == RESULT_OK) {
-            if (requestCode == REQUEST_IMAGE_CAPTURE) {
-                Bundle extras = data.getExtras();
-                Bitmap imageBitmap = (Bitmap) extras.get("data");
-                profileImageView.setImageBitmap(imageBitmap);
-            } else if (requestCode == REQUEST_PICK_IMAGE) {
+        if (requestCode == REQUEST_PICK_IMAGE && resultCode == RESULT_OK) {
                 Uri selectedImage = data.getData();
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
@@ -303,7 +296,6 @@ public class view_profile extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        }
     }
 
     private void getClient(ApiClientCallback apiClientCallback) {

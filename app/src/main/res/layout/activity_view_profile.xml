@@ -171,14 +171,6 @@
                     android:textColor="#010F07"
                     android:textSize="18sp" />
             </LinearLayout>
-            <TextView
-                android:id="@+id/textViewActualPosition"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="#010F07"
-                android:textSize="18sp" />
-
             <!--  PhoneNumber-->
             <TextView
                 android:id="@+id/textViewPhoneNumber"

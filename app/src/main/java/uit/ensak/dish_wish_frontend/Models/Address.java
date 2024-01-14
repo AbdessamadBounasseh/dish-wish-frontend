@@ -4,9 +4,7 @@ public class Address {
     private String address;
     private City city;
 
-    private float xPosition;
-
-    private float yPosition;
+    private String position;
 
     public String getAddress() {
         return address;
@@ -24,19 +22,11 @@ public class Address {
         this.city = city;
     }
 
-    public float getxPosition() {
-        return xPosition;
+    public String getPosition() {
+        return position;
     }
 
-    public void setxPosition(float xPosition) {
-        this.xPosition = xPosition;
-    }
-
-    public float getyPosition() {
-        return yPosition;
-    }
-
-    public void setyPosition(float yPosition) {
-        this.yPosition = yPosition;
+    public void setPosition(String position) {
+        this.position = position;
     }
 }

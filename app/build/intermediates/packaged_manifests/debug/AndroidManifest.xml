@@ -9,11 +9,6 @@
         android:targetSdkVersion="34" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="true" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -86,7 +81,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name="uit.ensak.dish_wish_frontend.Profil.search_profile"
+            android:name="uit.ensak.dish_wish_frontend.Profil.view_profile"
             android:exported="true"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
             <intent-filter>
@@ -100,8 +95,14 @@
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
-            android:name="uit.ensak.dish_wish_frontend.Authentification.page_acceuil"
-            android:exported="false" />
+            android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
+        </activity>
+        <activity
+            android:name="uit.ensak.dish_wish_frontend.Profil.search_profile"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name="uit.ensak.dish_wish_frontend.Profil.become_cook"
             android:exported="false"
@@ -116,10 +117,6 @@
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name="uit.ensak.dish_wish_frontend.Profil.change_profile"
-            android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
-        <activity
-            android:name="uit.ensak.dish_wish_frontend.Profil.view_profile"
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity

@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="city">
-    <item>Casablanca</item>
-    <item>Rabat</item>
-    <item>Fès</item>
-    <item>Marrakech</item>
-    <item>Tanger</item>
-    <item>Agadir</item>
-    <item>Meknès</item>
-    <item>Salé</item>
-    <item>Oujda</item>
-    <item>Kenitra</item>
-    <item>Tétouan</item>
-    <item>Laayoune</item>
-    <item>Khouribga</item>
-    <item>Settat</item>
-    <item>Béni Mellal</item>
-    <item>Nador</item>
-    <item>El Jadida</item>
-    <item>Taza</item>
-    <item>Khémisset</item>
-    <item>Agadir</item>
+        <item>Casablanca</item>
+        <item>Rabat</item>
+        <item>Tanger</item>
+        <item>Kénitra</item>
+        <item>Fès</item>
+        <item>Tétouan</item>
+        <item>Marrakech</item>
+        <item>Salé</item>
+        <item>Mohammedia</item>
+        <item>Mèknes</item>
+        <item>Settat</item>
+        <item>Agadir</item>
+        <item>Oujda</item>
+        <item>Dakhla</item>
+        <item>Laâyoune</item>
+        <item>Nador</item>
+        <item>Al Hoceima</item>
+        <item>Essaouira</item>
+        <item>El Jadida</item>
+        <item>Taza</item>
     </string-array>
     <array name="com_google_android_gms_fonts_certs">
         <item>@array/com_google_android_gms_fonts_certs_dev</item>

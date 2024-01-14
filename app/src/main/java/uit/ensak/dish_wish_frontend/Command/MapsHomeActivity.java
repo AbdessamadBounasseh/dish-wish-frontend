@@ -637,7 +637,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 Chef chef = proposition.getChef();
 
                 if (chef != null && chef.getAddress() != null) {
-                    String[] latLng = chef.getAddress().split(",");
+                    String[] latLng = chef.getAddress().getPosition().split(",");
                     if (latLng.length == 2) {
                         double latitude = Double.parseDouble(latLng[0]);
                         double longitude = Double.parseDouble(latLng[1]);

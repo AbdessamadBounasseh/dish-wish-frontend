@@ -261,7 +261,7 @@
                 android:text="BIO"
                 android:textColor="#868686"
                 android:textSize="14sp"
-                android:visibility="visible" />
+                android:visibility="invisible" />
 
             <EditText
                 android:id="@+id/editTextNewBio"
@@ -270,7 +270,7 @@
                 android:text="   "
                 android:textColor="#010F07"
                 android:textSize="18sp"
-                android:visibility="visible" />
+                android:visibility="invisible" />
 
         </LinearLayout>
     </RelativeLayout>
