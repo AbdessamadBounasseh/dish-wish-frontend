@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import uit.ensak.dish_wish_frontend.service.RetrofitClient;
+import uit.ensak.dish_wish_frontend.shared.RetrofitClient;
 import uit.ensak.dish_wish_frontend.Models.Auth.AuthenticationResponse;
 import uit.ensak.dish_wish_frontend.Models.Auth.RegisterRequest;
 import uit.ensak.dish_wish_frontend.R;
