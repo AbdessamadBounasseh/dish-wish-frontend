@@ -1,5 +1,6 @@
 package uit.ensak.dish_wish_frontend.service;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Headers;
@@ -14,5 +15,5 @@ public interface AuthenticationService {
     Call<AuthenticationResponse> register(@Body RegisterRequest request);
     @Headers({"Accept: application/json"})
     @POST("auth/register/verify-email")
-    Call<String> verifyEmail(@Query("code") String code);
+    Call<ResponseBody> verifyEmail(@Query("code") String code);
 }
