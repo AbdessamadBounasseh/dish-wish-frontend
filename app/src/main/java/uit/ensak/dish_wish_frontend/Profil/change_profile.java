@@ -329,7 +329,7 @@ public class change_profile extends AppCompatActivity {
                         // Utiliser BitmapFactory.decodeStream pour créer un Bitmap directement à partir du flux
                         Bitmap newProfileImageBitmap = BitmapFactory.decodeStream(response.body().byteStream());
                         imageBitmap = newProfileImageBitmap;
-
+                        imageBitmap = resizeBitmap(imageBitmap, 92, 92);
                         profileImageView.setImageBitmap(getRoundedBitmap(newProfileImageBitmap));
                     } catch (Exception e) {
                         e.printStackTrace();
