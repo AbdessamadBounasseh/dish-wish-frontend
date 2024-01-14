@@ -243,6 +243,7 @@ public class view_profile extends AppCompatActivity {
             String newDiet = data.getStringExtra("NEW_DIET");
             String newPhoneNumber = data.getStringExtra("NEW_PHONE_NUMBER");
             String newAllergy = data.getStringExtra("NEW_ALLERGY");
+            String position = data.getStringExtra("position");
 
             Bitmap newProfileImageBitmap = data.getParcelableExtra("NEW_PROFILE_IMAGE_BITMAP");
 
@@ -274,6 +275,7 @@ public class view_profile extends AppCompatActivity {
             city.setName(newCity);
             address.setAddress(newAddress);
             address.setCity(city);
+            address.setPosition(position);
 
             chefDTO.setAddress(address);
             chefDTO.setPhoneNumber(newPhoneNumber);

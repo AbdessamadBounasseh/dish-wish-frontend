@@ -68,6 +68,7 @@ public class UpdateActivity extends AppCompatActivity {
         String deadlineString = intent.getStringExtra("deadline");
         String price = intent.getStringExtra("price");
         String address = intent.getStringExtra("address");
+        Boolean allergie = intent.getBooleanExtra("allergie",false);
 
         deadlineString = deadlineString.replace("/", " ");
 
@@ -80,7 +81,9 @@ public class UpdateActivity extends AppCompatActivity {
         EditText deliveryTimeEditText = findViewById(R.id.deliveryTime);
         EditText priceEditText = findViewById(R.id.price);
         EditText addressEditText = findViewById(R.id.location);
+        Switch allergiesSwitch = findViewById(R.id.allergies);
 
+        allergiesSwitch.setChecked(allergie);
         titleEditText.setText(title);
         descriptionEditText.setText(description);
         servingEditText.setText(serving);

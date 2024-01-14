@@ -233,14 +233,14 @@ ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:54:9-
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:56:13-54
 	android:name
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:55:13-43
-activity#uit.ensak.dish_wish_frontend.Command.MapsHomeActivity
+activity#uit.ensak.dish_wish_frontend.Profil.view_profile
 ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:58:9-67:20
 	android:exported
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:60:13-36
 	android:theme
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:61:13-70
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:59:13-53
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:59:13-48
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:62:13-66:29
 action#android.intent.action.MAIN
@@ -259,14 +259,14 @@ ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:68:9-
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:71:13-70
 	android:name
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:69:13-59
-activity#uit.ensak.dish_wish_frontend.Profil.view_profile
+activity#uit.ensak.dish_wish_frontend.Command.MapsHomeActivity
 ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:72:9-76:20
 	android:exported
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:74:13-37
 	android:theme
 		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:75:13-70
 	android:name
-		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:73:13-48
+		ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:73:13-53
 activity#uit.ensak.dish_wish_frontend.Profil.search_profile
 ADDED from D:\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:78:9-81:72
 	android:exported

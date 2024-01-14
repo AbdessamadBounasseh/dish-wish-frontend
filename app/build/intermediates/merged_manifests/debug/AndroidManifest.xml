@@ -81,7 +81,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
+            android:name="uit.ensak.dish_wish_frontend.Profil.view_profile"
             android:exported="true"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
             <intent-filter>
@@ -95,7 +95,7 @@
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
-            android:name="uit.ensak.dish_wish_frontend.Profil.view_profile"
+            android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
         </activity>

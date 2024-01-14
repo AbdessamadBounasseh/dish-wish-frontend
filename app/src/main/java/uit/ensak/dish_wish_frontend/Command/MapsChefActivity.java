@@ -124,6 +124,7 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
             }
         });
 
+
         // Check for location permission
         /*if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED &&

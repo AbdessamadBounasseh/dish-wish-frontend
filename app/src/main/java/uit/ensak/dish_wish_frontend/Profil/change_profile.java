@@ -1,6 +1,9 @@
 package uit.ensak.dish_wish_frontend.Profil;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -28,6 +31,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
@@ -38,6 +43,8 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import uit.ensak.dish_wish_frontend.Command.MapsChefActivity;
+import uit.ensak.dish_wish_frontend.Command.UpdateActivity;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
 
@@ -54,6 +61,12 @@ public class change_profile extends AppCompatActivity {
     private static final int REQUEST_PICK_IMAGE = 102;
     private ImageView profileImageView;
     private Bitmap imageBitmap;
+
+    private Button chooseLocationButton;
+    private ActivityResultLauncher<Intent> mapsActivityLauncher;
+    private static final int Maps_REQUEST_CODE = 123;
+
+
     private Bitmap resizeBitmap(Bitmap originalBitmap, int newWidth, int newHeight) {
         return Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, false);
     }
@@ -182,6 +195,7 @@ public class change_profile extends AppCompatActivity {
                 String newAddress = editTextNewAddress.getText().toString();
                 String newPosition = editTextNewPosition.getText().toString();
                 String newPhoneNumber = editTextNewPhoneNumber.getText().toString();
+                String position = editTextNewPosition.getText().toString();
                 String newBio = "";
                 if (isCook) {
                    newBio = editTextNewBio.getText().toString();
@@ -240,6 +254,7 @@ public class change_profile extends AppCompatActivity {
                 resultIntent.putExtra("NEW_ADDRESS", newAddress);
                 resultIntent.putExtra("NEW_ALLERGY", newAllergie);
                 resultIntent.putExtra("NEW_PHONE_NUMBER", newPhoneNumber);
+                resultIntent.putExtra("position", position);
                 if (isCook) {
                     resultIntent.putExtra("NEW_BIO", newBio);
                 }
@@ -251,6 +266,26 @@ public class change_profile extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        mapsActivityLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent data = result.getData();
+                        LatLng selectedLatLng = data.getParcelableExtra("selected_location");
+                        EditText addressEditTe = findViewById(R.id.editTextPosition);
+                        addressEditTe.setText(selectedLatLng.latitude + "," + selectedLatLng.longitude);
+                    }
+                }
+        );
+
+
+
+
+
+
+
     }
 
 
@@ -275,7 +310,19 @@ public class change_profile extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && requestCode ==REQUEST_PICK_IMAGE) {
+
+        if (resultCode == RESULT_OK) {
+            if (requestCode == Maps_REQUEST_CODE) {
+                // Handle the result from MapsChefActivity
+                if (data != null) {
+                    LatLng selectedLatLng = data.getParcelableExtra("selected_location");
+                    // Use selectedLatLng as needed
+                    EditText addressEditText = findViewById(R.id.location);
+                    addressEditText.setText(selectedLatLng.latitude + "," + selectedLatLng.longitude);
+                }
+            } else if (requestCode == REQUEST_PICK_IMAGE) {
+                // Handle the result from image picking
+                if (data != null) {
                     Uri selectedImage = data.getData();
                     try {
                         imageBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
@@ -284,11 +331,11 @@ public class change_profile extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
+                }
+            }
         }
-
-
     }
+
 
     private Bitmap getRoundedBitmap(Bitmap bitmap) {
         int width = bitmap.getWidth();
