@@ -35,6 +35,10 @@ import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.shared.RetrofitClient;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class UpdateActivity extends AppCompatActivity {
 
     private Button chooseLocationButton;
