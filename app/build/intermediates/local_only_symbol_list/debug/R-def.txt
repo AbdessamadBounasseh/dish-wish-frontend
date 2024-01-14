@@ -111,11 +111,9 @@ font interregular
 font poppins_bold
 font poppins_regular
 id ChooseLocation
-id ConfirmPasswordTitle
 id Description
 id FirstFragment
 id Ok
-id PasswordTitle
 id SecondFragment
 id action_FAQ
 id action_FirstFragment_to_SecondFragment
@@ -146,7 +144,6 @@ id btnInProgress
 id btnOrdered
 id btnPosition
 id btnPrepared
-id btnResetPassword
 id btnScancard
 id btnScancertif
 id btnchange
@@ -165,14 +162,12 @@ id deliveryTime
 id dish
 id donthave
 id editTextComment
-id editTextConfirmPassword
 id editTextNewAddress
 id editTextNewAllergie
 id editTextNewBio
 id editTextNewFirstName
 id editTextNewLastName
 id editTextNewPhoneNumber
-id editTextPassword
 id editTextPosition
 id email
 id email_addre
@@ -235,10 +230,6 @@ id text1
 id text2
 id textDishName
 id textDishPrice
-id textEnterPassword
-id textInputLayoutConfirmPassword
-id textInputLayoutPassword
-id textResetPassword
 id textView2
 id textViewActualAddress
 id textViewActualAllergies
@@ -334,6 +325,7 @@ string code
 string confirm
 string email_addre
 string enter_change
+string enter_new
 string enter_your_
 string first_fragment_label
 string forget_pass
@@ -357,6 +349,7 @@ string password
 string previous
 string remember
 string reset
+string reset_pass
 string second_fragment_label
 string send_complaint
 string send_email

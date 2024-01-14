@@ -57,14 +57,8 @@
 
         <activity
             android:name=".Profil.view_profile"
-            android:exported="true"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name=".history_folder.HistoryActivity"
             android:exported="false"
@@ -72,13 +66,12 @@
         <activity
             android:name=".Command.MapsHomeActivity"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
 
         <activity
             android:name=".Profil.search_profile"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name=".Profil.become_cook"
             android:exported="false"
@@ -110,8 +103,14 @@
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name=".Authentification.CreateAccount"
-            android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+            android:exported="true"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

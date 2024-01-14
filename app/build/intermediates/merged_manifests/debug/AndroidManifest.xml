@@ -82,14 +82,8 @@
 
         <activity
             android:name="uit.ensak.dish_wish_frontend.Profil.view_profile"
-            android:exported="true"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name="uit.ensak.dish_wish_frontend.history_folder.HistoryActivity"
             android:exported="false"
@@ -97,8 +91,7 @@
         <activity
             android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name="uit.ensak.dish_wish_frontend.Profil.search_profile"
             android:exported="false"
@@ -133,8 +126,14 @@
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name="uit.ensak.dish_wish_frontend.Authentification.CreateAccount"
-            android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+            android:exported="true"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="androidx.compose.ui.tooling.PreviewActivity"
             android:exported="true" />

@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+.gradle/
+app/build/
+app/build/intermediates/
+app/build/outputs/
