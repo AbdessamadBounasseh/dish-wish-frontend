@@ -69,6 +69,10 @@ Reset email sent
     <string name="forgot">
 Forgot password
 </string>
+    <string name="reset_pass">
+  RESET PASSWORD
+</string>
+
     <string name="send_email">
 Enter your email address and we will send you a reset instructions.
 </string>
