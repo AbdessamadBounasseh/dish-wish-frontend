@@ -17,10 +17,12 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +32,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -84,7 +87,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private Button pickDate;
     private Marker currentMarker;
     private ImageView arrow;
-    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUxNTkzNzIsImV4cCI6MTcwNTI0NTc3Mn0.8zf5K_NqGnZq2MCssrJUOlaHQYf8ppLdwwzAe3HWB20";
+    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUyMzUzMDAsImV4cCI6MTcwNTMyMTcwMH0.ZhulnzT4vzPRdyjglYUFaWtr06LW9W6p0edjzgizm_Q";
     private long associatedCommandId;
     private Command commandCreated;
 
@@ -365,7 +368,6 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             });
         }
 
-
     }
 
 
@@ -584,6 +586,14 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 }
             }
 
+            LottieAnimationView allergieAnimationView = dialog.findViewById(R.id.allergie);
+
+            if (associatedCommand.getAllergie()) {
+                allergieAnimationView.setVisibility(View.VISIBLE);
+            } else {
+                allergieAnimationView.setVisibility(View.GONE);
+            }
+
             TextView title = dialog.findViewById(R.id.title);
             TextView description = dialog.findViewById(R.id.Description);
             TextView serving = dialog.findViewById(R.id.serving);
@@ -744,11 +754,9 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         String price = Price.getText().toString();
 
 
-
-
         if (isValidCommand(title, description, serving, location, delivaryDate, delivaryTime, price)) {
 
-            // Create a Command object
+            // Assign data to command
             Command command = new Command();
             command.setTitle(title);
             command.setDescription(description);
@@ -756,6 +764,12 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             command.setAddress(location);
             command.setDeadline(deadline);
             command.setPrice(price);
+
+            Switch allergiesSwitch = findViewById(R.id.allergies);
+
+            boolean isAllergieChecked = allergiesSwitch.isChecked();
+            Log.d("Switch State=", "" + isAllergieChecked);
+            command.setAllergie(isAllergieChecked);
 
             String[] latLng = location.split(",");
 
@@ -770,7 +784,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                     if (addresses != null && addresses.size() > 0) {
                         String locationName = addresses.get(0).getLocality();
                         String city = locationName;
-//                        command.setCity(city);
+//                      command.setCity(city);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

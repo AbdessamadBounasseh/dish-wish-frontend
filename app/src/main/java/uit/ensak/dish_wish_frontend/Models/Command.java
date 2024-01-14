@@ -20,10 +20,14 @@ public class Command implements Serializable {
     private Client client;
     private Chef chef;
 
+
+
+    private boolean allergie;
+
     // Constructor
     public Command(Long id, String title, String description, String serving, String address, String deadline,
                    String city,String price, String status,
-                   Client client, Chef chef) {
+                   Client client, Chef chef,boolean allergie) {
         this.id = id;
         this.title= title;
         this.description = description;
@@ -35,6 +39,7 @@ public class Command implements Serializable {
         this.status = status;
         this.client = client;
         this.chef = chef;
+        this.allergie = allergie;
     }
 
     public Command() {
@@ -48,6 +53,13 @@ public class Command implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public boolean getAllergie() {
+        return allergie;
+    }
+    public void setAllergie(boolean allergie) {
+        this.allergie = allergie;
     }
     public String getTitle() {
         return title;

@@ -37,6 +37,7 @@
             tools:layout_editor_absoluteX="75dp"
             tools:layout_editor_absoluteY="46dp" />
 
+
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animationView"
             android:layout_width="215dp"
@@ -45,6 +46,19 @@
             android:layout_marginTop="10dp"
             app:lottie_autoPlay="true"
             app:lottie_rawRes="@raw/details"
+            tools:layout_editor_absoluteX="75dp"
+            tools:layout_editor_absoluteY="46dp" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/allergie"
+            android:layout_width="78dp"
+            android:layout_height="57dp"
+            android:layout_gravity="top"
+            android:layout_marginLeft="-5dp"
+            android:layout_marginTop="5dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/allergie"
             tools:layout_editor_absoluteX="75dp"
             tools:layout_editor_absoluteY="46dp" />
 
