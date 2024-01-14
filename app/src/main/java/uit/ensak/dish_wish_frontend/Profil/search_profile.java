@@ -46,9 +46,7 @@ import uit.ensak.dish_wish_frontend.search_folder.CommentAdapter;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
 
 public class search_profile extends AppCompatActivity{
-
-    static final int REQUEST_CODE_CHANGE_PROFILE = 1;
-    static final int REQUEST_IMAGE_CAPTURE = 2;
+        static final int REQUEST_IMAGE_CAPTURE = 2;
     static final int REQUEST_PICK_IMAGE = 3;
     private ChefDTO chefDTO;
     private TextView textViewFirstName, textViewLastName, textViewAddress, textViewBio, textViewDiet, textViewPHONE_NUMBER, textViewAllergies, textViewBioContent;
@@ -61,14 +59,13 @@ public class search_profile extends AppCompatActivity{
     private NestedScrollView nestedScrollView;
     private String clientFirstName;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putLong("userId", 6L);
-        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWEyMDEwMkBnbWFpbC5tYSIsImlhdCI6MTcwNTE4MDE5NiwiZXhwIjoxNzA1MjY2NTk2fQ.6F-wVZL4avcj4lRGYGDBZ91jfaC2JT_QsPTsSiNoAwY");
+        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWFlQGdtYWlsLm1hIiwiaWF0IjoxNzA1MjYzNzgzLCJleHAiOjE3MDUzNTAxODN9.8Q5gYIindYqqO0fz1JqoHrKPCWzAk4HPPdKgv3si2RY");
         editor.putBoolean("isCook", false);
         editor.apply();
 
