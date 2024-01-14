@@ -26,9 +26,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import uit.ensak.dish_wish_frontend.Command.MapsHomeActivity;
-import uit.ensak.dish_wish_frontend.service.RetrofitClient;
+import uit.ensak.dish_wish_frontend.Models.Auth.AuthenticationResponse;
+import uit.ensak.dish_wish_frontend.Models.Auth.RegisterRequest;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.service.AuthenticationService;
+import uit.ensak.dish_wish_frontend.shared.RetrofitClient;
 
 public class VerifyEmail extends AppCompatActivity {
     private static final Logger logger = (Logger) LoggerFactory.getLogger(page_acceuil.class);
@@ -101,14 +103,18 @@ public class VerifyEmail extends AppCompatActivity {
                     Log.d("MyTag", "Response is null or not successful");
                     Toast.makeText(VerifyEmail.this, "Verification failed", Toast.LENGTH_LONG).show();
                 }
+
+
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 t.printStackTrace();
                 Toast.makeText(VerifyEmail.this, "Verification failed", Toast.LENGTH_LONG).show();
+
             }
         });
+
     }
 
 }
