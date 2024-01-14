@@ -16,10 +16,12 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +31,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -74,6 +77,8 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
     private Map<String, Proposition> markerPropositionMap = new HashMap<>();
     final ArrayList<Proposition> propositionList = new ArrayList<>();
+    private Map<String, Command> markerCommandMap = new HashMap<>();
+    final ArrayList<Command> commandList = new ArrayList<>();
     private LinearLayout mBottomSheetLayout;
     private BottomSheetBehavior sheetBehavior;
     private ImageView header_Arrow_Image;
@@ -82,9 +87,9 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private Button pickDate;
     private Marker currentMarker;
     private ImageView arrow;
-    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwNjQyMDEsImV4cCI6MTcwNTE1MDYwMX0.Trk2cmuXm9SlyXrjNRuGb2mRwlbbGLqlSPB05YQekeM";
-
-    private Command associatedCommand;
+    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUyMzUzMDAsImV4cCI6MTcwNTMyMTcwMH0.ZhulnzT4vzPRdyjglYUFaWtr06LW9W6p0edjzgizm_Q";
+    private long associatedCommandId;
+    private Command commandCreated;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,6 +136,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startPosition, 8.0f));
 
         retryRequest();
+        retryCommandsRequest();
 
         mBottomSheetLayout = findViewById(R.id.bottom_sheet_layout);
         sheetBehavior = BottomSheetBehavior.from(mBottomSheetLayout);
@@ -303,9 +309,41 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             public boolean onMarkerClick(Marker marker) {
                 String markerTitle = marker.getTitle();
 
-                if (associatedCommand != null && "Command's Location".equals(markerTitle)) {
-                    showUpdatePopup(associatedCommand);
+                // Check if the marker title starts with "Command Created"
+                if (markerTitle != null && markerTitle.startsWith("Command Created")) {
+                    // Extract the commandId from the title
+                    String commandIdString = markerTitle.replace("Command Created", "");
+
+                    // Parse the extracted string to a long
+                    try {
+                        long commandId = Long.parseLong(commandIdString);
+
+                        // Call your API to get the command by id using commandId
+                        ApiService apiService = RetrofitClient.getApiService();
+                        Call<Command> call = apiService.getCommandById("Bearer " + accessToken, commandId);
+
+                        call.enqueue(new Callback<Command>() {
+                            @Override
+                            public void onResponse(Call<Command> call, Response<Command> response) {
+                                if (response.isSuccessful()) {
+                                    Command command = response.body();
+                                    showUpdatePopup(command);
+                                } else {
+                                    showErrorDialog();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<Command> call, Throwable t) {
+                                showErrorDialog();
+                            }
+                        });
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                        showErrorDialog();
+                    }
                 } else if ("offer".equals(markerTitle)) {
+                    // Handle the case for offer marker
                     Proposition associatedProposition = getPropositionFromMarker(marker);
                     showPropositionDetailsPopup(associatedProposition);
                 }
@@ -313,6 +351,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 return true;
             }
         });
+
 
         boolean showSuccessDialog = getIntent().getBooleanExtra("showSuccessDialog", false);
 
@@ -329,8 +368,29 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             });
         }
 
-
     }
+
+
+    private void addCommandMarkerToMap(String address, long commandId) {
+        String[] latLngArray = address.split(",");
+        if (latLngArray.length == 2) {
+            double latitude = Double.parseDouble(latLngArray[0]);
+            double longitude = Double.parseDouble(latLngArray[1]);
+
+            LatLng location = new LatLng(latitude, longitude);
+
+            MarkerOptions markerOptions = new MarkerOptions()
+                    .position(location)
+                    .title("Command Created" + commandId)
+                    .icon(BitmapFromVector(
+                            getApplicationContext(),
+                            R.drawable.order_marker));
+            mMap.addMarker(markerOptions);
+        } else {
+            Log.e("addCommandMarkerToMap", "Invalid address format: " + address);
+        }
+    }
+
 
     private void showPropositionDetailsPopup(Proposition associatedProposition) {
 
@@ -419,7 +479,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             public void run() {
 
                 ApiService apiService = RetrofitClient.getApiService();
-                Call<List<Proposition>> call = apiService.getPropositions("Bearer " + accessToken);
+                Call<List<Proposition>> call = apiService.getPropositionsByClientId("Bearer " + accessToken,1L);
 
                 call.enqueue(new Callback<List<Proposition>>() {
                     @Override
@@ -445,6 +505,39 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             }
         }).start();
     }
+
+    private void retryCommandsRequest() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ApiService apiService = RetrofitClient.getApiService();
+                Call<List<Command>> call = apiService.getCommandsByClientId("Bearer " + accessToken, 2L);
+
+                call.enqueue(new Callback<List<Command>>() {
+                    @Override
+                    public void onResponse(Call<List<Command>> call, Response<List<Command>> response) {
+                        if (response.isSuccessful()) {
+                            List<Command> receivedCommands = response.body();
+                            if (receivedCommands != null) {
+                                for (Command command : receivedCommands) {
+                                    commandList.add(command);
+                                    addCommandMarkersToMap(commandList);
+                                }
+                            }
+                        } else {
+                            showCustomPopup();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Command>> call, Throwable t) {
+                        showCustomPopup();
+                    }
+                });
+            }
+        }).start();
+    }
+
 
     private void showCustomPopup() {
         Dialog dialog = new Dialog(this);
@@ -484,13 +577,21 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 try {
                     List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
                     if (addresses != null && addresses.size() > 0) {
-                        String locationName = addresses.get(0).getAdminArea();
+                        String locationName = addresses.get(0).getLocality();
                         TextView location = dialog.findViewById(R.id.location);
                         location.setText(locationName);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            }
+
+            LottieAnimationView allergieAnimationView = dialog.findViewById(R.id.allergie);
+
+            if (associatedCommand.getAllergie()) {
+                allergieAnimationView.setVisibility(View.VISIBLE);
+            } else {
+                allergieAnimationView.setVisibility(View.GONE);
             }
 
             TextView title = dialog.findViewById(R.id.title);
@@ -531,6 +632,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                         intent.putExtra("deadline", associatedCommand.getDeadline());
                         intent.putExtra("price", associatedCommand.getPrice());
                         intent.putExtra("address", associatedCommand.getAddress());
+                        intent.putExtra("allergie", associatedCommand.getAllergie());
 
                         // Start the new activity
                         startActivity(intent);
@@ -546,7 +648,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 Chef chef = proposition.getChef();
 
                 if (chef != null && chef.getAddress() != null) {
-                    String[] latLng = chef.getAddress().split(",");
+                    String[] latLng = chef.getAddress().getPosition().split(",");
                     if (latLng.length == 2) {
                         double latitude = Double.parseDouble(latLng[0]);
                         double longitude = Double.parseDouble(latLng[1]);
@@ -572,6 +674,38 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private Proposition getPropositionFromMarker(Marker marker) {
         return markerPropositionMap.get(marker.getId());
     }
+
+
+    private void addCommandMarkersToMap(List<Command> commandList) {
+        if (mMap != null && commandList != null) {
+            for (Command command : commandList) {
+                String[] latLng = command.getAddress().split(",");
+
+                if (latLng != null && latLng.length == 2) {
+                    double latitude = Double.parseDouble(latLng[0]);
+                    double longitude = Double.parseDouble(latLng[1]);
+
+                    LatLng location = new LatLng(latitude, longitude);
+                    MarkerOptions markerOptions = new MarkerOptions()
+                            .position(location)
+                            .title("Command Created" + command.getId())
+                            .icon(BitmapFromVector(getApplicationContext(), R.drawable.order_marker));
+                    Marker marker = mMap.addMarker(markerOptions);
+                    linkMarkerToCommand(marker, command);
+                }
+            }
+        }
+    }
+
+    private void linkMarkerToCommand(Marker marker, Command command) {
+        markerCommandMap.put(marker.getId(), command);
+    }
+
+    private Command getCommandFromMarker(Marker marker) {
+        return markerCommandMap.get(marker.getId());
+    }
+
+
 
     //method to change the marker's icon
     private BitmapDescriptor
@@ -623,7 +757,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
 
         if (isValidCommand(title, description, serving, location, delivaryDate, delivaryTime, price)) {
 
-            // Create a Command object
+            // Assign data to command
             Command command = new Command();
             command.setTitle(title);
             command.setDescription(description);
@@ -631,6 +765,32 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             command.setAddress(location);
             command.setDeadline(deadline);
             command.setPrice(price);
+
+            Switch allergiesSwitch = findViewById(R.id.allergies);
+
+            boolean isAllergieChecked = allergiesSwitch.isChecked();
+            Log.d("Switch State=", "" + isAllergieChecked);
+            command.setAllergie(isAllergieChecked);
+
+            String[] latLng = location.split(",");
+
+            if (latLng.length == 2) {
+                double latitude = Double.parseDouble(latLng[0]);
+                double longitude = Double.parseDouble(latLng[1]);
+
+                // Perform reverse geocoding to get the location name from latitude and longitude
+                Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+                try {
+                    List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
+                    if (addresses != null && addresses.size() > 0) {
+                        String locationName = addresses.get(0).getLocality();
+                        String city = locationName;
+//                      command.setCity(city);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
 
            /* // Retrieve client ID from shared preferences
             SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);
@@ -657,7 +817,8 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 public void onResponse(Call<Command> call, Response<Command> response) {
                     if (response.isSuccessful()) {
                         sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                        associatedCommand = response.body();
+                        associatedCommandId = response.body().getId();
+                        addCommandMarkerToMap(response.body().getAddress(),response.body().getId());
                         showSuccessDialog();
                         clearFields();
                     } else {
@@ -674,6 +835,9 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             });
         }
     }
+
+
+
 
     private void clearFields() {
         EditText titleEditText = findViewById(R.id.title);
@@ -769,5 +933,8 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             return false;
         }
     }
+
+
+
 
 }

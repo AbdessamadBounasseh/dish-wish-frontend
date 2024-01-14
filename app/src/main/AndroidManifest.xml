@@ -21,6 +21,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Authentification.VerifyEmail"
+            android:exported="false" />
+        <activity
             android:name=".Authentification.ChangePasswordActivity"
             android:exported="false" />
         <activity
@@ -32,9 +35,8 @@
             android:name=".Authentification.ResetEmailActivity"
             android:exported="false" />
         <activity
-            android:name=".Authentification.page_acceuil"
+            android:name=".Contact.ComplaintActivity"
             android:exported="false" />
-
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -54,7 +56,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".Authentification.VerifyEmail"
+            android:name=".Profil.view_profile"
             android:exported="true"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
             <intent-filter>
@@ -69,18 +71,31 @@
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
             android:name=".Command.MapsHomeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".Profil.search_profile"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
         <activity
             android:name=".Profil.become_cook"
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
+            android:name=".Command.FinalizeOrderActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+        <activity
+            android:name=".Command.UpdateActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+        <activity
             android:name=".Profil.change_profile"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" /> <!-- <activity -->
-        <!-- android:name=".Profil_Folder.view_profile" -->
-        <!-- android:exported="false" -->
-        <!-- android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/> -->
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+
         <activity
             android:name=".Command.MapsChefActivity"
             android:exported="false"

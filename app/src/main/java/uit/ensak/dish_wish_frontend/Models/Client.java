@@ -15,7 +15,7 @@ public class Client {
 
     private String lastName;
 
-    private String address;
+    private Address address;
 
     private String phoneNumber;
 
@@ -103,11 +103,11 @@ public class Client {
     }
 
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 }

@@ -1,5 +1,7 @@
 package uit.ensak.dish_wish_frontend.service;
 
+import java.util.List;
+
 import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -15,6 +17,8 @@ import retrofit2.http.Path;
 import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.dto.ChefDTO;
+import uit.ensak.dish_wish_frontend.SearchResult;
+
 
 public interface ApiServiceProfile {
     @GET("clients/{clientId}")
@@ -44,15 +48,20 @@ public interface ApiServiceProfile {
             @Part MultipartBody.Part idCard,
             @Part MultipartBody.Part certificate
     );
-
     @GET("clients/profile/{id}")
     Call<ResponseBody> getClientProfile(
             @Header("Authorization") String authToken,
             @Path("id") Long id
     );
 
+
+
     @DELETE("clients/delete/{id}")
     Call<Void> deleteUserAccount(@Header("Authorization") String authToken, @Path("id") Long id);
+
+
+    @GET("chefs/filter/{query}")
+    Call<List<SearchResult>> filterByNameAndCity(
+            @Header("Authorization") String authToken,
+            @Path("query") String query );
 }
-
-

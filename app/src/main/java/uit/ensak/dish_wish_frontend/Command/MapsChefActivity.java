@@ -26,6 +26,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -64,7 +65,7 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
     private ImageView arrow;
     private ImageView arrow_popup;
     private Button sendOffer;
-    String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwNjQyMDEsImV4cCI6MTcwNTE1MDYwMX0.Trk2cmuXm9SlyXrjNRuGb2mRwlbbGLqlSPB05YQekeM";
+    String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUyMzUzMDAsImV4cCI6MTcwNTMyMTcwMH0.ZhulnzT4vzPRdyjglYUFaWtr06LW9W6p0edjzgizm_Q";
 
 
 
@@ -122,6 +123,7 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                 finish();
             }
         });
+
 
         // Check for location permission
         /*if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -288,6 +290,14 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
             TextView serving = dialog.findViewById(R.id.serving);
             TextView delivary = dialog.findViewById(R.id.delivary);
             TextView price = dialog.findViewById(R.id.price);
+
+            LottieAnimationView allergieAnimationView = dialog.findViewById(R.id.allergie);
+
+            if (associatedCommand.getAllergie()) {
+                allergieAnimationView.setVisibility(View.VISIBLE);
+            } else {
+                allergieAnimationView.setVisibility(View.GONE);
+            }
 
             title.setText(associatedCommand.getTitle());
             description.setText(associatedCommand.getDescription());

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="-20dp"
+    tools:context=".Contact.ComplaintActivity">
+
+
+
+    <LinearLayout
+        android:id="@+id/bars_top_ba"
+        android:layout_width="375dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="8dp"
+        android:longClickable="false"
+        >
+        <ImageView
+            android:id="@+id/icon_24_bac"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_back"
+
+            />
+
+        <TextView
+            android:id="@+id/sign_in"
+            android:layout_width="187dp"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.03"
+            android:lineSpacingExtra="8sp"
+            android:text="Support"
+            android:textColor="@color/signin"
+            android:textSize="16sp"
+            android:layout_marginLeft="128dp"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="8dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal">
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="250dp"
+            android:layout_height="208dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="88dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/support"
+            android:id="@+id/lottie"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="220dp"
+            android:layout_marginLeft="-290dp"
+            android:text="@string/COMPLAINT"
+            android:textSize="12sp"
+            android:fontFamily="@font/interregular" />
+
+
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_marginTop="320dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="320dp"
+        android:layout_height="290dp"
+        android:hint="@string/COMPLAINT"
+        android:layout_marginTop="282dp"
+        android:id="@+id/complaint"
+        android:layout_marginLeft="60dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textMultiLine"
+            android:lines="20"
+            android:gravity="top"
+
+            android:overScrollMode="always"
+            android:scrollbars="vertical"
+            android:scrollbarStyle="insideInset"
+            android:scrollHorizontally="false"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="335dp"
+        android:layout_height="48dp"
+        android:background="@drawable/rounded_edittext"
+        android:backgroundTint="@color/principalColor"
+        android:onClick="getstarted"
+        android:text="@string/send_complaint"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:layout_marginTop="590dp"
+        android:layout_marginLeft="49dp"
+        android:id="@+id/sign"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="175dp"
+        android:layout_marginTop="660dp"
+        android:text="@string/helpful_number"
+        android:textSize="12sp"
+        android:fontFamily="@font/intermeduim"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="155dp"
+        android:layout_marginTop="690dp"
+        android:text="@string/number"
+        android:textSize="25sp"
+        android:fontFamily="@font/intermeduim"
+        android:textColor="@color/principalColor"/>
+
+
+</RelativeLayout>

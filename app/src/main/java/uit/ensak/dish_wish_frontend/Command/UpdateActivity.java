@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -63,6 +64,7 @@ public class UpdateActivity extends AppCompatActivity {
         String deadlineString = intent.getStringExtra("deadline");
         String price = intent.getStringExtra("price");
         String address = intent.getStringExtra("address");
+        Boolean allergie = intent.getBooleanExtra("allergie",false);
 
         deadlineString = deadlineString.replace("/", " ");
 
@@ -75,7 +77,9 @@ public class UpdateActivity extends AppCompatActivity {
         EditText deliveryTimeEditText = findViewById(R.id.deliveryTime);
         EditText priceEditText = findViewById(R.id.price);
         EditText addressEditText = findViewById(R.id.location);
+        Switch allergiesSwitch = findViewById(R.id.allergies);
 
+        allergiesSwitch.setChecked(allergie);
         titleEditText.setText(title);
         descriptionEditText.setText(description);
         servingEditText.setText(serving);
@@ -94,8 +98,7 @@ public class UpdateActivity extends AppCompatActivity {
                         Intent data = result.getData();
                         LatLng selectedLatLng = data.getParcelableExtra("selected_location");
 
-                        // Now you can use the selectedLatLng as needed
-                        // For example, set it to an EditText
+                        // Now we can use the selectedLatLng as needed
                         EditText addressEditTe = findViewById(R.id.location);
                         addressEditTe.setText(selectedLatLng.latitude + "," + selectedLatLng.longitude);
                     }
@@ -205,7 +208,7 @@ public class UpdateActivity extends AppCompatActivity {
 
 
     private void UpdateCommand() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDQ5NjgzMzUsImV4cCI6MTcwNTA1NDczNX0.492foEuc2CyhQbIWrMT8xSe--2n1egUoV_mu-aVuuG4";
+        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUyMzUzMDAsImV4cCI6MTcwNTMyMTcwMH0.ZhulnzT4vzPRdyjglYUFaWtr06LW9W6p0edjzgizm_Q";
 
         //form fields
         EditText Title = findViewById(R.id.title);
@@ -239,6 +242,12 @@ public class UpdateActivity extends AppCompatActivity {
             command.setDeadline(deadline);
             command.setPrice(price);
 
+            Switch allergiesSwitch = findViewById(R.id.allergies);
+
+            boolean isAllergieChecked = allergiesSwitch.isChecked();
+            Log.d("Switch State=", "" + isAllergieChecked);
+            command.setAllergie(isAllergieChecked);
+
            /* // Retrieve client ID from shared preferences
             SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);
             Long clientId = sharedPreferences.getLong("client_id_key", 3L);
@@ -251,30 +260,30 @@ public class UpdateActivity extends AppCompatActivity {
             // Mocking Client IDs
             Client client = new Client();
             client.setId(2L);
-         //  client.setRole("CLIENT");
+            client.setRole("CLIENT");
             command.setClient(client);
             command.setStatus("IN_PROGRESS");
 
             ApiService apiService = RetrofitClient.getApiService();
-           // Call<Command> call = apiService.updateCommand("Bearer " + accessToken,CommandID, command);
+            Call<Command> call = apiService.updateCommand("Bearer " + accessToken,CommandID, command);
 
 
-//            call.enqueue(new Callback<Command>() {
-//                @Override
-//                public void onResponse(Call<Command> call, Response<Command> response) {
-//                    if (response.isSuccessful()) {
-//                        Toast.makeText(getApplicationContext(), "Command Updated", Toast.LENGTH_LONG).show();
-//                        clearFields();
-//                    } else {
-//                        Toast.makeText(getApplicationContext(), "Something went wrong, please try again", Toast.LENGTH_LONG).show();
-//                    }
-//                }
-//
-//                @Override
-//                public void onFailure(Call<Command> call, Throwable t) {
-//                    Toast.makeText(getApplicationContext(), "Something went wrong, please try again", Toast.LENGTH_LONG).show();
-//                }
-//            });
+            call.enqueue(new Callback<Command>() {
+                @Override
+                public void onResponse(Call<Command> call, Response<Command> response) {
+                    if (response.isSuccessful()) {
+                        Toast.makeText(getApplicationContext(), "Command Updated", Toast.LENGTH_LONG).show();
+                        clearFields();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Something went wrong, please try again", Toast.LENGTH_LONG).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Command> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), "Something went wrong, please try again", Toast.LENGTH_LONG).show();
+                }
+            });
         }
     }
 

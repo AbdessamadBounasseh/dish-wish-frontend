@@ -4,7 +4,7 @@
             "outputFile": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-68:/values-small-v4/values-small-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\KhawLa\\.gradle\\caches\\transforms-3\\19f98ca6f477d4749c4ef5b61b80c8e0\\transformed\\material-1.10.0\\res\\values-small-v4\\values-small-v4.xml",
+                    "source": "C:\\Users\\mamin\\.gradle\\caches\\transforms-3\\19f98ca6f477d4749c4ef5b61b80c8e0\\transformed\\material-1.10.0\\res\\values-small-v4\\values-small-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

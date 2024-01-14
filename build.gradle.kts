@@ -5,7 +5,6 @@ plugins {
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin") version "2.0.1" apply false
     id("org.sonarqube") version "4.4.1.3373"
 }
-
 sonar {
     properties {
         property("sonar.projectKey", "FAYCAL-EL_dish-wish-frontend")

@@ -106,6 +106,8 @@ drawable yourposition
 font abelregular
 font inter
 font interlight
+font intermeduim
+font interregular
 font poppins_bold
 font poppins_regular
 id ChooseLocation
@@ -127,6 +129,7 @@ id action_support
 id addButton
 id addressTextView
 id adjustprice
+id allergie
 id allergies
 id animation
 id animationView
@@ -135,10 +138,13 @@ id arrow
 id bars_top_ba
 id bottom_sheet_arrow
 id bottom_sheet_layout
+id btnAddComment
+id btnAddReview
 id btnBack
 id btnDeleteAccount
 id btnInProgress
 id btnOrdered
+id btnPosition
 id btnPrepared
 id btnResetPassword
 id btnScancard
@@ -148,6 +154,7 @@ id btnsubmit
 id buttons_bar
 id changed
 id checkbox
+id complaint
 id component_1
 id confirmOffer
 id cook
@@ -157,6 +164,7 @@ id deliveryDate
 id deliveryTime
 id dish
 id donthave
+id editTextComment
 id editTextConfirmPassword
 id editTextNewAddress
 id editTextNewAllergie
@@ -165,6 +173,7 @@ id editTextNewFirstName
 id editTextNewLastName
 id editTextNewPhoneNumber
 id editTextPassword
+id editTextPosition
 id email
 id email_addre
 id emailres
@@ -192,6 +201,7 @@ id nav_gallery
 id nav_graph
 id nav_home
 id nav_slideshow
+id nestedScrollView
 id notificationIcon
 id ob_forms_ti
 id order
@@ -208,6 +218,7 @@ id price
 id profile
 id profile_infos
 id ratingBar
+id recyclerViewComments
 id searchEditText
 id searchResultsRecyclerView
 id search_bar
@@ -215,6 +226,7 @@ id sendOffer
 id serving
 id sign
 id sign_in
+id spinnerCity
 id spinnerDiet
 id st
 id subtractButton
@@ -231,6 +243,7 @@ id textView2
 id textViewActualAddress
 id textViewActualAllergies
 id textViewActualBio
+id textViewActualCity
 id textViewActualDiet
 id textViewActualFirstName
 id textViewActualLastName
@@ -254,6 +267,7 @@ id welcome_to_
 layout activity_become_cook
 layout activity_change_password
 layout activity_change_profile
+layout activity_complaint
 layout activity_connect
 layout activity_create_acciunt
 layout activity_finalize_order
@@ -264,6 +278,7 @@ layout activity_maps_home
 layout activity_page_acceuil
 layout activity_reset_email
 layout activity_reset_password
+layout activity_search_profile
 layout activity_terms
 layout activity_update
 layout activity_verify_email
@@ -288,6 +303,7 @@ mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 navigation mobile_navigation
 navigation nav_graph
+raw allergie
 raw annimation_principal_cook
 raw arrowconfirm
 raw button
@@ -307,6 +323,8 @@ raw reset
 raw returnarrow
 raw sent
 raw success
+raw support
+string COMPLAINT
 string action_settings
 string app_name
 string by_signing_
@@ -323,6 +341,7 @@ string forgot
 string general_1_1
 string having_prob
 string hello_blank_fragment
+string helpful_number
 string last
 string menu_gallery
 string menu_home
@@ -333,13 +352,18 @@ string nav_header_title
 string navigation_drawer_close
 string navigation_drawer_open
 string next
+string number
 string password
 string previous
 string remember
 string reset
 string second_fragment_label
+string send_complaint
 string send_email
+string sendemail
 string sign_in
+string sign_up
+string start
 string started
 string title_activity_forgot_password
 string title_activity_maps_home
@@ -350,6 +374,8 @@ string verificatio
 string verify
 string we_have_sen
 string welcome_to_
+string withFacebook
+string withGoogle
 style Base.Theme.Dishwishfrontend
 style MyMaterialTimePickerTheme
 style RatingBar

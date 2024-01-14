@@ -1,6 +1,9 @@
 package uit.ensak.dish_wish_frontend.Profil;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,15 +19,19 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.maps.model.LatLng;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -36,23 +43,30 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import uit.ensak.dish_wish_frontend.Command.MapsChefActivity;
+import uit.ensak.dish_wish_frontend.Command.UpdateActivity;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
 
 public class change_profile extends AppCompatActivity {
 
-    private EditText editTextNewFirstName, editTextNewLastName, editTextNewAddress, editTextNewPhoneNumber, editTextNewAllergie,editTextNewBio;
+    private EditText editTextNewFirstName, editTextNewLastName, editTextNewAddress,editTextNewPosition, editTextNewPhoneNumber, editTextNewAllergie,editTextNewBio;
     private TextView textViewBioTitle;
-    private Button btnSubmit;
-    Spinner spinnerDiet;
-    private String currentFirstName, currentLastName, currentAddress,currentPhoneNumber,currentBio,currentAllergie,currentDiet;
+    private Button btnSubmit,btnPosition;
+    Spinner spinnerDiet,spinnerCity;
+    private String currentFirstName, currentLastName, currentAddress,currentPosition,currentPhoneNumber,currentBio,currentAllergie,currentDiet,currentCity;
 
-    private String newDiet;
+    private String newDiet, newCity;
 
-    private static final int REQUEST_IMAGE_CAPTURE = 101;
     private static final int REQUEST_PICK_IMAGE = 102;
     private ImageView profileImageView;
     private Bitmap imageBitmap;
+
+    private Button chooseLocationButton;
+    private ActivityResultLauncher<Intent> mapsActivityLauncher;
+    private static final int Maps_REQUEST_CODE = 123;
+
+
     private Bitmap resizeBitmap(Bitmap originalBitmap, int newWidth, int newHeight) {
         return Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, false);
     }
@@ -61,14 +75,13 @@ public class change_profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("isCook",false);
-        editor.apply();
         Boolean isCook= preferences.getBoolean("isCook", false);
 
         setContentView(R.layout.activity_change_profile);
 
         getClientProfile();
+
+
 
         editTextNewBio = findViewById(R.id.editTextNewBio);
        textViewBioTitle = findViewById(R.id.textViewBio);
@@ -78,14 +91,24 @@ public class change_profile extends AppCompatActivity {
             editTextNewBio.setVisibility(View.VISIBLE);
         }
         currentDiet = getIntent().getStringExtra("CURRENT_DIET");
+        currentCity =getIntent().getStringExtra("CURRENT_CITY");
         spinnerDiet = findViewById(R.id.spinnerDiet);
+        spinnerCity = findViewById(R.id.spinnerCity);
         ArrayAdapter<CharSequence> adapterDiet = ArrayAdapter.createFromResource(this, R.array.diet_array, android.R.layout.simple_spinner_item);
         adapterDiet.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDiet.setAdapter(adapterDiet);
 
-        int index = adapterDiet.getPosition(currentDiet);
-        if (index != -1) {
-            spinnerDiet.setSelection(index);
+        ArrayAdapter<CharSequence> adapterCity = ArrayAdapter.createFromResource(this, R.array.city, android.R.layout.simple_spinner_item);
+        adapterCity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCity.setAdapter(adapterCity);
+
+        int indexDiet = adapterDiet.getPosition(currentDiet);
+        int indexCity = adapterCity.getPosition(currentCity);
+        if (indexDiet != -1) {
+            spinnerDiet.setSelection(indexDiet);
+        }
+        if (indexCity != -1) {
+            spinnerCity.setSelection(indexCity);
         }
 
 
@@ -93,6 +116,16 @@ public class change_profile extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 newDiet = parentView.getItemAtPosition(position).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+            }
+        });
+
+        spinnerCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                newCity = parentView.getItemAtPosition(position).toString();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
@@ -115,9 +148,12 @@ public class change_profile extends AppCompatActivity {
         editTextNewAddress = findViewById(R.id.editTextNewAddress);
         editTextNewPhoneNumber = findViewById(R.id.editTextNewPhoneNumber);
         editTextNewAllergie = findViewById(R.id.editTextNewAllergie);
+        editTextNewPosition= findViewById(R.id.editTextPosition);
         btnSubmit = findViewById(R.id.btnsubmit);
+        btnPosition= findViewById(R.id.btnPosition);
         currentFirstName = getIntent().getStringExtra("CURRENT_FIRST_NAME");
         currentLastName = getIntent().getStringExtra("CURRENT_LAST_NAME");
+        currentPosition = getIntent().getStringExtra("CURRENT_POSITION");
         currentAddress = getIntent().getStringExtra("CURRENT_ADDRESS");
         currentAllergie = getIntent().getStringExtra("CURRENT_ALLERGY");
         currentPhoneNumber = getIntent().getStringExtra("CURRENT_PHONE_NUMBER");
@@ -128,6 +164,7 @@ public class change_profile extends AppCompatActivity {
         editTextNewFirstName.setText(currentFirstName);
         editTextNewLastName.setText(currentLastName);
         editTextNewAddress.setText(currentAddress);
+        editTextNewPosition.setText(currentPosition);
         editTextNewPhoneNumber.setText(currentPhoneNumber);
 
         editTextNewAllergie.setText(currentAllergie);
@@ -135,14 +172,30 @@ public class change_profile extends AppCompatActivity {
             editTextNewBio.setText(currentBio);
         }
 
+        ImageButton btnBack = findViewById(R.id.btnBack);
+//le bouton pour lancer le map
+       btnPosition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String newFirstName = editTextNewFirstName.getText().toString();
                 String newLastName = editTextNewLastName.getText().toString();
-
                 String newAddress = editTextNewAddress.getText().toString();
+                String newPosition = editTextNewPosition.getText().toString();
                 String newPhoneNumber = editTextNewPhoneNumber.getText().toString();
+                String position = editTextNewPosition.getText().toString();
                 String newBio = "";
                 if (isCook) {
                    newBio = editTextNewBio.getText().toString();
@@ -150,6 +203,10 @@ public class change_profile extends AppCompatActivity {
                 String newAllergie = editTextNewAllergie.getText().toString();
                 if (newFirstName.trim().isEmpty()) {
                     Toast.makeText(change_profile.this, "First name is required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (newCity.trim().isEmpty()) {
+                    Toast.makeText(change_profile.this, "City is required", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -193,50 +250,65 @@ public class change_profile extends AppCompatActivity {
 
                 resultIntent.putExtra("NEW_FIRST_NAME", newFirstName);
                 resultIntent.putExtra("NEW_LAST_NAME", newLastName);
+                resultIntent.putExtra("NEW_POSITION",newPosition);
                 resultIntent.putExtra("NEW_ADDRESS", newAddress);
                 resultIntent.putExtra("NEW_ALLERGY", newAllergie);
                 resultIntent.putExtra("NEW_PHONE_NUMBER", newPhoneNumber);
+                resultIntent.putExtra("position", position);
                 if (isCook) {
                     resultIntent.putExtra("NEW_BIO", newBio);
                 }
                 resultIntent.putExtra("NEW_DIET", newDiet);
+                resultIntent.putExtra("NEW_CITY",newCity);
                 resultIntent.putExtra("NEW_PROFILE_IMAGE_BITMAP", imageBitmap);
+                Log.d("aa","bb");
                 setResult(RESULT_OK, resultIntent);
                 finish();
             }
         });
+
+
+        mapsActivityLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent data = result.getData();
+                        LatLng selectedLatLng = data.getParcelableExtra("selected_location");
+                        EditText addressEditTe = findViewById(R.id.editTextPosition);
+                        addressEditTe.setText(selectedLatLng.latitude + "," + selectedLatLng.longitude);
+                    }
+                }
+        );
+
+
+
+        chooseLocationButton = findViewById(R.id.btnPosition);
+        chooseLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(change_profile.this, MapsChefActivity.class);
+                mapsActivityLauncher.launch(intent);
+            }
+        });
+
+
+
     }
 
 
     private void showImageSourceDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Choose Image Source");
-        builder.setItems(new CharSequence[]{"Camera", "Gallery"}, new DialogInterface.OnClickListener() {
+        builder.setItems(new CharSequence[]{"Gallery"}, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                switch (which) {
-                    case 0:
-                        dispatchTakePictureIntent();
-                        break;
-                    case 1:
                         pickImageFromGallery();
-                        break;
-                }
+
             }
         });
         builder.show();
     }
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-        }
-    }
 
-    private String saveImageToInternalStorage(Bitmap bitmap) {
-            String imagePath = getFilesDir() + "/profile_image.jpg";
-        return imagePath;
-    }
     private void pickImageFromGallery() {
         Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(galleryIntent, REQUEST_PICK_IMAGE);
@@ -245,17 +317,19 @@ public class change_profile extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if (resultCode == RESULT_OK) {
-            switch (requestCode) {
-                case REQUEST_IMAGE_CAPTURE:
-                    Bundle extras = data.getExtras();
-                    imageBitmap = (Bitmap) extras.get("data");
-                    imageBitmap = resizeBitmap(imageBitmap, 92, 92);
-                    imageBitmap=getRoundedBitmap(imageBitmap);
-                    profileImageView.setImageBitmap(imageBitmap);
-                    imageBitmap = getIntent().getParcelableExtra("IMAGE_BITMAP");
-                    break;
-                case REQUEST_PICK_IMAGE:
+            if (requestCode == Maps_REQUEST_CODE) {
+                // Handle the result from MapsChefActivity
+                if (data != null) {
+                    LatLng selectedLatLng = data.getParcelableExtra("selected_location");
+                    // Use selectedLatLng as needed
+                    EditText addressEditText = findViewById(R.id.location);
+                    addressEditText.setText(selectedLatLng.latitude + "," + selectedLatLng.longitude);
+                }
+            } else if (requestCode == REQUEST_PICK_IMAGE) {
+                // Handle the result from image picking
+                if (data != null) {
                     Uri selectedImage = data.getData();
                     try {
                         imageBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
@@ -264,12 +338,11 @@ public class change_profile extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    break;
+                }
             }
         }
-
-
     }
+
 
     private Bitmap getRoundedBitmap(Bitmap bitmap) {
         int width = bitmap.getWidth();
@@ -310,6 +383,7 @@ public class change_profile extends AppCompatActivity {
                         // Utiliser BitmapFactory.decodeStream pour créer un Bitmap directement à partir du flux
                         Bitmap newProfileImageBitmap = BitmapFactory.decodeStream(response.body().byteStream());
                         imageBitmap = newProfileImageBitmap;
+                        imageBitmap = resizeBitmap(imageBitmap, 92, 92);
                         profileImageView.setImageBitmap(getRoundedBitmap(newProfileImageBitmap));
                     } catch (Exception e) {
                         e.printStackTrace();

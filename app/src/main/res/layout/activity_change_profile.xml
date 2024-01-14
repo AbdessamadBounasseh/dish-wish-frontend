@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Profil.change_profile">
-
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
@@ -16,12 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="18dp"/>
-    <!-- Layout de l'activité -->
-    <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
--->
+        android:layout_marginTop="10dp"/>
 
     <ImageButton
         android:id="@+id/btnBack"
@@ -30,19 +25,19 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_width="40dp"
         android:layout_height="60dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:layout_marginStart="16dp"
         android:background="@color/white"/>
+
     <View
         android:id="@+id/profile"
-        android:layout_width="332dp"
-        android:layout_height="550dp"
+        android:layout_width="358dp"
+        android:layout_height="580dp"
         android:background="@drawable/border_background"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
-    <!-- Second View: portrait_of -->
+        app:layout_constraintTop_toTopOf="parent" />
     <ImageView
         android:id="@+id/portrait_of"
         android:layout_width="92dp"
@@ -69,20 +64,17 @@
         android:layout_marginTop="-35dp"
         android:layout_marginRight="-10dp"/>
 
-
-
-
     <RelativeLayout
         android:id="@+id/profile_infos"
-        android:layout_width="306dp"
-        android:layout_height="490dp"
+        android:layout_width="307dp"
+        android:layout_height="543dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="64dp"
         app:layout_constraintStart_toStartOf="@id/profile"
         app:layout_constraintTop_toTopOf="@id/profile">
 
         <LinearLayout
-            android:layout_width="294dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -143,7 +135,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!--  Address-->
             <TextView
                 android:id="@+id/textViewAddress"
                 android:layout_width="wrap_content"
@@ -153,22 +144,58 @@
                 android:textColor="#868686"
                 android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/editTextNewAddress"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinnerCity"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:entries="@array/city"
+                    android:textColor="#010F07"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/editTextNewAddress"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="38dp"
+                    android:hint="Address"
+                    android:text=""
+                    android:textColor="#010F07"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="   "
-                android:textColor="#010F07"
-                android:textSize="18sp" />
-<!--            <Spinner-->
-<!--                android:id="@+id/spinnerCity"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="15dp"-->
-<!--                android:textColor="#010F07"-->
-<!--                android:textSize="18sp"-->
-<!--                android:entries="@array/city"/>-->
-            <!--  PhoneNumber-->
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editTextPosition"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="8dp"
+                    android:hint="Position"
+                    android:textColor="#010F07"
+                    android:textSize="15sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnPosition"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/location"
+                    android:backgroundTint="@color/principalColor"
+                    android:layout_marginLeft="8dp" />
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/textViewPhoneNumber"
                 android:layout_width="wrap_content"
@@ -181,10 +208,10 @@
             <EditText
                 android:id="@+id/editTextNewPhoneNumber"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="  "
+                android:layout_height="38dp"
+                android:text=""
                 android:textColor="#010F07"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
             <!--  Allergies -->
             <TextView
@@ -196,22 +223,13 @@
                 android:textColor="#868686"
                 android:textSize="14sp" />
 
-<!--            <Spinner-->
-<!--                android:id="@+id/spinnerAllergies"-->
-<!--                android:layout_width="200dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginRight="20dp"-->
-<!--                android:layout_marginTop="15dp"-->
-<!--                android:textColor="#010F07"-->
-<!--                android:textSize="18sp"-->
-<!--                android:entries="@array/allergies_array"/>-->
             <EditText
                 android:id="@+id/editTextNewAllergie"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="  "
+                android:layout_height="38dp"
+                android:text=""
                 android:textColor="#010F07"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
 
             <!--  DIET -->
@@ -229,9 +247,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:entries="@array/diet_array"
                 android:textColor="#010F07"
-                android:textSize="18sp"
-                android:entries="@array/diet_array"/>
+                android:textSize="18sp" />
 
 
             <!--  BIO -->
@@ -248,22 +266,24 @@
             <EditText
                 android:id="@+id/editTextNewBio"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="38dp"
                 android:text="   "
                 android:textColor="#010F07"
                 android:textSize="18sp"
                 android:visibility="invisible" />
+
         </LinearLayout>
     </RelativeLayout>
+
     <Button
         android:id="@+id/btnsubmit"
         android:layout_width="335dp"
-        android:layout_height="62dp"
-        android:text="Submit"
+        android:layout_height="50dp"
+        android:layout_marginBottom="13dp"
         android:backgroundTint="@color/principalColor"
+        android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="15dp"/>
-
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

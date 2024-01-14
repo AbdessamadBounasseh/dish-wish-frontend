@@ -2,6 +2,7 @@ package uit.ensak.dish_wish_frontend.dto;
 
 import java.util.List;
 
+import uit.ensak.dish_wish_frontend.Models.Address;
 import uit.ensak.dish_wish_frontend.Models.Diet;
 
 public class ClientDTO {
@@ -9,7 +10,7 @@ public class ClientDTO {
 
     private String lastName;
 
-    private String address;
+    private Address address;
 
     private String phoneNumber;
 
@@ -19,7 +20,7 @@ public class ClientDTO {
 
     private String allergies;
 
-    public ClientDTO(String firstName, String lastName, String address, String phoneNumber, String photo, DietDTO dietDTO, String allergies) {
+    public ClientDTO(String firstName, String lastName, Address address, String phoneNumber, String photo, DietDTO dietDTO, String allergies) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -45,11 +46,11 @@ public class ClientDTO {
         this.lastName = lastName;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 

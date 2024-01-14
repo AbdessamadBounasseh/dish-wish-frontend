@@ -38,6 +38,21 @@ Enter your Phone number or Email address for sign in. Enjoy your food :)
     <string name="sign_in">
 Sign In
 </string>
+    <string name="sign_up">
+SIGN UP
+</string>
+    <string name="start">
+start
+</string>
+    <string name="withFacebook">
+SIGN UP WITH FACEBOOK
+</string>
+    <string name="withGoogle">
+SIGN UP WITH GOOGLE
+</string>
+    <string name="sendemail">
+send email
+</string>
     <string name="welcome_to_">
 Welcome to DishWish
 </string>
@@ -54,6 +69,14 @@ Reset email sent
     <string name="forgot">
 Forgot password
 </string>
+    <string name="reset_pass">
+  Reset password
+</string>
+    <string name="enter_new">
+ Enter your new password
+</string>
+
+
     <string name="send_email">
 Enter your email address and we will send you a reset instructions.
 </string>
@@ -85,6 +108,19 @@ VERIFY
 </string>
     <string name="started">
 VERIFY
+</string>
+    <string name="COMPLAINT">
+Complaint
+</string>
+
+    <string name="send_complaint">
+SEND COMPLAINT
+</string>
+    <string name="helpful_number">
+Helpline Number
+</string>
+    <string name="number">
+8754575445
 </string>
     <string name="confirm">
 CONFIRM PASSWORD

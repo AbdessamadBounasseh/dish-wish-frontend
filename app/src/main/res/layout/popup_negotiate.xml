@@ -77,22 +77,28 @@
                 android:orientation="vertical"
                 android:layout_marginLeft="5dp">
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/addButton"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:background="@drawable/arrow_up"
                     android:padding="8dp"
                     android:text="+"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/principalColor"
                     android:textSize="18sp" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/subtractButton"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:background="@drawable/arrow_down"
                     android:padding="8dp"
                     android:text="-"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/principalColor"
                     android:textSize="18sp" />
 
             </LinearLayout>
@@ -115,7 +121,7 @@
             android:textColorHint="@color/gray"
             android:textSize="18sp" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/sendOffer"
             android:layout_width="200dp"
             android:layout_height="50dp"
@@ -123,6 +129,8 @@
             android:text="Send offer"
             android:layout_gravity="center"
             android:textAlignment="center"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/principalColor"
             android:background="@drawable/rounded_edittext"
             />
 
