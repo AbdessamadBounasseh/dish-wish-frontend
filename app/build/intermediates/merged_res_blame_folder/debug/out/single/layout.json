@@ -116,12 +116,12 @@
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\layout\\popup_chef_details.xml"
     },
     {
-        "merged": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-69:/layout/popup_command_details.xml",
-        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/popup_command_details.xml"
-    },
-    {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-69:\\layout\\popup_command_details.xml",
         "source": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-main-72:\\layout\\popup_command_details.xml"
+    },
+    {
+        "merged": "uit.ensak.dish_wish_frontend.app-mergeDebugResources-69:/layout/popup_update_command.xml",
+        "source": "uit.ensak.dish_wish_frontend.app-main-72:/layout/popup_update_command.xml"
     },
     {
         "merged": "C:\\Users\\mamin\\.gradle\\daemon\\8.0\\uit.ensak.dish_wish_frontend.app-mergeDebugResources-69:\\layout\\popup_proposition_failed.xml",

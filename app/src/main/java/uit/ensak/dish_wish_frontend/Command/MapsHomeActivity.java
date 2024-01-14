@@ -32,6 +32,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -367,7 +368,6 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             });
         }
 
-
     }
 
 
@@ -586,6 +586,14 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 }
             }
 
+            LottieAnimationView allergieAnimationView = dialog.findViewById(R.id.allergie);
+
+            if (associatedCommand.getAllergie()) {
+                allergieAnimationView.setVisibility(View.VISIBLE);
+            } else {
+                allergieAnimationView.setVisibility(View.GONE);
+            }
+
             TextView title = dialog.findViewById(R.id.title);
             TextView description = dialog.findViewById(R.id.Description);
             TextView serving = dialog.findViewById(R.id.serving);
@@ -745,12 +753,10 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         EditText Price = findViewById(R.id.price);
         String price = Price.getText().toString();
 
-        Switch allergiesSwitch = findViewById(R.id.allergies);
-
 
         if (isValidCommand(title, description, serving, location, delivaryDate, delivaryTime, price)) {
 
-            // Create a Command object
+            // Assign data to command
             Command command = new Command();
             command.setTitle(title);
             command.setDescription(description);
@@ -758,6 +764,12 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             command.setAddress(location);
             command.setDeadline(deadline);
             command.setPrice(price);
+
+            Switch allergiesSwitch = findViewById(R.id.allergies);
+
+            boolean isAllergieChecked = allergiesSwitch.isChecked();
+            Log.d("Switch State=", "" + isAllergieChecked);
+            command.setAllergie(isAllergieChecked);
 
             String[] latLng = location.split(",");
 
@@ -778,8 +790,6 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                     e.printStackTrace();
                 }
             }
-
-
 
            /* // Retrieve client ID from shared preferences
             SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);
