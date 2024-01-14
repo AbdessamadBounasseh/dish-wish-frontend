@@ -5,7 +5,6 @@ import static androidx.constraintlayout.widget.ConstraintLayoutStates.TAG;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
@@ -65,6 +64,7 @@ import uit.ensak.dish_wish_frontend.Models.Proposition;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.databinding.ActivityMapsHomeBinding;
 import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
+import uit.ensak.dish_wish_frontend.shared.RetrofitClient;
 //import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
 
 public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCallback {
