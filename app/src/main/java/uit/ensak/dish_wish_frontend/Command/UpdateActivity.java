@@ -207,7 +207,152 @@ public class UpdateActivity extends AppCompatActivity {
     }
 
 
+    private void UpdateCommand() {
+        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUwNjQyMDEsImV4cCI6MTcwNTE1MDYwMX0.Trk2cmuXm9SlyXrjNRuGb2mRwlbbGLqlSPB05YQekeM";
 
+        //form fields
+        EditText Title = findViewById(R.id.title);
+        String title = Title.getText().toString();
+        EditText Description = findViewById(R.id.Description);
+        String description = Description.getText().toString();
+        EditText Serving = findViewById(R.id.serving);
+        String serving = Serving.getText().toString();
+        EditText Location = findViewById(R.id.location);
+        String location = Location.getText().toString();
+        EditText DelivaryDate = findViewById(R.id.deliveryDate);
+        String delivaryDate = DelivaryDate.getText().toString();
+        EditText DelivaryTime = findViewById(R.id.deliveryTime);
+        String delivaryTime = DelivaryTime.getText().toString();
+        String deadline =  delivaryDate + "/" + delivaryTime;
+        Log.d("deadline", deadline);
+
+        EditText Price = findViewById(R.id.price);
+        String price = Price.getText().toString();
+
+
+
+        if (isValidCommand(title, description, serving, location, delivaryDate,delivaryTime, price)) {
+
+            // Create a Command object
+            Command command = new Command();
+            command.setTitle(title);
+            command.setDescription(description);
+            command.setServing(serving);
+            command.setAddress(location);
+            command.setDeadline(deadline);
+            command.setPrice(price);
+
+           /* // Retrieve client ID from shared preferences
+            SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);
+            Long clientId = sharedPreferences.getLong("client_id_key", 3L);
+
+            Client client = new Client();
+            client.setId(clientId);
+            command.setClient(client);*/
+
+
+            // Mocking Client IDs
+            Client client = new Client();
+            client.setId(2L);
+         //  client.setRole("CLIENT");
+            command.setClient(client);
+            command.setStatus("IN_PROGRESS");
+
+            ApiService apiService = RetrofitClient.getApiService();
+           // Call<Command> call = apiService.updateCommand("Bearer " + accessToken,CommandID, command);
+
+
+//            call.enqueue(new Callback<Command>() {
+//                @Override
+//                public void onResponse(Call<Command> call, Response<Command> response) {
+//                    if (response.isSuccessful()) {
+//                        Toast.makeText(getApplicationContext(), "Command Updated", Toast.LENGTH_LONG).show();
+//                        clearFields();
+//                    } else {
+//                        Toast.makeText(getApplicationContext(), "Something went wrong, please try again", Toast.LENGTH_LONG).show();
+//                    }
+//                }
+//
+//                @Override
+//                public void onFailure(Call<Command> call, Throwable t) {
+//                    Toast.makeText(getApplicationContext(), "Something went wrong, please try again", Toast.LENGTH_LONG).show();
+//                }
+//            });
+        }
+    }
+
+
+
+    private boolean isValidCommand(String title, String description, String serving, String address, String delivaryDate, String delivaryTime, String price) {
+        boolean allFieldsFilled = !title.isEmpty() && !description.isEmpty() && !serving.isEmpty() && !address.isEmpty() && !delivaryDate.isEmpty() && !price.isEmpty() && !delivaryTime.isEmpty();
+        if (!allFieldsFilled) {
+            Toast.makeText(getApplicationContext(), "Please fill all details", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        boolean isServingValid = isValidServing(serving);
+        boolean isDateValid = isValidDate(delivaryDate,delivaryTime);
+        boolean isPriceValid = isValidPrice(price);
+
+        return isServingValid && isPriceValid && isDateValid;
+    }
+
+    private boolean isValidServing(String serving) {
+        try {
+            double value = Double.parseDouble(serving);
+            return true;
+        } catch (NumberFormatException e) {
+            Toast.makeText(getApplicationContext(),"Please enter a valid number as a portion",Toast.LENGTH_LONG).show();
+            return false;
+        }
+    }
+
+    private boolean isValidDate(String dateString, String timeString) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+
+        try {
+            dateFormat.parse(dateString);
+            timeFormat.parse(timeString);
+            return true;
+        } catch (ParseException e) {
+            Toast.makeText(getApplicationContext(), "Please enter a valid date and time", Toast.LENGTH_LONG).show();
+            return false;
+        }
+    }
+
+    private boolean isValidPrice(String price) {
+        try {
+            double value = Double.parseDouble(price);
+            return true;
+        } catch (NumberFormatException e) {
+            Toast.makeText(getApplicationContext(), "Please enter a valid number for the price", Toast.LENGTH_LONG).show();
+            return false;
+        }
+    }
+
+    private void clearFields() {
+        EditText titleEditText = findViewById(R.id.title);
+        titleEditText.getText().clear();
+
+        EditText descriptionEditText = findViewById(R.id.Description);
+        descriptionEditText.getText().clear();
+
+        EditText servingEditText = findViewById(R.id.serving);
+        servingEditText.getText().clear();
+
+        EditText locationEditText = findViewById(R.id.location);
+        locationEditText.getText().clear();
+
+        EditText deliveryDateEditText = findViewById(R.id.deliveryDate);
+        deliveryDateEditText.getText().clear();
+
+        EditText deliveryTimeEditText = findViewById(R.id.deliveryTime);
+        deliveryTimeEditText.getText().clear();
+
+        EditText priceEditText = findViewById(R.id.price);
+        priceEditText.getText().clear();
+    }
 
 
 }
