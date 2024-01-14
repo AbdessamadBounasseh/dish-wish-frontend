@@ -9,104 +9,104 @@
 9        android:targetSdkVersion="34" />
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:5:5-67
-11-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:5:22-64
+11-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:5:5-67
+11-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:5:22-64
 12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-12-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:6:5-79
-12-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:6:22-76
+12-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:6:5-79
+12-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:6:22-76
 13    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-13-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:7:5-80
-13-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:7:22-77
+13-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:7:5-80
+13-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:7:22-77
 14    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-14-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:8:5-79
-14-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:8:22-76
+14-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:8:5-79
+14-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:8:22-76
 15    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-15-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:9:5-81
-15-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:9:22-78
+15-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:9:5-81
+15-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:9:22-78
 16    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-16-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:10:5-85
-16-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:10:22-82
+16-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:10:5-85
+16-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:10:22-82
 17
 18    <uses-feature
-18-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\KhawLa\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:26:5-28:35
+18-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\Abdes\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:26:5-28:35
 19        android:glEsVersion="0x00020000"
-19-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\KhawLa\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:27:9-41
+19-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\Abdes\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:27:9-41
 20        android:required="true" />
-20-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\KhawLa\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:28:9-32
+20-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\Abdes\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:28:9-32
 21
 22    <queries>
-22-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\KhawLa\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:30:5-34:15
+22-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\Abdes\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:30:5-34:15
 23
 24        <!-- Needs to be explicitly declared on Android R+ -->
 25        <package android:name="com.google.android.apps.maps" />
-25-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\KhawLa\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:33:9-64
-25-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\KhawLa\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:33:18-61
+25-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\Abdes\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:33:9-64
+25-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\Abdes\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:33:18-61
 26    </queries>
 27
 28    <permission
-28-->[androidx.core:core:1.9.0] C:\Users\KhawLa\.gradle\caches\transforms-3\35b344453f48599f0b42152d8138086f\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+28-->[androidx.core:core:1.9.0] C:\Users\Abdes\.gradle\caches\transforms-3\35b344453f48599f0b42152d8138086f\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
 29        android:name="uit.ensak.dish_wish_frontend.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-29-->[androidx.core:core:1.9.0] C:\Users\KhawLa\.gradle\caches\transforms-3\35b344453f48599f0b42152d8138086f\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+29-->[androidx.core:core:1.9.0] C:\Users\Abdes\.gradle\caches\transforms-3\35b344453f48599f0b42152d8138086f\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
 30        android:protectionLevel="signature" />
-30-->[androidx.core:core:1.9.0] C:\Users\KhawLa\.gradle\caches\transforms-3\35b344453f48599f0b42152d8138086f\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+30-->[androidx.core:core:1.9.0] C:\Users\Abdes\.gradle\caches\transforms-3\35b344453f48599f0b42152d8138086f\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
 31
 32    <uses-permission android:name="uit.ensak.dish_wish_frontend.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-32-->[androidx.core:core:1.9.0] C:\Users\KhawLa\.gradle\caches\transforms-3\35b344453f48599f0b42152d8138086f\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
-32-->[androidx.core:core:1.9.0] C:\Users\KhawLa\.gradle\caches\transforms-3\35b344453f48599f0b42152d8138086f\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+32-->[androidx.core:core:1.9.0] C:\Users\Abdes\.gradle\caches\transforms-3\35b344453f48599f0b42152d8138086f\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+32-->[androidx.core:core:1.9.0] C:\Users\Abdes\.gradle\caches\transforms-3\35b344453f48599f0b42152d8138086f\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 33
 34    <application
-34-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:12:5-100:19
+34-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:12:5-101:19
 35        android:allowBackup="true"
-35-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:13:9-35
+35-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:13:9-35
 36        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-36-->[androidx.core:core:1.9.0] C:\Users\KhawLa\.gradle\caches\transforms-3\35b344453f48599f0b42152d8138086f\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+36-->[androidx.core:core:1.9.0] C:\Users\Abdes\.gradle\caches\transforms-3\35b344453f48599f0b42152d8138086f\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 37        android:dataExtractionRules="@xml/data_extraction_rules"
-37-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:14:9-65
+37-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:14:9-65
 38        android:debuggable="true"
 39        android:extractNativeLibs="false"
 40        android:fullBackupContent="@xml/backup_rules"
-40-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:15:9-54
+40-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:15:9-54
 41        android:icon="@mipmap/ic_launcher_foreground"
-41-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:16:9-54
+41-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:16:9-54
 42        android:label="@string/app_name"
-42-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:17:9-41
+42-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:17:9-41
 43        android:roundIcon="@mipmap/ic_launcher_foreground"
-43-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:18:9-59
+43-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:18:9-59
 44        android:supportsRtl="true"
-44-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:19:9-35
+44-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:19:9-35
 45        android:testOnly="true"
 46        android:theme="@style/Theme.Dishwishfrontend"
-46-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:20:9-54
+46-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:20:9-54
 47        android:usesCleartextTraffic="true" >
-47-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:21:9-44
+47-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:21:9-44
 48        <activity
-48-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:23:9-25:40
+48-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:23:9-25:40
 49            android:name="uit.ensak.dish_wish_frontend.Authentification.ChangePasswordActivity"
-49-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:24:13-68
+49-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:24:13-68
 50            android:exported="false" />
-50-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:25:13-37
+50-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:25:13-37
 51        <activity
-51-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:26:9-30:61
+51-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:26:9-30:61
 52            android:name="uit.ensak.dish_wish_frontend.Authentification.ForgotPasswordActivity"
-52-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:27:13-68
+52-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:27:13-68
 53            android:exported="false"
-53-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:28:13-37
+53-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:28:13-37
 54            android:label="@string/title_activity_forgot_password"
-54-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:29:13-67
+54-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:29:13-67
 55            android:theme="@style/Theme.Dishwishfrontend" />
-55-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:30:13-58
+55-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:30:13-58
 56        <activity
-56-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:31:9-33:40
+56-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:31:9-33:40
 57            android:name="uit.ensak.dish_wish_frontend.Authentification.ResetEmailActivity"
-57-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:32:13-64
+57-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:32:13-64
 58            android:exported="false" />
-58-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:33:13-37
+58-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:33:13-37
 59        <activity
-59-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:34:9-36:40
+59-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:34:9-36:40
 60            android:name="uit.ensak.dish_wish_frontend.Authentification.page_acceuil"
-60-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:35:13-58
+60-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:35:13-58
 61            android:exported="false" />
-61-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:36:13-37
+61-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:36:13-37
 62
 63        <!--
 64             TODO: Before you run your application, you need a Google Maps API key.
@@ -120,215 +120,216 @@
 72             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
 73        -->
 74        <meta-data
-74-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:49:9-51:71
+74-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:49:9-51:71
 75            android:name="com.google.android.geo.API_KEY"
-75-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:50:13-58
+75-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:50:13-58
 76            android:value="AIzaSyBg391xSsnzo4MMW2r6su_K3TESamD1vVI" />
-76-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:51:13-68
+76-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:51:13-68
 77        <meta-data
-77-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:52:9-54:57
+77-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:52:9-54:57
 78            android:name="preloaded_fonts"
-78-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:53:13-43
+78-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:53:13-43
 79            android:resource="@array/preloaded_fonts" />
-79-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:54:13-54
+79-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:54:13-54
 80
 81        <activity
-81-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:56:9-65:20
+81-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:56:9-60:20
 82            android:name="uit.ensak.dish_wish_frontend.Authentification.VerifyEmail"
-82-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:57:13-57
-83            android:exported="true"
-83-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:58:13-36
+82-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:57:13-57
+83            android:exported="false"
+83-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:58:13-37
 84            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
-84-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:59:13-70
-85            <intent-filter>
-85-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:60:13-64:29
-86                <action android:name="android.intent.action.MAIN" />
-86-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:61:17-69
-86-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:61:25-66
-87
-88                <category android:name="android.intent.category.LAUNCHER" />
-88-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:63:17-77
-88-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:63:27-74
-89            </intent-filter>
-90        </activity>
-91        <activity
-91-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:66:9-69:73
-92            android:name="uit.ensak.dish_wish_frontend.history_folder.HistoryActivity"
-92-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:67:13-59
-93            android:exported="false"
-93-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:68:13-37
-94            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
-94-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:69:13-70
-95        <activity
-95-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:70:9-72:40
-96            android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
-96-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:71:13-53
-97            android:exported="false" />
-97-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:72:13-37
-98        <activity
-98-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:73:9-76:73
-99            android:name="uit.ensak.dish_wish_frontend.Profil.become_cook"
-99-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:74:13-47
-100            android:exported="false"
-100-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:75:13-37
-101            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
-101-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:76:13-70
-102        <activity
-102-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:77:9-80:73
-103            android:name="uit.ensak.dish_wish_frontend.Profil.change_profile"
-103-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:78:13-50
-104            android:exported="false"
-104-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:79:13-37
-105            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" /> <!-- <activity -->
-105-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:80:13-70
-106        <!-- android:name=".Profil_Folder.view_profile" -->
-107        <!-- android:exported="false" -->
-108        <!-- android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/> -->
-109        <activity
-109-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:84:9-87:73
-110            android:name="uit.ensak.dish_wish_frontend.Command.MapsChefActivity"
-110-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:85:13-53
-111            android:exported="false"
-111-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:86:13-37
-112            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
-112-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:87:13-70
-113        <activity
-113-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:88:9-91:73
-114            android:name="uit.ensak.dish_wish_frontend.Authentification.connect"
-114-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:89:13-53
-115            android:exported="false"
-115-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:90:13-37
-116            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
-116-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:91:13-70
-117        <activity
-117-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:92:9-95:73
-118            android:name="uit.ensak.dish_wish_frontend.Authentification.terms"
-118-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:93:13-51
-119            android:exported="false"
-119-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:94:13-37
-120            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
-120-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:95:13-70
-121        <activity
-121-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:96:9-99:73
-122            android:name="uit.ensak.dish_wish_frontend.Authentification.CreateAccount"
-122-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:97:13-59
-123            android:exported="false"
-123-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:98:13-37
-124            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
-124-->C:\Users\KhawLa\s9\projet_mobile\dish-wish-frontend\app\src\main\AndroidManifest.xml:99:13-70
-125        <activity
-125-->[androidx.compose.ui:ui-tooling:1.4.0] C:\Users\KhawLa\.gradle\caches\transforms-3\d0db17a781cd16db6416e425bb6065e3\transformed\ui-tooling-1.4.0\AndroidManifest.xml:23:9-25:39
-126            android:name="androidx.compose.ui.tooling.PreviewActivity"
-126-->[androidx.compose.ui:ui-tooling:1.4.0] C:\Users\KhawLa\.gradle\caches\transforms-3\d0db17a781cd16db6416e425bb6065e3\transformed\ui-tooling-1.4.0\AndroidManifest.xml:24:13-71
-127            android:exported="true" />
-127-->[androidx.compose.ui:ui-tooling:1.4.0] C:\Users\KhawLa\.gradle\caches\transforms-3\d0db17a781cd16db6416e425bb6065e3\transformed\ui-tooling-1.4.0\AndroidManifest.xml:25:13-36
-128        <activity
-128-->[androidx.compose.ui:ui-test-manifest:1.4.0] C:\Users\KhawLa\.gradle\caches\transforms-3\ce9ad4715572b66a94f8c3d8bad0e0fb\transformed\ui-test-manifest-1.4.0\AndroidManifest.xml:23:9-25:39
-129            android:name="androidx.activity.ComponentActivity"
-129-->[androidx.compose.ui:ui-test-manifest:1.4.0] C:\Users\KhawLa\.gradle\caches\transforms-3\ce9ad4715572b66a94f8c3d8bad0e0fb\transformed\ui-test-manifest-1.4.0\AndroidManifest.xml:24:13-63
-130            android:exported="true" /> <!-- Needs to be explicitly declared on P+ -->
-130-->[androidx.compose.ui:ui-test-manifest:1.4.0] C:\Users\KhawLa\.gradle\caches\transforms-3\ce9ad4715572b66a94f8c3d8bad0e0fb\transformed\ui-test-manifest-1.4.0\AndroidManifest.xml:25:13-36
-131        <uses-library
-131-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\KhawLa\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:39:9-41:40
-132            android:name="org.apache.http.legacy"
-132-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\KhawLa\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:40:13-50
-133            android:required="false" />
-133-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\KhawLa\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:41:13-37
-134
-135        <activity
-135-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\KhawLa\.gradle\caches\transforms-3\9f533034126e297dac4624b6cc1a44e9\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
-136            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-136-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\KhawLa\.gradle\caches\transforms-3\9f533034126e297dac4624b6cc1a44e9\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:19-85
-137            android:exported="false"
-137-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\KhawLa\.gradle\caches\transforms-3\9f533034126e297dac4624b6cc1a44e9\transformed\play-services-base-18.1.0\AndroidManifest.xml:22:19-43
-138            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-138-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\KhawLa\.gradle\caches\transforms-3\9f533034126e297dac4624b6cc1a44e9\transformed\play-services-base-18.1.0\AndroidManifest.xml:21:19-78
-139
-140        <meta-data
-140-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\KhawLa\.gradle\caches\transforms-3\c0275b4d23943587adc16158ffaa5c2f\transformed\play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
-141            android:name="com.google.android.gms.version"
-141-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\KhawLa\.gradle\caches\transforms-3\c0275b4d23943587adc16158ffaa5c2f\transformed\play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
-142            android:value="@integer/google_play_services_version" />
-142-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\KhawLa\.gradle\caches\transforms-3\c0275b4d23943587adc16158ffaa5c2f\transformed\play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
-143
-144        <provider
-144-->[androidx.emoji2:emoji2:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\65f6f6c64e6c2485ef6135e744479d24\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
-145            android:name="androidx.startup.InitializationProvider"
-145-->[androidx.emoji2:emoji2:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\65f6f6c64e6c2485ef6135e744479d24\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
-146            android:authorities="uit.ensak.dish_wish_frontend.androidx-startup"
-146-->[androidx.emoji2:emoji2:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\65f6f6c64e6c2485ef6135e744479d24\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
-147            android:exported="false" >
-147-->[androidx.emoji2:emoji2:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\65f6f6c64e6c2485ef6135e744479d24\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
-148            <meta-data
-148-->[androidx.emoji2:emoji2:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\65f6f6c64e6c2485ef6135e744479d24\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
-149                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-149-->[androidx.emoji2:emoji2:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\65f6f6c64e6c2485ef6135e744479d24\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
-150                android:value="androidx.startup" />
-150-->[androidx.emoji2:emoji2:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\65f6f6c64e6c2485ef6135e744479d24\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
-151            <meta-data
-151-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\KhawLa\.gradle\caches\transforms-3\a7cfd05da7663a1edfe32228763a5c49\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
-152                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-152-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\KhawLa\.gradle\caches\transforms-3\a7cfd05da7663a1edfe32228763a5c49\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
-153                android:value="androidx.startup" />
-153-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\KhawLa\.gradle\caches\transforms-3\a7cfd05da7663a1edfe32228763a5c49\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
-154            <meta-data
-154-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
-155                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-155-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
-156                android:value="androidx.startup" />
-156-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
-157        </provider>
-158
-159        <uses-library
-159-->[androidx.window:window:1.0.0] C:\Users\KhawLa\.gradle\caches\transforms-3\b771fe863d3057123e4e8d43444c7c46\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
-160            android:name="androidx.window.extensions"
-160-->[androidx.window:window:1.0.0] C:\Users\KhawLa\.gradle\caches\transforms-3\b771fe863d3057123e4e8d43444c7c46\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
-161            android:required="false" />
-161-->[androidx.window:window:1.0.0] C:\Users\KhawLa\.gradle\caches\transforms-3\b771fe863d3057123e4e8d43444c7c46\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
-162        <uses-library
-162-->[androidx.window:window:1.0.0] C:\Users\KhawLa\.gradle\caches\transforms-3\b771fe863d3057123e4e8d43444c7c46\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
-163            android:name="androidx.window.sidecar"
-163-->[androidx.window:window:1.0.0] C:\Users\KhawLa\.gradle\caches\transforms-3\b771fe863d3057123e4e8d43444c7c46\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
-164            android:required="false" />
-164-->[androidx.window:window:1.0.0] C:\Users\KhawLa\.gradle\caches\transforms-3\b771fe863d3057123e4e8d43444c7c46\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
-165
-166        <receiver
-166-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
-167            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-167-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
-168            android:directBootAware="false"
-168-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
-169            android:enabled="true"
-169-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
-170            android:exported="true"
-170-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
-171            android:permission="android.permission.DUMP" >
-171-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
-172            <intent-filter>
-172-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
-173                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-173-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
-173-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
-174            </intent-filter>
-175            <intent-filter>
-175-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
-176                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-176-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
-176-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
-177            </intent-filter>
-178            <intent-filter>
-178-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
-179                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-179-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
-179-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
-180            </intent-filter>
-181            <intent-filter>
-181-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
-182                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-182-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
-182-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\KhawLa\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
-183            </intent-filter>
-184        </receiver>
-185    </application>
-186
-187</manifest>
+84-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:59:13-70
+85        </activity>
+86        <activity
+86-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:61:9-64:73
+87            android:name="uit.ensak.dish_wish_frontend.history_folder.HistoryActivity"
+87-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:62:13-59
+88            android:exported="false"
+88-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:63:13-37
+89            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+89-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:64:13-70
+90        <activity
+90-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:65:9-67:40
+91            android:name="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity"
+91-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:66:13-53
+92            android:exported="false" />
+92-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:67:13-37
+93        <activity
+93-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:68:9-71:73
+94            android:name="uit.ensak.dish_wish_frontend.Profil.become_cook"
+94-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:69:13-47
+95            android:exported="false"
+95-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:70:13-37
+96            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+96-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:71:13-70
+97        <activity
+97-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:72:9-75:73
+98            android:name="uit.ensak.dish_wish_frontend.Profil.change_profile"
+98-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:73:13-50
+99            android:exported="false"
+99-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:74:13-37
+100            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" /> <!-- <activity -->
+100-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:75:13-70
+101        <!-- android:name=".Profil_Folder.view_profile" -->
+102        <!-- android:exported="false" -->
+103        <!-- android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/> -->
+104        <activity
+104-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:79:9-82:73
+105            android:name="uit.ensak.dish_wish_frontend.Command.MapsChefActivity"
+105-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:80:13-53
+106            android:exported="false"
+106-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:81:13-37
+107            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+107-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:82:13-70
+108        <activity
+108-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:83:9-86:73
+109            android:name="uit.ensak.dish_wish_frontend.Authentification.connect"
+109-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:84:13-53
+110            android:exported="false"
+110-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:85:13-37
+111            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+111-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:86:13-70
+112        <activity
+112-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:87:9-90:73
+113            android:name="uit.ensak.dish_wish_frontend.Authentification.terms"
+113-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:88:13-51
+114            android:exported="false"
+114-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:89:13-37
+115            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
+115-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:90:13-70
+116        <activity
+116-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:91:9-100:20
+117            android:name="uit.ensak.dish_wish_frontend.Authentification.CreateAccount"
+117-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:92:13-59
+118            android:exported="true"
+118-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:93:13-36
+119            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
+119-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:94:13-70
+120            <intent-filter>
+120-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:95:13-99:29
+121                <action android:name="android.intent.action.MAIN" />
+121-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:96:17-69
+121-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:96:25-66
+122
+123                <category android:name="android.intent.category.LAUNCHER" />
+123-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:98:17-77
+123-->D:\Etudes\CI3\DishWish\dish-wish-frontend\app\src\main\AndroidManifest.xml:98:27-74
+124            </intent-filter>
+125        </activity>
+126        <activity
+126-->[androidx.compose.ui:ui-tooling:1.4.0] C:\Users\Abdes\.gradle\caches\transforms-3\d0db17a781cd16db6416e425bb6065e3\transformed\ui-tooling-1.4.0\AndroidManifest.xml:23:9-25:39
+127            android:name="androidx.compose.ui.tooling.PreviewActivity"
+127-->[androidx.compose.ui:ui-tooling:1.4.0] C:\Users\Abdes\.gradle\caches\transforms-3\d0db17a781cd16db6416e425bb6065e3\transformed\ui-tooling-1.4.0\AndroidManifest.xml:24:13-71
+128            android:exported="true" />
+128-->[androidx.compose.ui:ui-tooling:1.4.0] C:\Users\Abdes\.gradle\caches\transforms-3\d0db17a781cd16db6416e425bb6065e3\transformed\ui-tooling-1.4.0\AndroidManifest.xml:25:13-36
+129        <activity
+129-->[androidx.compose.ui:ui-test-manifest:1.4.0] C:\Users\Abdes\.gradle\caches\transforms-3\ce9ad4715572b66a94f8c3d8bad0e0fb\transformed\ui-test-manifest-1.4.0\AndroidManifest.xml:23:9-25:39
+130            android:name="androidx.activity.ComponentActivity"
+130-->[androidx.compose.ui:ui-test-manifest:1.4.0] C:\Users\Abdes\.gradle\caches\transforms-3\ce9ad4715572b66a94f8c3d8bad0e0fb\transformed\ui-test-manifest-1.4.0\AndroidManifest.xml:24:13-63
+131            android:exported="true" /> <!-- Needs to be explicitly declared on P+ -->
+131-->[androidx.compose.ui:ui-test-manifest:1.4.0] C:\Users\Abdes\.gradle\caches\transforms-3\ce9ad4715572b66a94f8c3d8bad0e0fb\transformed\ui-test-manifest-1.4.0\AndroidManifest.xml:25:13-36
+132        <uses-library
+132-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\Abdes\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:39:9-41:40
+133            android:name="org.apache.http.legacy"
+133-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\Abdes\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:40:13-50
+134            android:required="false" />
+134-->[com.google.android.gms:play-services-maps:18.0.0] C:\Users\Abdes\.gradle\caches\transforms-3\eefc007813c257b4849ddf5fba9b535d\transformed\play-services-maps-18.0.0\AndroidManifest.xml:41:13-37
+135
+136        <activity
+136-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Abdes\.gradle\caches\transforms-3\9f533034126e297dac4624b6cc1a44e9\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+137            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+137-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Abdes\.gradle\caches\transforms-3\9f533034126e297dac4624b6cc1a44e9\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+138            android:exported="false"
+138-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Abdes\.gradle\caches\transforms-3\9f533034126e297dac4624b6cc1a44e9\transformed\play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+139            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+139-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Abdes\.gradle\caches\transforms-3\9f533034126e297dac4624b6cc1a44e9\transformed\play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+140
+141        <meta-data
+141-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Abdes\.gradle\caches\transforms-3\c0275b4d23943587adc16158ffaa5c2f\transformed\play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+142            android:name="com.google.android.gms.version"
+142-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Abdes\.gradle\caches\transforms-3\c0275b4d23943587adc16158ffaa5c2f\transformed\play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+143            android:value="@integer/google_play_services_version" />
+143-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Abdes\.gradle\caches\transforms-3\c0275b4d23943587adc16158ffaa5c2f\transformed\play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+144
+145        <provider
+145-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\65f6f6c64e6c2485ef6135e744479d24\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+146            android:name="androidx.startup.InitializationProvider"
+146-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\65f6f6c64e6c2485ef6135e744479d24\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+147            android:authorities="uit.ensak.dish_wish_frontend.androidx-startup"
+147-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\65f6f6c64e6c2485ef6135e744479d24\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+148            android:exported="false" >
+148-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\65f6f6c64e6c2485ef6135e744479d24\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+149            <meta-data
+149-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\65f6f6c64e6c2485ef6135e744479d24\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+150                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+150-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\65f6f6c64e6c2485ef6135e744479d24\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+151                android:value="androidx.startup" />
+151-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\65f6f6c64e6c2485ef6135e744479d24\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+152            <meta-data
+152-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Abdes\.gradle\caches\transforms-3\a7cfd05da7663a1edfe32228763a5c49\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+153                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+153-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Abdes\.gradle\caches\transforms-3\a7cfd05da7663a1edfe32228763a5c49\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+154                android:value="androidx.startup" />
+154-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Abdes\.gradle\caches\transforms-3\a7cfd05da7663a1edfe32228763a5c49\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+155            <meta-data
+155-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+156                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+156-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+157                android:value="androidx.startup" />
+157-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+158        </provider>
+159
+160        <uses-library
+160-->[androidx.window:window:1.0.0] C:\Users\Abdes\.gradle\caches\transforms-3\b771fe863d3057123e4e8d43444c7c46\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+161            android:name="androidx.window.extensions"
+161-->[androidx.window:window:1.0.0] C:\Users\Abdes\.gradle\caches\transforms-3\b771fe863d3057123e4e8d43444c7c46\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+162            android:required="false" />
+162-->[androidx.window:window:1.0.0] C:\Users\Abdes\.gradle\caches\transforms-3\b771fe863d3057123e4e8d43444c7c46\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+163        <uses-library
+163-->[androidx.window:window:1.0.0] C:\Users\Abdes\.gradle\caches\transforms-3\b771fe863d3057123e4e8d43444c7c46\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+164            android:name="androidx.window.sidecar"
+164-->[androidx.window:window:1.0.0] C:\Users\Abdes\.gradle\caches\transforms-3\b771fe863d3057123e4e8d43444c7c46\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+165            android:required="false" />
+165-->[androidx.window:window:1.0.0] C:\Users\Abdes\.gradle\caches\transforms-3\b771fe863d3057123e4e8d43444c7c46\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+166
+167        <receiver
+167-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+168            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+168-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+169            android:directBootAware="false"
+169-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+170            android:enabled="true"
+170-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+171            android:exported="true"
+171-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+172            android:permission="android.permission.DUMP" >
+172-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+173            <intent-filter>
+173-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+174                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+174-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+174-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+175            </intent-filter>
+176            <intent-filter>
+176-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+177                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+177-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+177-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+178            </intent-filter>
+179            <intent-filter>
+179-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+180                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+180-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+180-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+181            </intent-filter>
+182            <intent-filter>
+182-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+183                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+183-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+183-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Abdes\.gradle\caches\transforms-3\600657215752f20dcfc3cf9c6d915597\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+184            </intent-filter>
+185        </receiver>
+186    </application>
+187
+188</manifest>

@@ -17,7 +17,10 @@ import com.airbnb.lottie.LottieAnimationView;
 
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+
 import ch.qos.logback.classic.Logger;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -54,7 +57,7 @@ public class VerifyEmail extends AppCompatActivity {
         String email = sharedPreferences.getString(KEY_EMAIL, null);
         String code = sharedPreferences.getString(KEY_CODE, null);
 
-            etemail.setText(email);
+        etemail.setText(email);
 
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -78,32 +81,36 @@ public class VerifyEmail extends AppCompatActivity {
 
     private void handleVerification(String code) {
         AuthenticationService authenticationService = RetrofitClient.getAuthenticationService();
-        Call<String> verificationReponse = authenticationService.verifyEmail(code);
-        verificationReponse.enqueue(new Callback<String>() {
+        Call<ResponseBody> verificationReponse = authenticationService.verifyEmail(code);
+        verificationReponse.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 int statusCode = response.code();
                 Log.d("MyTag", "HTTP Status Code: " + statusCode);
-                if (response.isSuccessful()) {
-
-                String verificationResponse = response.body();
-                logger.info("succes");
-                Intent intent1 = new Intent(VerifyEmail.this, MapsHomeActivity.class);
-                startActivity(intent1);
-
-
+                if (response.isSuccessful() && response.body() != null) {
+                    try {
+                        String verificationResponse = response.body().string();
+                        // Traitement du JSON ici
+                        logger.info("success");
+                        Intent intent1 = new Intent(VerifyEmail.this, MapsHomeActivity.class);
+                        startActivity(intent1);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        Toast.makeText(VerifyEmail.this, "Failed to process response", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Log.d("MyTag", "Response is null or not successful");
+                    Toast.makeText(VerifyEmail.this, "Verification failed", Toast.LENGTH_LONG).show();
                 }
-
-
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                t.printStackTrace();
                 Toast.makeText(VerifyEmail.this, "Verification failed", Toast.LENGTH_LONG).show();
-
             }
         });
-
     }
+
 
 }
