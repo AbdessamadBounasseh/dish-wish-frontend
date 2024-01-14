@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,17 +29,30 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 import android.content.Intent;
+import android.content.SharedPreferences;
+
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import uit.ensak.dish_wish_frontend.Profil.RetrofitClientProfile;
 import uit.ensak.dish_wish_frontend.Profil.become_cook;
 import uit.ensak.dish_wish_frontend.Profil.change_profile;
 import uit.ensak.dish_wish_frontend.Profil.become_cook;
 import uit.ensak.dish_wish_frontend.Profil.change_profile;
 import uit.ensak.dish_wish_frontend.Profil.view_profile;
 import uit.ensak.dish_wish_frontend.SearchResultsAdapter;
-import uit.ensak.dish_wish_frontend.SearchResult; // Import the SearchResult class
+import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import uit.ensak.dish_wish_frontend.SearchResult;
 
 
 public class filter_by_name_or_city extends Fragment implements SearchResultsAdapter.OnItemClickListener {
@@ -47,6 +61,7 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View rootView = inflater.inflate(R.layout.fragment_filter_by_name_or_city, container, false);
 
         EditText searchEditText = rootView.findViewById(R.id.searchEditText);
@@ -114,39 +129,34 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
     }
 
     private void performSearch(String query) {
-        // TODO: Implement logic to query the backend for search results
-        // Update the data set of the adapter with the search results
-        // For example: searchResultsAdapter.setData(searchResults);
 
-        // Simulating search results with dummy data
-        List<SearchResult> dummyResults = new ArrayList<>();
+//        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+//        String authToken = preferences.getString("accessToken", "");
+        String authToken= "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmYXljYWxlbG91cnJhdEBnbWFpbC5jb20iLCJpYXQiOjE3MDUxNzM5MjgsImV4cCI6MTcwNTI2MDMyOH0.x3d--BcYC5CsIo1KnUjMnMCar8hPzE1rL1Hk4I2Bfo8";
 
-        if (!TextUtils.isEmpty(query)) {
-            // Iterate through the dummy data and filter based on the query
-            for (SearchResult result : getDummyData()) {
-                if (result.getFirstName().toLowerCase().contains(query.toLowerCase()) ||
-                        result.getLastName().toLowerCase().contains(query.toLowerCase()) ||
-                        result.getAddress().toLowerCase().contains(query.toLowerCase())){
-                    dummyResults.add(result);
+//        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
+//        Call<List<ChefDTO>> call = apiService.filterByNameAndCity("Bearer " + authToken, query);
+        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
+        Call<List<SearchResult>> call = apiService.filterByNameAndCity("Bearer " + authToken, query);
+
+        //receive :
+        call.enqueue(new Callback<List<SearchResult>>() {
+            @Override
+            public void onResponse(Call<List<SearchResult>> call, Response<List<SearchResult>> response) {
+                if (response.isSuccessful()) {
+                    List<SearchResult> dummyResults = response.body();
+                    // Update the data set of the adapter with the filtered search results
+                    searchResultsAdapter.setData(dummyResults);
+                }
+                else {
+                    Log.d("error","not successful");
                 }
             }
-        }
-
-        // Update the data set of the adapter with the filtered search results
-        searchResultsAdapter.setData(dummyResults);
-    }
-
-    private List<SearchResult> getDummyData() {
-        // Simulating the complete dummy data
-        List<SearchResult> dummyResults = new ArrayList<>();
-        dummyResults.add(new SearchResult("John","Doe", "New York"));
-        dummyResults.add(new SearchResult("Jane","Smith", "Los Angeles"));
-        dummyResults.add(new SearchResult("Alex","Johnson", "Chicago"));
-        dummyResults.add(new SearchResult("Faycal","Elou", "Kenitra"));
-        dummyResults.add(new SearchResult("Brown","Jalou", "Kenitra"));
-        dummyResults.add(new SearchResult("Ali","Kamar", "Rabat"));
-        dummyResults.add(new SearchResult("Fahd","Alibi", "Kenitra"));
-        return dummyResults;
+            @Override
+            public void onFailure(Call<List<SearchResult>> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
     }
 
     @Override
@@ -160,7 +170,7 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
         // Pass necessary data to the profile page
         intent.putExtra("firstName", searchResult.getFirstName());
         intent.putExtra("lastName", searchResult.getLastName());
-        intent.putExtra("address", searchResult.getAddress());
+        intent.putExtra("address", searchResult.getAddress().getCity().getName());
 
 
         startActivity(intent);
