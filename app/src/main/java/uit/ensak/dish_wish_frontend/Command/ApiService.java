@@ -91,8 +91,14 @@ public interface ApiService {
 
 
     @GET("notifications/client/{clientId}")
-    Call<List<Notification>> getClientNotifications(
+    Call<List<Proposition>> getClientNotifications(
             @Header("Authorization") String authToken,
-            @Path("clientId") int clientId
+            @Path("clientId") long clientId
+    );
+
+    @GET("notifications/chef/{chefId}")
+    Call<List<Command>> getChefNotifications(
+            @Header("Authorization") String authToken,
+            @Path("chefId") long chefId
     );
 }

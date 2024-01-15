@@ -1,6 +1,7 @@
 package uit.ensak.dish_wish_frontend.notification_folder;
 
 // Add necessary imports
+        import android.content.Context;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
@@ -8,17 +9,20 @@ package uit.ensak.dish_wish_frontend.notification_folder;
         import android.widget.TextView;
         import androidx.annotation.NonNull;
         import androidx.recyclerview.widget.RecyclerView;
+
+        import java.util.ArrayList;
         import java.util.List;
         import uit.ensak.dish_wish_frontend.Models.Command;
+        import uit.ensak.dish_wish_frontend.Models.Proposition;
         import uit.ensak.dish_wish_frontend.R;
 
 
 public class NotificationChefAdapter extends RecyclerView.Adapter<NotificationChefAdapter.ViewHolder> {
 
-    private List<Command> commandList;
+    private ArrayList<Command> commandList;
 
-    public NotificationChefAdapter(List<Command> commandList) {
-        this.commandList = commandList;
+    public NotificationChefAdapter(ArrayList<Command> notificationList, Context context) {
+        this.commandList = notificationList;
     }
 
     @NonNull
