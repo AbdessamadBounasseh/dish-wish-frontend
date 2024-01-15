@@ -55,9 +55,9 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_filter_by_name_or_city, container, false);
 
-        SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-        accessToken = preferences.getString("accessToken", "");
-        isCook = preferences.getBoolean("isCook", false);
+//        SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+//        accessToken = preferences.getString("accessToken", "");
+//        isCook = preferences.getBoolean("isCook", false);
 
         EditText searchEditText = rootView.findViewById(R.id.searchEditText);
         RecyclerView searchResultsRecyclerView = rootView.findViewById(R.id.searchResultsRecyclerView);
@@ -77,6 +77,10 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
             @Override
             public void onClick(View v) {
                 // Handle the click event
+
+                SharedPreferences preferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+                isCook = preferences.getBoolean("isCook", false);
+
                 Intent intent;
 
                 if (isCook) {
@@ -118,6 +122,9 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
         popupMenu.inflate(R.menu.menu_main);
         MenuItem becomeChefItem = popupMenu.getMenu().findItem(R.id.action_become_chef);
 
+
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        isCook = preferences.getBoolean("isCook", false);
         becomeChefItem.setVisible(!isCook);
 
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -157,12 +164,14 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
                     startActivity(new Intent(requireContext(), QuestionsActivity.class));
                     return true;
                 }
+                else if (item.getItemId() == R.id.action_change_password) {
                     // Start the BecomeChef activity
-
+                    startActivity(new Intent(requireContext(), HistoryActivity.class));
+                    return true;
+                }
                     return true;
                 }
                 // Handle other menu items here
-
                 //return false;
         }
     );
@@ -171,6 +180,9 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
 }
 
     private void performSearch(String query) {
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        accessToken = preferences.getString("accessToken", "");
+
         ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
         Call<List<SearchResult>> call = apiService.filterByNameAndCity("Bearer " + accessToken, query);
 
