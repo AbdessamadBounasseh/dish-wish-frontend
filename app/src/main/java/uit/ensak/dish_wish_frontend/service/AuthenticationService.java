@@ -16,4 +16,9 @@ public interface AuthenticationService {
     @Headers({"Accept: application/json"})
     @POST("auth/register/verify-email")
     Call<ResponseBody> verifyEmail(@Query("code") String code);
+    @Headers({"Accept: application/json"})
+    @POST("password/forgot-password")
+    Call<String> forgotPassword(@Body String email);
+
+
 }
