@@ -381,8 +381,8 @@ public class change_profile extends AppCompatActivity {
 
         return output;
 
-
     }
+
     private void getClientProfile() {
         ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
         Call<ResponseBody> call = apiService.getClientProfile("Bearer " + accessToken, userId);

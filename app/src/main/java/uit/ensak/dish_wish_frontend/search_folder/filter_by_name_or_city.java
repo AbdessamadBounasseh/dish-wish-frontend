@@ -79,7 +79,7 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
             public void onClick(View v) {
                 // Handle the click event
 
-                SharedPreferences preferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+                SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
                 isCook = preferences.getBoolean("isCook", false);
 
                 Intent intent;
@@ -124,7 +124,7 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
         MenuItem becomeChefItem = popupMenu.getMenu().findItem(R.id.action_become_chef);
 
 
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
         isCook = preferences.getBoolean("isCook", false);
         becomeChefItem.setVisible(!isCook);
 
@@ -180,7 +180,7 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
 }
 
     private void performSearch(String query) {
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
         accessToken = preferences.getString("accessToken", "");
 
         ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();

@@ -69,6 +69,7 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
     private String accessToken;
     private long userId;
     private Boolean isCook;
+    private Bitmap imageBitmap;
 
 
 

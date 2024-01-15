@@ -170,25 +170,16 @@ public class connect extends AppCompatActivity {
 
                                 getClient(email);
                             }
-                            SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-                            Boolean isCook = preferences.getBoolean("isCook", false);
-                            Intent intent;
-                            if (isCook) {
-                                intent = new Intent(connect.this, MapsChefActivity.class);
-                            }
-                            else {
-                                intent = new Intent(connect.this, MapsHomeActivity.class);
-                            }
-                            startActivity(intent);
+
 
                         } else {
-                            // Handle failure
+                            Toast.makeText(getApplicationContext(), "Incorrect password or email! try again", Toast.LENGTH_LONG).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<AuthenticationResponse> call, Throwable t) {
-                        // Handle failure
+                        Toast.makeText(getApplicationContext(), "Incorrect password or email! try again", Toast.LENGTH_LONG).show();
                     }
                 });
             }
@@ -211,13 +202,24 @@ public class connect extends AppCompatActivity {
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putLong("userId", client.getId());
 
-                    if (client.getRole() == "CHEF"){
+                    if (client.getRole().equals("CHEF")){
                         editor.putBoolean("isCook", true);
                     }else {
                         editor.putBoolean("isCook", false);
                     }
                     editor.apply();
+
                     Boolean isCook = preferences.getBoolean("isCook", false);
+
+
+                    Intent intent;
+                    if (isCook) {
+                        intent = new Intent(connect.this, MapsChefActivity.class);
+                    }
+                    else {
+                        intent = new Intent(connect.this, MapsHomeActivity.class);
+                    }
+                    startActivity(intent);
                 } else {
                 }
             }
