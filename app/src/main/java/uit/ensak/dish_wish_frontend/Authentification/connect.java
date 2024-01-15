@@ -37,6 +37,7 @@ import uit.ensak.dish_wish_frontend.Models.Auth.LoginPayload;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.Profil.ApiClientCallback;
+import uit.ensak.dish_wish_frontend.Profil.view_profile;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
 import uit.ensak.dish_wish_frontend.service.RetrofitClient;
@@ -50,6 +51,11 @@ public class connect extends AppCompatActivity {
     TextView newacc,forgot;
     DBHelper db;
     ImageView back;
+
+    private SharedPreferences sharedPreferences;
+    private static final String SHARED_PREFS_NAME = "mypref";
+    private static final String KEY_EMAIL = "email";
+    private static final String KEY_PASSWORD = "password";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +82,8 @@ public class connect extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+
+
 
         password.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -111,6 +119,8 @@ public class connect extends AppCompatActivity {
 
 
 
+        storedData();
+
 
 
         signin.setOnClickListener(new View.OnClickListener() {
@@ -118,6 +128,14 @@ public class connect extends AppCompatActivity {
             public void onClick(View v) {
                 String emailEditText= email.getText().toString();
                 String passwordEditText = password.getText().toString();
+
+                if (remember.isChecked()) {
+                    SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("KEY_EMAIL", emailEditText);
+                    editor.putString("KEY_PASSWORD", passwordEditText);
+                    editor.apply();
+                }
 
                 if (emailEditText.equals("") || passwordEditText.equals("")) {
                     Toast.makeText(connect.this, "All fields should be filled to sign in", Toast.LENGTH_LONG).show();
@@ -143,6 +161,20 @@ public class connect extends AppCompatActivity {
         Pattern pattern = Pattern.compile(emailPattern);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
+    }
+
+    private void storedData() {
+
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        String email = preferences.getString("KEY_EMAIL", "");
+        String password = preferences.getString("KEY_PASSWORD", "");
+
+        EditText emailText = findViewById(R.id.email);
+        EditText passwordText =findViewById(R.id.forg);
+
+        emailText.setText(email);
+        passwordText.setText(password);
+
     }
 
 
@@ -217,7 +249,12 @@ public class connect extends AppCompatActivity {
                         intent = new Intent(connect.this, MapsChefActivity.class);
                     }
                     else {
-                        intent = new Intent(connect.this, MapsHomeActivity.class);
+                        if (client.getFirstName() == null){
+                            intent = new Intent(connect.this, view_profile.class);
+                        }
+                        else {
+                            intent = new Intent(connect.this, MapsHomeActivity.class);
+                        }
                     }
                     startActivity(intent);
                 } else {

@@ -35,11 +35,11 @@ public class NotificationClientAdapter extends RecyclerView.Adapter<Notification
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Proposition proposition = propositionList.get(position);
 
-        // Bind data to views
-        holder.textTitle.setText(proposition.getCommand().getTitle());
-        holder.textDescription.setText(proposition.getCommand().getDescription());
-        holder.textPrice.setText(proposition.getCommand().getPrice());
-        holder.textChefName.setText("Chef " + proposition.getCommand().getChef().getFirstName() + " " + proposition.getCommand().getChef().getLastName());
+            // Bind data to views
+            holder.textTitle.setText(proposition.getCommand().getTitle());
+            holder.textDescription.setText(proposition.getCommand().getDescription());
+            holder.textPrice.setText(proposition.getCommand().getPrice());
+            holder.textChefName.setText("Chef " + proposition.getChef().getFirstName() + " " + proposition.getChef().getLastName());
     }
 
     @Override

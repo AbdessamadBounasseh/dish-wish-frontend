@@ -2,6 +2,8 @@ package uit.ensak.dish_wish_frontend.notification_folder;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -44,6 +46,16 @@ public class NotificationsClient extends AppCompatActivity {
         isCook = preferences.getBoolean("isCook", false);
 
         fetchClientNotifications();
+
+        ImageView arrow = findViewById(R.id.animation);
+        if (arrow != null) {
+            arrow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+        }
 
 
     }

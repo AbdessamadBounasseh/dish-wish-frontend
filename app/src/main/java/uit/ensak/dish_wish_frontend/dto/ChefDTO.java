@@ -11,12 +11,12 @@ public class ChefDTO extends ClientDTO{
 
     // Constructeur par défaut (sans paramètres)
     public ChefDTO() {
-        super("", "", null , "", "", null, null);  // Remplacez les valeurs par défaut
+        super("", "", null , "", "", null, null,null);  // Remplacez les valeurs par défaut
     }
 
     // Constructeur avec les paramètres de ClientDTO et bio
-    public ChefDTO(String firstName, String lastName, Address address, String phoneNumber, String photo, DietDTO dietDTO, String allergies, String bio) {
-        super(firstName, lastName, address, phoneNumber, photo, dietDTO, allergies);
+    public ChefDTO(String firstName, String lastName, Address address, String phoneNumber, String photo, DietDTO dietDTO, String allergies, String bio,Long id) {
+        super(firstName, lastName, address, phoneNumber, photo, dietDTO, allergies,id);
         this.bio = bio;
     }
 

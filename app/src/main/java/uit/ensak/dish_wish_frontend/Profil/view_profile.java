@@ -155,14 +155,19 @@ public class view_profile extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent;
-                if(isCook){
-                    intent = new Intent(view_profile.this, MapsChefActivity.class);
-                }else{
-                    intent = new Intent(view_profile.this, MapsHomeActivity.class);
+                if (textViewFirstName.getText().toString().equals("")) {
+                    finish();
+                } else {
+                    Intent intent;
+                    if (isCook) {
+                        intent = new Intent(view_profile.this, MapsChefActivity.class);
+                    } else {
+                        intent = new Intent(view_profile.this, MapsHomeActivity.class);
+                    }
+                    startActivity(intent);
                 }
-                startActivity(intent);
             }
+
         });
 
         btnDeleteAccount.setOnClickListener(new View.OnClickListener() {
