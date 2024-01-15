@@ -11,6 +11,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import uit.ensak.dish_wish_frontend.Command.ApiService;
 import uit.ensak.dish_wish_frontend.service.AuthenticationService;
+import uit.ensak.dish_wish_frontend.service.ContactService;
 
 public class RetrofitClient {
     private static final String BASE_URL = "http://192.168.163.1:8082/";
