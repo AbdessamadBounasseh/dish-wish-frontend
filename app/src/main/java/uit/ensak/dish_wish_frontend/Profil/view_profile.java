@@ -18,34 +18,23 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
-
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-
 import retrofit2.Callback;
 import retrofit2.Response;
 import uit.ensak.dish_wish_frontend.Authentification.CreateAccount;
-import uit.ensak.dish_wish_frontend.Authentification.page_acceuil;
-import uit.ensak.dish_wish_frontend.Models.Address;
+import uit.ensak.dish_wish_frontend.Command.MapsChefActivity;
+import uit.ensak.dish_wish_frontend.Command.MapsHomeActivity;
 import uit.ensak.dish_wish_frontend.Models.Chef;
-import uit.ensak.dish_wish_frontend.Models.City;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.R;
-import uit.ensak.dish_wish_frontend.dto.ChefDTO;
-import uit.ensak.dish_wish_frontend.dto.DietDTO;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
 import uit.ensak.dish_wish_frontend.service.RetrofitClient;
 
@@ -54,12 +43,8 @@ public class view_profile extends AppCompatActivity {
     static final int REQUEST_CODE_CHANGE_PROFILE = 1;
     static final int REQUEST_PICK_IMAGE = 3;
 
-    private ChefDTO chefDTO;
     private  String position;
-
-
     private TextView textViewFirstName, textViewLastName, textViewAddress,textViewBio, textViewDiet,textViewCity, textViewPHONE_NUMBER, textViewAllergies, textViewBioContent;
-    private Spinner spinnerAllergies;
     private ImageView profileImageView;
 
     private String accessToken;
@@ -170,7 +155,8 @@ public class view_profile extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                Intent intent;
+
             }
         });
 
@@ -201,92 +187,11 @@ public class view_profile extends AppCompatActivity {
         builder.show();
     }
 
-    private void deleteAccount() {
-        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
-        Call<Void> call = apiService.deleteUserAccount("Bearer " + accessToken, userId);
-        call.enqueue(new Callback<Void>() {
-            @Override
-            public void onResponse(Call<Void> call, Response<Void> response) {
-                if (response.isSuccessful()) {
-                    Intent loginIntent = new Intent(view_profile.this, CreateAccount.class);
-                    Toast.makeText(view_profile.this, "Account deleted successfully", Toast.LENGTH_SHORT).show();
-                    startActivity(loginIntent);
-                } else {
-                    Intent loginIntent = new Intent(view_profile.this, view_profile.class);
-                    Toast.makeText(view_profile.this, "Error deleting the account. Please try again", Toast.LENGTH_SHORT).show();
-                    startActivity(loginIntent);
-                }
-            }
 
-            @Override
-            public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(view_profile.this, "Error deleting the account. Please try again", Toast.LENGTH_SHORT).show();
-                Intent loginIntent = new Intent(view_profile.this, view_profile.class);
-                startActivity(loginIntent);
-            }
-        });
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == 1 && resultCode == RESULT_OK) {
-
-            String newFirstName = data.getStringExtra("NEW_FIRST_NAME");
-            String newLastName = data.getStringExtra("NEW_LAST_NAME");
-            String newAddress = data.getStringExtra("NEW_ADDRESS");
-            String newPosition = data.getStringExtra("NEW_POSITION");
-            String newBio = data.getStringExtra("NEW_BIO");
-            String newCity = data.getStringExtra("NEW_CITY");
-            String newDiet = data.getStringExtra("NEW_DIET");
-            String newPhoneNumber = data.getStringExtra("NEW_PHONE_NUMBER");
-            String newAllergy = data.getStringExtra("NEW_ALLERGY");
-            String position = data.getStringExtra("position");
-
-            Bitmap newProfileImageBitmap = data.getParcelableExtra("NEW_PROFILE_IMAGE_BITMAP");
-
-            if (newProfileImageBitmap != null) {
-                profileImageView.setImageBitmap(getRoundedBitmap(newProfileImageBitmap));
-            } else {
-
-            }
-
-
-            textViewFirstName.setText(newFirstName);
-            textViewLastName.setText(newLastName);
-            textViewAddress.setText(newAddress);
-            textViewPHONE_NUMBER.setText(newPhoneNumber);
-            textViewCity.setText(newCity);
-            textViewDiet.setText(newDiet);
-            textViewAllergies.setText(newAllergy);
-            if(isCook) {
-                textViewBio.setText(newBio);
-            }
-            DietDTO dietDTO = new DietDTO();
-            ChefDTO chefDTO = new ChefDTO();
-            Address address = new Address();
-            City city = new City();
-
-            chefDTO.setFirstName(newFirstName);
-            chefDTO.setLastName(newLastName);
-            city.setName(newCity);
-            address.setAddress(newAddress);
-            address.setCity(city);
-            address.setPosition(position);
-
-            chefDTO.setAddress(address);
-            chefDTO.setPhoneNumber(newPhoneNumber);
-            chefDTO.setAllergies(newAllergy);
-
-            dietDTO.setTitle(newDiet);
-
-            chefDTO.setDietDTO(dietDTO);
-            if (isCook) {
-                chefDTO.setBio(newBio);
-            }
-            updateUser(chefDTO, newProfileImageBitmap);
-        }
         if (requestCode == REQUEST_PICK_IMAGE && resultCode == RESULT_OK) {
                 Uri selectedImage = data.getData();
                 try {
@@ -345,6 +250,32 @@ public class view_profile extends AppCompatActivity {
         });
     }
 
+    private void deleteAccount() {
+        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
+        Call<Void> call = apiService.deleteUserAccount("Bearer " + accessToken, userId);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    Intent loginIntent = new Intent(view_profile.this, CreateAccount.class);
+                    Toast.makeText(view_profile.this, "Account deleted successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(loginIntent);
+                } else {
+                    Intent loginIntent = new Intent(view_profile.this, view_profile.class);
+                    Toast.makeText(view_profile.this, "Error deleting the account. Please try again", Toast.LENGTH_SHORT).show();
+                    startActivity(loginIntent);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(view_profile.this, "Error deleting the account. Please try again", Toast.LENGTH_SHORT).show();
+                Intent loginIntent = new Intent(view_profile.this, view_profile.class);
+                startActivity(loginIntent);
+            }
+        });
+    }
+
     private Bitmap getRoundedBitmap(Bitmap bitmap) {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
@@ -366,41 +297,6 @@ public class view_profile extends AppCompatActivity {
         return output;
     }
 
-    private void updateUser(ChefDTO chefDTO, Bitmap imageBitmap) {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] imageBytes = baos.toByteArray();
-        RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), imageBytes);
-        MultipartBody.Part photoPart = MultipartBody.Part.createFormData("photo", "photo.jpg", requestFile);
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        Long userId = preferences.getLong("userId", 0);
-        String authToken = preferences.getString("accessToken", "");
-        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
-        Call<Client> call = apiService.updateClient("Bearer " + authToken, userId, chefDTO, photoPart);
-        call.enqueue(new Callback<Client>() {
-            @Override
-            public void onResponse(Call<Client> call, Response<Client> response) {
-                if (response.isSuccessful()) {
-                    Client client = response.body();
-                    Toast.makeText(view_profile.this, "User updated succesfully", Toast.LENGTH_SHORT).show();
-
-
-                } else {
-                    Intent intent = new Intent(view_profile.this, view_profile.class);
-                    Toast.makeText(view_profile.this, "Error during updating", Toast.LENGTH_SHORT).show();
-                    startActivity(intent);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Client> call, Throwable t) {
-                Intent intent = new Intent(view_profile.this, view_profile.class);
-                Toast.makeText(view_profile.this, "Unavailable Server", Toast.LENGTH_SHORT).show();
-                t.printStackTrace();
-                startActivity(intent);
-            }
-        });
-    }
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
