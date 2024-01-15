@@ -54,6 +54,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="18dp"
+        tools:listitem="@layout/list_row"
         android:divider="@android:color/transparent"
         android:dividerHeight="10.0sp"/>
 </RelativeLayout>
