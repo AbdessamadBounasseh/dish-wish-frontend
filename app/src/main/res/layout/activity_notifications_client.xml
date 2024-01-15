@@ -16,17 +16,18 @@ android:layout_height="match_parent">
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/icon_24_bac"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/ic_back"
-        android:layout_marginRight="50dp"
-
-        />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation"
+        android:layout_width="54dp"
+        android:layout_height="40dp"
+        android:layout_gravity="top"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/returnarrow"
+        tools:layout_editor_absoluteX="75dp"
+        tools:layout_editor_absoluteY="46dp" />
 
     <TextView
         android:id="@+id/notification_title"

@@ -8,6 +8,16 @@ import uit.ensak.dish_wish_frontend.Models.Diet;
 public class ClientDTO {
     private String firstName;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    private Long id;
+
     private String lastName;
 
     private Address address;
@@ -20,7 +30,7 @@ public class ClientDTO {
 
     private String allergies;
 
-    public ClientDTO(String firstName, String lastName, Address address, String phoneNumber, String photo, DietDTO dietDTO, String allergies) {
+    public ClientDTO(String firstName, String lastName, Address address, String phoneNumber, String photo, DietDTO dietDTO, String allergies,Long id) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -28,6 +38,7 @@ public class ClientDTO {
         this.photo = photo;
         this.dietDTO = dietDTO;
         this.allergies = allergies;
+        this.id=id;
     }
 
     public String getFirstName() {

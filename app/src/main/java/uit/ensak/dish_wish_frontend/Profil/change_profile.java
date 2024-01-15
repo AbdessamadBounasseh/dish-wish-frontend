@@ -262,6 +262,7 @@ public class change_profile extends AppCompatActivity {
                 ChefDTO chefDTO = new ChefDTO();
                 Address address = new Address();
                 City city = new City();
+                chefDTO.setId(userId);
 
                 chefDTO.setFirstName(newFirstName);
                 chefDTO.setLastName(newLastName);

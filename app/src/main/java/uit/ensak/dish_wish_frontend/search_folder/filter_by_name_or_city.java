@@ -32,6 +32,7 @@ import uit.ensak.dish_wish_frontend.Contact.ComplaintActivity;
 import uit.ensak.dish_wish_frontend.Contact.QuestionsActivity;
 import uit.ensak.dish_wish_frontend.Profil.become_cook;
 import uit.ensak.dish_wish_frontend.Profil.change_profile;
+import uit.ensak.dish_wish_frontend.Profil.search_profile;
 import uit.ensak.dish_wish_frontend.Profil.view_profile;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.SearchResultsAdapter;
@@ -56,9 +57,9 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_filter_by_name_or_city, container, false);
 
-//        SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-//        accessToken = preferences.getString("accessToken", "");
-//        isCook = preferences.getBoolean("isCook", false);
+        SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        accessToken = preferences.getString("accessToken", "");
+        isCook = preferences.getBoolean("isCook", false);
 
         EditText searchEditText = rootView.findViewById(R.id.searchEditText);
         RecyclerView searchResultsRecyclerView = rootView.findViewById(R.id.searchResultsRecyclerView);
@@ -78,10 +79,6 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
             @Override
             public void onClick(View v) {
                 // Handle the click event
-
-                SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-                isCook = preferences.getBoolean("isCook", false);
-
                 Intent intent;
 
                 if (isCook) {
@@ -123,9 +120,6 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
         popupMenu.inflate(R.menu.menu_main);
         MenuItem becomeChefItem = popupMenu.getMenu().findItem(R.id.action_become_chef);
 
-
-        SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-        isCook = preferences.getBoolean("isCook", false);
         becomeChefItem.setVisible(!isCook);
 
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -180,8 +174,6 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
 }
 
     private void performSearch(String query) {
-        SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-        accessToken = preferences.getString("accessToken", "");
 
         ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
         Call<List<SearchResult>> call = apiService.filterByNameAndCity("Bearer " + accessToken, query);
@@ -212,12 +204,11 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
     }
 
     private void navigateToProfilePage(SearchResult searchResult) {
-        Intent intent = new Intent(requireContext(), change_profile.class);
+        Intent intent = new Intent(requireContext(), search_profile.class);
 
         // Pass necessary data to the profile page
-        intent.putExtra("firstName", searchResult.getFirstName());
-        intent.putExtra("lastName", searchResult.getLastName());
-        intent.putExtra("address", searchResult.getAddress().getCity().getName());
+        intent.putExtra("id",searchResult.getId());
+
 
 
         startActivity(intent);

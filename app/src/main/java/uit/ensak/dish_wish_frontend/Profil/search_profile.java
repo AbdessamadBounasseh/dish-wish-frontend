@@ -6,6 +6,7 @@ import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -61,24 +62,30 @@ public class search_profile extends AppCompatActivity{
     private List<Comment> comments;
     private NestedScrollView nestedScrollView;
     private String clientFirstName;
+    private String accessToken;
+    private boolean isCook;
+    private long userId;
+    private Long id;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("userId", 6L);
-        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWEyMDEwMkBnbWFpbC5tYSIsImlhdCI6MTcwNTE4MDE5NiwiZXhwIjoxNzA1MjY2NTk2fQ.6F-wVZL4avcj4lRGYGDBZ91jfaC2JT_QsPTsSiNoAwY");
-        editor.putBoolean("isCook", false);
-        editor.apply();
+
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        accessToken = preferences.getString("accessToken", "");
+        isCook = preferences.getBoolean("isCook", false);
+        userId = preferences.getLong("userId", 0);
+
+        // Retrieve data from the intent
+        Intent intent = getIntent();
+        id = intent.getLongExtra("id", 0);
+
 
         final RatingBar ratingBar =(RatingBar) findViewById(R.id.ratingBar);
         Button btnRating = findViewById(R.id.btnAddReview);
         //final  TextView RatingResult = findViewById(R.id.textViewActualRating);
         // double ratingValue = (double) ratingBar.getRating();
-
-        Boolean isCook = preferences.getBoolean("isCook", false);
 
         setContentView(R.layout.activity_search_profile);
 
@@ -101,7 +108,7 @@ public class search_profile extends AppCompatActivity{
         recyclerViewComments.setAdapter(commentAdapter);
         TextView textViewBioTitle = findViewById(R.id.textViewBio);
 
-        if (isCook) {
+
             textViewBioTitle.setVisibility(View.VISIBLE);
             textViewBioContent.setVisibility(View.VISIBLE);
             getChef(new ApiChefCallback() {
@@ -123,29 +130,7 @@ public class search_profile extends AppCompatActivity{
 
                 }
             });
-        } else {
-            textViewBioTitle.setVisibility(View.INVISIBLE);
-            textViewBioContent.setVisibility(View.INVISIBLE);
-            getClient(new ApiClientCallback() {
-                @Override
-                public void onClientReceived(Client client) {
-                    clientFirstName = client.getFirstName();
-                    textViewFirstName.setText(client.getFirstName());
-                    textViewLastName.setText(client.getLastName());
-                    textViewAddress.setText(client.getAddress().getAddress());
-                    textViewPHONE_NUMBER.setText(client.getPhoneNumber());
-                    if (client.getDiet() != null) {
-                        textViewDiet.setText(client.getDiet().getTitle());
-                    }
-                    textViewAllergies.setText(client.getAllergies());
-                }
 
-                @Override
-                public void onFailure(String errorMessage) {
-
-                }
-            });
-        }
 
         getClientProfile();
         ImageButton btnBack = findViewById(R.id.btnBack);
@@ -246,11 +231,8 @@ public class search_profile extends AppCompatActivity{
     }
 
     private void getClient(ApiClientCallback apiClientCallback) {
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        Long userId = preferences.getLong("userId", 0);
-        String authToken = preferences.getString("accessToken", "");
         ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
-        Call<Client> call = apiService.getClientById("Bearer " + authToken, userId);
+        Call<Client> call = apiService.getClientById("Bearer " + accessToken, userId);
         call.enqueue(new Callback<Client>() {
             @Override
             public void onResponse(Call<Client> call, Response<Client> response) {
@@ -271,13 +253,9 @@ public class search_profile extends AppCompatActivity{
     }
 
     private void getChef(ApiChefCallback apiChefCallback) {
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        Long userId = preferences.getLong("userId", 0);
-        String authToken = preferences.getString("accessToken", "");
-
         ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
 
-        Call<Chef> call = apiService.getChefById("Bearer " + authToken, userId);
+        Call<Chef> call = apiService.getChefById("Bearer " + accessToken, id);
 
         call.enqueue(new Callback<Chef>() {
             @Override
@@ -326,13 +304,10 @@ public class search_profile extends AppCompatActivity{
     }
 
     private void getClientProfile() {
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        Long userId = preferences.getLong("userId", 0);
-        String authToken = preferences.getString("accessToken", "");
 
         ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
 
-        Call<ResponseBody> call = apiService.getClientProfile("Bearer " + authToken, userId);
+        Call<ResponseBody> call = apiService.getClientProfile("Bearer " + accessToken, userId);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override

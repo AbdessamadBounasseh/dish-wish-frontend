@@ -72,7 +72,9 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
         public void bind(SearchResult result) {
             firstNameTextView.setText(result.getFirstName());
             lastNameTextView.setText(result.getLastName());
-            addressTextView.setText(result.getAddress().getCity().getName());
+            if (result.getAddress() != null ){
+                addressTextView.setText(result.getAddress().getCity().getName());
+            }
         }
     }
 
