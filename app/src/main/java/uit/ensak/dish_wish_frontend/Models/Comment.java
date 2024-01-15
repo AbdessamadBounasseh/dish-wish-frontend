@@ -1,30 +1,16 @@
 package uit.ensak.dish_wish_frontend.Models;
 
 public class Comment {
-    private long id;
-
-    private Client client;
-
-    private Chef chef;
+    private String username;
     private String commentContent;
 
-    public Comment(long id, Client client, Chef chef, String commentContent) {
-        this.id = id;
-        this.client = client;
-        this.chef = chef;
+    public Comment(String username, String commentContent) {
+        this.username = username;
         this.commentContent = commentContent;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public Chef getChef() {
-        return chef;
+    public String getUsername() {
+        return username;
     }
 
     public String getCommentContent() {

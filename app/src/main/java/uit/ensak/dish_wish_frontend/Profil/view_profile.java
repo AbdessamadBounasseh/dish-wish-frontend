@@ -52,11 +52,7 @@ public class view_profile extends AppCompatActivity {
 
     static final int REQUEST_CODE_CHANGE_PROFILE = 1;
     static final int REQUEST_PICK_IMAGE = 3;
-
-    private ChefDTO chefDTO;
     private  String position;
-
-
     private TextView textViewFirstName, textViewLastName, textViewAddress,textViewBio, textViewDiet,textViewCity, textViewPHONE_NUMBER, textViewAllergies, textViewBioContent;
     private Spinner spinnerAllergies;
     private ImageView profileImageView;
@@ -66,8 +62,8 @@ public class view_profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("userId", 7L);
-        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWFhQGdtYWlsLm1hIiwiaWF0IjoxNzA1MjY1NDUwLCJleHAiOjE3MDUzNTE4NTB9.5_6y496HNAAAbpSiwZBq5yMLidhGQMTNx4EzzLhUqbM");
+        editor.putLong("userId",10L);
+        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWFhZUBnbWFpbC5tYSIsImlhdCI6MTcwNTM0OTc4MCwiZXhwIjoxNzA1NDM2MTgwfQ.ugeVqpq8jpGcAYhnNw_K0g30TkeB30qcHatMs8Y7JhI");
         editor.putBoolean("isCook", false);
         editor.apply();
         Boolean isCook = preferences.getBoolean("isCook", false);
@@ -139,7 +135,6 @@ public class view_profile extends AppCompatActivity {
         }
 
         getClientProfile();
-
 
         ImageButton btnBack = findViewById(R.id.btnBack);
 

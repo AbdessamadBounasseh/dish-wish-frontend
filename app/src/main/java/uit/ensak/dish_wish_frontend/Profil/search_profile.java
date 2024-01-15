@@ -32,19 +32,18 @@ import retrofit2.Call;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Callback;
 import retrofit2.Response;
 import uit.ensak.dish_wish_frontend.Models.Address;
 import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Comment;
+import uit.ensak.dish_wish_frontend.Models.Rating;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.dto.ChefDTO;
 import uit.ensak.dish_wish_frontend.dto.DietDTO;
 import uit.ensak.dish_wish_frontend.search_folder.CommentAdapter;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
-
 public class search_profile extends AppCompatActivity{
     static final int REQUEST_IMAGE_CAPTURE = 2;
     static final int REQUEST_PICK_IMAGE = 3;
@@ -58,23 +57,31 @@ public class search_profile extends AppCompatActivity{
     private List<Comment> comments;
     private NestedScrollView nestedScrollView;
     private String clientFirstName, clientLastName;
+    private RatingBar ratingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("userId", 8L);
-        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWFlMkBnbWFpbC5tYSIsImlhdCI6MTcwNTMzMDc5NiwiZXhwIjoxNzA1NDE3MTk2fQ.zJ8c07JhosxDwwyzJxPOgMPBgTYsMed19haw5deGFTE");
+        editor.putLong("userId", 10L);
+        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWFhZUBnbWFpbC5tYSIsImlhdCI6MTcwNTM0OTc4MCwiZXhwIjoxNzA1NDM2MTgwfQ.ugeVqpq8jpGcAYhnNw_K0g30TkeB30qcHatMs8Y7JhI");
         editor.putBoolean("isCook", false);
         editor.apply();
 
         setContentView(R.layout.activity_search_profile);
+        ratingBar = findViewById(R.id.ratingBar);
+        getRating();
 
-        final RatingBar ratingBar =(RatingBar) findViewById(R.id.ratingBar);
+        float rating = ratingBar.getRating();
+
+        // Utiliser l'API pour envoyer la note au backend
+        sendRating(rating);
+
+       // final RatingBar ratingBar =(RatingBar) findViewById(R.id.ratingBar);
         Button btnRating = findViewById(R.id.btnAddReview);
         //final  TextView RatingResult = findViewById(R.id.textViewActualRating);
-        float rating = ratingBar.getRating();
+       // float rating = ratingBar.getRating();
         double ratingValue = (double) ratingBar.getRating();
 
         Boolean isCook = preferences.getBoolean("isCook", false);
@@ -94,6 +101,7 @@ public class search_profile extends AppCompatActivity{
         btnRating = findViewById(R.id.btnAddReview);
         recyclerViewComments = findViewById(R.id.recyclerViewComments);
         nestedScrollView = findViewById(R.id.nestedScrollView);
+
 
         comments = loadCommentsFromPrefs();
         commentAdapter = new CommentAdapter(this, comments);
@@ -164,7 +172,10 @@ public class search_profile extends AppCompatActivity{
            String authToken = preferences.getString("accessToken", "");
 
            ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
-           Call<Chef> call = apiService.chef_ratings("Bearer " + authToken, userId);
+
+           Call<ResponseBody> call = apiService.getClientProfile("Bearer " + authToken, userId);
+
+
             @Override
             public void onClick(View v) {
 
@@ -180,14 +191,7 @@ public class search_profile extends AppCompatActivity{
                 addComment();
             }
         });
-
-
-
-
-
     }
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -366,16 +370,15 @@ public class search_profile extends AppCompatActivity{
     }
 
     private void addComment() {
+        String username = clientFirstName;
         String commentContent = editTextComment.getText().toString().trim();
         if (!commentContent.isEmpty()) {
-            Comment newComment = new Comment(0, null, null, commentContent);
-            comments.add(newComment);
+            comments.add(new Comment(username, commentContent));
             commentAdapter.notifyDataSetChanged();
             editTextComment.setText("");
             scrollToBottom();
         }
     }
-
     private List<Comment> loadCommentsFromPrefs() {
         CommentAdapter commentAdapter = new CommentAdapter(this, new ArrayList<>());
         return commentAdapter.getCommentsFromPrefs();
@@ -387,4 +390,60 @@ public class search_profile extends AppCompatActivity{
                 nestedScrollView.fullScroll(View.FOCUS_DOWN);
             }
         });}
+    private void getRating() {
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        Long userId = preferences.getLong("userId", 0);
+        String authToken = preferences.getString("accessToken", "");
+
+        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
+
+        Call<Rating> call = apiService.getclientrating("Bearer " + authToken, userId);
+
+        call.enqueue(new Callback<Rating>() {
+            @Override
+            public void onResponse(Call<Rating> call, Response<Rating> response) {
+                if (response.isSuccessful()) {
+                    Rating rating = response.body();
+                    if (rating != null) {
+                        Float ratingValue = rating.getStar().getNumber();
+                        ratingBar.setRating(ratingValue);
+                    }
+                } else {
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Rating> call, Throwable t) {
+                // Gérez l'échec de la requête
+                // Affichez un message d'erreur ou effectuez d'autres actions nécessaires
+            }
+        });
+    }
+    private void sendRating(float rating) {
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        Long userId = preferences.getLong("userId", 0);
+        String authToken = preferences.getString("accessToken", "");
+
+        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
+
+        Call<ResponseBody> call = apiService.sendClientRating("Bearer " + authToken, userId, rating);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+                    // Gérer la réponse réussie du serveur
+                    showToast("Rating sent successfully");
+                } else {
+                    // Gérer l'échec de la requête
+                    showToast("Failed to send rating: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                // Gérer l'échec de la requête
+                showToast("Failed to send rating: " + t.getMessage());
+            }
+        });
+    }
 }

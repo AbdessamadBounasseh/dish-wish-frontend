@@ -14,8 +14,10 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
+import uit.ensak.dish_wish_frontend.Models.Rating;
 import uit.ensak.dish_wish_frontend.dto.ChefDTO;
 import uit.ensak.dish_wish_frontend.SearchResult;
 
@@ -53,6 +55,10 @@ public interface ApiServiceProfile {
             @Header("Authorization") String authToken,
             @Path("id") Long id
     );
+    @GET("clients/profile{id}")
+    Call<Rating> getclientrating(
+            @Header("Authorization") String authToken,
+            @Query("userId") Long userId);
 
 
 
@@ -61,18 +67,17 @@ public interface ApiServiceProfile {
             @Header("Authorization") String authToken,
             @Path("id") Long id);
 
+    @POST("clients/rate/{id}")
+    Call<ResponseBody> sendClientRating(
+            @Header("Authorization") String authToken,
+            @Path("id") Long userId,
+            @Body float rating);
+
 
     @GET("chefs/filter/{query}")
     Call<List<SearchResult>> filterByNameAndCity(
             @Header("Authorization") String authToken,
             @Path("query") String query );
-
-
-
-    @GET("clients/{clientId}")
-    Call<Chef> chef_ratings(
-            @Header("Authorization") String authToken,
-            @Path("clientId") Long clientId);
 }
 
 
