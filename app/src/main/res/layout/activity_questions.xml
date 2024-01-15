@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="-20dp"
+    tools:context=".Contact.QuestionsActivity">
+
+
+
+    <LinearLayout
+        android:id="@+id/bars_top_ba"
+        android:layout_width="375dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="8dp"
+        android:longClickable="false"
+        >
+        <ImageView
+            android:id="@+id/icon_24_bac"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_back"
+
+            />
+        <TextView
+            android:id="@+id/sign_in"
+            android:layout_width="187dp"
+            android:layout_height="wrap_content"
+            android:letterSpacing="-0.03"
+            android:lineSpacingExtra="8sp"
+            android:text="@string/Frequent"
+            android:textColor="@color/signin"
+            android:textSize="16sp"
+            android:layout_marginLeft="110dp"/>
+
+
+
+    </LinearLayout>
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="18dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10.0sp"/>
+</RelativeLayout>
