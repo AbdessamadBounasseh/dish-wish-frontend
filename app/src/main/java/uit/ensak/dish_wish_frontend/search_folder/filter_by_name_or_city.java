@@ -27,6 +27,7 @@ import android.content.SharedPreferences;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import uit.ensak.dish_wish_frontend.Authentification.ChangePasswordActivity;
 import uit.ensak.dish_wish_frontend.Contact.ComplaintActivity;
 import uit.ensak.dish_wish_frontend.Contact.QuestionsActivity;
 import uit.ensak.dish_wish_frontend.Profil.become_cook;
@@ -166,13 +167,12 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
                 }
                 else if (item.getItemId() == R.id.action_change_password) {
                     // Start the BecomeChef activity
-                    startActivity(new Intent(requireContext(), HistoryActivity.class));
+                    startActivity(new Intent(requireContext(), ChangePasswordActivity.class));
                     return true;
                 }
-                    return true;
-                }
-                // Handle other menu items here
-                //return false;
+
+                return true;
+            }
         }
     );
 
