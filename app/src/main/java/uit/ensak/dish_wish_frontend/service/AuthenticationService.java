@@ -19,7 +19,7 @@ public interface AuthenticationService {
     Call<ResponseBody> verifyEmail(@Query("code") String code);
     @Headers({"Accept: application/json"})
     @PUT("password/forgot-password")
-    Call<String> forgotPassword(@Query("email")String email);
+    Call<ResponseBody> forgotPassword(@Query("email")String email);
 
 
 }
