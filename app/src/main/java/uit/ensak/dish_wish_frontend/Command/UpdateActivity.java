@@ -33,11 +33,7 @@ import retrofit2.Response;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.R;
-import uit.ensak.dish_wish_frontend.shared.RetrofitClient;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class UpdateActivity extends AppCompatActivity {
 
@@ -215,7 +211,7 @@ public class UpdateActivity extends AppCompatActivity {
 
 
     private void UpdateCommand() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUyMzUzMDAsImV4cCI6MTcwNTMyMTcwMH0.ZhulnzT4vzPRdyjglYUFaWtr06LW9W6p0edjzgizm_Q";
+        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUzMjIwMzcsImV4cCI6MTcwNTQwODQzN30.f9PsxKwLsCG_rxlqnHvLXLjDfkCWrxPuCBrmf-8w9xU";
 
         //form fields
         EditText Title = findViewById(R.id.title);

@@ -94,7 +94,7 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
                 // Handle the click event
                 Intent intent;
 
-                if (!isCook) {
+                if (isCook) {
                     intent = new Intent(requireContext() , NotificationsChef.class);
                 } else {
                     intent = new Intent(requireContext() , NotificationsClient.class);

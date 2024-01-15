@@ -6,9 +6,16 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp">
+
+    <LinearLayout
         android:id="@+id/bars_top_ba"
         android:layout_width="375dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:gravity="center"
@@ -16,25 +23,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/icon_24_bac"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation"
+            android:layout_width="54dp"
+            android:layout_height="40dp"
+            android:layout_gravity="top"
             android:layout_marginTop="10dp"
-            android:src="@drawable/ic_back"
-            android:layout_marginRight="50dp"
-
-            />
+            android:layout_marginRight="15dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/returnarrow"
+            tools:layout_editor_absoluteX="75dp"
+            tools:layout_editor_absoluteY="46dp" />
 
         <TextView
             android:id="@+id/notification_title"
             android:layout_width="187dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
+            android:layout_gravity="center"
             android:layout_marginRight="40dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="0dp"
             android:letterSpacing="0.03"
             android:lineSpacingExtra="8sp"
             android:text="Notifications"
@@ -43,12 +52,61 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/confirmed"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/rounded_edittext"
+            android:backgroundTint="@color/principalColor"
+            android:text="Confirmed orders"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/command"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/rounded_edittext"
+            android:backgroundTint="@color/principalColor"
+            android:text="close orders"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+        </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/NotificationResultsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bars_top_ba" />
+
+    </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
