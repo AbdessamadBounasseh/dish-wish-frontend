@@ -1,4 +1,4 @@
-package uit.ensak.dish_wish_frontend.Command;
+package uit.ensak.dish_wish_frontend.service;
 
 import com.google.gson.GsonBuilder;
 
