@@ -101,4 +101,10 @@ public interface ApiService {
             @Header("Authorization") String authToken,
             @Path("chefId") long chefId
     );
+
+    @GET("notifications/chef/confirmed/{chefId}")
+    Call<List<Command>> getChefConfirmedNotifications(
+            @Header("Authorization") String authToken,
+            @Path("chefId") long chefId
+    );
 }
