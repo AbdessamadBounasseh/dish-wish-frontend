@@ -156,7 +156,12 @@ public class view_profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent;
-
+                if(isCook){
+                    intent = new Intent(view_profile.this, MapsChefActivity.class);
+                }else{
+                    intent = new Intent(view_profile.this, MapsHomeActivity.class);
+                }
+                startActivity(intent);
             }
         });
 
