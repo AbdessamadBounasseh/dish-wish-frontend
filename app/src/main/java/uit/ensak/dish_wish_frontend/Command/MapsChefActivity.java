@@ -2,11 +2,6 @@ package uit.ensak.dish_wish_frontend.Command;
 
 import static java.lang.Float.valueOf;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -25,6 +20,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.maps.GoogleMap;
@@ -52,7 +52,7 @@ import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.Models.Proposition;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.databinding.ActivityMapsChefBinding;
-import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
+import uit.ensak.dish_wish_frontend.search_folder.filter_by_name_or_city;
 import uit.ensak.dish_wish_frontend.shared.RetrofitClient;
 
 public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCallback {

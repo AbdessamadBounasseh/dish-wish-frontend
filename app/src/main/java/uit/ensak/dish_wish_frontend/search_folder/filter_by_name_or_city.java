@@ -1,4 +1,4 @@
-package uit.ensak.dish_wish_frontend;
+package uit.ensak.dish_wish_frontend.search_folder;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -34,13 +34,17 @@ import android.content.SharedPreferences;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import uit.ensak.dish_wish_frontend.Contact.ComplaintActivity;
+import uit.ensak.dish_wish_frontend.Contact.QuestionsActivity;
 import uit.ensak.dish_wish_frontend.Profil.RetrofitClientProfile;
 import uit.ensak.dish_wish_frontend.Profil.become_cook;
 import uit.ensak.dish_wish_frontend.Profil.change_profile;
 import uit.ensak.dish_wish_frontend.Profil.become_cook;
 import uit.ensak.dish_wish_frontend.Profil.change_profile;
 import uit.ensak.dish_wish_frontend.Profil.view_profile;
+import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.SearchResultsAdapter;
+import uit.ensak.dish_wish_frontend.history_folder.HistoryActivity;
 import uit.ensak.dish_wish_frontend.notification_folder.NotificationsChef;
 import uit.ensak.dish_wish_frontend.notification_folder.NotificationsClient;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
@@ -127,28 +131,59 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
     private void showPopupMenu(View view) {
         PopupMenu popupMenu = new PopupMenu(requireContext(), view);
         popupMenu.inflate(R.menu.menu_main);
+        MenuItem becomeChefItem = popupMenu.getMenu().findItem(R.id.action_become_chef);
+
+        becomeChefItem.setVisible(isCook);
 
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 // Handling menu item clicks here
                 if (item.getItemId() == R.id.action_profile) {
                     // Start the Profile activity
+
                     startActivity(new Intent(requireContext(), view_profile.class));
                     return true;
                 } else if (item.getItemId() == R.id.action_become_chef) {
                     // Start the BecomeChef activity
+
                     startActivity(new Intent(requireContext(), become_cook.class));
+                    return true;
+                }else if (item.getItemId() == R.id.action_orders) {
+                    // Start the BecomeChef activity
+                    startActivity(new Intent(requireContext(), HistoryActivity.class));
+                    return true;
+                }else if (item.getItemId() == R.id.action_notifications) {
+                    Intent intent;
+
+                    if (isCook) {
+                        intent = new Intent(requireContext() , NotificationsChef.class);
+                    } else {
+                        intent = new Intent(requireContext() , NotificationsClient.class);
+                    }
+                    startActivity(intent);
+                }else if (item.getItemId() == R.id.action_support) {
+                    // Start the BecomeChef activity
+                    startActivity(new Intent(requireContext(), ComplaintActivity.class));
+                    return true;
+                }else if (item.getItemId() == R.id.action_FAQ) {
+                    // Start the BecomeChef activity
+                    startActivity(new Intent(requireContext(), QuestionsActivity.class));
+                    return true;
+                }
+                    // Start the BecomeChef activity
+
                     return true;
                 }
                 // Handle other menu items here
 
-                return false;
-            }
-        });
+                //return false;
+        }
+    );
 
         popupMenu.show();
-    }
+}
 
     private void performSearch(String query) {
 

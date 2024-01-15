@@ -24,7 +24,9 @@
     <item
         android:id="@+id/action_become_chef"
         android:title="Become a chef"
+        android:visible="false"
         app:showAsAction="never"
+
         android:icon="@drawable/ic_menu_become_chef"/>
     <item
         android:id="@+id/action_FAQ"
