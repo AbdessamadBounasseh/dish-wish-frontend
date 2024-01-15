@@ -57,11 +57,22 @@ public interface ApiServiceProfile {
 
 
     @DELETE("clients/delete/{id}")
-    Call<Void> deleteUserAccount(@Header("Authorization") String authToken, @Path("id") Long id);
+    Call<Void> deleteUserAccount(
+            @Header("Authorization") String authToken,
+            @Path("id") Long id);
 
 
     @GET("chefs/filter/{query}")
     Call<List<SearchResult>> filterByNameAndCity(
             @Header("Authorization") String authToken,
             @Path("query") String query );
+
+
+
+    @GET("clients/{clientId}")
+    Call<Chef> chef_ratings(
+            @Header("Authorization") String authToken,
+            @Path("clientId") Long clientId);
 }
+
+

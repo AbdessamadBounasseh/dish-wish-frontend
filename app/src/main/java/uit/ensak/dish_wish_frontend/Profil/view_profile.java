@@ -174,6 +174,7 @@ public class view_profile extends AppCompatActivity {
         btnDeleteAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 showDeleteConfirmationDialog();
             }
         });

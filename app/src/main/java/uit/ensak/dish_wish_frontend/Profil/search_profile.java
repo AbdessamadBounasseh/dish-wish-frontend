@@ -46,7 +46,7 @@ import uit.ensak.dish_wish_frontend.search_folder.CommentAdapter;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
 
 public class search_profile extends AppCompatActivity{
-        static final int REQUEST_IMAGE_CAPTURE = 2;
+    static final int REQUEST_IMAGE_CAPTURE = 2;
     static final int REQUEST_PICK_IMAGE = 3;
     private ChefDTO chefDTO;
     private TextView textViewFirstName, textViewLastName, textViewAddress, textViewBio, textViewDiet, textViewPHONE_NUMBER, textViewAllergies, textViewBioContent;
@@ -57,22 +57,25 @@ public class search_profile extends AppCompatActivity{
     private CommentAdapter commentAdapter;
     private List<Comment> comments;
     private NestedScrollView nestedScrollView;
-    private String clientFirstName;
+    private String clientFirstName, clientLastName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("userId", 7L);
-        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWFhQGdtYWlsLm1hIiwiaWF0IjoxNzA1MjY1NDUwLCJleHAiOjE3MDUzNTE4NTB9.5_6y496HNAAAbpSiwZBq5yMLidhGQMTNx4EzzLhUqbM");
+        editor.putLong("userId", 8L);
+        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWFlMkBnbWFpbC5tYSIsImlhdCI6MTcwNTMzMDc5NiwiZXhwIjoxNzA1NDE3MTk2fQ.zJ8c07JhosxDwwyzJxPOgMPBgTYsMed19haw5deGFTE");
         editor.putBoolean("isCook", false);
         editor.apply();
+
+        setContentView(R.layout.activity_search_profile);
 
         final RatingBar ratingBar =(RatingBar) findViewById(R.id.ratingBar);
         Button btnRating = findViewById(R.id.btnAddReview);
         //final  TextView RatingResult = findViewById(R.id.textViewActualRating);
-        // double ratingValue = (double) ratingBar.getRating();
+        float rating = ratingBar.getRating();
+        double ratingValue = (double) ratingBar.getRating();
 
         Boolean isCook = preferences.getBoolean("isCook", false);
 
@@ -88,6 +91,7 @@ public class search_profile extends AppCompatActivity{
         textViewBioContent = findViewById(R.id.textViewActualBio);
         editTextComment = findViewById(R.id.editTextComment);
         btnAddComment = findViewById(R.id.btnAddComment);
+        btnRating = findViewById(R.id.btnAddReview);
         recyclerViewComments = findViewById(R.id.recyclerViewComments);
         nestedScrollView = findViewById(R.id.nestedScrollView);
 
@@ -128,7 +132,9 @@ public class search_profile extends AppCompatActivity{
                     clientFirstName = client.getFirstName();
                     textViewFirstName.setText(client.getFirstName());
                     textViewLastName.setText(client.getLastName());
-                    textViewAddress.setText(client.getAddress().getAddress());
+                    if(client.getAddress()!=null) {
+                        textViewAddress.setText(client.getAddress().getAddress());
+                    }
                     textViewPHONE_NUMBER.setText(client.getPhoneNumber());
                     if (client.getDiet() != null) {
                         textViewDiet.setText(client.getDiet().getTitle());
@@ -152,15 +158,20 @@ public class search_profile extends AppCompatActivity{
             }
         });
 
-//        btnRating.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//               // ratingValue.setText("yourRating is "+ ratingBar.getRating());
-//
-//                //RatingResult.setText("yourRating is " + ratingInt);
-//            }
-//        });
-//        ratingBar.setRating((float) ratingValue);
+       btnRating.setOnClickListener(new View.OnClickListener() {
+           SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+           Long userId = preferences.getLong("userId", 0);
+           String authToken = preferences.getString("accessToken", "");
+
+           ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
+           Call<Chef> call = apiService.chef_ratings("Bearer " + authToken, userId);
+            @Override
+            public void onClick(View v) {
+
+//                RatingResult.setText("yourRating is " + ratingInt);
+           }
+        });
+       ratingBar.setRating((float) ratingValue);
 
         btnAddComment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -354,17 +365,17 @@ public class search_profile extends AppCompatActivity{
         });
     }
 
-
     private void addComment() {
-        String username = clientFirstName;
         String commentContent = editTextComment.getText().toString().trim();
         if (!commentContent.isEmpty()) {
-            comments.add(new Comment(username, commentContent));
+            Comment newComment = new Comment(0, null, null, commentContent);
+            comments.add(newComment);
             commentAdapter.notifyDataSetChanged();
             editTextComment.setText("");
             scrollToBottom();
         }
     }
+
     private List<Comment> loadCommentsFromPrefs() {
         CommentAdapter commentAdapter = new CommentAdapter(this, new ArrayList<>());
         return commentAdapter.getCommentsFromPrefs();

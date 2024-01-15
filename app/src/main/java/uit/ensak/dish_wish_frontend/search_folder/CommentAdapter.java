@@ -41,23 +41,23 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         return comments.size();
     }
 
-    public void addComment(String username, String commentContent) {
-        Comment newComment = new Comment(username, commentContent);
-        comments.add(newComment);
-        saveCommentsToPrefs(comments);
-        notifyDataSetChanged();
-    }
+//    public void addComment(String username, String commentContent) {
+//        Comment newComment = new Comment(username, commentContent);
+//        comments.add(newComment);
+//        saveCommentsToPrefs(comments);
+//        notifyDataSetChanged();
+//    }
 
-    private void saveCommentsToPrefs(List<Comment> comments) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (Comment comment : comments) {
-            stringBuilder.append(comment.getUsername()).append(": ").append(comment.getCommentContent()).append(",");
-        }
-
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(KEY_COMMENTS, stringBuilder.toString());
-        editor.apply();
-    }
+//    private void saveCommentsToPrefs(List<Comment> comments) {
+//        StringBuilder stringBuilder = new StringBuilder();
+//        for (Comment comment : comments) {
+//            stringBuilder.append(comment.getUsername()).append(": ").append(comment.getCommentContent()).append(",");
+//        }
+//
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        editor.putString(KEY_COMMENTS, stringBuilder.toString());
+//        editor.apply();
+//    }
 
     public List<Comment> getCommentsFromPrefs() {
         String commentsString = sharedPreferences.getString(KEY_COMMENTS, "");
@@ -66,8 +66,8 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         for (String comment : commentsArray) {
             String[] parts = comment.split(": ");
             if (parts.length == 2) {
-                Comment newComment = new Comment(parts[0], parts[1]);
-                commentList.add(newComment);
+               // Comment newComment = new Comment(parts[0], parts[1]);
+               // commentList.add(newComment);
             }
         }
         return commentList;
@@ -83,8 +83,8 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         }
 
         public void bind(Comment comment) {
-            String displayText = comment.getUsername() + "\n " + comment.getCommentContent();
-            textViewComment.setText(displayText);
+           // String displayText = comment.getUsername() + "\n " + comment.getCommentContent();
+           // textViewComment.setText(displayText);
         }
     }
 }

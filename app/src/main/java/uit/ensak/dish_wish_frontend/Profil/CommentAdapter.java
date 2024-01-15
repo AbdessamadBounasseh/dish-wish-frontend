@@ -9,17 +9,18 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import uit.ensak.dish_wish_frontend.Models.Comment;
 
-
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentViewHolder> {
     private final List<Comment> comments;
-    private  final SharedPreferences sharedPreferences;
+    private final SharedPreferences sharedPreferences;
     private static final String PREF_NAME = "comment_prefs";
     private static final String KEY_COMMENTS = "comments_key";
+
     public CommentAdapter(Context context, List<Comment> comments) {
         this.comments = comments;
         this.sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
@@ -44,7 +45,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     }
 
     public void addComment(String username, String commentContent) {
-        Comment newComment = new Comment(username, commentContent);
+        Comment newComment = new Comment(0, null, null, commentContent);
         comments.add(newComment);
         saveCommentsToPrefs(comments);
         notifyDataSetChanged();
@@ -53,7 +54,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     private void saveCommentsToPrefs(List<Comment> comments) {
         StringBuilder stringBuilder = new StringBuilder();
         for (Comment comment : comments) {
-            stringBuilder.append(comment.getUsername()).append(": ").append(comment.getCommentContent()).append(",");
+            stringBuilder.append(comment.getClient().getFirstName()).append(": ").append(comment.getCommentContent()).append(",");
         }
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -68,7 +69,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         for (String comment : commentsArray) {
             String[] parts = comment.split(": ");
             if (parts.length == 2) {
-                Comment newComment = new Comment(parts[0], parts[1]);
+                Comment newComment = new Comment(0, null, null,parts[0]);
                 commentList.add(newComment);
             }
         }
@@ -85,7 +86,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         }
 
         public void bind(Comment comment) {
-            String displayText = comment.getUsername() + "\n " + comment.getCommentContent();
+            String displayText = comment.getClient().getFirstName() + "\n " + comment.getCommentContent();
             textViewComment.setText(displayText);
         }
     }
