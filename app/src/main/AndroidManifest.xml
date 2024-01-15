@@ -40,6 +40,10 @@
         <activity
             android:name=".Contact.ComplaintActivity"
             android:exported="false" />
+
+        <activity
+            android:name= ".Authentification.connect"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -63,7 +67,7 @@
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
         <activity
-            android:name=".Authentification.connect"
+            android:name=".Authentification.page_acceuil"
             android:exported="true"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
             <intent-filter>

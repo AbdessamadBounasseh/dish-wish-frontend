@@ -38,8 +38,7 @@ public class ComplaintActivity extends AppCompatActivity {
         setContentView(R.layout.activity_complaint);
         back = findViewById(R.id.icon_24_bac);
         send = findViewById(R.id.sign);
-        complaintLayout = findViewById(R.id.complaint);
-        complaint = complaintLayout.getEditText();
+
         complaint = findViewById(R.id.complaint);
         String complaintString;
         complaintString = complaint.getText().toString();
