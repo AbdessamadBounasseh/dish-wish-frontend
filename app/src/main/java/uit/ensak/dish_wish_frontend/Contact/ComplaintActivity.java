@@ -41,6 +41,8 @@ public class ComplaintActivity extends AppCompatActivity {
         complaintLayout = findViewById(R.id.complaint);
 
         complaint = complaintLayout.getEditText();
+
+        complaint = findViewById(R.id.complaint);
         String complaintString;
         complaintString = complaint.getText().toString();
 
