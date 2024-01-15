@@ -8,6 +8,6 @@ import retrofit2.http.POST;
 public interface ContactService {
     @Headers({"Accept: application/json"})
     @POST("support/complaint")
-    Call<?> sendpayload(@Body ComplaintPayload payload);
 
+    Call<Void> sendComplaint(ComplaintPayload payload);
 }

@@ -35,7 +35,7 @@
             android:name=".Authentification.ResetEmailActivity"
             android:exported="false" />
         <activity
-            android:name=".Contact.ComplaintActivity"
+            android:name=".Authentification.page_acceuil"
             android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
@@ -56,7 +56,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".Profil.view_profile"
+            android:name=".Contact.ComplaintActivity"
             android:exported="true"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
             <intent-filter>
@@ -74,6 +74,11 @@
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
         </activity>
+
+        <activity
+            android:name=".Profil.view_profile"
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
 
         <activity
             android:name=".Profil.search_profile"
