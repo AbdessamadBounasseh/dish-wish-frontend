@@ -16,23 +16,29 @@
         android:title="Notifications"
         app:showAsAction="never"
         android:icon="@drawable/ic_menu_notifications"/>
-    <item
-        android:id="@+id/action_support"
-        android:title="Support"
-        app:showAsAction="never"
-        android:icon="@drawable/ic_menu_support"/>
+
     <item
         android:id="@+id/action_become_chef"
         android:title="Become a chef"
-        android:visible="false"
+        android:visible="true"
         app:showAsAction="never"
 
         android:icon="@drawable/ic_menu_become_chef"/>
+    <item
+        android:id="@+id/action_change_password"
+        android:title="Change password"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_menu_logout"/>
     <item
         android:id="@+id/action_FAQ"
         android:title="FAQ"
         app:showAsAction="never"
         android:icon="@drawable/ic_menu_faq"/>
+    <item
+        android:id="@+id/action_support"
+        android:title="Support"
+        app:showAsAction="never"
+        android:icon="@drawable/ic_menu_support"/>
     <item
         android:id="@+id/action_logout"
         android:title="Logout"

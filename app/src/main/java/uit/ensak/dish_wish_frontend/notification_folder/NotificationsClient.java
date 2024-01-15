@@ -29,27 +29,28 @@ public class NotificationsClient extends AppCompatActivity {
 
     private static ArrayList<Proposition> notificationList= new ArrayList<Proposition>();
 
+    private String accessToken;
+    private long userId;
+    private Boolean isCook;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications_client);
 
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("userId", 2L);
-        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUyNzU2MjQsImV4cCI6MTcwNTM2MjAyNH0.rBGT44eRhuNJFBwUZsLqTCvbLTdc2CYQlQ5C5Lf9jEU");
-        editor.putBoolean("isCook", true);
-        editor.apply();
-        Boolean isCook = preferences.getBoolean("isCook", false);
+        accessToken = preferences.getString("accessToken", "");
+        userId = preferences.getLong("userId", 0);
+        isCook = preferences.getBoolean("isCook", false);
 
-        fetchClientNotifications("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUzMjIwMzcsImV4cCI6MTcwNTQwODQzN30.f9PsxKwLsCG_rxlqnHvLXLjDfkCWrxPuCBrmf-8w9xU",2L);
+        fetchClientNotifications();
 
 
     }
 
-    private void fetchClientNotifications(String accessToken, long clientId) {
+    private void fetchClientNotifications() {
         ApiService apiService = RetrofitClient.getApiService();
-        Call<List<Proposition>> call = apiService.getClientNotifications("Bearer " + accessToken, clientId);
+        Call<List<Proposition>> call = apiService.getClientNotifications("Bearer " + accessToken, userId);
 
         call.enqueue(new Callback<List<Proposition>>() {
             @Override

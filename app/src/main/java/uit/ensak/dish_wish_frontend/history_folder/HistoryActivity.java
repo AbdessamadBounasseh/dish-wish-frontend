@@ -6,43 +6,40 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import uit.ensak.dish_wish_frontend.Models.Command;
-import uit.ensak.dish_wish_frontend.Profil.RetrofitClientProfile;
 import uit.ensak.dish_wish_frontend.R;
-import uit.ensak.dish_wish_frontend.SearchResult;
 import uit.ensak.dish_wish_frontend.dto.ChefCommandHistoryDTO;
 import uit.ensak.dish_wish_frontend.dto.ClientCommandHistoryDTO;
-import uit.ensak.dish_wish_frontend.history_folder.CommandAdapter;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
+import uit.ensak.dish_wish_frontend.service.RetrofitClient;
 
 public class HistoryActivity extends AppCompatActivity {
 
     private GridView gridViewDishes;
     private Button btnInProgress, btnPrepared, btnInProgressByMe, btnPreparedByMe;
+    private String accessToken;
+    private long userId;
+    private Boolean isCook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("userId", 2L);
-        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJCZXJuYXJkQGdtYWlsLmNvbSIsImlhdCI6MTcwNTI0ODI2NSwiZXhwIjoxNzA1MzM0NjY1fQ.p-QEpjva7wJ5Y0Wt8ilM48gvShCYtcNSBufeXFgwaIw");
-        editor.putBoolean("isCook", true);
-        editor.apply();
-        Boolean isCook = preferences.getBoolean("isCook", false);
-
-
         setContentView(R.layout.activity_history);
+
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        accessToken = preferences.getString("accessToken", "");
+        userId = preferences.getLong("userId", 0);
+        isCook = preferences.getBoolean("isCook", false);
 
         gridViewDishes = findViewById(R.id.gridViewDishes);
         btnInProgress = findViewById(R.id.btnInProgress);
@@ -58,6 +55,16 @@ public class HistoryActivity extends AppCompatActivity {
         else {
             getClientCommandsHistory();
         }
+
+        ImageView arrow = findViewById(R.id.animation);
+        if (arrow != null) {
+            arrow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+        }
     }
 
     // updateGridView(filteredCommands);
@@ -68,13 +75,8 @@ public class HistoryActivity extends AppCompatActivity {
     }
 
     private void getClientCommandsHistory (){
-
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        String authToken = preferences.getString("accessToken", "");
-        Long userClientId = preferences.getLong("userId", 0);
-
-        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
-        Call<ClientCommandHistoryDTO> call = apiService.getClientCommandsHistory("Bearer " + authToken, userClientId);
+        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
+        Call<ClientCommandHistoryDTO> call = apiService.getClientCommandsHistory("Bearer " + accessToken, userId);
 
         //receive :
         call.enqueue(new Callback<ClientCommandHistoryDTO>() {
@@ -98,13 +100,8 @@ public class HistoryActivity extends AppCompatActivity {
     }
     private void getChefCommandsHistory(){
 
-
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        String authToken = preferences.getString("accessToken", "");
-        Long userChefId = preferences.getLong("userId", 0);
-
-        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
-        Call<ChefCommandHistoryDTO> call = apiService.getChefCommandsHistory("Bearer " + authToken, userChefId);
+        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
+        Call<ChefCommandHistoryDTO> call = apiService.getChefCommandsHistory("Bearer " + accessToken, userId);
 
         //receive :
         call.enqueue(new Callback<ChefCommandHistoryDTO>() {

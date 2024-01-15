@@ -11,6 +11,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import uit.ensak.dish_wish_frontend.Command.ApiService;
 import uit.ensak.dish_wish_frontend.service.AuthenticationService;
+import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
 
 public class RetrofitClient {
 
@@ -22,6 +23,8 @@ public class RetrofitClient {
             .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setLenient().create()))
             .build();
     private static final ApiService apiService = retrofit.create(ApiService.class);
+    private static final ApiServiceProfile apiServiceProfile = retrofit.create(ApiServiceProfile.class);
+
     private static final AuthenticationService authenticationService = retrofit.create(AuthenticationService.class);
 
     public static ApiService getApiService() {
@@ -29,5 +32,9 @@ public class RetrofitClient {
     }
     public static AuthenticationService getAuthenticationService() {
         return authenticationService;
+    }
+
+    public static ApiServiceProfile getApiServiceProfile() {
+        return apiServiceProfile;
     }
 }

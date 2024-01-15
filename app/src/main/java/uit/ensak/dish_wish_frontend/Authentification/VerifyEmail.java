@@ -30,7 +30,7 @@ import uit.ensak.dish_wish_frontend.Models.Auth.AuthenticationResponse;
 import uit.ensak.dish_wish_frontend.Models.Auth.RegisterRequest;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.service.AuthenticationService;
-import uit.ensak.dish_wish_frontend.shared.RetrofitClient;
+import uit.ensak.dish_wish_frontend.service.RetrofitClient;
 
 public class VerifyEmail extends AppCompatActivity {
     private static final Logger logger = (Logger) LoggerFactory.getLogger(page_acceuil.class);
@@ -93,7 +93,7 @@ public class VerifyEmail extends AppCompatActivity {
                         String verificationResponse = response.body().string();
                         // Traitement du JSON ici
                         logger.info("success");
-                        Intent intent1 = new Intent(VerifyEmail.this, MapsHomeActivity.class);
+                        Intent intent1 = new Intent(VerifyEmail.this, connect.class);
                         startActivity(intent1);
                     } catch (IOException e) {
                         e.printStackTrace();

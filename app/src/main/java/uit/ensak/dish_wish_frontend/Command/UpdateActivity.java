@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,6 +34,7 @@ import retrofit2.Response;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.R;
+import uit.ensak.dish_wish_frontend.service.RetrofitClient;
 
 
 public class UpdateActivity extends AppCompatActivity {
@@ -43,12 +45,22 @@ public class UpdateActivity extends AppCompatActivity {
     private Long CommandID;
     private ImageView arrow;
 
+    private String accessToken;
+    private long userId;
+    private Boolean isCook;
+
+
     private static final int MAPS_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
+
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        accessToken = preferences.getString("accessToken", "");
+        userId = preferences.getLong("userId", 0);
+        isCook = preferences.getBoolean("isCook", false);
 
         chooseLocationButton = findViewById(R.id.ChooseLocation);
         Button updateCommand = findViewById(R.id.update);
@@ -211,7 +223,6 @@ public class UpdateActivity extends AppCompatActivity {
 
 
     private void UpdateCommand() {
-        String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUzMjIwMzcsImV4cCI6MTcwNTQwODQzN30.f9PsxKwLsCG_rxlqnHvLXLjDfkCWrxPuCBrmf-8w9xU";
 
         //form fields
         EditText Title = findViewById(R.id.title);
@@ -251,18 +262,8 @@ public class UpdateActivity extends AppCompatActivity {
             Log.d("Switch State=", "" + isAllergieChecked);
             command.setAllergie(isAllergieChecked);
 
-           /* // Retrieve client ID from shared preferences
-            SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);
-            Long clientId = sharedPreferences.getLong("client_id_key", 3L);
-
             Client client = new Client();
-            client.setId(clientId);
-            command.setClient(client);*/
-
-
-            // Mocking Client IDs
-            Client client = new Client();
-            client.setId(2L);
+            client.setId(userId);
             client.setRole("CLIENT");
             command.setClient(client);
             command.setStatus("IN_PROGRESS");

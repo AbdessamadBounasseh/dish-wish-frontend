@@ -35,18 +35,28 @@ import com.google.android.gms.maps.model.LatLng;
 
 import org.jetbrains.annotations.Nullable;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import uit.ensak.dish_wish_frontend.Command.MapsChefActivity;
 import uit.ensak.dish_wish_frontend.Command.UpdateActivity;
+import uit.ensak.dish_wish_frontend.Models.Address;
+import uit.ensak.dish_wish_frontend.Models.City;
+import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.R;
+import uit.ensak.dish_wish_frontend.dto.ChefDTO;
+import uit.ensak.dish_wish_frontend.dto.DietDTO;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
+import uit.ensak.dish_wish_frontend.service.RetrofitClient;
 
 public class change_profile extends AppCompatActivity {
 
@@ -66,6 +76,10 @@ public class change_profile extends AppCompatActivity {
     private ActivityResultLauncher<Intent> mapsActivityLauncher;
     private static final int Maps_REQUEST_CODE = 123;
 
+    private String accessToken;
+    private long userId;
+    private Boolean isCook;
+
 
     private Bitmap resizeBitmap(Bitmap originalBitmap, int newWidth, int newHeight) {
         return Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, false);
@@ -74,17 +88,17 @@ public class change_profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        Boolean isCook= preferences.getBoolean("isCook", false);
-
         setContentView(R.layout.activity_change_profile);
+
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        accessToken = preferences.getString("accessToken", "");
+        userId = preferences.getLong("userId", 0);
+        isCook = preferences.getBoolean("isCook", false);
 
         getClientProfile();
 
-
-
         editTextNewBio = findViewById(R.id.editTextNewBio);
-       textViewBioTitle = findViewById(R.id.textViewBio);
+        textViewBioTitle = findViewById(R.id.textViewBio);
 
         if (isCook) {
             textViewBioTitle.setVisibility(View.VISIBLE);
@@ -173,7 +187,6 @@ public class change_profile extends AppCompatActivity {
         }
 
         ImageButton btnBack = findViewById(R.id.btnBack);
-//le bouton pour lancer le map
        btnPosition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -195,7 +208,6 @@ public class change_profile extends AppCompatActivity {
                 String newAddress = editTextNewAddress.getText().toString();
                 String newPosition = editTextNewPosition.getText().toString();
                 String newPhoneNumber = editTextNewPhoneNumber.getText().toString();
-                String position = editTextNewPosition.getText().toString();
                 String newBio = "";
                 if (isCook) {
                    newBio = editTextNewBio.getText().toString();
@@ -246,27 +258,32 @@ public class change_profile extends AppCompatActivity {
                     return;
                 }
 
-                Intent resultIntent = new Intent();
+                DietDTO dietDTO = new DietDTO();
+                ChefDTO chefDTO = new ChefDTO();
+                Address address = new Address();
+                City city = new City();
 
-                resultIntent.putExtra("NEW_FIRST_NAME", newFirstName);
-                resultIntent.putExtra("NEW_LAST_NAME", newLastName);
-                resultIntent.putExtra("NEW_POSITION",newPosition);
-                resultIntent.putExtra("NEW_ADDRESS", newAddress);
-                resultIntent.putExtra("NEW_ALLERGY", newAllergie);
-                resultIntent.putExtra("NEW_PHONE_NUMBER", newPhoneNumber);
-                resultIntent.putExtra("position", position);
+                chefDTO.setFirstName(newFirstName);
+                chefDTO.setLastName(newLastName);
+                city.setName(newCity);
+                address.setAddress(newAddress);
+                address.setCity(city);
+                address.setPosition(newPosition);
+
+                chefDTO.setAddress(address);
+                chefDTO.setPhoneNumber(newPhoneNumber);
+                chefDTO.setAllergies(newAllergie);
+
+                dietDTO.setTitle(newDiet);
+
+                chefDTO.setDietDTO(dietDTO);
                 if (isCook) {
-                    resultIntent.putExtra("NEW_BIO", newBio);
+                    chefDTO.setBio(newBio);
                 }
-                resultIntent.putExtra("NEW_DIET", newDiet);
-                resultIntent.putExtra("NEW_CITY",newCity);
-                resultIntent.putExtra("NEW_PROFILE_IMAGE_BITMAP", imageBitmap);
-                Log.d("aa","bb");
-                setResult(RESULT_OK, resultIntent);
+                updateUser(chefDTO, imageBitmap);
                 finish();
             }
         });
-
 
         mapsActivityLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -364,16 +381,11 @@ public class change_profile extends AppCompatActivity {
 
         return output;
 
-
     }
+
     private void getClientProfile() {
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        Long userId = preferences.getLong("userId", 0);
-        String authToken = preferences.getString("accessToken", "");
-
-        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
-
-        Call<ResponseBody> call = apiService.getClientProfile("Bearer " + authToken, userId);
+        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
+        Call<ResponseBody> call = apiService.getClientProfile("Bearer " + accessToken, userId);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override
@@ -401,6 +413,33 @@ public class change_profile extends AppCompatActivity {
             }
         });
 
+    }
+    private void updateUser(ChefDTO chefDTO, Bitmap imageBitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), imageBytes);
+        MultipartBody.Part photoPart = MultipartBody.Part.createFormData("photo", "photo.jpg", requestFile);
+
+        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
+        Call<Client> call = apiService.updateClient("Bearer " + accessToken, userId, chefDTO, photoPart);
+        call.enqueue(new Callback<Client>() {
+            @Override
+            public void onResponse(Call<Client> call, Response<Client> response) {
+                if (response.isSuccessful()) {
+                    Client client = response.body();
+                    Intent intent = new Intent(change_profile.this, view_profile.class);
+                    Toast.makeText(change_profile.this, "User updated succesfully", Toast.LENGTH_SHORT).show();
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(change_profile.this, "Error during updating", Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(Call<Client> call, Throwable t) {
+                Toast.makeText(change_profile.this, "Unavailable Server", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     private boolean isValidNumber(String number) {
         String numberPattern = "\\d{10}";

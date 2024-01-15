@@ -9,6 +9,7 @@ import retrofit2.http.PUT;
 import retrofit2.http.Query;
 import uit.ensak.dish_wish_frontend.Models.Auth.AuthenticationResponse;
 import uit.ensak.dish_wish_frontend.Models.Auth.RegisterRequest;
+import uit.ensak.dish_wish_frontend.Models.Client;
 
 public interface AuthenticationService {
     @Headers({"Accept: application/json"})
@@ -17,6 +18,11 @@ public interface AuthenticationService {
     @Headers({"Accept: application/json"})
     @POST("auth/register/verify-email")
     Call<ResponseBody> verifyEmail(@Query("code") String code);
+
+    @Headers({"Accept: application/json"})
+    @POST("auth/authenticate")
+    Call<ResponseBody> authentification(Client client);
+
     @Headers({"Accept: application/json"})
     @PUT("password/forgot-password")
     Call<String> forgotPassword(@Query("email")String email);

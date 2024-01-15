@@ -5,7 +5,9 @@ import static androidx.constraintlayout.widget.ConstraintLayoutStates.TAG;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.location.Address;
@@ -57,6 +59,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -64,10 +67,12 @@ import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.Models.Proposition;
+import uit.ensak.dish_wish_frontend.Profil.change_profile;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.databinding.ActivityMapsHomeBinding;
 import uit.ensak.dish_wish_frontend.search_folder.filter_by_name_or_city;
-import uit.ensak.dish_wish_frontend.shared.RetrofitClient;
+import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
+import uit.ensak.dish_wish_frontend.service.RetrofitClient;
 //import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
 
 public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -87,9 +92,12 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private Button pickDate;
     private Marker currentMarker;
     private ImageView arrow;
-    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUyMzUzMDAsImV4cCI6MTcwNTMyMTcwMH0.ZhulnzT4vzPRdyjglYUFaWtr06LW9W6p0edjzgizm_Q";
     private long associatedCommandId;
     private Command commandCreated;
+    private String accessToken;
+    private long userId;
+    private Boolean isCook;
+    private Bitmap imageBitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +106,11 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         binding = ActivityMapsHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        accessToken = preferences.getString("accessToken", "");
+        userId = preferences.getLong("userId", 0);
+        isCook = preferences.getBoolean("isCook", false);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -105,8 +118,6 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
 
         // Load the FilterByNameOrCityFragment
         loadFilterByNameOrCityFragment();
-
-
 
     }
 
@@ -479,7 +490,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             public void run() {
 
                 ApiService apiService = RetrofitClient.getApiService();
-                Call<List<Proposition>> call = apiService.getPropositionsByClientId("Bearer " + accessToken,1L);
+                Call<List<Proposition>> call = apiService.getPropositionsByClientId("Bearer " + accessToken,userId);
 
                 call.enqueue(new Callback<List<Proposition>>() {
                     @Override
@@ -511,7 +522,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             @Override
             public void run() {
                 ApiService apiService = RetrofitClient.getApiService();
-                Call<List<Command>> call = apiService.getCommandsByClientId("Bearer " + accessToken, 2L);
+                Call<List<Command>> call = apiService.getCommandsByClientId("Bearer " + accessToken, userId);
 
                 call.enqueue(new Callback<List<Command>>() {
                     @Override
@@ -536,6 +547,37 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 });
             }
         }).start();
+    }
+
+
+    private void getClientProfile() {
+        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
+        Call<ResponseBody> call = apiService.getClientProfile("Bearer " + accessToken, userId);
+
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    try {
+                        // Utiliser BitmapFactory.decodeStream pour créer un Bitmap directement à partir du flux
+                        Bitmap newProfileImageBitmap = BitmapFactory.decodeStream(response.body().byteStream());
+                        imageBitmap = newProfileImageBitmap;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    // Gérer le cas où la réponse est vide ou le code de statut indique une erreur
+                    Toast.makeText(MapsHomeActivity.this, "Error during user profile fetching " + response.code(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                t.printStackTrace();
+                Toast.makeText(MapsHomeActivity.this, "Unavailable Sever " ,Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
 
@@ -792,18 +834,8 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 }
             }
 
-           /* // Retrieve client ID from shared preferences
-            SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);
-            Long clientId = sharedPreferences.getLong("client_id_key", 3L);
-
             Client client = new Client();
-            client.setId(clientId);
-            command.setClient(client);*/
-
-
-            // Mocking Client IDs
-            Client client = new Client();
-            client.setId(2L);
+            client.setId(userId);
             client.setRole("CLIENT");
             command.setClient(client);
             command.setStatus("IN_PROGRESS");

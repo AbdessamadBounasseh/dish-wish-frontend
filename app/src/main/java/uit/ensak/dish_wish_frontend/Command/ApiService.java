@@ -16,6 +16,8 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
+import uit.ensak.dish_wish_frontend.Models.Auth.AuthenticationResponse;
+import uit.ensak.dish_wish_frontend.Models.Auth.LoginPayload;
 import uit.ensak.dish_wish_frontend.Models.Chef;
 import uit.ensak.dish_wish_frontend.Models.Client;
 import uit.ensak.dish_wish_frontend.Models.Command;
@@ -107,4 +109,10 @@ public interface ApiService {
             @Header("Authorization") String authToken,
             @Path("chefId") long chefId
     );
+
+    @Headers({"Accept: application/json"})
+    @POST("auth/authenticate")
+    Call<AuthenticationResponse> authentification(@Body LoginPayload loginPayload);
+
+
 }

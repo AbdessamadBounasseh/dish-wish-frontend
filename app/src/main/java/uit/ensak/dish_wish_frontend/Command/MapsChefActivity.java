@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
@@ -53,7 +54,7 @@ import uit.ensak.dish_wish_frontend.Models.Proposition;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.databinding.ActivityMapsChefBinding;
 import uit.ensak.dish_wish_frontend.search_folder.filter_by_name_or_city;
-import uit.ensak.dish_wish_frontend.shared.RetrofitClient;
+import uit.ensak.dish_wish_frontend.service.RetrofitClient;
 
 public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -65,7 +66,10 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
     private ImageView arrow;
     private ImageView arrow_popup;
     private Button sendOffer;
-    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUzMjIwMzcsImV4cCI6MTcwNTQwODQzN30.f9PsxKwLsCG_rxlqnHvLXLjDfkCWrxPuCBrmf-8w9xU";
+    private String accessToken;
+    private long userId;
+    private Boolean isCook;
+    private Bitmap imageBitmap;
 
 
 
@@ -85,6 +89,11 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
 
         // Load the FilterByNameOrCityFragment
         loadFilterByNameOrCityFragment();
+
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        accessToken = preferences.getString("accessToken", "");
+        userId = preferences.getLong("userId", 0);
+        isCook = preferences.getBoolean("isCook", false);
 
     }
 
@@ -371,12 +380,10 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
                         public void onClick(View v) {
                             Proposition proposition = new Proposition();
 
-                            // Retrieve Chef ID from shared preferences
-                            /*SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);
-                            Long chefId = sharedPreferences.getLong("client_id_key", 2L);*/
+
 
                             Chef chef = new Chef();
-                            chef.setId(2L);
+                            chef.setId(userId);
                             chef.setRole("CHEF");
                             proposition.setChef(chef);
 

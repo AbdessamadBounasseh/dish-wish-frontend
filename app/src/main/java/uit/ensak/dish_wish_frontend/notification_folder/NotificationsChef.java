@@ -38,7 +38,9 @@ public class NotificationsChef extends AppCompatActivity {
     private RecyclerView notificationRecyclerView;
     private NotificationChefAdapter notificationAdapter;
     private static ArrayList<Command> notificationList= new ArrayList<Command>();
-    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUzMjIwMzcsImV4cCI6MTcwNTQwODQzN30.f9PsxKwLsCG_rxlqnHvLXLjDfkCWrxPuCBrmf-8w9xU";
+    private String accessToken;
+    private long userId;
+    private Boolean isCook;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,20 +48,17 @@ public class NotificationsChef extends AppCompatActivity {
         setContentView(R.layout.activity_notifications_chef);
 
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("userId", 2L);
-        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUyNzU2MjQsImV4cCI6MTcwNTM2MjAyNH0.rBGT44eRhuNJFBwUZsLqTCvbLTdc2CYQlQ5C5Lf9jEU");
-        editor.putBoolean("isCook", true);
-        editor.apply();
-        Boolean isCook = preferences.getBoolean("isCook", false);
+        accessToken = preferences.getString("accessToken", "");
+        userId = preferences.getLong("userId", 0);
+        isCook = preferences.getBoolean("isCook", false);
 
-        fetchClientNotifications(accessToken,2L);
+        fetchClientNotifications();
 
         Button refreshButton = findViewById(R.id.confirmed);
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fetchChefConfirmationNotifications(accessToken, 2L);
+                fetchChefConfirmationNotifications();
             }
         });
 
@@ -67,7 +66,7 @@ public class NotificationsChef extends AppCompatActivity {
         refreshClientButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fetchClientNotifications(accessToken, 2L);
+                fetchClientNotifications();
             }
         });
 
@@ -99,10 +98,10 @@ public class NotificationsChef extends AppCompatActivity {
         });
     }
 
-    private void fetchClientNotifications(String accessToken, long chefId) {
+    private void fetchClientNotifications() {
         notificationList.clear();
         ApiService apiService = RetrofitClient.getApiService();
-        Call<List<Command>> call = apiService.getChefNotifications("Bearer " + accessToken, chefId);
+        Call<List<Command>> call = apiService.getChefNotifications("Bearer " + accessToken, userId);
 
         call.enqueue(new Callback<List<Command>>() {
             @Override
@@ -133,10 +132,10 @@ public class NotificationsChef extends AppCompatActivity {
     }
 
 
-    private void fetchChefConfirmationNotifications(String accessToken, long chefId) {
+    private void fetchChefConfirmationNotifications() {
         notificationList.clear();
         ApiService apiService = RetrofitClient.getApiService();
-        Call<List<Command>> call = apiService.getChefConfirmedNotifications("Bearer " + accessToken, chefId);
+        Call<List<Command>> call = apiService.getChefConfirmedNotifications("Bearer " + accessToken, userId);
 
         call.enqueue(new Callback<List<Command>>() {
             @Override
