@@ -64,9 +64,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
 
 
-                        // Traitement du JSON ici
-
-
                         Intent intent1 = new Intent(ForgotPasswordActivity.this, ResetEmailActivity.class);
                         startActivity(intent1);
 
@@ -81,7 +78,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 t.printStackTrace();
-                Toast.makeText(ForgotPasswordActivity.this, "sending failed", Toast.LENGTH_LONG).show();
+                Toast.makeText(ForgotPasswordActivity.this, "Make sure you have an account first", Toast.LENGTH_LONG).show();
 
             }
         });
