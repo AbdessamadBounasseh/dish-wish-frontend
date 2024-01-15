@@ -784,7 +784,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                     if (addresses != null && addresses.size() > 0) {
                         String locationName = addresses.get(0).getLocality();
                         String city = locationName;
-//                      command.setCity(city);
+                        command.setCity(city);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

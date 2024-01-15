@@ -22,7 +22,6 @@ import retrofit2.Response;
 import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.Models.Proposition;
 import uit.ensak.dish_wish_frontend.R;
-import uit.ensak.dish_wish_frontend.shared.RetrofitClient;
 
 public class FinalizeOrderActivity extends AppCompatActivity {
     private ImageView arrow;
@@ -40,7 +39,7 @@ public class FinalizeOrderActivity extends AppCompatActivity {
         long commandId = intent.getLongExtra("CommandId", 0);
         propositionId = intent.getLongExtra("PropositionId", 0);
         long chefId = intent.getLongExtra("ChefId", 0);
-        float price = intent.getFloatExtra("price",0.0f);
+        float price = intent.getFloatExtra("price", 0.0f);
         String delivery = intent.getStringExtra("delivary");
         String firstname = intent.getStringExtra("description");
         String lastname = intent.getStringExtra("serving");
@@ -80,7 +79,7 @@ public class FinalizeOrderActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
                             if (response.isSuccessful()) {
-                                // Handle success
+                                updateCommandStatus(commandId);
                                 showSuccessDialog();
                             } else {
                                 // Handle failure
@@ -128,7 +127,6 @@ public class FinalizeOrderActivity extends AppCompatActivity {
                             }
                         });
                     }
-
 
 
                     Button addButton = popup.findViewById(R.id.addButton);
@@ -186,7 +184,7 @@ public class FinalizeOrderActivity extends AppCompatActivity {
 
 
                             ApiService apiService = RetrofitClient.getApiService();
-                            Call<Proposition> call = apiService.updateProposition( propositionId,proposition,"Bearer " + accessToken);
+                            Call<Proposition> call = apiService.updateProposition(propositionId, proposition, "Bearer " + accessToken);
                             call.enqueue(new Callback<Proposition>() {
                                 @Override
                                 public void onResponse(Call<Proposition> call, Response<Proposition> response) {
@@ -199,7 +197,7 @@ public class FinalizeOrderActivity extends AppCompatActivity {
                                         float priceValue = Float.parseFloat(priceText.replace("DH", ""));
                                         commandupdate.setPrice(String.valueOf(priceValue));
 
-                                        Call<Command> updateCommandCall = apiService.updateCommand( "Bearer " + accessToken,commandId,commandupdate);
+                                        Call<Command> updateCommandCall = apiService.updateCommand("Bearer " + accessToken, commandId, commandupdate);
                                         updateCommandCall.enqueue(new Callback<Command>() {
                                             @Override
                                             public void onResponse(Call<Command> call, Response<Command> response) {
@@ -210,6 +208,7 @@ public class FinalizeOrderActivity extends AppCompatActivity {
                                                     showErrorDialog();
                                                 }
                                             }
+
                                             @Override
                                             public void onFailure(Call<Command> call, Throwable t) {
                                                 // Handle failure for the command update call
@@ -263,7 +262,6 @@ public class FinalizeOrderActivity extends AppCompatActivity {
     }
 
 
-
     private void showErrorDialog() {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.popup_command_failed);
@@ -274,4 +272,31 @@ public class FinalizeOrderActivity extends AppCompatActivity {
             dialog.dismiss();
         });
     }
+
+    private void updateCommandStatus(long commandId) {
+
+        Command command = new Command();
+        command.setStatus("FINISHED");
+
+        ApiService apiService = RetrofitClient.getApiService();
+        Call<Command> updateStatusCall = apiService.updateCommand("Bearer " + accessToken, commandId, command);
+
+        updateStatusCall.enqueue(new Callback<Command>() {
+            @Override
+            public void onResponse(Call<Command> call, Response<Command> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(), "Command Updated", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Error when updating Command", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Command> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Error in the call for update", Toast.LENGTH_LONG).show();
+
+            }
+        });
+    }
+
 }
