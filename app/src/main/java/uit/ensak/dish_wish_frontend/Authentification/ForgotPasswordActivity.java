@@ -55,10 +55,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     }
     private void handlesend(String email) {
         AuthenticationService authenticationService = RetrofitClient.getAuthenticationService();
-        Call<String> sendReponse = authenticationService.forgotPassword(email);
-        sendReponse.enqueue(new Callback<String>() {
+        Call<ResponseBody> sendReponse = authenticationService.forgotPassword(email);
+        sendReponse.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 int statusCode = response.code();
                 Log.d("MyTag", "HTTP Status Code: " + statusCode);
                 if (response.isSuccessful() && response.body() != null) {
@@ -76,7 +76,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
                 t.printStackTrace();
                 Toast.makeText(ForgotPasswordActivity.this, "Make sure you have an account first", Toast.LENGTH_LONG).show();
 

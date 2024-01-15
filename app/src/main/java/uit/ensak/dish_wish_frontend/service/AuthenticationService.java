@@ -25,7 +25,7 @@ public interface AuthenticationService {
 
     @Headers({"Accept: application/json"})
     @PUT("password/forgot-password")
-    Call<String> forgotPassword(@Query("email")String email);
+    Call<ResponseBody> forgotPassword(@Query("email")String email);
 
 
 }
