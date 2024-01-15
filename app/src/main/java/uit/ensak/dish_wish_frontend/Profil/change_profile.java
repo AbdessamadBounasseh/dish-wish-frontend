@@ -47,6 +47,7 @@ import uit.ensak.dish_wish_frontend.Command.MapsChefActivity;
 import uit.ensak.dish_wish_frontend.Command.UpdateActivity;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
+import uit.ensak.dish_wish_frontend.service.RetrofitClient;
 
 public class change_profile extends AppCompatActivity {
 
@@ -66,6 +67,10 @@ public class change_profile extends AppCompatActivity {
     private ActivityResultLauncher<Intent> mapsActivityLauncher;
     private static final int Maps_REQUEST_CODE = 123;
 
+    private String accessToken;
+    private long userId;
+    private Boolean isCook;
+
 
     private Bitmap resizeBitmap(Bitmap originalBitmap, int newWidth, int newHeight) {
         return Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, false);
@@ -74,17 +79,17 @@ public class change_profile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        Boolean isCook= preferences.getBoolean("isCook", false);
-
         setContentView(R.layout.activity_change_profile);
+
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        accessToken = preferences.getString("accessToken", "");
+        userId = preferences.getLong("userId", 0);
+        isCook = preferences.getBoolean("isCook", false);
 
         getClientProfile();
 
-
-
         editTextNewBio = findViewById(R.id.editTextNewBio);
-       textViewBioTitle = findViewById(R.id.textViewBio);
+        textViewBioTitle = findViewById(R.id.textViewBio);
 
         if (isCook) {
             textViewBioTitle.setVisibility(View.VISIBLE);
@@ -173,7 +178,6 @@ public class change_profile extends AppCompatActivity {
         }
 
         ImageButton btnBack = findViewById(R.id.btnBack);
-//le bouton pour lancer le map
        btnPosition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -367,13 +371,8 @@ public class change_profile extends AppCompatActivity {
 
     }
     private void getClientProfile() {
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        Long userId = preferences.getLong("userId", 0);
-        String authToken = preferences.getString("accessToken", "");
-
-        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
-
-        Call<ResponseBody> call = apiService.getClientProfile("Bearer " + authToken, userId);
+        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
+        Call<ResponseBody> call = apiService.getClientProfile("Bearer " + accessToken, userId);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override

@@ -24,6 +24,10 @@ import uit.ensak.dish_wish_frontend.dto.ClientCommandHistoryDTO;
 
 
 public interface ApiServiceProfile {
+
+    @GET("clients/email/{email}")
+    Call<Client> getUserByEmail(@Header("Authorization") String authToken,@Path("email") String email);
+
     @GET("clients/{clientId}")
     Call<Client> getClientById(
             @Header("Authorization") String authToken,

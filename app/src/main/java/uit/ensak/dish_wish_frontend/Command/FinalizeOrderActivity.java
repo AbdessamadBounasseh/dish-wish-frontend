@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,18 +23,22 @@ import retrofit2.Response;
 import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.Models.Proposition;
 import uit.ensak.dish_wish_frontend.R;
+import uit.ensak.dish_wish_frontend.service.RetrofitClient;
 
 public class FinalizeOrderActivity extends AppCompatActivity {
     private ImageView arrow;
     private ImageView negotiate;
     private long propositionId;
     private Button sendOffer;
-    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUzMjIwMzcsImV4cCI6MTcwNTQwODQzN30.f9PsxKwLsCG_rxlqnHvLXLjDfkCWrxPuCBrmf-8w9xU";
+    private String accessToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finalize_order);
+
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        accessToken = preferences.getString("accessToken", "");
 
         Intent intent = getIntent();
         long commandId = intent.getLongExtra("CommandId", 0);

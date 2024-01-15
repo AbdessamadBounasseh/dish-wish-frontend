@@ -44,6 +44,7 @@ import uit.ensak.dish_wish_frontend.dto.ChefDTO;
 import uit.ensak.dish_wish_frontend.dto.DietDTO;
 import uit.ensak.dish_wish_frontend.search_folder.CommentAdapter;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
+import uit.ensak.dish_wish_frontend.service.RetrofitClient;
 
 public class search_profile extends AppCompatActivity{
 
@@ -248,7 +249,7 @@ public class search_profile extends AppCompatActivity{
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         Long userId = preferences.getLong("userId", 0);
         String authToken = preferences.getString("accessToken", "");
-        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
+        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
         Call<Client> call = apiService.getClientById("Bearer " + authToken, userId);
         call.enqueue(new Callback<Client>() {
             @Override
@@ -274,7 +275,7 @@ public class search_profile extends AppCompatActivity{
         Long userId = preferences.getLong("userId", 0);
         String authToken = preferences.getString("accessToken", "");
 
-        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
+        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
 
         Call<Chef> call = apiService.getChefById("Bearer " + authToken, userId);
 
@@ -329,7 +330,7 @@ public class search_profile extends AppCompatActivity{
         Long userId = preferences.getLong("userId", 0);
         String authToken = preferences.getString("accessToken", "");
 
-        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
+        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
 
         Call<ResponseBody> call = apiService.getClientProfile("Bearer " + authToken, userId);
 

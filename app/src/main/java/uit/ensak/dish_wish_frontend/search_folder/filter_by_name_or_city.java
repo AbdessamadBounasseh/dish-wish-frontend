@@ -8,19 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.content.Context;
 
-import android.text.TextUtils;
-
-import java.util.ArrayList;
 import java.util.List;
 
 //menu
-import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.appcompat.widget.PopupMenu;
 
 // FilterByNameOrCityFragment.java
@@ -36,9 +29,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import uit.ensak.dish_wish_frontend.Contact.ComplaintActivity;
 import uit.ensak.dish_wish_frontend.Contact.QuestionsActivity;
-import uit.ensak.dish_wish_frontend.Profil.RetrofitClientProfile;
-import uit.ensak.dish_wish_frontend.Profil.become_cook;
-import uit.ensak.dish_wish_frontend.Profil.change_profile;
 import uit.ensak.dish_wish_frontend.Profil.become_cook;
 import uit.ensak.dish_wish_frontend.Profil.change_profile;
 import uit.ensak.dish_wish_frontend.Profil.view_profile;
@@ -49,29 +39,24 @@ import uit.ensak.dish_wish_frontend.notification_folder.NotificationsChef;
 import uit.ensak.dish_wish_frontend.notification_folder.NotificationsClient;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
 
-import android.content.SharedPreferences;
-
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 import uit.ensak.dish_wish_frontend.SearchResult;
+import uit.ensak.dish_wish_frontend.service.RetrofitClient;
 
 
 public class filter_by_name_or_city extends Fragment implements SearchResultsAdapter.OnItemClickListener {
 
     private SearchResultsAdapter searchResultsAdapter;  // Declare searchResultsAdapter as a class variable
-
+    private String accessToken;
     private boolean isCook;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_filter_by_name_or_city, container, false);
 
         SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        accessToken = preferences.getString("accessToken", "");
         isCook = preferences.getBoolean("isCook", false);
 
         EditText searchEditText = rootView.findViewById(R.id.searchEditText);
@@ -133,7 +118,7 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
         popupMenu.inflate(R.menu.menu_main);
         MenuItem becomeChefItem = popupMenu.getMenu().findItem(R.id.action_become_chef);
 
-        becomeChefItem.setVisible(isCook);
+        becomeChefItem.setVisible(!isCook);
 
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
 
@@ -186,15 +171,8 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
 }
 
     private void performSearch(String query) {
-
-//        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-//        String authToken = preferences.getString("accessToken", "");
-        String authToken= "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmYXljYWxlbG91cnJhdEBnbWFpbC5jb20iLCJpYXQiOjE3MDUxNzM5MjgsImV4cCI6MTcwNTI2MDMyOH0.x3d--BcYC5CsIo1KnUjMnMCar8hPzE1rL1Hk4I2Bfo8";
-
-//        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
-//        Call<List<ChefDTO>> call = apiService.filterByNameAndCity("Bearer " + authToken, query);
-        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
-        Call<List<SearchResult>> call = apiService.filterByNameAndCity("Bearer " + authToken, query);
+        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
+        Call<List<SearchResult>> call = apiService.filterByNameAndCity("Bearer " + accessToken, query);
 
         //receive :
         call.enqueue(new Callback<List<SearchResult>>() {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -12,12 +13,45 @@
         tools:context=".history_folder.HistoryActivity">
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation"
+                android:layout_width="54dp"
+                android:layout_height="40dp"
+                android:layout_gravity="top"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="60dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/returnarrow"
+                tools:layout_editor_absoluteX="75dp"
+                tools:layout_editor_absoluteY="46dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Command History"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/title"
+                android:textColor="@color/principalColor"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/buttons_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:orientation="horizontal">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnInProgress"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -27,10 +61,11 @@
                 android:textSize="9sp"
                 android:visibility="visible"
                 android:background="@drawable/custom_rounded_back_shape"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/principalColor"
                 android:layout_weight="1"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnPrepared"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -38,12 +73,13 @@
                 android:layout_marginEnd="0dp"
                 android:background="@drawable/custom_rounded_back_shape"
                 android:text="Prepared For Me"
-                android:textColor="@color/black"
                 android:textSize="9sp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/principalColor"
                 android:visibility="visible"
                 android:layout_weight="1"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnPreparedByMe"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -52,11 +88,12 @@
                 android:background="@drawable/custom_rounded_back_shape"
                 android:text="Prepared By Me"
                 android:textColor="@color/black"
+                android:backgroundTint="@color/principalColor"
                 android:textSize="9sp"
                 android:visibility="gone"
                 android:layout_weight="1"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnInProgressByMe"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -65,6 +102,7 @@
                 android:text="In Progress By Me"
                 android:textSize="9sp"
                 android:visibility="gone"
+                android:backgroundTint="@color/principalColor"
                 android:background="@drawable/custom_rounded_back_shape"
                 android:textColor="@color/black"
                 android:layout_weight="1"/>

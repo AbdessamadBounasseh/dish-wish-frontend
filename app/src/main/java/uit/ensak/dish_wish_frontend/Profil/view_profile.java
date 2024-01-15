@@ -47,6 +47,7 @@ import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.dto.ChefDTO;
 import uit.ensak.dish_wish_frontend.dto.DietDTO;
 import uit.ensak.dish_wish_frontend.service.ApiServiceProfile;
+import uit.ensak.dish_wish_frontend.service.RetrofitClient;
 
 public class view_profile extends AppCompatActivity {
 
@@ -61,16 +62,18 @@ public class view_profile extends AppCompatActivity {
     private Spinner spinnerAllergies;
     private ImageView profileImageView;
 
+    private String accessToken;
+    private long userId;
+    private Boolean isCook;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong("userId", 2L);
-        editor.putString("accessToken", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjaGF5bWFlMjAxMGNAZ21haWwubWEiLCJpYXQiOjE3MDUyMzY2MTAsImV4cCI6MTcwNTMyMzAxMH0.IZOEOkD4FcUxc8ajwLdnP7vUMASEyOSlc-UctbhBi2U");
-        editor.putBoolean("isCook", false);
-        editor.apply();
-        Boolean isCook = preferences.getBoolean("isCook", false);
+        accessToken = preferences.getString("accessToken", "");
+        userId = preferences.getLong("userId", 0);
+        isCook = preferences.getBoolean("isCook", false);
 
         setContentView(R.layout.activity_view_profile);
 
@@ -199,12 +202,8 @@ public class view_profile extends AppCompatActivity {
     }
 
     private void deleteAccount() {
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        Long userId = preferences.getLong("userId", 0);
-        String authToken = preferences.getString("accessToken", "");
-
-        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
-        Call<Void> call = apiService.deleteUserAccount("Bearer " + authToken, userId);
+        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
+        Call<Void> call = apiService.deleteUserAccount("Bearer " + accessToken, userId);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
@@ -252,8 +251,7 @@ public class view_profile extends AppCompatActivity {
             } else {
 
             }
-            SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-            Boolean isCook = preferences.getBoolean("isCook", false);
+
 
             textViewFirstName.setText(newFirstName);
             textViewLastName.setText(newLastName);
@@ -301,11 +299,8 @@ public class view_profile extends AppCompatActivity {
     }
 
     private void getClient(ApiClientCallback apiClientCallback) {
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        Long userId = preferences.getLong("userId", 0);
-        String authToken = preferences.getString("accessToken", "");
-        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
-        Call<Client> call = apiService.getClientById("Bearer " + authToken, userId);
+        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
+        Call<Client> call = apiService.getClientById("Bearer " + accessToken, userId);
         call.enqueue(new Callback<Client>() {
             @Override
             public void onResponse(Call<Client> call, Response<Client> response) {
@@ -326,13 +321,9 @@ public class view_profile extends AppCompatActivity {
     }
 
     private void getChef(ApiChefCallback apiChefCallback) {
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        Long userId = preferences.getLong("userId", 0);
-        String authToken = preferences.getString("accessToken", "");
+        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
 
-        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
-
-        Call<Chef> call = apiService.getChefById("Bearer " + authToken, userId);
+        Call<Chef> call = apiService.getChefById("Bearer " + accessToken, userId);
 
         call.enqueue(new Callback<Chef>() {
             @Override
@@ -384,7 +375,7 @@ public class view_profile extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
         Long userId = preferences.getLong("userId", 0);
         String authToken = preferences.getString("accessToken", "");
-        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
+        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
         Call<Client> call = apiService.updateClient("Bearer " + authToken, userId, chefDTO, photoPart);
         call.enqueue(new Callback<Client>() {
             @Override
@@ -416,13 +407,9 @@ public class view_profile extends AppCompatActivity {
     }
 
     private void getClientProfile() {
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        Long userId = preferences.getLong("userId", 0);
-        String authToken = preferences.getString("accessToken", "");
+        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
 
-        ApiServiceProfile apiService = RetrofitClientProfile.getApiService();
-
-        Call<ResponseBody> call = apiService.getClientProfile("Bearer " + authToken, userId);
+        Call<ResponseBody> call = apiService.getClientProfile("Bearer " + accessToken, userId);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override

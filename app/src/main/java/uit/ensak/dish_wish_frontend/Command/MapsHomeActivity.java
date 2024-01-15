@@ -5,6 +5,7 @@ import static androidx.constraintlayout.widget.ConstraintLayoutStates.TAG;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
@@ -67,7 +68,7 @@ import uit.ensak.dish_wish_frontend.Models.Proposition;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.databinding.ActivityMapsHomeBinding;
 import uit.ensak.dish_wish_frontend.search_folder.filter_by_name_or_city;
-import uit.ensak.dish_wish_frontend.shared.RetrofitClient;
+import uit.ensak.dish_wish_frontend.service.RetrofitClient;
 //import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
 
 public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -87,9 +88,11 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private Button pickDate;
     private Marker currentMarker;
     private ImageView arrow;
-    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUyMzUzMDAsImV4cCI6MTcwNTMyMTcwMH0.ZhulnzT4vzPRdyjglYUFaWtr06LW9W6p0edjzgizm_Q";
     private long associatedCommandId;
     private Command commandCreated;
+    private String accessToken;
+    private long userId;
+    private Boolean isCook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +101,11 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         binding = ActivityMapsHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        accessToken = preferences.getString("accessToken", "");
+        userId = preferences.getLong("userId", 0);
+        isCook = preferences.getBoolean("isCook", false);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -105,8 +113,6 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
 
         // Load the FilterByNameOrCityFragment
         loadFilterByNameOrCityFragment();
-
-
 
     }
 
@@ -511,7 +517,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             @Override
             public void run() {
                 ApiService apiService = RetrofitClient.getApiService();
-                Call<List<Command>> call = apiService.getCommandsByClientId("Bearer " + accessToken, 2L);
+                Call<List<Command>> call = apiService.getCommandsByClientId("Bearer " + accessToken, userId);
 
                 call.enqueue(new Callback<List<Command>>() {
                     @Override
@@ -792,18 +798,8 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                 }
             }
 
-           /* // Retrieve client ID from shared preferences
-            SharedPreferences sharedPreferences = getSharedPreferences("your_shared_prefs_name", Context.MODE_PRIVATE);
-            Long clientId = sharedPreferences.getLong("client_id_key", 3L);
-
             Client client = new Client();
-            client.setId(clientId);
-            command.setClient(client);*/
-
-
-            // Mocking Client IDs
-            Client client = new Client();
-            client.setId(2L);
+            client.setId(userId);
             client.setRole("CLIENT");
             command.setClient(client);
             command.setStatus("IN_PROGRESS");
