@@ -21,6 +21,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Contact.QuestionsActivity"
+            android:exported="false" />
+        <activity
             android:name=".Authentification.VerifyEmail"
             android:exported="false" />
         <activity
@@ -62,7 +65,7 @@
         <activity
             android:name=".Command.MapsHomeActivity"
             android:exported="true"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar" >
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -73,7 +76,6 @@
             android:name=".history_folder.HistoryActivity"
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
-
         <activity
             android:name=".Profil.search_profile"
             android:exported="false"
@@ -94,7 +96,6 @@
             android:name=".Profil.change_profile"
             android:exported="false"
             android:theme="@style/Theme.Dishwishfrontend.NoActionBar" />
-
         <activity
             android:name=".Command.MapsChefActivity"
             android:exported="false"
@@ -110,22 +111,15 @@
         <activity
             android:name=".Authentification.CreateAccount"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar"></activity>
         <activity
             android:name=".notification_folder.NotificationsClient"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar"></activity>
         <activity
             android:name=".notification_folder.NotificationsChef"
             android:exported="false"
-            android:theme="@style/Theme.Dishwishfrontend.NoActionBar">
-
-        </activity>
-
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar"></activity>
     </application>
 
 </manifest>
