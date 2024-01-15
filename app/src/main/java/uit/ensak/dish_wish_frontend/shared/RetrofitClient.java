@@ -20,6 +20,10 @@ public class RetrofitClient {
             .build();
     private static final ApiService apiService = retrofit.create(ApiService.class);
     private static final AuthenticationService authenticationService = retrofit.create(AuthenticationService.class);
+    private static final ContactService contactService = retrofit.create(ContactService.class);
+    public static ContactService getContactService() {
+        return contactService;
+    }
 
     public static ApiService getApiService() {
         return apiService;
