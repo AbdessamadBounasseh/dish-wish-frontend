@@ -29,7 +29,7 @@ public class FinalizeOrderActivity extends AppCompatActivity {
     private ImageView negotiate;
     private long propositionId;
     private Button sendOffer;
-    String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUyMzUzMDAsImV4cCI6MTcwNTMyMTcwMH0.ZhulnzT4vzPRdyjglYUFaWtr06LW9W6p0edjzgizm_Q";
+    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUzMjIwMzcsImV4cCI6MTcwNTQwODQzN30.f9PsxKwLsCG_rxlqnHvLXLjDfkCWrxPuCBrmf-8w9xU";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,10 +1,16 @@
 package uit.ensak.dish_wish_frontend.notification_folder;
 
+import android.app.Dialog;
 import android.content.SharedPreferences;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -12,8 +18,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,7 +40,7 @@ public class NotificationsChef extends AppCompatActivity {
     private RecyclerView notificationRecyclerView;
     private NotificationChefAdapter notificationAdapter;
     private static ArrayList<Command> notificationList= new ArrayList<Command>();
-    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUyNzU2MjQsImV4cCI6MTcwNTM2MjAyNH0.rBGT44eRhuNJFBwUZsLqTCvbLTdc2CYQlQ5C5Lf9jEU";
+    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUzMjIwMzcsImV4cCI6MTcwNTQwODQzN30.f9PsxKwLsCG_rxlqnHvLXLjDfkCWrxPuCBrmf-8w9xU";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -73,6 +83,22 @@ public class NotificationsChef extends AppCompatActivity {
             });
         }
 
+        //setupNotificationClickListener();
+
+    }
+
+    private void setupNotificationClickListener() {
+        notificationAdapter.setOnItemClickListener(new NotificationChefAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                if (position >= 0 && position < notificationList.size()) {
+                    Command clickedCommand = notificationList.get(position);
+                    if (clickedCommand != null) {
+                        showCommandDetailsPopup(clickedCommand);
+                    }
+                }
+            }
+        });
     }
 
     private void fetchClientNotifications(String accessToken, long chefId) {
@@ -142,6 +168,75 @@ public class NotificationsChef extends AppCompatActivity {
         });
     }
 
+    private void showCommandDetailsPopup(Command associatedCommand) {
+        if (associatedCommand != null) {
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.popup_command_details);
+            dialog.getWindow().setBackgroundDrawableResource(R.drawable.rounded_edittext);
+
+            Window window = dialog.getWindow();
+            if (window != null) {
+                WindowManager.LayoutParams layoutParams = window.getAttributes();
+                layoutParams.y = (int) getResources().getDisplayMetrics().density * 20;
+                window.setAttributes(layoutParams);
+            }
+
+
+            String address = associatedCommand.getAddress();
+            String[] latLng = address.split(",");
+
+            if (latLng.length == 2) {
+                double latitude = Double.parseDouble(latLng[0]);
+                double longitude = Double.parseDouble(latLng[1]);
+
+                // Perform reverse geocoding to get the location name from latitude and longitude
+                Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+                try {
+                    List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
+                    if (addresses != null && addresses.size() > 0) {
+                        String locationName = addresses.get(0).getAdminArea();
+                        TextView location = dialog.findViewById(R.id.location);
+                        location.setText(locationName);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            TextView title = dialog.findViewById(R.id.title);
+            TextView description = dialog.findViewById(R.id.Description);
+            TextView serving = dialog.findViewById(R.id.serving);
+            TextView delivary = dialog.findViewById(R.id.delivary);
+            TextView price = dialog.findViewById(R.id.price);
+
+            LottieAnimationView allergieAnimationView = dialog.findViewById(R.id.allergie);
+
+            if (associatedCommand.getAllergie()) {
+                allergieAnimationView.setVisibility(View.VISIBLE);
+            } else {
+                allergieAnimationView.setVisibility(View.GONE);
+            }
+
+            title.setText(associatedCommand.getTitle());
+            description.setText(associatedCommand.getDescription());
+            serving.setText(associatedCommand.getServing());
+            delivary.setText(associatedCommand.getDeadline());
+            price.setText(associatedCommand.getPrice() + "DH");
+
+            dialog.show();
+
+            ImageView arrow = dialog.findViewById(R.id.animation);
+            if (arrow != null) {
+                arrow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+            }
+
+        }
+    }
 
 
 }

@@ -67,7 +67,6 @@ import uit.ensak.dish_wish_frontend.Models.Proposition;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.databinding.ActivityMapsHomeBinding;
 import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
-import uit.ensak.dish_wish_frontend.shared.RetrofitClient;
 //import uit.ensak.dish_wish_frontend.filter_by_name_or_city;
 
 public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -87,7 +86,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private Button pickDate;
     private Marker currentMarker;
     private ImageView arrow;
-    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUyMzUzMDAsImV4cCI6MTcwNTMyMTcwMH0.ZhulnzT4vzPRdyjglYUFaWtr06LW9W6p0edjzgizm_Q";
+    private String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUzMjIwMzcsImV4cCI6MTcwNTQwODQzN30.f9PsxKwLsCG_rxlqnHvLXLjDfkCWrxPuCBrmf-8w9xU";
     private long associatedCommandId;
     private Command commandCreated;
 
@@ -479,7 +478,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
             public void run() {
 
                 ApiService apiService = RetrofitClient.getApiService();
-                Call<List<Proposition>> call = apiService.getPropositionsByClientId("Bearer " + accessToken,1L);
+                Call<List<Proposition>> call = apiService.getPropositionsByClientId("Bearer " + accessToken,2L);
 
                 call.enqueue(new Callback<List<Proposition>>() {
                     @Override

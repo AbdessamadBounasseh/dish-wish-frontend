@@ -44,7 +44,7 @@ public class NotificationsClient extends AppCompatActivity {
         editor.apply();
         Boolean isCook = preferences.getBoolean("isCook", false);
 
-        fetchClientNotifications("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUyNzU2MjQsImV4cCI6MTcwNTM2MjAyNH0.rBGT44eRhuNJFBwUZsLqTCvbLTdc2CYQlQ5C5Lf9jEU",2L);
+        fetchClientNotifications("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWluZWVrOEBnbWFpbC5jb20iLCJpYXQiOjE3MDUzMjIwMzcsImV4cCI6MTcwNTQwODQzN30.f9PsxKwLsCG_rxlqnHvLXLjDfkCWrxPuCBrmf-8w9xU",2L);
 
 
     }

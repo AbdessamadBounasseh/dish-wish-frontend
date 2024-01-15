@@ -15,11 +15,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/ApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/ApiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/FinalizeOrderActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/FinalizeOrderActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsChefActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsChefActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/UpdateActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/UpdateActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationChefAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationChefAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationsChef.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationsChef.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/search_folder/filter_by_name_or_city.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/search_folder/filter_by_name_or_city.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationsClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationsClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_notifications_chef.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_notifications_chef.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,28 +112,27 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ResourceManagerPrefKey.ResourceType&quot;: &quot;DRAWABLE&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;android-custom-viewC:/Users/mamin/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.10.0/93873f2a41da69e38213dbe9ed91a0402a903c88/material-1.10.0-sources.jar!/com/google/android/material/button/MaterialButton.java_SELECTED&quot;: &quot;MaterialButton&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;com.android.tools.idea.devicemanager.tab&quot;: &quot;Physical&quot;,
-    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/chaymae/AndroidStudioProjects/dish-wish-frontend/app/src/main/res/values&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/DishWish/dish-wish-frontend/app/src/main/res/drawable&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDK Location&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ResourceManagerPrefKey.ResourceType": "DRAWABLE",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "ToolWindowRun.ShowToolbar": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "android-custom-viewC:/Users/mamin/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.10.0/93873f2a41da69e38213dbe9ed91a0402a903c88/material-1.10.0-sources.jar!/com/google/android/material/button/MaterialButton.java_SELECTED": "MaterialButton",
+    "cidr.known.project.marker": "true",
+    "com.google.services.firebase.aqiPopupShown": "true",
+    "git-widget-placeholder": "dev",
+    "last_directory_selection": "C:/Users/chaymae/AndroidStudioProjects/dish-wish-frontend/app/src/main/res/values",
+    "last_opened_file_path": "D:/DishWish/dish-wish-frontend/app/src/main/res/drawable",
+    "project.structure.last.edited": "SDK Location",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="PsdUISettings">
     <option name="MODULE_TAB" value="Default Config" />
     <option name="LAST_EDITED_SIGNING_CONFIG" value="debug" />
@@ -470,98 +472,198 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationsChef.java</url>
-          <line>86</line>
+          <line>112</line>
           <option name="timeStamp" value="121" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationsChef.java</url>
-          <line>87</line>
+          <line>113</line>
           <option name="timeStamp" value="122" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationsChef.java</url>
-          <line>88</line>
+          <line>114</line>
           <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationsChef.java</url>
-          <line>89</line>
+          <line>115</line>
           <option name="timeStamp" value="124" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationsChef.java</url>
-          <line>85</line>
+          <line>111</line>
           <option name="timeStamp" value="125" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationsChef.java</url>
-          <line>92</line>
+          <line>118</line>
           <option name="timeStamp" value="126" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationsChef.java</url>
-          <line>94</line>
+          <line>120</line>
           <option name="timeStamp" value="127" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationsChef.java</url>
-          <line>93</line>
+          <line>119</line>
           <option name="timeStamp" value="128" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationsChef.java</url>
-          <line>95</line>
+          <line>121</line>
           <option name="timeStamp" value="129" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationsChef.java</url>
-          <line>96</line>
+          <line>122</line>
           <option name="timeStamp" value="130" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationChefAdapter.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="131" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>485</line>
+          <option name="timeStamp" value="169" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationChefAdapter.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="132" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>486</line>
+          <option name="timeStamp" value="170" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationChefAdapter.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="133" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>487</line>
+          <option name="timeStamp" value="171" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationChefAdapter.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="134" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>488</line>
+          <option name="timeStamp" value="172" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationChefAdapter.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="135" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>489</line>
+          <option name="timeStamp" value="173" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationChefAdapter.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="136" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>490</line>
+          <option name="timeStamp" value="174" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationChefAdapter.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="137" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>482</line>
+          <option name="timeStamp" value="175" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationChefAdapter.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="138" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>500</line>
+          <option name="timeStamp" value="176" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationChefAdapter.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="139" />
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>498</line>
+          <option name="timeStamp" value="177" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>521</line>
+          <option name="timeStamp" value="179" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>520</line>
+          <option name="timeStamp" value="180" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>518</line>
+          <option name="timeStamp" value="181" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>519</line>
+          <option name="timeStamp" value="182" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>532</line>
+          <option name="timeStamp" value="183" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>479</line>
+          <option name="timeStamp" value="185" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>480</line>
+          <option name="timeStamp" value="186" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>493</line>
+          <option name="timeStamp" value="187" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>494</line>
+          <option name="timeStamp" value="188" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>495</line>
+          <option name="timeStamp" value="189" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>511</line>
+          <option name="timeStamp" value="192" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>512</line>
+          <option name="timeStamp" value="193" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>514</line>
+          <option name="timeStamp" value="194" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>522</line>
+          <option name="timeStamp" value="195" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>523</line>
+          <option name="timeStamp" value="196" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>524</line>
+          <option name="timeStamp" value="197" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>525</line>
+          <option name="timeStamp" value="198" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>526</line>
+          <option name="timeStamp" value="199" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>527</line>
+          <option name="timeStamp" value="200" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>528</line>
+          <option name="timeStamp" value="201" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/notification_folder/NotificationsClient.java</url>
@@ -570,6 +672,38 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>499</line>
+          <properties method="onFailure">
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="178" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>531</line>
+          <properties method="onFailure">
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="184" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>507</line>
+          <properties class="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity" method="retryCommandsRequest">
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="190" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/app/src/main/java/uit/ensak/dish_wish_frontend/Command/MapsHomeActivity.java</url>
+          <line>474</line>
+          <properties class="uit.ensak.dish_wish_frontend.Command.MapsHomeActivity" method="retryRequest">
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="191" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
