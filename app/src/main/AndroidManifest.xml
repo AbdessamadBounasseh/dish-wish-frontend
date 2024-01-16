@@ -38,6 +38,9 @@
             android:name=".Authentification.ResetEmailActivity"
             android:exported="false" />
         <activity
+            android:name=".Authentification.ResetPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".Contact.ComplaintActivity"
             android:exported="false" />
 

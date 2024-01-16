@@ -28,4 +28,7 @@ public interface AuthenticationService {
     Call<ResponseBody> forgotPassword(@Query("email")String email);
 
 
+    @Headers({"Accept: application/json"})
+    @POST("password/reset-password")
+    Call<Void> resetPassword(@Body ResetPasswordRequest request,@Query("code") String code);
 }
