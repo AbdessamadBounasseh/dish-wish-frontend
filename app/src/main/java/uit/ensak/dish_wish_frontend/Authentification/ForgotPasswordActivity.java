@@ -21,7 +21,7 @@ import retrofit2.Response;
 import uit.ensak.dish_wish_frontend.Command.MapsHomeActivity;
 import uit.ensak.dish_wish_frontend.R;
 import uit.ensak.dish_wish_frontend.service.AuthenticationService;
-import uit.ensak.dish_wish_frontend.shared.RetrofitClient;
+import uit.ensak.dish_wish_frontend.service.RetrofitClient;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
     ImageView back;

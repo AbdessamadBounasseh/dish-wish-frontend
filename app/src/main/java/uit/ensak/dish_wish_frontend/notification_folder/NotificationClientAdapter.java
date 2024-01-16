@@ -39,7 +39,7 @@ public class NotificationClientAdapter extends RecyclerView.Adapter<Notification
             holder.textTitle.setText(proposition.getCommand().getTitle());
             holder.textDescription.setText(proposition.getCommand().getDescription());
             holder.textPrice.setText(proposition.getCommand().getPrice());
-            holder.textChefName.setText("Chef " + proposition.getChef().getFirstName() + " " + proposition.getChef().getLastName());
+            /*holder.textChefName.setText("Chef " + proposition.getChef().getFirstName() + " " + proposition.getChef().getLastName());*/
     }
 
     @Override
