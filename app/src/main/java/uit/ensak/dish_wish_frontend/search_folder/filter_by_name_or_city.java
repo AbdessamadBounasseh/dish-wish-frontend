@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.content.Context;
 
+import java.util.ArrayList;
 import java.util.List;
 
 //menu
@@ -30,6 +31,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import uit.ensak.dish_wish_frontend.Authentification.ChangePasswordActivity;
 import uit.ensak.dish_wish_frontend.Contact.ComplaintActivity;
 import uit.ensak.dish_wish_frontend.Contact.QuestionsActivity;
+import uit.ensak.dish_wish_frontend.Models.Command;
 import uit.ensak.dish_wish_frontend.Profil.become_cook;
 import uit.ensak.dish_wish_frontend.Profil.change_profile;
 import uit.ensak.dish_wish_frontend.Profil.search_profile;
@@ -103,7 +105,12 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String query = charSequence.toString().trim();
+                if(query.equals("")){
+                    List<SearchResult> emptyChefs = new ArrayList<>();
+                    searchResultsAdapter.setData(emptyChefs);
+                }else{
                 performSearch(query);
+                }
             }
 
             @Override

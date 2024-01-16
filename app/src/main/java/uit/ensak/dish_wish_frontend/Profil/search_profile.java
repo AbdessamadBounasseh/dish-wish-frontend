@@ -198,20 +198,6 @@ public class search_profile extends AppCompatActivity{
             if(isCook) {
                 textViewBio.setText(newBio);
             }
-            DietDTO dietDTO = new DietDTO();
-            ChefDTO chefDTO = new ChefDTO();
-            Address address = new Address();
-
-            chefDTO.setFirstName(newFirstName);
-            chefDTO.setLastName(newLastName);
-            chefDTO.setAddress(address);
-            chefDTO.setPhoneNumber(newPhoneNumber);
-            chefDTO.setAllergies(newAllergy);
-            dietDTO.setTitle(newDiet);
-            chefDTO.setDietDTO(dietDTO);
-            if (isCook) {
-                chefDTO.setBio(newBio);
-            }
         }
         if ((requestCode == REQUEST_IMAGE_CAPTURE || requestCode == REQUEST_PICK_IMAGE) && resultCode == RESULT_OK) {
             if (requestCode == REQUEST_IMAGE_CAPTURE) {
@@ -228,28 +214,6 @@ public class search_profile extends AppCompatActivity{
                 }
             }
         }
-    }
-
-    private void getClient(ApiClientCallback apiClientCallback) {
-        ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
-        Call<Client> call = apiService.getClientById("Bearer " + accessToken, userId);
-        call.enqueue(new Callback<Client>() {
-            @Override
-            public void onResponse(Call<Client> call, Response<Client> response) {
-                if (response.isSuccessful()) {
-                    Client client = response.body();
-                    apiClientCallback.onClientReceived(client);
-                } else {
-                    apiClientCallback.onFailure("Error during user fetching " + response.code());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Client> call, Throwable t) {
-                t.printStackTrace();
-                apiClientCallback.onFailure("Unavailable Server " + t.getMessage());
-            }
-        });
     }
 
     private void getChef(ApiChefCallback apiChefCallback) {

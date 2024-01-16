@@ -144,7 +144,7 @@ public class view_profile extends AppCompatActivity {
                 intent.putExtra("CURRENT_ALLERGY", textViewAllergies.getText().toString());
                 intent.putExtra("CURRENT_POSITION", position);
                 if (isCook) {
-                    intent.putExtra("CURRENT_BIO", textViewBio.getText().toString());
+                    intent.putExtra("CURRENT_BIO", textViewBioContent.getText().toString());
                 }
                 intent.putExtra("CURRENT_CITY", textViewCity.getText().toString());
                 intent.putExtra("CURRENT_DIET", textViewDiet.getText().toString());

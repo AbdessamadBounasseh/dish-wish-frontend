@@ -174,6 +174,7 @@ public class change_profile extends AppCompatActivity {
 
         if (isCook) {
             currentBio = getIntent().getStringExtra("CURRENT_BIO");
+            editTextNewBio.setText(currentBio);
         }
         editTextNewFirstName.setText(currentFirstName);
         editTextNewLastName.setText(currentLastName);
@@ -182,9 +183,6 @@ public class change_profile extends AppCompatActivity {
         editTextNewPhoneNumber.setText(currentPhoneNumber);
 
         editTextNewAllergie.setText(currentAllergie);
-        if (isCook) {
-            editTextNewBio.setText(currentBio);
-        }
 
         ImageButton btnBack = findViewById(R.id.btnBack);
        btnPosition.setOnClickListener(new View.OnClickListener() {

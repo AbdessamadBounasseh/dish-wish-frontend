@@ -94,6 +94,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     private ImageView arrow;
     private long associatedCommandId;
     private Command commandCreated;
+    private ImageView chefImageView;
     private String accessToken;
     private long userId;
     private Boolean isCook;
@@ -437,6 +438,8 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         TextView chefLastName = dialog.findViewById(R.id.lastname);
         TextView price = dialog.findViewById(R.id.price);
         TextView delivary = dialog.findViewById(R.id.delivary);
+        chefImageView = dialog.findViewById(R.id.photo);
+
 
         chefFirstName.setText(associatedProposition.getChef().getFirstName());
         chefLastName.setText(associatedProposition.getChef().getLastName());
@@ -444,6 +447,9 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
         String chefPropositionString = String.valueOf(chefProposition);
         price.setText(chefPropositionString + " DH");
         delivary.setText(associatedProposition.getCommand().getDeadline());
+        Long chefid = associatedProposition.getChef().getId();
+        getClientProfile(chefid);
+
 
 
         Window window = dialog.getWindow();
@@ -550,9 +556,9 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
     }
 
 
-    private void getClientProfile() {
+    private void getClientProfile(Long chefId) {
         ApiServiceProfile apiService = RetrofitClient.getApiServiceProfile();
-        Call<ResponseBody> call = apiService.getClientProfile("Bearer " + accessToken, userId);
+        Call<ResponseBody> call = apiService.getClientProfile("Bearer " + accessToken, chefId);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override
@@ -561,7 +567,7 @@ public class MapsHomeActivity extends FragmentActivity implements OnMapReadyCall
                     try {
                         // Utiliser BitmapFactory.decodeStream pour créer un Bitmap directement à partir du flux
                         Bitmap newProfileImageBitmap = BitmapFactory.decodeStream(response.body().byteStream());
-                        imageBitmap = newProfileImageBitmap;
+                        chefImageView.setImageBitmap(newProfileImageBitmap);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
