@@ -28,6 +28,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -118,6 +119,9 @@ public class MapsChefActivity extends AppCompatActivity implements OnMapReadyCal
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+        LatLng startPosition = new LatLng(34.26101, -6.5802);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startPosition, 8.0f));
 
         //Get Commands and place them on the map
         retryRequest();

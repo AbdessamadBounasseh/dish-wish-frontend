@@ -37,4 +37,9 @@ public class RetrofitClient {
     public static ApiServiceProfile getApiServiceProfile() {
         return apiServiceProfile;
     }
+
+    private static final ContactService contactService = retrofit.create(ContactService.class);
+    public static ContactService getContactService() {
+        return contactService;
+    }
 }

@@ -8,6 +8,10 @@ import uit.ensak.dish_wish_frontend.Models.Diet;
 public class ClientDTO {
     private String firstName;
 
+    public ClientDTO() {
+
+    }
+
     public Long getId() {
         return id;
     }

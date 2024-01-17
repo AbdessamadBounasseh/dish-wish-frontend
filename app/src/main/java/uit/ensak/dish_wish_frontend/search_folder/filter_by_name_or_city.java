@@ -29,6 +29,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import uit.ensak.dish_wish_frontend.Authentification.ChangePasswordActivity;
+import uit.ensak.dish_wish_frontend.Authentification.ForgotPasswordActivity;
+import uit.ensak.dish_wish_frontend.Authentification.connect;
+import uit.ensak.dish_wish_frontend.Command.ApiService;
 import uit.ensak.dish_wish_frontend.Contact.ComplaintActivity;
 import uit.ensak.dish_wish_frontend.Contact.QuestionsActivity;
 import uit.ensak.dish_wish_frontend.Models.Command;
@@ -161,17 +164,41 @@ public class filter_by_name_or_city extends Fragment implements SearchResultsAda
                     // Start the BecomeChef activity
                     startActivity(new Intent(requireContext(), ComplaintActivity.class));
                     return true;
-                }else if (item.getItemId() == R.id.action_FAQ) {
-                    // Start the BecomeChef activity
-                    startActivity(new Intent(requireContext(), QuestionsActivity.class));
-                    return true;
                 }
                 else if (item.getItemId() == R.id.action_change_password) {
                     // Start the BecomeChef activity
-                    startActivity(new Intent(requireContext(), ChangePasswordActivity.class));
+                    startActivity(new Intent(requireContext(), ForgotPasswordActivity.class));
                     return true;
                 }
+                else if (item.getItemId() == R.id.action_logout) {
 
+                    ApiService apiService = RetrofitClient.getApiService();
+                    Call<Void> call = apiService.logout("Bearer " + accessToken);
+
+                    call.enqueue(new Callback<Void>() {
+                        @Override
+                        public void onResponse(Call<Void> call, Response<Void> response) {
+                            if (response.isSuccessful()) {
+                                SharedPreferences preferences = requireActivity().getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = preferences.edit();
+
+                                editor.remove("userId");
+                                editor.remove("accessToken");
+                                editor.remove("refreshToken");
+
+                                editor.remove("isCook");
+
+                                editor.apply();
+                                startActivity(new Intent(requireContext(), connect.class));
+                            } else {
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Void> call, Throwable t) {
+                        }
+                    });
+                }
                 return true;
             }
         }

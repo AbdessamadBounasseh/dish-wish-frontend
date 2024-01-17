@@ -30,11 +30,6 @@
         app:showAsAction="never"
         android:icon="@drawable/ic_menu_logout"/>
     <item
-        android:id="@+id/action_FAQ"
-        android:title="FAQ"
-        app:showAsAction="never"
-        android:icon="@drawable/ic_menu_faq"/>
-    <item
         android:id="@+id/action_support"
         android:title="Support"
         app:showAsAction="never"

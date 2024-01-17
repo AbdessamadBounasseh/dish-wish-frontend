@@ -47,7 +47,8 @@
 
         <activity
             android:name=".Contact.ComplaintActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Dishwishfrontend.NoActionBar"/>
 
         <activity
             android:name= ".Authentification.connect"

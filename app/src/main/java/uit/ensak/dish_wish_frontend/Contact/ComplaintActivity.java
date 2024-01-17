@@ -3,6 +3,7 @@ package uit.ensak.dish_wish_frontend.Contact;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,20 +32,27 @@ public class ComplaintActivity extends AppCompatActivity {
     Button send;
     TextInputLayout complaintLayout; // Change to TextInputLayout
     EditText complaint;
+    private String accessToken;
+    private long userId;
+    private Boolean isCook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complaint);
+
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+        accessToken = preferences.getString("accessToken", "");
+        userId = preferences.getLong("userId", 0);
+        isCook = preferences.getBoolean("isCook", false);
+
+
         back = findViewById(R.id.icon_24_bac);
         send = findViewById(R.id.sign);
         complaintLayout = findViewById(R.id.complaint);
-
         complaint = complaintLayout.getEditText();
-
-        complaint = findViewById(R.id.complaint);
         String complaintString;
-        complaintString = complaint.getText().toString();
+        complaintString = complaint.getText().toString();// Get the EditText from the TextInputLayout
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,11 +64,42 @@ public class ComplaintActivity extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String complaintS = complaint.getText().toString();
+                String complaintContent = complaint.getText().toString();
 
-                if (complaintS.isEmpty()) {
+                ComplaintPayload payload = new ComplaintPayload();
+                payload.setContent(complaintContent);
+
+                sendComplaint(payload);
+
+                if (complaintContent.isEmpty()) {
                     Toast.makeText(ComplaintActivity.this, "Please mention your problem so we can help you", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+    }
+
+    private void sendComplaint(ComplaintPayload payload) {
+        ContactService contactservice = RetrofitClient.getContactService();
+        Call<Void> sentComplaint = contactservice.sendComplaint("Bearer" + accessToken, payload);
+        sentComplaint.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                int statusCode = response.code();
+                Log.d("MyTag", "HTTP Status Code: " + statusCode);
+                if (response.isSuccessful()) {
+
+                    Toast.makeText(ComplaintActivity.this, "Complaint sent", Toast.LENGTH_LONG).show();
+
+                } else {
+                    Log.d("MyTag", "Response is null or not successful");
+                    Toast.makeText(ComplaintActivity.this, " Sending Complaint failed", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                t.printStackTrace();
+                Toast.makeText(ComplaintActivity.this, "Error on sending complaint", Toast.LENGTH_LONG).show();
             }
         });
     }

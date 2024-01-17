@@ -4,18 +4,32 @@ import java.io.Serializable;
 import java.time.Instant;
 
 public class Rating {
-
-    private long id;
-
-    private Client client;
-
-
-    private Chef chef;
+    private long clientId;
+    private long chefId;
+    private double rating;
 
 
-    private Star star;
+    public long getClientId() {
+        return clientId;
+    }
 
-    private Instant createdOn;
+    public void setClientId(long clientId) {
+        this.clientId = clientId;
+    }
 
+    public long getChefId() {
+        return chefId;
+    }
 
+    public void setChefId(long chefId) {
+        this.chefId = chefId;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
 }

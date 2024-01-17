@@ -21,6 +21,9 @@ import uit.ensak.dish_wish_frontend.dto.ChefCommandHistoryDTO;
 import uit.ensak.dish_wish_frontend.dto.ChefDTO;
 import uit.ensak.dish_wish_frontend.SearchResult;
 import uit.ensak.dish_wish_frontend.dto.ClientCommandHistoryDTO;
+import uit.ensak.dish_wish_frontend.dto.CommentRequestDTO;
+import uit.ensak.dish_wish_frontend.dto.CommentResponseDTO;
+import uit.ensak.dish_wish_frontend.dto.RatingDTO;
 
 
 public interface ApiServiceProfile {
@@ -80,6 +83,26 @@ public interface ApiServiceProfile {
     Call<ChefCommandHistoryDTO> getChefCommandsHistory(
             @Header("Authorization") String authToken,
             @Path("chefId") Long chefId);
+    @POST("chef-ratings/rate")
+    Call<ResponseBody> sendClientRating(
+            @Header("Authorization") String authToken,
+            @Body RatingDTO rating);
 
+    @GET("chef-ratings/{chefId}")
+    Call<Double> getclientrating(
+            @Header("Authorization") String authToken,
+            @Path("chefId") Long chefId
+    );
+
+    @POST("comments")
+    Call<CommentResponseDTO> sendClientComment(
+            @Header("Authorization") String authToken,
+            @Body CommentRequestDTO commentRequestDTO);
+
+    @GET("comments/{chefId}")
+    Call<List<CommentResponseDTO>> getChefComments(
+            @Header("Authorization") String authToken,
+            @Path("chefId") Long chefId
+    );
 
 }

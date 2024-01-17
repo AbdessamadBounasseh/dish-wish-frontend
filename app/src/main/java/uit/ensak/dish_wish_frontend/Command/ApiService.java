@@ -114,5 +114,8 @@ public interface ApiService {
     @POST("auth/authenticate")
     Call<AuthenticationResponse> authentification(@Body LoginPayload loginPayload);
 
+    @POST("auth/logout")
+    Call<Void> logout(@Header("Authorization") String authToken);
+
 
 }

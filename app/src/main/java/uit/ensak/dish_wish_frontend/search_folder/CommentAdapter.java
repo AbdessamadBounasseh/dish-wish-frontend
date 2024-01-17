@@ -12,13 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import uit.ensak.dish_wish_frontend.Models.Comment;
+import uit.ensak.dish_wish_frontend.dto.CommentResponseDTO;
 
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentViewHolder> {
-    private final List<Comment> comments;
+    private final List<CommentResponseDTO> comments;
     private  final SharedPreferences sharedPreferences;
     private static final String PREF_NAME = "comment_prefs";
     private static final String KEY_COMMENTS = "comments_key";
-    public CommentAdapter(Context context, List<Comment> comments) {
+    public CommentAdapter(Context context, List<CommentResponseDTO> comments) {
         this.comments = comments;
         this.sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
     }
@@ -32,7 +33,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
 
     @Override
     public void onBindViewHolder(@NonNull CommentViewHolder holder, int position) {
-        Comment comment = comments.get(position);
+        CommentResponseDTO comment = comments.get(position);
         holder.bind(comment);
     }
 
@@ -41,12 +42,16 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         return comments.size();
     }
 
-    public void addComment(String username, String commentContent) {
-        Comment newComment = new Comment(username, commentContent);
-        comments.add(newComment);
-        saveCommentsToPrefs(comments);
+
+
+    public void addAll(List<CommentResponseDTO> commentResponses) {
+        for (CommentResponseDTO commentResponse : commentResponses) {
+//            Comment comment = new Comment(commentResponse.getClient().getFirstName() +" "+ commentResponse.getClient().getLastName(), commentResponse.getContent());
+            comments.add(commentResponse);
+        }
         notifyDataSetChanged();
     }
+
 
     private void saveCommentsToPrefs(List<Comment> comments) {
         StringBuilder stringBuilder = new StringBuilder();
@@ -82,8 +87,8 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
             textViewComment = itemView.findViewById(android.R.id.text1);
         }
 
-        public void bind(Comment comment) {
-            String displayText = comment.getUsername() + "\n " + comment.getCommentContent();
+        public void bind(CommentResponseDTO comment) {
+            String displayText = comment.getClient().getFirstName()+ "\n " + comment.getContent();
             textViewComment.setText(displayText);
         }
     }
